@@ -6,15 +6,17 @@ import { Box, Grid } from "@mui/joy";
 import ProductCard from "../components/ProductCard";
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
+
+  const getProducts = async () => {
+    try {
+      const result = await axios.get("https://fakestoreapi.com/products");
+      setProductList(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const result = await axios.get("https://fakestoreapi.com/products");
-        setProductList(result.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
     getProducts();
 
     // axios
