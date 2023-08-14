@@ -9,8 +9,8 @@ import Alert from "@mui/joy/Alert";
 import WarningIcon from "@mui/icons-material/Warning";
 
 const LoginForm = ({ setFormState }) => {
-  const [email, setEmail] = useState("hshshshhs@jjs.com");
-  const [password, setPassword] = useState("Husyds&");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   useEffect(() => {
     if (errorMessage.length > 0) {
@@ -26,7 +26,8 @@ const LoginForm = ({ setFormState }) => {
         email: email,
         password: password,
       });
-      localStorage.setItem("user", result.user);
+      console.log(result);
+      localStorage.setItem("user", JSON.stringify(result?.data?.user));
       navigate("/");
     } catch (error) {
       console.error(error.response.data.error);
