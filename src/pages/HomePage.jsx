@@ -4,9 +4,11 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 import { Box, Grid } from "@mui/joy";
 import ProductCard from "../components/ProductCard";
+import { useNavigate } from "react-router-dom";
+
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
-
+  const navigate = useNavigate();
   const getProducts = async () => {
     try {
       const result = await axios.get("https://fakestoreapi.com/products");
@@ -15,8 +17,11 @@ const HomePage = () => {
       console.error(error);
     }
   };
-
   useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      navigate("/administrare", { replace: true }); // replace inlocuieste ruta precedenta in cazul asta "/" FOARTE IMPORTANT!!!!!!!!!!
+    }
     getProducts();
 
     // axios
