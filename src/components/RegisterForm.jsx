@@ -1,15 +1,27 @@
-import { Button, Typography, Box, FormLabel } from "@mui/joy";
-import Input from "@mui/joy/Input";
 import EmailIcon from "@mui/icons-material/Email";
 import PersonIcon from "@mui/icons-material/Person";
-import { useState } from "react";
-
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import WarningIcon from "@mui/icons-material/Warning";
+import { Box, Button, FormLabel, Typography } from "@mui/joy";
+import Alert from "@mui/joy/Alert";
+import Input from "@mui/joy/Input";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const RegisterForm = ({ setFormState }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
+  useEffect(() => {
+    if (errorMessage.length > 0) {
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 5000);
+    }
+  }, [errorMessage]);
   const registerUser = async () => {
     try {
       console.log(name, password, email);
@@ -19,8 +31,22 @@ const RegisterForm = ({ setFormState }) => {
         email: email,
       });
       console.log(result);
+      localStorage.setItem("user", JSON.stringify(result?.data?.user));
+      navigate("/");
     } catch (error) {
       console.error(error);
+      const errorMessage = error?.response?.data?.error;
+      if (
+        errorMessage ==
+        "User validation failed: password: Password should have at least one uppercase character, one number, and one special character, and be minimum 8 characters long."
+      ) {
+        setErrorMessage(
+          "Password should have at least one uppercase character, one number, and one special character, and be minimum 8 characters long."
+        ); //ca sa punem eroarea in state ul de error message
+      }
+      if (errorMessage == "Email is already registered.") {
+        setErrorMessage(errorMessage);
+      }
     }
   };
   return (
@@ -63,7 +89,7 @@ const RegisterForm = ({ setFormState }) => {
         <Input
           startDecorator={<VpnKeyIcon />}
           type="password"
-          placeholder="********"
+          placeholder="••••••••"
           required
           value={password}
           onChange={(e) => {
@@ -83,6 +109,16 @@ const RegisterForm = ({ setFormState }) => {
           </Button>
         </Box>
       </form>
+      {errorMessage.length > 0 && (
+        <Alert
+          startDecorator={<WarningIcon />}
+          variant="solid"
+          color="danger"
+          sx={{ position: "fixed", bottom: "10px", right: "10px" }}
+        >
+          {errorMessage}
+        </Alert>
+      )}
     </Box>
   );
 };

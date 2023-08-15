@@ -1,12 +1,12 @@
-import { Button, Typography, Box, FormLabel } from "@mui/joy";
-import Input from "@mui/joy/Input";
 import EmailIcon from "@mui/icons-material/Email";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Alert from "@mui/joy/Alert";
 import WarningIcon from "@mui/icons-material/Warning";
+import { Box, Button, FormLabel, Typography } from "@mui/joy";
+import Alert from "@mui/joy/Alert";
+import Input from "@mui/joy/Input";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = ({ setFormState }) => {
   const [email, setEmail] = useState("");
@@ -22,10 +22,15 @@ const LoginForm = ({ setFormState }) => {
   const navigate = useNavigate();
   const loginUser = async () => {
     try {
-      const result = await axios.post("http://161.35.202.134:3000/login", {
-        email: email,
-        password: password,
-      });
+      const result = await axios.post(
+        "http://161.35.202.134:3000/login?id=1",
+        {
+          email: email,
+          password: password,
+        }
+        // { Authorization: "Bearer " + token }
+      );
+
       console.log(result);
       localStorage.setItem("user", JSON.stringify(result?.data?.user));
       navigate("/");
@@ -65,7 +70,7 @@ const LoginForm = ({ setFormState }) => {
         <Input
           startDecorator={<VpnKeyIcon />}
           type="password"
-          placeholder="********"
+          placeholder="••••••••"
           required
           value={password}
           onChange={(e) => {
