@@ -26,7 +26,7 @@ const RegisterForm = ({ setFormState }) => {
     try {
       console.log(name, password, email);
       const result = await axios.post("http://161.35.202.134:3000/register", {
-        name: name,
+        name: name.trim(), //trims unnecessary spaces from start and finish
         password: password,
         email: email,
       });

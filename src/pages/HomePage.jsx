@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/joy/CircularProgress";
-
+import Navbar from "../components/Navbar";
 import axios from "axios";
 import { Box, Grid } from "@mui/joy";
 import ProductCard from "../components/ProductCard";
@@ -30,6 +30,7 @@ const HomePage = () => {
   }, []);
   return (
     <>
+      <Navbar />
       <h1>My Store</h1>
       {productList?.length == 0 ? (
         <Box
