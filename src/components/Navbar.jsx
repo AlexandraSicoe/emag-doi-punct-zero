@@ -7,7 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 const Navbar = () => {
   return (
     <>
-      <Box sx={{ height: "40px" }}></Box>
+      <Box sx={{ height: { xs: "112px", md: "40px" } }}></Box>
       <Box
         sx={{
           backgroundColor: "black",
@@ -29,7 +29,7 @@ const Navbar = () => {
 
           <Input
             sx={{
-              width: { lg: "500px", md: "400px" },
+              width: { md: "370px", lg: "500px" },
               display: { xs: "none", md: "flex" },
             }}
             placeholder="Search here"
@@ -55,7 +55,7 @@ const Navbar = () => {
                 startDecorator={<PersonIcon />}
                 sx={{ marginRight: "5px" }}
               >
-                My Account
+                Account
               </Button>
             </Link>
             <Link to="#">
@@ -63,7 +63,7 @@ const Navbar = () => {
                 startDecorator={<ShoppingCartIcon />}
                 sx={{ marginLeft: "5px" }}
               >
-                Shopping Cart
+                Cart
               </Button>
             </Link>
           </Box>
