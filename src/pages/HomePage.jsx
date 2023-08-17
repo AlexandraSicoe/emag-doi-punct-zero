@@ -14,6 +14,7 @@ const HomePage = () => {
       const result = await axios.get(
         "http://161.35.202.134:3000/products?page=1&limit=50"
       );
+      console.log(result);
       setProductList(result.data);
     } catch (error) {
       console.error(error);
