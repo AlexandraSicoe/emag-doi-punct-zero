@@ -25,6 +25,8 @@ const ReviewSection = () => {
             readOnly
             value={readOnlyRating}
           />
+          <Typography level="h3">Review product</Typography>
+
           <Rating
             halfFillMode="svg"
             style={{ maxWidth: 150 }}

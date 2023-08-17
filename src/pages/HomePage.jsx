@@ -11,7 +11,9 @@ const HomePage = () => {
   const navigate = useNavigate();
   const getProducts = async () => {
     try {
-      const result = await axios.get("https://fakestoreapi.com/products");
+      const result = await axios.get(
+        "http://161.35.202.134:3000/products?page=1&limit=50"
+      );
       setProductList(result.data);
     } catch (error) {
       console.error(error);

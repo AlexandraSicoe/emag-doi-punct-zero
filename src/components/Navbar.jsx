@@ -1,8 +1,9 @@
-import { Box, Button, Container, Link, Typography } from "@mui/joy";
+import { Box, Button, Container, Typography } from "@mui/joy";
 import Input from "@mui/joy/Input";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
