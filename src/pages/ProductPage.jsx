@@ -6,17 +6,23 @@ import axios from "axios";
 import useQuery from "../helpers/useQuery";
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/joy/CircularProgress";
+import { useNavigate } from "react-router-dom";
 
 const ProductPage = () => {
   const query = useQuery();
+  const navigate = useNavigate();
   const [productData, setProductData] = useState();
   const getProductData = async () => {
     try {
       const id = query.get("id");
-      const result = await axios.get(
-        "http://161.35.202.134:3000/products/" + id
-      );
-      setProductData(result.data);
+      if (id && id.length > 0) {
+        const result = await axios.get(
+          "http://161.35.202.134:3000/products/" + id
+        );
+        setProductData(result.data);
+      } else {
+        navigate("/404");
+      }
     } catch (error) {
       console.log(error);
     }
