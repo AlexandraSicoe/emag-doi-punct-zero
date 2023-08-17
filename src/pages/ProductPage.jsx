@@ -21,7 +21,7 @@ const ProductPage = () => {
         );
         setProductData(result.data);
       } else {
-        navigate("/404", { replace: true });
+        navigate("/404", { replace: true }); //in caz ca pagian este eronata, vrem cand dam inapoi ca pagina eronata sa fie ignorata, altfel este un infinite loop
       }
     } catch (error) {
       console.log(error);
