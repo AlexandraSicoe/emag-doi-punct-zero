@@ -21,7 +21,7 @@ const ProductPage = () => {
         );
         setProductData(result.data);
       } else {
-        navigate("/404");
+        navigate("/404", { replace: true });
       }
     } catch (error) {
       console.log(error);
