@@ -9,13 +9,12 @@ const ReviewSection = () => {
 
   return (
     <>
-      <Grid xs={12} md={6}>
+      <Grid xs={12} md={6} mt={2}>
         <Box
           sx={{
-            p: 2,
             display: "flex",
             flexDirection: "column",
-            alignItems: { xs: "center", md: "end" },
+            alignItems: { xs: "start", md: "end" },
           }}
         >
           <Typography level="h3">Costumer Reviews</Typography>
