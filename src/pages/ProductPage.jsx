@@ -7,6 +7,7 @@ import useQuery from "../helpers/useQuery";
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/joy/CircularProgress";
 import { useNavigate } from "react-router-dom";
+import ReviewSample from "../components/ReviewSample";
 
 const ProductPage = () => {
   const query = useQuery();
@@ -104,6 +105,7 @@ const ProductPage = () => {
               <Button startDecorator={<ShoppingCartIcon />}>Add to cart</Button>
             </Box>
           </Grid>
+          <ReviewSample />
         </Grid>
       )}
     </>
