@@ -14,7 +14,7 @@ const ReviewSection = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            alignItems: { xs: "start", md: "end" },
+            alignItems: { xs: "start", md: "start" },
           }}
         >
           <Typography level="h3">Costumer Reviews</Typography>

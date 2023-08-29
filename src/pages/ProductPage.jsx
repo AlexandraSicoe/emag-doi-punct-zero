@@ -57,18 +57,26 @@ const ProductPage = () => {
                 marginTop: { xs: "0px", md: "40px" },
               }}
             >
-              <img
-                style={{ width: "375px" }}
-                src={productData.images[0]}
-                alt="product image"
-              />
+              <Box
+                sx={{
+                  width: { xs: "375px", md: "500px" },
+                  objectFit: "contain",
+                }}
+              >
+                <img
+                  style={{ width: "100%" }}
+                  src={productData.images[0]}
+                  alt="product image"
+                />
+                <ReviewSection />
+              </Box>
             </Box>
           </Grid>
           <Grid xs={12} md={6}>
             <Box
               sx={{
                 marginTop: { xs: "0px", md: "40px" },
-                width: "375px",
+                width: { xs: "375px", md: "500px" },
                 padding: { xs: "25px", md: "0px" },
               }}
             >
@@ -94,7 +102,6 @@ const ProductPage = () => {
                 ${productData.price}
               </Typography>
               <Button startDecorator={<ShoppingCartIcon />}>Add to cart</Button>
-              <ReviewSection />
             </Box>
           </Grid>
         </Grid>
