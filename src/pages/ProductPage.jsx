@@ -70,6 +70,9 @@ const ProductPage = () => {
                   alt="product image"
                 />
                 <ReviewSection />
+                <Box sx={{ display: { xs: "none", md: "block" } }}>
+                  <ReviewSample />
+                </Box>
               </Box>
             </Box>
           </Grid>
@@ -104,8 +107,10 @@ const ProductPage = () => {
               </Typography>
               <Button startDecorator={<ShoppingCartIcon />}>Add to cart</Button>
             </Box>
+            <Box sx={{ display: { xs: "block", md: "none" } }}>
+              <ReviewSample />
+            </Box>
           </Grid>
-          <ReviewSample />
         </Grid>
       )}
     </>
