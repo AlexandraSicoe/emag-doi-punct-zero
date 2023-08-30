@@ -4,21 +4,27 @@ import Navbar from "../components/Navbar";
 const AccountPage = () => {
   return (
     <>
+      <Navbar />
+
       <Grid height="100vh" backgroundColor="#F2F2F7" display="flex">
-        <Navbar />
         <Grid
           m={3}
           display="flex"
           alignItems="start"
-          height="50%"
-          backgroundColor="white"
+          sx={{
+            borderTopLeftRadius: "16px",
+            borderTopRightRadius: "16px",
+            backgroundColor: "white",
+            height: "50%",
+          }}
         >
           <Grid
             sx={{
-              marginTop: { xs: "10px", md: "40px" },
               padding: "25px",
               backgroundImage:
                 "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);",
+              borderTopLeftRadius: "12px",
+              borderTopRightRadius: "12px",
             }}
             xs={12}
             md={6}
