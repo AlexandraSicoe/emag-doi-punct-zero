@@ -2,13 +2,17 @@ import {
   Grid,
   Typography,
   Box,
-  ListItemContent,
   ListItemButton,
   ListItemDecorator,
   List,
 } from "@mui/joy";
 import Navbar from "../components/Navbar";
 import ListItem from "@mui/joy/ListItem";
+import HomeIcon from "@mui/icons-material/Home";
+import PersonIcon from "@mui/icons-material/Person";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import LogoutIcon from "@mui/icons-material/Logout";
+import ReviewsIcon from "@mui/icons-material/Reviews";
 
 const AccountPage = () => {
   return (
@@ -57,9 +61,43 @@ const AccountPage = () => {
           </Grid>
           <List>
             <ListItem>
-              <ListItemButton>
-                <ListItemContent>Home</ListItemContent>
-                <ListItemContent>Home</ListItemContent>
+              <ListItemButton variant="plain">
+                <ListItemDecorator>
+                  <HomeIcon />
+                </ListItemDecorator>
+                Home
+              </ListItemButton>
+            </ListItem>
+            <ListItem>
+              <ListItemButton variant="plain">
+                <ListItemDecorator>
+                  <PersonIcon />
+                </ListItemDecorator>
+                Account
+              </ListItemButton>
+            </ListItem>
+            <ListItem>
+              <ListItemButton variant="plain">
+                <ListItemDecorator>
+                  <InventoryIcon />
+                </ListItemDecorator>
+                My orders
+              </ListItemButton>
+            </ListItem>
+            <ListItem>
+              <ListItemButton variant="plain">
+                <ListItemDecorator>
+                  <ReviewsIcon />
+                </ListItemDecorator>
+                My reviews
+              </ListItemButton>
+            </ListItem>
+            <ListItem>
+              <ListItemButton variant="plain">
+                <ListItemDecorator>
+                  <LogoutIcon />
+                </ListItemDecorator>
+                Log Out
               </ListItemButton>
             </ListItem>
           </List>
