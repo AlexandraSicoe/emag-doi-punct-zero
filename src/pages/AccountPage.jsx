@@ -46,10 +46,10 @@ const AccountPage = () => {
           display="flex"
           sx={{
             flexDirection: "column",
-            borderTopLeftRadius: "16px",
-            borderTopRightRadius: "16px",
+            borderRadius: "16px",
             backgroundColor: "white",
-            width: { xs: "100%", md: "20%" },
+            width: { xs: "350px", sm: "345px", md: "400px" },
+            marginTop: { xs: "0px", md: "25px" },
           }}
         >
           <Grid
@@ -75,7 +75,11 @@ const AccountPage = () => {
               }}
             />
             <Box
-              sx={{ display: "flex", flexDirection: "column", color: "white" }}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                color: "white",
+              }}
             >
               <Typography level="h4" sx={{ color: "white" }}>
                 Anca Chelaru
@@ -131,14 +135,23 @@ const AccountPage = () => {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          height="50%"
           flexDirection="column"
           backgroundColor="#F2F2F7"
+          sx={{
+            borderRadius: "16px",
+          }}
         >
           <Grid
-            xs={12}
-            md={6}
-            sx={{ padding: "25px", backgroundColor: "white" }}
+            sx={{
+              padding: "25px",
+              backgroundColor: "white",
+              width: {
+                xs: "350px",
+                sm: "345px",
+                md: "500px",
+                borderRadius: "16px",
+              },
+            }}
           >
             <Typography level="h3">Datele contului:</Typography>
             <Box display="flex" justifyContent="row">
@@ -190,7 +203,12 @@ const AccountPage = () => {
               paddingBottom: "25px",
               paddingLeft: "10px",
               paddingRight: "10px",
-              width: "100%",
+              width: {
+                xs: "350px",
+                sm: "345px",
+                md: "500px",
+                borderRadius: "16px",
+              },
             }}
           >
             <Typography level="h3" mb={2}>
