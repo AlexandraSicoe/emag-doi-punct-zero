@@ -32,18 +32,24 @@ const AccountPage = () => {
   return (
     <>
       <Navbar />
-
-      <Grid backgroundColor="#F2F2F7" display="flex" justifyContent="center">
+      <Grid
+        p={2}
+        backgroundColor="red"
+        display="flex"
+        justifyContent="center"
+        sx={{
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: { xs: "center", md: "start" },
+        }}
+      >
         <Grid
-          m={3}
           display="flex"
-          alignItems="start"
           sx={{
             flexDirection: "column",
             borderTopLeftRadius: "16px",
             borderTopRightRadius: "16px",
             backgroundColor: "white",
-            height: "50%",
+            width: { xs: "100%", md: "20%" },
           }}
         >
           <Grid
@@ -55,10 +61,7 @@ const AccountPage = () => {
               borderTopRightRadius: "12px",
               display: "flex",
               flexDirection: "row",
-              alignItems: "center",
             }}
-            xs={12}
-            md={6}
           >
             <img
               src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
@@ -182,10 +185,11 @@ const AccountPage = () => {
               display: "flex",
               flexDirection: "column",
               backgroundColor: "white",
-              padding: "25px",
               justifyContent: { xs: "center", md: "end" },
               marginTop: { xs: "10px", md: "40px" },
-
+              paddingBottom: "25px",
+              paddingLeft: "10px",
+              paddingRight: "10px",
               width: "100%",
             }}
           >
