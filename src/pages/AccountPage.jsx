@@ -5,7 +5,12 @@ import {
   ListItemButton,
   ListItemDecorator,
   List,
+  FormLabel,
+  Button,
 } from "@mui/joy";
+import * as React from "react";
+import Input from "@mui/joy/Input";
+import Radio from "@mui/joy/Radio";
 import Navbar from "../components/Navbar";
 import ListItem from "@mui/joy/ListItem";
 import HomeIcon from "@mui/icons-material/Home";
@@ -13,13 +18,22 @@ import PersonIcon from "@mui/icons-material/Person";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ReviewsIcon from "@mui/icons-material/Reviews";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import Select from "@mui/joy/Select";
+import Option from "@mui/joy/Option";
+import EmailIcon from "@mui/icons-material/Email";
 
 const AccountPage = () => {
+  const [selectedValue, setSelectedValue] = React.useState("a");
+
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
   return (
     <>
       <Navbar />
 
-      <Grid height="100vh" backgroundColor="#F2F2F7" display="flex">
+      <Grid backgroundColor="#F2F2F7" display="flex" justifyContent="center">
         <Grid
           m={3}
           display="flex"
@@ -114,18 +128,16 @@ const AccountPage = () => {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          backgroundColor="white"
           height="50%"
+          flexDirection="column"
+          backgroundColor="#F2F2F7"
         >
-          <Grid xs={12} md={6} sx={{ padding: "25px" }}>
-            <Typography
-              sx={{
-                marginTop: { xs: "10px", md: "40px" },
-              }}
-              level="h3"
-            >
-              Datele contului:
-            </Typography>
+          <Grid
+            xs={12}
+            md={6}
+            sx={{ padding: "25px", backgroundColor: "white" }}
+          >
+            <Typography level="h3">Datele contului:</Typography>
             <Box display="flex" justifyContent="row">
               <Box
                 sx={{
@@ -165,7 +177,95 @@ const AccountPage = () => {
               </Box>
             </Box>
           </Grid>
-        </Grid>{" "}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "white",
+              padding: "25px",
+              justifyContent: { xs: "center", md: "end" },
+              marginTop: { xs: "10px", md: "40px" },
+
+              width: "100%",
+            }}
+          >
+            <Typography level="h3" mb={2}>
+              Administrare date
+            </Typography>
+            <form>
+              <Box display="flex" justifyContent="space-between" mb={2}>
+                <Radio
+                  checked={selectedValue === "a"}
+                  onChange={handleChange}
+                  value="a"
+                  label="Dl."
+                  name="radio-buttons"
+                  slotProps={{ input: { "aria-label": "A" } }}
+                />
+                <Radio
+                  checked={selectedValue === "b"}
+                  onChange={handleChange}
+                  value="b"
+                  label="Dna."
+                  name="radio-buttons"
+                  slotProps={{ input: { "aria-label": "B" } }}
+                />
+              </Box>
+
+              <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
+                Nume si prenume:
+              </FormLabel>
+              <Input
+                startDecorator={<PersonIcon />}
+                type="text"
+                sx={{ mb: 1 }}
+              />
+              <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
+                Email nou:
+              </FormLabel>
+              <Input
+                startDecorator={<EmailIcon />}
+                type="text"
+                sx={{ mb: 1 }}
+              />
+              <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
+                Parola noua:
+              </FormLabel>
+              <Input
+                startDecorator={<VpnKeyIcon />}
+                type="text"
+                sx={{ mb: 1 }}
+              />
+
+              <Box
+                backgroundColor="white"
+                display="flex"
+                justifyContent="space-between"
+                mb={2}
+              >
+                <Select sx={{ width: "100px" }} placeholder="Ziua">
+                  <Option>1</Option>
+                  <Option>2</Option>
+                  <Option>3</Option>
+                </Select>
+                <Select sx={{ width: "100px" }} placeholder="Luna">
+                  <Option>1</Option>
+                  <Option>2</Option>
+                  <Option>3</Option>
+                </Select>
+                <Select sx={{ width: "100px" }} placeholder="Anul">
+                  <Option>1990</Option>
+                  <Option>1991</Option>
+                  <Option>1992</Option>
+                </Select>
+              </Box>
+
+              <Button size="lg" sx={{ textAlign: "center" }}>
+                Salveaza informatiile
+              </Button>
+            </form>
+          </Box>
+        </Grid>
       </Grid>
     </>
   );
