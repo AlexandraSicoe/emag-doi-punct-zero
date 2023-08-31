@@ -57,7 +57,14 @@ const AccountPage = () => {
                 marginRight: "20px",
               }}
             />
-            <Typography level="h4">Anca Chelaru</Typography>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", color: "white" }}
+            >
+              <Typography level="h4" sx={{ color: "white" }}>
+                Anca Chelaru
+              </Typography>
+              <Typography level="h6">Client eMAG de 2 ani</Typography>
+            </Box>
           </Grid>
           <List>
             <ListItem>
@@ -144,14 +151,14 @@ const AccountPage = () => {
                   marginLeft: { xs: "10px", md: "40px" },
                 }}
               >
-                <Typography level="h5">
+                <Typography level="h5" mb={1}>
                   <span style={{ fontWeight: "bold" }}>Nume:</span> Anca Chelaru
                 </Typography>
-                <Typography level="h5">
+                <Typography level="h5" mb={1}>
                   <span style={{ fontWeight: "bold" }}>Email: </span>
                   anca_chelaru@gmail.com
                 </Typography>
-                <Typography level="h5">
+                <Typography level="h5" mb={1}>
                   <span style={{ fontWeight: "bold" }}>Telefon: </span>
                   07244854832
                 </Typography>
