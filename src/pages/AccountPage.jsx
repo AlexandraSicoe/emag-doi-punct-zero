@@ -105,14 +105,23 @@ const AccountPage = () => {
               </ListItemButton>
             </ListItem>
             <ListItem>
-              <ListItemDecorator>
-                <PersonIcon />
-              </ListItemDecorator>
               <ListItemButton
-                variant="plain"
                 onClick={() => setIsFormVisible(!isFormVisible)}
+                sx={
+                  isFormVisible
+                    ? {
+                        backgroundImage:
+                          "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);",
+                        color: "white",
+                      }
+                    : { backgroundColor: "transparent", color: "black" }
+                }
               >
-                {isFormVisible ? "Account" : " Account"}
+                {" "}
+                <ListItemDecorator>
+                  <PersonIcon />
+                </ListItemDecorator>
+                Account
               </ListItemButton>
             </ListItem>
             <ListItem>
