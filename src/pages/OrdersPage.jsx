@@ -5,7 +5,11 @@ import {
   ListItemButton,
   ListItemDecorator,
   List,
+  Button,
 } from "@mui/joy";
+import Input from "@mui/joy/Input";
+import SearchIcon from "@mui/icons-material/Search";
+
 import Navbar from "../components/Navbar";
 import ListItem from "@mui/joy/ListItem";
 import HomeIcon from "@mui/icons-material/Home";
@@ -132,7 +136,7 @@ const OrdersPage = () => {
             width: {
               xs: "350px",
               sm: "345px",
-              md: "600px",
+              md: "1000px",
             },
             borderRadius: "16px",
             height: { md: "200px" },
@@ -168,7 +172,16 @@ const OrdersPage = () => {
                 <Typography level="body2" sx={{ marginRight: "10px" }}>
                   vezi
                 </Typography>
-                <Select placeholder="toate comenzile">
+                <Select
+                  sx={{
+                    width: {
+                      xs: "200px",
+                      sm: "200px",
+                      md: "300px",
+                    },
+                  }}
+                  placeholder="toate comenzile"
+                >
                   <Option>toate comenzile</Option>
                   <Option>comenzile active</Option>
                   <Option>comenzile anulate</Option>
@@ -179,7 +192,16 @@ const OrdersPage = () => {
                 >
                   din
                 </Typography>
-                <Select placeholder="din ultimele 3 luni">
+                <Select
+                  sx={{
+                    width: {
+                      xs: "200px",
+                      sm: "200px",
+                      md: "300px",
+                    },
+                  }}
+                  placeholder="din ultimele 3 luni"
+                >
                   <Option>din ultimele 3 luni</Option>
                   <Option>din ultimele 6 luni</Option>
                   <Option>2021</Option>
@@ -187,6 +209,33 @@ const OrdersPage = () => {
                   <Option>2023</Option>
                   <Option>Toate</Option>
                 </Select>
+                <Input
+                  sx={{
+                    width: "100%",
+                    ml: "10px",
+                  }}
+                  placeholder="Cauta dupa produs"
+                  endDecorator={
+                    <Button
+                      variant="outlined"
+                      sx={{
+                        width: "32px",
+                        height: "32px",
+                        p: 0,
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <SearchIcon
+                        sx={{
+                          color: "black",
+                          width: "20px",
+                          height: "20px",
+                          p: 0,
+                        }}
+                      />
+                    </Button>
+                  }
+                />
               </Box>
             </Box>
           </Box>

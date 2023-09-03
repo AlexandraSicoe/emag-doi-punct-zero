@@ -33,7 +33,7 @@ const Navbar = () => {
               width: { md: "370px", lg: "500px" },
               display: { xs: "none", md: "flex" },
             }}
-            placeholder="Search here"
+            placeholder="Incepe o noua cautare"
             endDecorator={
               <Button
                 variant="outlined"
