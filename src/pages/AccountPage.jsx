@@ -175,8 +175,8 @@ const AccountPage = () => {
                 xs: "350px",
                 sm: "345px",
                 md: "500px",
-                borderRadius: "16px",
               },
+              borderRadius: "16px",
             }}
           >
             <Typography level="h3">Datele contului:</Typography>

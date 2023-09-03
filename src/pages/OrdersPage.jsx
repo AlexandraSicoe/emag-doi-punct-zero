@@ -124,25 +124,71 @@ const OrdersPage = () => {
           </List>
         </Grid>
         <Grid
+          m={3}
           sx={{
-            padding: "25px",
+            marginTop: { xs: "0px" },
+            padding: "20px",
             backgroundColor: "white",
             width: {
               xs: "350px",
               sm: "345px",
-              md: "500px",
-              borderRadius: "16px",
+              md: "600px",
             },
+            borderRadius: "16px",
+            height: { md: "200px" },
           }}
         >
-          <Typography level="h3">Comenzile mele</Typography>
+          <Box
+            sx={{
+              justifyContent: { xs: "center", md: "end" },
+              marginTop: { xs: "10px", md: "45px" },
+              marginLeft: { xs: "10px", md: "40px" },
+            }}
+          >
+            <Typography sx={{ paddingBottom: "20px" }} level="h3">
+              Comenzile mele
+            </Typography>
+          </Box>
+
+          <hr />
           <Box display="flex" justifyContent="row">
             <Box
               sx={{
                 justifyContent: { xs: "center", md: "end" },
-                marginTop: { xs: "10px", md: "40px" },
+                marginTop: { xs: "10px", md: "20px" },
               }}
-            ></Box>
+            >
+              <Box
+                backgroundColor="white"
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                mb={2}
+              >
+                <Typography level="body2" sx={{ marginRight: "10px" }}>
+                  vezi
+                </Typography>
+                <Select placeholder="toate comenzile">
+                  <Option>toate comenzile</Option>
+                  <Option>comenzile active</Option>
+                  <Option>comenzile anulate</Option>
+                </Select>
+                <Typography
+                  level="body2"
+                  sx={{ marginLeft: "10px", marginRight: "10px" }}
+                >
+                  din
+                </Typography>
+                <Select placeholder="din ultimele 3 luni">
+                  <Option>din ultimele 3 luni</Option>
+                  <Option>din ultimele 6 luni</Option>
+                  <Option>2021</Option>
+                  <Option>2022</Option>
+                  <Option>2023</Option>
+                  <Option>Toate</Option>
+                </Select>
+              </Box>
+            </Box>
           </Box>
         </Grid>
       </Grid>
