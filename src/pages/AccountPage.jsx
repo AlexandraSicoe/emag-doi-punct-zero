@@ -238,7 +238,7 @@ const AccountPage = () => {
                 },
               }}
             >
-              <Typography level="h3" mb={2}>
+              <Typography level="h3" mt={2} mb={2}>
                 Administrare date
               </Typography>
               <form>
