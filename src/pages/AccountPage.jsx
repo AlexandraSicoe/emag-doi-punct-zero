@@ -1,41 +1,29 @@
-import {
-  Grid,
-  Typography,
-  Box,
-  ListItemButton,
-  ListItemDecorator,
-  List,
-  FormLabel,
-  Button,
-} from "@mui/joy";
-import * as React from "react";
-import Input from "@mui/joy/Input";
-import Radio from "@mui/joy/Radio";
-import Navbar from "../components/Navbar";
-import ListItem from "@mui/joy/ListItem";
 import HomeIcon from "@mui/icons-material/Home";
-import PersonIcon from "@mui/icons-material/Person";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import LogoutIcon from "@mui/icons-material/Logout";
+import PersonIcon from "@mui/icons-material/Person";
 import ReviewsIcon from "@mui/icons-material/Reviews";
-import VpnKeyIcon from "@mui/icons-material/VpnKey";
-import Select from "@mui/joy/Select";
-import Option from "@mui/joy/Option";
-import EmailIcon from "@mui/icons-material/Email";
-import { useEffect } from "react";
-import { useState } from "react";
+import {
+  Box,
+  Grid,
+  List,
+  ListItemButton,
+  ListItemDecorator,
+  Typography,
+} from "@mui/joy";
+import ListItem from "@mui/joy/ListItem";
+import * as React from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Orders from "../components/Orders";
 import AccountEditForm from "../components/AccountEditForm";
+import Navbar from "../components/Navbar";
+import Orders from "../components/Orders";
 
 const AccountPage = () => {
   const navigate = useNavigate();
-  const [isFormVisible, setIsFormVisible] = useState(false);
-  const [isOrderVisible, setIsOrderVisible] = useState(false);
+  const [whatOptionVisible, setWhatOptionVisible] = useState("");
   const [selectedValue, setSelectedValue] = React.useState("a");
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
+
   useEffect(() => {
     let lsUser = localStorage.getItem("user");
     lsUser = JSON.parse(lsUser);
@@ -109,9 +97,9 @@ const AccountPage = () => {
             </ListItem>
             <ListItem>
               <ListItemButton
-                onClick={() => setIsFormVisible(!isFormVisible)}
+                onClick={() => setWhatOptionVisible("account")}
                 sx={
-                  isFormVisible
+                  whatOptionVisible == "account"
                     ? {
                         backgroundImage:
                           "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
@@ -130,9 +118,9 @@ const AccountPage = () => {
             <ListItem>
               <ListItemButton
                 variant="plain"
-                onClick={() => setIsOrderVisible(!isOrderVisible)}
+                onClick={() => setWhatOptionVisible("orders")}
                 sx={
-                  isOrderVisible
+                  whatOptionVisible == "orders"
                     ? {
                         backgroundImage:
                           "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
@@ -175,7 +163,7 @@ const AccountPage = () => {
           m={3}
           display="flex"
           justifyContent="center"
-          alignItems="center"
+          alignItems="start"
           flexDirection="column"
           backgroundColor="#F2F2F7"
           sx={{
@@ -189,7 +177,7 @@ const AccountPage = () => {
               width: {
                 xs: "350px",
                 sm: "345px",
-                md: "500px",
+                md: "1000px",
               },
               borderRadius: "16px",
             }}
@@ -234,7 +222,8 @@ const AccountPage = () => {
               </Box>
             </Box>
           </Grid>
-          {isFormVisible && <AccountEditForm />}
+          {whatOptionVisible == "account" && <AccountEditForm />}
+          {whatOptionVisible == "orders" && <Orders />}
         </Grid>
       </Grid>
     </>
