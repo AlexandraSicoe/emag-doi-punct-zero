@@ -25,10 +25,13 @@ import EmailIcon from "@mui/icons-material/Email";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Orders from "../components/Orders";
+import AccountEditForm from "../components/AccountEditForm";
 
 const AccountPage = () => {
   const navigate = useNavigate();
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isOrderVisible, setIsOrderVisible] = useState(false);
   const [selectedValue, setSelectedValue] = React.useState("a");
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -111,7 +114,7 @@ const AccountPage = () => {
                   isFormVisible
                     ? {
                         backgroundImage:
-                          "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);",
+                          "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
                         color: "white",
                       }
                     : { backgroundColor: "transparent", color: "black" }
@@ -125,7 +128,19 @@ const AccountPage = () => {
               </ListItemButton>
             </ListItem>
             <ListItem>
-              <ListItemButton variant="plain">
+              <ListItemButton
+                variant="plain"
+                onClick={() => setIsOrderVisible(!isOrderVisible)}
+                sx={
+                  isOrderVisible
+                    ? {
+                        backgroundImage:
+                          "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
+                        color: "white",
+                      }
+                    : { backgroundColor: "transparent", color: "black" }
+                }
+              >
                 <ListItemDecorator>
                   <InventoryIcon />
                 </ListItemDecorator>
@@ -219,102 +234,7 @@ const AccountPage = () => {
               </Box>
             </Box>
           </Grid>
-          {isFormVisible && (
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                backgroundColor: "white",
-                justifyContent: { xs: "center", md: "end" },
-                marginTop: { xs: "10px", md: "40px" },
-                paddingBottom: "25px",
-                paddingLeft: "10px",
-                paddingRight: "10px",
-                width: {
-                  xs: "350px",
-                  sm: "345px",
-                  md: "500px",
-                  borderRadius: "16px",
-                },
-              }}
-            >
-              <Typography level="h3" mt={2} mb={2}>
-                Administrare date
-              </Typography>
-              <form>
-                <Box display="flex" justifyContent="space-between" mb={2}>
-                  <Radio
-                    checked={selectedValue === "a"}
-                    onChange={handleChange}
-                    value="a"
-                    label="Dl."
-                    name="radio-buttons"
-                    slotProps={{ input: { "aria-label": "A" } }}
-                  />
-                  <Radio
-                    checked={selectedValue === "b"}
-                    onChange={handleChange}
-                    value="b"
-                    label="Dna."
-                    name="radio-buttons"
-                    slotProps={{ input: { "aria-label": "B" } }}
-                  />
-                </Box>
-
-                <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
-                  Nume si prenume:
-                </FormLabel>
-                <Input
-                  startDecorator={<PersonIcon />}
-                  type="text"
-                  sx={{ mb: 1 }}
-                />
-                <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
-                  Email nou:
-                </FormLabel>
-                <Input
-                  startDecorator={<EmailIcon />}
-                  type="text"
-                  sx={{ mb: 1 }}
-                />
-                <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
-                  Parola noua:
-                </FormLabel>
-                <Input
-                  startDecorator={<VpnKeyIcon />}
-                  type="text"
-                  sx={{ mb: 1 }}
-                />
-
-                <Box
-                  backgroundColor="white"
-                  display="flex"
-                  justifyContent="space-between"
-                  mb={2}
-                >
-                  <Select sx={{ width: "100px" }} placeholder="Ziua">
-                    <Option>1</Option>
-                    <Option>2</Option>
-                    <Option>3</Option>
-                  </Select>
-                  <Select sx={{ width: "100px" }} placeholder="Luna">
-                    <Option>1</Option>
-                    <Option>2</Option>
-                    <Option>3</Option>
-                  </Select>
-                  <Select sx={{ width: "100px" }} placeholder="Anul">
-                    <Option>1990</Option>
-                    <Option>1991</Option>
-                    <Option>1992</Option>
-                  </Select>
-                </Box>
-
-                <Button size="lg" sx={{ textAlign: "center" }}>
-                  Salveaza informatiile
-                </Button>
-              </form>
-            </Box>
-          )}
+          {isFormVisible && <AccountEditForm />}
         </Grid>
       </Grid>
     </>
