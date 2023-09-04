@@ -37,7 +37,7 @@ const AccountEditForm = () => {
     <Box
       sx={{
         display: "flex",
-        flexDirection: { sm: "column", md: "row" },
+        flexDirection: { xs: "column", md: "row" },
         justifyContent: "space-between",
         width: "100%",
       }}

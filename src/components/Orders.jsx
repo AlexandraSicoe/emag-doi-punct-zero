@@ -22,7 +22,8 @@ const Orders = () => {
   return (
     <>
       <Grid
-        m={3}
+        backgroundColor="#F2F2F7"
+        p={1}
         sx={{
           marginTop: { xs: "0px", md: "25px" },
           backgroundColor: "white",
@@ -33,6 +34,7 @@ const Orders = () => {
           },
           borderRadius: "16px",
           height: { md: "200px" },
+          flexDirection: { xs: "column" },
         }}
       >
         <Grid display="flex" flexDirection="column" p={2}>
@@ -40,13 +42,13 @@ const Orders = () => {
             sx={{
               justifyContent: { xs: "center", md: "end" },
               marginTop: { xs: "10px", md: "25px" },
+              flexDirection: { xs: "column", md: "row" },
             }}
           >
             <Typography level="h3">Comenzile mele</Typography>
           </Box>
 
-          <hr />
-          <Box display="flex" justifyContent="row">
+          <Box display="flex">
             <Box
               sx={{
                 justifyContent: { xs: "center", md: "end" },
@@ -60,6 +62,7 @@ const Orders = () => {
                 alignItems="center"
                 mb={3}
                 pb={2}
+                sx={{ flexDirection: { xs: "column", sm: "row", md: "row" } }}
               >
                 <Typography level="body2" sx={{ marginRight: "10px" }}>
                   vezi
@@ -69,7 +72,7 @@ const Orders = () => {
                     width: {
                       xs: "200px",
                       sm: "200px",
-                      md: "300px",
+                      md: "200px",
                     },
                   }}
                   placeholder="toate comenzile"
@@ -89,7 +92,7 @@ const Orders = () => {
                     width: {
                       xs: "200px",
                       sm: "200px",
-                      md: "300px",
+                      md: "200px",
                     },
                   }}
                   placeholder="din ultimele 3 luni"
@@ -105,6 +108,7 @@ const Orders = () => {
                   sx={{
                     width: "200px",
                     ml: "10px",
+                    mt: { xs: "15px", md: "0px" },
                   }}
                   placeholder="Cauta dupa produs"
                 />
@@ -133,8 +137,12 @@ const Orders = () => {
           >
             <Box
               display="flex"
-              flexDirection="row"
               justifyContent="space-between"
+              sx={{
+                flexDirection: { xs: "column", md: "row" },
+                marginBottom: { xs: "10px", md: "20px" },
+                marginTop: { xs: "10px", md: "20px" },
+              }}
             >
               <Typography level="body-lg">Nr. comanda 317531976</Typography>
               <Typography level="body-sm">
@@ -168,7 +176,7 @@ const Orders = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid
+        {/* <Grid
           sx={{
             marginTop: { xs: "0px", md: "25px" },
             padding: "15px",
@@ -189,8 +197,8 @@ const Orders = () => {
           >
             <Box
               display="flex"
-              flexDirection="row"
               justifyContent="space-between"
+              sx={{ flexDirection: { xs: "column", md: "row" } }}
             >
               <Typography level="body-lg">Nr. comanda 316725420</Typography>
               <Typography level="body-sm">
@@ -222,7 +230,7 @@ const Orders = () => {
               Produse ridicate
             </Typography>
           </Box>
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );

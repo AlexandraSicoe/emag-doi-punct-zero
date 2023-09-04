@@ -6,7 +6,6 @@ import "./index.css";
 import LoginRegisterPage from "./pages/LoginRegisterPage";
 import ProductPage from "./pages/ProductPage";
 import AccountPage from "./pages/AccountPage";
-import OrdersPage from "./pages/OrdersPage";
 
 import NoPage from "./pages/NoPage";
 
@@ -19,7 +18,6 @@ export default function App() {
           <Route path="/administrare" element={<LoginRegisterPage />} />
           <Route path="/product" element={<ProductPage />} />
           <Route path="/account" element={<AccountPage />} />
-          <Route path="/orders" element={<OrdersPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

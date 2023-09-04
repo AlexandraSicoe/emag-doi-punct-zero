@@ -206,6 +206,7 @@ const AccountPage = () => {
                   justifyContent: { xs: "center", md: "end" },
                   marginTop: { xs: "10px", md: "45px" },
                   marginLeft: { xs: "10px", md: "40px" },
+                  marginBottom: { xs: "10px", md: "40px" },
                 }}
               >
                 <Typography level="body1" mb={1}>
