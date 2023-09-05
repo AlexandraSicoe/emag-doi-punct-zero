@@ -41,7 +41,7 @@ const MyReviews = () => {
             <Button
               sx={{
                 backgroundColor: "black",
-                marginRight: "10px",
+                marginRight: { xs: "0px", md: "10px" },
                 marginBottom: { xs: "10px", md: "0px" },
               }}
             >
@@ -50,7 +50,8 @@ const MyReviews = () => {
             <Button
               sx={{
                 backgroundColor: "black",
-                marginRight: "10px",
+                marginRight: { xs: "0px", md: "10px" },
+
                 marginBottom: { xs: "10px", md: "0px" },
               }}
             >
@@ -59,7 +60,8 @@ const MyReviews = () => {
             <Button
               sx={{
                 backgroundColor: "black",
-                marginRight: "10px",
+                marginRight: { xs: "0px", md: "10px" },
+
                 marginBottom: { xs: "10px", md: "0px" },
               }}
             >
