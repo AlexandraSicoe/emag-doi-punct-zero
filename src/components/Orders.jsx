@@ -23,21 +23,26 @@ const Orders = () => {
     <>
       <Grid
         backgroundColor="#F2F2F7"
-        p={1}
         sx={{
-          marginTop: { xs: "0px", md: "25px" },
-          backgroundColor: "white",
-          width: {
-            xs: "350px",
-            sm: "345px",
-            md: "1000px",
-          },
-          borderRadius: "16px",
-          height: { md: "200px" },
           flexDirection: { xs: "column" },
         }}
       >
-        <Grid display="flex" flexDirection="column" p={2}>
+        <Grid
+          display="flex"
+          flexDirection="column"
+          backgroundColor="white"
+          p={2}
+          sx={{
+            marginBottom: { xs: "25px", md: "25px" },
+            borderRadius: "16px",
+            marginTop: { xs: "0px", md: "25px" },
+            width: {
+              xs: "350px",
+              sm: "345px",
+              md: "1000px",
+            },
+          }}
+        >
           <Box
             sx={{
               justifyContent: { xs: "center", md: "end" },
@@ -45,14 +50,16 @@ const Orders = () => {
               flexDirection: { xs: "column", md: "row" },
             }}
           >
-            <Typography level="h3">Comenzile mele</Typography>
+            <Typography sx={{ marginBottom: "10px" }} level="h3">
+              Comenzile mele
+            </Typography>
           </Box>
 
           <Box display="flex">
             <Box
               sx={{
                 justifyContent: { xs: "center", md: "end" },
-                marginTop: { xs: "10px", md: "20px" },
+                marginTop: { xs: "10px", md: "0px" },
               }}
             >
               <Box
@@ -61,7 +68,6 @@ const Orders = () => {
                 justifyContent="space-between"
                 alignItems="center"
                 mb={3}
-                pb={2}
                 sx={{ flexDirection: { xs: "column", sm: "row", md: "row" } }}
               >
                 <Typography level="body2" sx={{ marginRight: "10px" }}>
@@ -69,11 +75,7 @@ const Orders = () => {
                 </Typography>
                 <Select
                   sx={{
-                    width: {
-                      xs: "200px",
-                      sm: "200px",
-                      md: "200px",
-                    },
+                    width: "200px",
                   }}
                   placeholder="toate comenzile"
                 >
@@ -89,11 +91,7 @@ const Orders = () => {
                 </Typography>
                 <Select
                   sx={{
-                    width: {
-                      xs: "200px",
-                      sm: "200px",
-                      md: "200px",
-                    },
+                    width: "200px",
                   }}
                   placeholder="din ultimele 3 luni"
                 >
@@ -107,7 +105,7 @@ const Orders = () => {
                 <Input
                   sx={{
                     width: "200px",
-                    ml: "10px",
+                    ml: { xs: "0px", md: "50px" },
                     mt: { xs: "15px", md: "0px" },
                   }}
                   placeholder="Cauta dupa produs"
@@ -116,9 +114,9 @@ const Orders = () => {
             </Box>
           </Box>
         </Grid>
+
         <Grid
           sx={{
-            marginTop: { xs: "0px", md: "25px" },
             padding: "15px",
             backgroundColor: "white",
             width: {
@@ -130,107 +128,88 @@ const Orders = () => {
           }}
         >
           <Box
+            display="flex"
+            justifyContent="space-between"
+            flexDirection="column"
             sx={{
-              display: "flex",
-              flexDirection: "column",
+              flexDirection: { xs: "column", md: "row" },
+              marginBottom: { xs: "10px", md: "10px" },
+              marginTop: { xs: "10px", md: "0px" },
             }}
           >
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              sx={{
-                flexDirection: { xs: "column", md: "row" },
-                marginBottom: { xs: "10px", md: "20px" },
-                marginTop: { xs: "10px", md: "20px" },
-              }}
-            >
-              <Typography level="body-lg">Nr. comanda 317531976</Typography>
-              <Typography level="body-sm">
-                20 aug 2023, 14:37 • Total: 143,99 Lei
-              </Typography>
-            </Box>
-            <hr />
-            <Typography level="body-md">
-              Produse vandute si livrate de Boutique Concept Store | Subtotal:
-              119,00 Lei
-            </Typography>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-              justifyContent="flex-start"
-              pt={1}
-            >
-              <Typography level="body-md" sx={{ color: "#0096FF" }}>
-                Acorda o nota vanzatorului
-              </Typography>
-              <Rating
-                halfFillMode="svg"
-                style={{ maxWidth: 100, marginLeft: "10px" }}
-                value={rating}
-                onChange={setRating}
-              />
-            </Box>
-            <Typography level="body-md" sx={{ color: "#0096FF" }}>
-              Produse ridicate
+            <Typography level="body-lg">Nr. comanda 317531976</Typography>
+            <Typography level="body-sm">
+              20 aug 2023, 14:37 • Total: 143,99 Lei
             </Typography>
           </Box>
+          <Typography level="body-md">
+            Produse vandute si livrate de Boutique Concept Store | Subtotal:
+            119,00 Lei
+          </Typography>
+          <Box
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="flex-start"
+            pt={1}
+          >
+            <Typography level="body-md" sx={{ color: "#0096FF" }}>
+              Acorda o nota vanzatorului
+            </Typography>
+            <Rating
+              halfFillMode="svg"
+              style={{ maxWidth: 100, marginLeft: "10px" }}
+              value={rating}
+              onChange={setRating}
+            />
+          </Box>
+          <Typography
+            level="body-md"
+            sx={{ color: "#0096FF", paddingBottom: { xs: "10px", md: "20px" } }}
+          >
+            Produse ridicate
+          </Typography>
+          <hr />
+          <Box
+            Box
+            display="flex"
+            justifyContent="space-between"
+            flexDirection="column"
+            sx={{
+              flexDirection: { xs: "column", md: "row" },
+              marginBottom: { xs: "10px", md: "10px" },
+              marginTop: { xs: "10px", md: "25px" },
+            }}
+          >
+            <Typography level="body-lg">Nr. comanda 316725420</Typography>
+            <Typography level="body-sm">
+              12 aug 2023, 12:11 • Total: 260,75 Lei
+            </Typography>
+          </Box>
+          <Typography level="body-md">
+            Produse vandute si livrate de GSM Arena | Subtotal: 24,99 Lei
+          </Typography>
+          <Box
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="flex-start"
+            pt={1}
+          >
+            <Typography level="body-md" sx={{ color: "#0096FF" }}>
+              Acorda o nota vanzatorului
+            </Typography>
+            <Rating
+              halfFillMode="svg"
+              style={{ maxWidth: 100, marginLeft: "10px" }}
+              value={rating}
+              onChange={setRating}
+            />
+          </Box>
+          <Typography level="body-md" sx={{ color: "#0096FF" }}>
+            Produse ridicate
+          </Typography>
         </Grid>
-        {/* <Grid
-          sx={{
-            marginTop: { xs: "0px", md: "25px" },
-            padding: "15px",
-            backgroundColor: "white",
-            width: {
-              xs: "350px",
-              sm: "345px",
-              md: "1000px",
-            },
-            borderRadius: "16px",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              sx={{ flexDirection: { xs: "column", md: "row" } }}
-            >
-              <Typography level="body-lg">Nr. comanda 316725420</Typography>
-              <Typography level="body-sm">
-                12 aug 2023, 12:11 • Total: 260,75 Lei
-              </Typography>
-            </Box>
-            <hr />
-            <Typography level="body-md">
-              Produse vandute si livrate de GSM Arena | Subtotal: 24,99 Lei
-            </Typography>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-              justifyContent="flex-start"
-              pt={1}
-            >
-              <Typography level="body-md" sx={{ color: "#0096FF" }}>
-                Acorda o nota vanzatorului
-              </Typography>
-              <Rating
-                halfFillMode="svg"
-                style={{ maxWidth: 100, marginLeft: "10px" }}
-                value={rating}
-                onChange={setRating}
-              />
-            </Box>
-            <Typography level="body-md" sx={{ color: "#0096FF" }}>
-              Produse ridicate
-            </Typography>
-          </Box>
-        </Grid> */}
       </Grid>
     </>
   );

@@ -51,7 +51,7 @@ const Navbar = () => {
             }
           />
           <Box>
-            <Link to="#">
+            <Link to="/account">
               <Button
                 startDecorator={<PersonIcon />}
                 sx={{ marginRight: "5px" }}

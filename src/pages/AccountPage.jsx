@@ -41,7 +41,7 @@ const AccountPage = () => {
           alignItems: { xs: "center", md: "start" },
         }}
       >
-        <Grid
+        <Box
           display="flex"
           sx={{
             flexDirection: "column",
@@ -51,7 +51,7 @@ const AccountPage = () => {
             marginTop: { xs: "0px", md: "25px" },
           }}
         >
-          <Grid
+          <Box
             sx={{
               padding: "25px",
               backgroundImage:
@@ -85,7 +85,7 @@ const AccountPage = () => {
               </Typography>
               <Typography level="h6">Client eMAG de 2 ani</Typography>
             </Box>
-          </Grid>
+          </Box>
           <List>
             <ListItem>
               <ListItemButton variant="plain">
@@ -108,7 +108,6 @@ const AccountPage = () => {
                     : { backgroundColor: "transparent", color: "black" }
                 }
               >
-                {" "}
                 <ListItemDecorator>
                   <PersonIcon />
                 </ListItemDecorator>
@@ -158,7 +157,7 @@ const AccountPage = () => {
               </ListItemButton>
             </ListItem>
           </List>
-        </Grid>
+        </Box>
         <Grid
           m={3}
           display="flex"
@@ -170,7 +169,7 @@ const AccountPage = () => {
             borderRadius: "16px",
           }}
         >
-          <Grid
+          <Box
             sx={{
               padding: "25px",
               backgroundColor: "white",
@@ -179,15 +178,19 @@ const AccountPage = () => {
                 sm: "345px",
                 md: "1000px",
               },
+              marginBottom: { xs: "25px", md: "0px" },
+
               borderRadius: "16px",
             }}
           >
-            <Typography level="h3">Datele contului:</Typography>
+            <Typography sx={{ marginBottom: "10px" }} level="h3">
+              Datele contului:
+            </Typography>
             <Box display="flex" justifyContent="row">
               <Box
                 sx={{
                   justifyContent: { xs: "center", md: "end" },
-                  marginTop: { xs: "10px", md: "40px" },
+                  marginTop: { xs: "10px", md: "0px" },
                 }}
               >
                 <img
@@ -204,9 +207,8 @@ const AccountPage = () => {
               <Box
                 sx={{
                   justifyContent: { xs: "center", md: "end" },
-                  marginTop: { xs: "10px", md: "45px" },
+                  marginTop: { xs: "10px", md: "0px" },
                   marginLeft: { xs: "10px", md: "40px" },
-                  marginBottom: { xs: "10px", md: "40px" },
                 }}
               >
                 <Typography level="body1" mb={1}>
@@ -222,7 +224,7 @@ const AccountPage = () => {
                 </Typography>
               </Box>
             </Box>
-          </Grid>
+          </Box>
           {whatOptionVisible == "account" && <AccountEditForm />}
           {whatOptionVisible == "orders" && <Orders />}
         </Grid>
