@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 import AccountEditForm from "../components/AccountEditForm";
 import Navbar from "../components/Navbar";
 import Orders from "../components/Orders";
+import MyReviews from "../components/MyReviews";
 
 const AccountPage = () => {
   const navigate = useNavigate();
@@ -135,7 +136,18 @@ const AccountPage = () => {
               </ListItemButton>
             </ListItem>
             <ListItem>
-              <ListItemButton variant="plain">
+              <ListItemButton
+                onClick={() => setWhatOptionVisible("review")}
+                sx={
+                  whatOptionVisible == "review"
+                    ? {
+                        backgroundImage:
+                          "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
+                        color: "white",
+                      }
+                    : { backgroundColor: "transparent", color: "black" }
+                }
+              >
                 <ListItemDecorator>
                   <ReviewsIcon />
                 </ListItemDecorator>
@@ -179,7 +191,6 @@ const AccountPage = () => {
                 md: "1000px",
               },
               marginBottom: { xs: "25px", md: "0px" },
-
               borderRadius: "16px",
             }}
           >
@@ -227,6 +238,8 @@ const AccountPage = () => {
           </Box>
           {whatOptionVisible == "account" && <AccountEditForm />}
           {whatOptionVisible == "orders" && <Orders />}
+          {whatOptionVisible == "review" && <MyReviews />}
+          {}
         </Grid>
       </Grid>
     </>
