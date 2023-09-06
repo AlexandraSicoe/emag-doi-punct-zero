@@ -1,11 +1,22 @@
-import { Box, Button, Container, Typography } from "@mui/joy";
-import Input from "@mui/joy/Input";
 import PersonIcon from "@mui/icons-material/Person";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Box, Button, Container, Typography } from "@mui/joy";
+import AspectRatio from "@mui/joy/AspectRatio";
+import Card from "@mui/joy/Card";
+import Input from "@mui/joy/Input";
+import List from "@mui/joy/List";
+import ListDivider from "@mui/joy/ListDivider";
+import ListItem from "@mui/joy/ListItem";
+import ListItemContent from "@mui/joy/ListItemContent";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Cart from "./Cart.tsx";
+import genericProductImage from "../images/genericProduct.png";
 
-const Navbar = () => {
+const Navbar = ({ cartData }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   return (
     <>
       <Box sx={{ height: { xs: "112px", md: "40px" } }}></Box>
@@ -63,6 +74,9 @@ const Navbar = () => {
               <Button
                 startDecorator={<ShoppingCartIcon />}
                 sx={{ marginLeft: "5px" }}
+                onClick={() => {
+                  setDrawerOpen(!drawerOpen);
+                }}
               >
                 Cart
               </Button>
@@ -99,6 +113,48 @@ const Navbar = () => {
           />
         </Container>
       </Box>
+      <Cart
+        title="Saved Trails"
+        size="375px"
+        position="right"
+        open={drawerOpen}
+        onClose={() => {
+          setDrawerOpen(false);
+        }}
+      >
+        <Card variant="outlined" sx={{ width: "100%", p: 0 }}>
+          <List sx={{ py: "var(--ListDivider-gap)" }}>
+            {cartData?.map((product, index) => (
+              <React.Fragment key={product.id}>
+                <ListItem sx={{ gap: 2 }}>
+                  <AspectRatio sx={{ flexBasis: 120 }}>
+                    <img
+                      src={`${
+                        product?.images[0]?.includes("image1_url")
+                          ? genericProductImage
+                          : product?.images[0]
+                      }}?w=120&fit=crop&auto=format`}
+                      alt={product.name}
+                    />
+                  </AspectRatio>
+                  <ListItemContent>
+                    <Typography fontWeight="md">{product.name}</Typography>
+                    <Typography level="body-sm">
+                      Pret: {product.price}
+                    </Typography>
+                  </ListItemContent>
+                </ListItem>
+                {index !== cartData.length - 1 && <ListDivider />}
+              </React.Fragment>
+            ))}
+          </List>
+        </Card>
+        <Link to={"/"}>
+          <Button sx={{ marginY: "10px" }} size="lg">
+            See more details
+          </Button>
+        </Link>
+      </Cart>
     </>
   );
 };

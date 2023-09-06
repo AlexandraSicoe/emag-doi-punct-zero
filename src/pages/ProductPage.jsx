@@ -13,6 +13,8 @@ const ProductPage = () => {
   const query = useQuery();
   const navigate = useNavigate();
   const [productData, setProductData] = useState();
+  const [cartData, setCartData] = useState([]);
+
   const getProductData = async () => {
     try {
       const id = query.get("id");
@@ -30,10 +32,14 @@ const ProductPage = () => {
   };
   useEffect(() => {
     getProductData();
+    let lsCart = localStorage.getItem("cart");
+    lsCart = JSON.parse(lsCart);
+    console.log(lsCart);
+    setCartData(lsCart ? lsCart : []);
   }, []);
   return (
     <>
-      <Navbar />
+      <Navbar cartData={cartData} />
       {!productData ? (
         <Box
           sx={{
@@ -105,7 +111,17 @@ const ProductPage = () => {
               >
                 ${productData.price}
               </Typography>
-              <Button startDecorator={<ShoppingCartIcon />}>Add to cart</Button>
+              <Button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const _cartData = [...cartData, productData];
+                  localStorage.setItem("cart", JSON.stringify(_cartData));
+                  setCartData(_cartData);
+                }}
+                startDecorator={<ShoppingCartIcon />}
+              >
+                Add to cart
+              </Button>
             </Box>
             <Box sx={{ display: { xs: "block", md: "none" } }}>
               <ReviewSample />
