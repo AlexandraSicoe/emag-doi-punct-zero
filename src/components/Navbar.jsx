@@ -16,7 +16,7 @@ import genericProductImage from "../images/genericProduct.png";
 
 const Navbar = ({ cartData }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-
+  const [totalPrice, setTotalPrice] = useState(0);
   return (
     <>
       <Box sx={{ height: { xs: "112px", md: "40px" } }}></Box>
@@ -149,9 +149,10 @@ const Navbar = ({ cartData }) => {
             ))}
           </List>
         </Card>
+        <Typography level="body-md">Total:</Typography>
         <Link to={"/"}>
           <Button sx={{ marginY: "10px" }} size="lg">
-            See more details
+            Mergi spre checkout
           </Button>
         </Link>
       </Cart>
