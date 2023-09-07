@@ -128,7 +128,10 @@ const Navbar = ({ cartData }) => {
               <React.Fragment key={product.id}>
                 <ListItem sx={{ gap: 2 }}>
                   <AspectRatio sx={{ flexBasis: 120 }}>
+                    {console.log(product)}
+
                     <img
+                      style={{ width: "120px" }}
                       src={`${
                         product?.images[0]?.includes("image1_url")
                           ? genericProductImage
