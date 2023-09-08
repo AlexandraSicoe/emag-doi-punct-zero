@@ -37,7 +37,7 @@ const HomePage = () => {
     <>
       <Navbar cartData={cartData} />
       <h1>My Store</h1>
-      {productList?.length == 0 ? (
+      {productList?.length === 0 ? (
         <Box
           sx={{
             display: "flex",

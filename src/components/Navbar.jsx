@@ -13,6 +13,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Cart from "./Cart.tsx";
 import genericProductImage from "../images/genericProduct.png";
+import InfoIcon from "@mui/icons-material/Info";
 
 const Navbar = ({ cartData }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -124,7 +125,6 @@ const Navbar = ({ cartData }) => {
         </Container>
       </Box>
       <Cart
-        title="Saved Trails"
         size="375px"
         position="right"
         open={drawerOpen}
@@ -132,44 +132,67 @@ const Navbar = ({ cartData }) => {
           setDrawerOpen(false);
         }}
       >
-        <Card variant="outlined" sx={{ width: "100%", p: 0 }}>
-          <List sx={{ py: "var(--ListDivider-gap)" }}>
-            {cartData?.map((product, index) => (
-              <React.Fragment key={product.id}>
-                <ListItem sx={{ gap: 2 }}>
-                  <AspectRatio sx={{ flexBasis: 120 }}>
-                    {console.log(product)}
+        {cartData?.length === 0 ? (
+          <Box sx={{ paddingTop: "15px" }}>
+            <Box sx={{ display: "flex" }}>
+              <InfoIcon color="primary" />
+              <Typography sx={{ paddingBottom: "15px", paddingLeft: "15px" }}>
+                Cosul tau nu contine produse.
+              </Typography>
+            </Box>
 
-                    <img
-                      style={{ width: "120px" }}
-                      src={`${
-                        product?.images[0]?.includes("image1_url")
-                          ? genericProductImage
-                          : product?.images[0]
-                      }}?w=120&fit=crop&auto=format`}
-                      alt={product.name}
-                    />
-                  </AspectRatio>
-                  <ListItemContent>
-                    <Typography fontWeight="md">{product.name}</Typography>
-                    <Typography level="body-sm">
-                      Pret: {product.price}
-                    </Typography>
-                  </ListItemContent>
-                </ListItem>
-                {index !== cartData.length - 1 && <ListDivider />}
-              </React.Fragment>
-            ))}
-          </List>
-        </Card>
-        <Typography level="body-lg" color="danger" p={1}>
-          Total: {totalPrice} RON
-        </Typography>
-        <Link to={"/"}>
-          <Button sx={{ marginY: "10px" }} size="lg">
-            Mergi spre checkout
-          </Button>
-        </Link>
+            <Button
+              sx={{ marginY: "10px" }}
+              size="lg"
+              onClick={() => {
+                setDrawerOpen(!drawerOpen);
+              }}
+            >
+              Inchide cos
+            </Button>
+          </Box>
+        ) : (
+          <>
+            <Card variant="outlined" sx={{ width: "100%", p: 0 }}>
+              <List sx={{ py: "var(--ListDivider-gap)" }}>
+                {cartData?.map((product, index) => (
+                  <React.Fragment key={product.id}>
+                    <ListItem sx={{ gap: 2 }}>
+                      <AspectRatio sx={{ flexBasis: 120 }}>
+                        {console.log(product)}
+
+                        <img
+                          style={{ width: "120px" }}
+                          src={`${
+                            product?.images[0]?.includes("image1_url")
+                              ? genericProductImage
+                              : product?.images[0]
+                          }}?w=120&fit=crop&auto=format`}
+                          alt={product.name}
+                        />
+                      </AspectRatio>
+                      <ListItemContent>
+                        <Typography fontWeight="md">{product.name}</Typography>
+                        <Typography level="body-sm">
+                          Pret: {product.price}
+                        </Typography>
+                      </ListItemContent>
+                    </ListItem>
+                    {index !== cartData.length - 1 && <ListDivider />}
+                  </React.Fragment>
+                ))}
+              </List>
+            </Card>
+            <Typography level="body-lg" color="danger" p={1}>
+              Total: {totalPrice} RON
+            </Typography>
+            <Link to={"/checkout"}>
+              <Button sx={{ marginY: "10px" }} size="lg">
+                Catre pagina de checkout
+              </Button>
+            </Link>
+          </>
+        )}
       </Cart>
     </>
   );
