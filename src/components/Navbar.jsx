@@ -1,11 +1,33 @@
-import { Box, Button, Container, Typography } from "@mui/joy";
-import Input from "@mui/joy/Input";
 import PersonIcon from "@mui/icons-material/Person";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Box, Button, Container, Typography } from "@mui/joy";
+import AspectRatio from "@mui/joy/AspectRatio";
+import Card from "@mui/joy/Card";
+import Input from "@mui/joy/Input";
+import List from "@mui/joy/List";
+import ListDivider from "@mui/joy/ListDivider";
+import ListItem from "@mui/joy/ListItem";
+import ListItemContent from "@mui/joy/ListItemContent";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Cart from "./Cart.tsx";
+import genericProductImage from "../images/genericProduct.png";
+import InfoIcon from "@mui/icons-material/Info";
 
-const Navbar = () => {
+const Navbar = ({ cartData }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    if (cartData) {
+      let sum = 0;
+      cartData.forEach((product) => {
+        sum = sum + product.price;
+      });
+      setTotalPrice(sum);
+    }
+  }, [cartData]);
+
   return (
     <>
       <Box sx={{ height: { xs: "112px", md: "40px" } }}></Box>
@@ -63,6 +85,9 @@ const Navbar = () => {
               <Button
                 startDecorator={<ShoppingCartIcon />}
                 sx={{ marginLeft: "5px" }}
+                onClick={() => {
+                  setDrawerOpen(!drawerOpen);
+                }}
               >
                 Cart
               </Button>
@@ -99,6 +124,76 @@ const Navbar = () => {
           />
         </Container>
       </Box>
+      <Cart
+        size="375px"
+        position="right"
+        open={drawerOpen}
+        onClose={() => {
+          setDrawerOpen(false);
+        }}
+      >
+        {cartData?.length === 0 ? (
+          <Box sx={{ paddingTop: "15px" }}>
+            <Box sx={{ display: "flex" }}>
+              <InfoIcon color="primary" />
+              <Typography sx={{ paddingBottom: "15px", paddingLeft: "15px" }}>
+                Cosul tau nu contine produse.
+              </Typography>
+            </Box>
+
+            <Button
+              sx={{ marginY: "10px" }}
+              size="lg"
+              onClick={() => {
+                setDrawerOpen(!drawerOpen);
+              }}
+            >
+              Inchide cos
+            </Button>
+          </Box>
+        ) : (
+          <>
+            <Card variant="outlined" sx={{ width: "100%", p: 0 }}>
+              <List sx={{ py: "var(--ListDivider-gap)" }}>
+                {cartData?.map((product, index) => (
+                  <React.Fragment key={product.id}>
+                    <ListItem sx={{ gap: 2 }}>
+                      <AspectRatio sx={{ flexBasis: 120 }}>
+                        {console.log(product)}
+
+                        <img
+                          style={{ width: "120px" }}
+                          src={`${
+                            product?.images[0]?.includes("image1_url")
+                              ? genericProductImage
+                              : product?.images[0]
+                          }}?w=120&fit=crop&auto=format`}
+                          alt={product.name}
+                        />
+                      </AspectRatio>
+                      <ListItemContent>
+                        <Typography fontWeight="md">{product.name}</Typography>
+                        <Typography level="body-sm">
+                          Pret: {product.price}
+                        </Typography>
+                      </ListItemContent>
+                    </ListItem>
+                    {index !== cartData.length - 1 && <ListDivider />}
+                  </React.Fragment>
+                ))}
+              </List>
+            </Card>
+            <Typography level="body-lg" color="danger" p={1}>
+              Total: {totalPrice} RON
+            </Typography>
+            <Link to={"/checkout"}>
+              <Button sx={{ marginY: "10px" }} size="lg">
+                Cumpara produsele
+              </Button>
+            </Link>
+          </>
+        )}
+      </Cart>
     </>
   );
 };

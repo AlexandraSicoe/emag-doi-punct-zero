@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
+  const [cartData, setCartData] = useState([]);
+
   const navigate = useNavigate();
   const getProducts = async () => {
     try {
@@ -26,21 +28,16 @@ const HomePage = () => {
       navigate("/administrare", { replace: true }); // replace inlocuieste ruta precedenta in cazul asta "/" FOARTE IMPORTANT!!!!!!!!!!
     }
     getProducts();
-
-    // axios
-    //   .get("https://fakestoreapi.com/products")
-    //   .then((result) => {
-    //     console.log(result.data);
-    //     setProductList(result.data);
-    //   })
-    //   .catch((err) => {
-    //   });
+    let lsCart = localStorage.getItem("cart");
+    lsCart = JSON.parse(lsCart);
+    console.log(lsCart);
+    setCartData(lsCart ? lsCart : []);
   }, []);
   return (
     <>
-      <Navbar />
+      <Navbar cartData={cartData} />
       <h1>My Store</h1>
-      {productList?.length == 0 ? (
+      {productList?.length === 0 ? (
         <Box
           sx={{
             display: "flex",
@@ -61,7 +58,14 @@ const HomePage = () => {
           sx={{ gap: 2, m: 1 }}
         >
           {productList?.map((product, index) => {
-            return <ProductCard key={index} product={product} />;
+            return (
+              <ProductCard
+                key={index}
+                product={product}
+                setCartData={setCartData}
+                cartData={cartData}
+              />
+            );
           })}
         </Grid>
       )}
