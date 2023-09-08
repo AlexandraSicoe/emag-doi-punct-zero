@@ -188,7 +188,7 @@ const Navbar = ({ cartData }) => {
             </Typography>
             <Link to={"/checkout"}>
               <Button sx={{ marginY: "10px" }} size="lg">
-                Catre pagina de checkout
+                Cumpara produsele
               </Button>
             </Link>
           </>
