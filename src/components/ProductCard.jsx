@@ -35,7 +35,7 @@ const ProductCard = ({ product, setCartData, cartData }) => {
               ? genericProductImage
               : product.images[0]
           }
-          alt="product image"
+          alt="product"
         />
       </AspectRatio>
       <CardContent orientation="horizontal">
