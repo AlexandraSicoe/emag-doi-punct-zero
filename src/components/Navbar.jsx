@@ -9,7 +9,7 @@ import List from "@mui/joy/List";
 import ListDivider from "@mui/joy/ListDivider";
 import ListItem from "@mui/joy/ListItem";
 import ListItemContent from "@mui/joy/ListItemContent";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Cart from "./Cart.tsx";
 import genericProductImage from "../images/genericProduct.png";
@@ -17,6 +17,16 @@ import genericProductImage from "../images/genericProduct.png";
 const Navbar = ({ cartData }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    if (cartData) {
+      let sum = 0;
+      cartData.forEach((product) => {
+        sum = sum + product.price;
+      });
+      setTotalPrice(sum);
+    }
+  }, [cartData]);
+
   return (
     <>
       <Box sx={{ height: { xs: "112px", md: "40px" } }}></Box>
@@ -152,7 +162,9 @@ const Navbar = ({ cartData }) => {
             ))}
           </List>
         </Card>
-        <Typography level="body-md">Total:</Typography>
+        <Typography level="body-lg" color="danger" p={1}>
+          Total: {totalPrice} RON
+        </Typography>
         <Link to={"/"}>
           <Button sx={{ marginY: "10px" }} size="lg">
             Mergi spre checkout
