@@ -24,7 +24,7 @@ const ProductPage = () => {
         );
         setProductData(result.data);
       } else {
-        navigate("/404", { replace: true }); //in caz ca pagian este eronata, vrem cand dam inapoi ca pagina eronata sa fie ignorata, altfel este un infinite loop
+        navigate("/404", { replace: true }); //in caz ca pagina este eronata, vrem cand dam inapoi ca pagina eronata sa fie ignorata, altfel este un infinite loop
       }
     } catch (error) {
       console.log(error);
@@ -73,7 +73,7 @@ const ProductPage = () => {
                 <img
                   style={{ width: "100%" }}
                   src={productData.images[0]}
-                  alt="product image"
+                  alt="product"
                 />
                 <ReviewSection />
                 <Box sx={{ display: { xs: "none", md: "block" } }}>

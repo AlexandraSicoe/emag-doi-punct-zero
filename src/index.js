@@ -20,7 +20,6 @@ export default function App() {
           <Route path="/product" element={<ProductPage />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
-
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
