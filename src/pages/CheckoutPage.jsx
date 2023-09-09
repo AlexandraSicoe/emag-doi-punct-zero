@@ -57,13 +57,13 @@ const CheckoutPage = () => {
                 }}
               >
                 <img
-                  style={{ width: "120px" }}
+                  style={{ width: "120px", marginBottom: "10px" }}
                   src={product.images[0]}
                   alt="product"
                 />
-                <Typography level="h4">{product.name}</Typography>
+                <Typography level="h5">{product.name}</Typography>
                 <Typography
-                  level="h4"
+                  level="h5"
                   sx={{
                     marginBottom: "5px",
                   }}
@@ -71,23 +71,29 @@ const CheckoutPage = () => {
                   Vandut de: {product.user.name}
                 </Typography>
               </Box>
-              <Typography level="h3">${product.price}</Typography>
+              <Typography level="h4">{product.price} RON</Typography>
             </Box>
           );
         })}
         <Box
           sx={{
-            backgroundColor: "white",
             marginBottom: "15px",
             padding: "15px",
             display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            alignItems: "center",
+            flexDirection: "column",
           }}
         >
-          <Typography level="body-lg" p={1}>
+          <Typography level="body-md" p={1}>
             Cost produse: {totalPrice} RON
           </Typography>
+          <Typography level="body-md" p={1}>
+            Cost livrare si procesare: 0 RON
+          </Typography>
+        </Box>
+        <Box
+          sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}
+        >
+          {cartData?.map((product, index) => {})}
         </Box>
       </Grid>
     </>
