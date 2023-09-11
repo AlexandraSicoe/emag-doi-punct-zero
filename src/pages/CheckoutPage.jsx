@@ -1,12 +1,35 @@
 import { Box, Grid, Typography } from "@mui/joy";
-import Navbar from "../components/Navbar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 import { useEffect, useState } from "react";
 
 const CheckoutPage = () => {
   const [cartData, setCartData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const order = async () => {
+    try {
+      const result = await axios.post(
+        "http://161.35.202.134:3000/orders/order",
+        {
+          buyer: "user",
+          products: cartData,
+          totalPrice: totalPrice,
+        }
+      );
+      localStorage.setItem("user", JSON.stringify(result?.data?.user));
+      navigate("/");
+    } catch (error) {
+      const errorMessage = error?.response?.data?.error;
+      if (errorMessage) {
+        setErrorMessage(errorMessage);
+      }
+    }
+  };
 
   useEffect(() => {
     if (cartData) {
