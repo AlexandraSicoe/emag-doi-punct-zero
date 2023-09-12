@@ -4,8 +4,64 @@ import Order from "../components/Order";
 import Option from "@mui/joy/Option";
 import Select from "@mui/joy/Select";
 import * as React from "react";
+import Pagination from "@mui/material/Pagination";
+import useQuery from "../helpers/useQuery";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const Orders = () => {
+const Orders = ({ userId }) => {
+  const query = useQuery();
+  const navigate = useNavigate();
+  const [totalPages, setTotalPages] = useState(0);
+  const [orders, setOrders] = useState([]);
+  const [ordersPage, setOrdersPage] = useState(
+    Number(query.get("page")) ? Number(query.get("page")) : 1
+  );
+  const getOrders = async (value) => {
+    try {
+      let url;
+      if (value) {
+        url =
+          "http://161.35.202.134:3000/orders/user/" +
+          userId +
+          "/orders?page=" +
+          value;
+      } else {
+        url =
+          "http://161.35.202.134:3000/orders/user/" + userId + "/orders?page=1";
+      }
+      console.log(url);
+      const result = await axios.get(url);
+      console.log(result);
+      setTotalPages(result.data.totalPages);
+      setOrders(result.data.orders);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getOrders();
+  }, []);
+
+  useEffect(() => {
+    console.log(totalPages);
+
+    if (totalPages > 0) {
+      if (Number(query.get("page")) > totalPages) {
+        setOrdersPage(totalPages);
+        navigate("/account?m=orders&page=" + totalPages);
+      }
+    }
+  }, [totalPages]);
+
+  const handleChange = (event, value) => {
+    setOrdersPage(value);
+    navigate("/account?m=orders&page=" + value);
+    getOrders(value);
+  };
+
   return (
     <>
       <Grid
@@ -170,7 +226,20 @@ const Orders = () => {
             },
           }}
         >
-          <Order />
+          {orders.map((order, index) => {
+            <Box key={index}>
+              <Order />
+            </Box>;
+          })}
+
+          <Pagination
+            count={totalPages}
+            color="primary"
+            page={ordersPage}
+            showFirstButton
+            showLastButton
+            onChange={handleChange}
+          />
         </Grid>
       </Grid>
     </>

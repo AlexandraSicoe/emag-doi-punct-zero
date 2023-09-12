@@ -42,7 +42,7 @@ const ProductCard = ({ product, setCartData, cartData }) => {
         <div>
           <Typography level="body-xs">Total price:</Typography>
           <Typography fontSize="lg" fontWeight="lg">
-            ${product.price}
+            {product.price} RON
           </Typography>
         </div>
         <Button

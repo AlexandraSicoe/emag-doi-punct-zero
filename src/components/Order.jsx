@@ -24,8 +24,7 @@ const Order = () => {
         </Typography>
       </Box>
       <Typography level="body-md">
-        Produse vandute si livrate de Boutique Concept Store | Subtotal: 119,00
-        Lei
+        Produse vandute si livrate de Boutique Concept Store
       </Typography>
       <Box
         display="flex"

@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/joy";
+import { Box, Button, Grid, Typography } from "@mui/joy";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -8,20 +8,21 @@ import { useEffect, useState } from "react";
 const CheckoutPage = () => {
   const [cartData, setCartData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [userData, setUserData] = useState();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
 
-  const order = async () => {
+  const saveOrder = async () => {
     try {
       const result = await axios.post(
         "http://161.35.202.134:3000/orders/order",
         {
-          buyer: "user",
+          buyer: userData._id,
           products: cartData,
           totalPrice: totalPrice,
         }
       );
-      localStorage.setItem("user", JSON.stringify(result?.data?.user));
+      localStorage.removeItem("cart");
       navigate("/");
     } catch (error) {
       const errorMessage = error?.response?.data?.error;
@@ -46,7 +47,11 @@ const CheckoutPage = () => {
     lsCart = JSON.parse(lsCart);
     console.log(lsCart);
     setCartData(lsCart ? lsCart : []);
+    let lsUser = localStorage.getItem("user");
+    lsUser = JSON.parse(lsUser);
+    setUserData(lsUser);
   }, []);
+
   return (
     <>
       <Navbar cartData={cartData} />
@@ -98,25 +103,39 @@ const CheckoutPage = () => {
             </Box>
           );
         })}
+
         <Box
           sx={{
-            marginBottom: "15px",
-            padding: "15px",
-            display: "flex",
-            flexDirection: "column",
+            justifyContent: { xs: "center", md: "space-between" },
+            flexDirection: { xs: "column", md: "row" },
           }}
+          display="flex"
+          alignItems="center"
         >
-          <Typography level="body-md" p={1}>
-            Cost produse: {totalPrice} RON
-          </Typography>
-          <Typography level="body-md" p={1}>
-            Cost livrare si procesare: 0 RON
-          </Typography>
-        </Box>
-        <Box
-          sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}
-        >
-          {cartData?.map((product, index) => {})}
+          <Box
+            sx={{
+              marginBottom: { xs: "0px", md: "15px" },
+              padding: "15px",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Typography level="body-md" p={1}>
+              Cost produse: {totalPrice} RON
+            </Typography>
+            <Typography level="body-md" p={1}>
+              Cost livrare si procesare: 0 RON
+            </Typography>
+          </Box>
+          <Box sx={{ padding: "15px" }}>
+            <Button
+              onClick={() => {
+                saveOrder();
+              }}
+            >
+              Finalizeaza comanda
+            </Button>
+          </Box>
         </Box>
       </Grid>
     </>
