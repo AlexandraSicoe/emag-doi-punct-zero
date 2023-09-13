@@ -158,58 +158,6 @@ const Orders = ({ userId }) => {
           </Box>
         </Grid>
 
-        {/* <Grid
-          sx={{
-            padding: "15px",
-            backgroundColor: "white",
-            width: {
-              xs: "350px",
-              sm: "345px",
-              md: "1000px",
-            },
-            borderRadius: "16px",
-          }}
-        >
-          <Box
-            Box
-            display="flex"
-            justifyContent="space-between"
-            flexDirection="column"
-            sx={{
-              flexDirection: { xs: "column", md: "row" },
-              marginBottom: { xs: "10px", md: "10px" },
-              marginTop: { xs: "10px", md: "25px" },
-            }}
-          >
-            <Typography level="body-lg">Nr. comanda 316725420</Typography>
-            <Typography level="body-sm">
-              12 aug 2023, 12:11 • Total: 260,75 Lei
-            </Typography>
-          </Box>
-          <Typography level="body-md">
-            Produse vandute si livrate de GSM Arena | Subtotal: 24,99 Lei
-          </Typography>
-          <Box
-            display="flex"
-            flexDirection="row"
-            alignItems="center"
-            justifyContent="flex-start"
-            pt={1}
-          >
-            <Typography level="body-md" sx={{ color: "#0096FF" }}>
-              Acorda o nota vanzatorului
-            </Typography>
-            <Rating
-              halfFillMode="svg"
-              style={{ maxWidth: 100, marginLeft: "10px" }}
-              value={rating}
-              onChange={setRating}
-            />
-          </Box>
-          <Typography level="body-md" sx={{ color: "#0096FF" }}>
-            Produse ridicate
-          </Typography>
-        </Grid> */}
         <Grid
           display="flex"
           flexDirection="column"
@@ -227,11 +175,12 @@ const Orders = ({ userId }) => {
           }}
         >
           {orders.map((order, index) => {
-            <Box key={index}>
-              <Order />
-            </Box>;
+            return (
+              <Box key={index}>
+                <Order order={order} />
+              </Box>
+            );
           })}
-
           <Pagination
             count={totalPages}
             color="primary"
