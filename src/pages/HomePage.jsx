@@ -2,14 +2,21 @@ import { useEffect, useState } from "react";
 import CircularProgress from "@mui/joy/CircularProgress";
 import Navbar from "../components/Navbar";
 import axios from "axios";
-import { Box, Grid } from "@mui/joy";
+import { Box, Grid, Container, Typography, ListItemButton } from "@mui/joy";
 import ProductCard from "../components/ProductCard";
 import { useNavigate } from "react-router-dom";
+import Menu from "@mui/joy/Menu";
+import MenuButton from "@mui/joy/MenuButton";
+import MenuItem from "@mui/joy/MenuItem";
+import Dropdown from "@mui/joy/Dropdown";
+import Categories from "../helpers/categories.json";
+import List from "@mui/joy/List";
+import ListItem from "@mui/joy/ListItem";
 
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
   const [cartData, setCartData] = useState([]);
-
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const navigate = useNavigate();
   const getProducts = async () => {
     try {
@@ -36,7 +43,78 @@ const HomePage = () => {
   return (
     <>
       <Navbar cartData={cartData} />
-      <h1>My Store</h1>
+      <Box
+        sx={{
+          backgroundImage:
+            "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);",
+          height: { xs: "112px", md: "50px" },
+          width: "100%",
+        }}
+      >
+        {}
+        <Container
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            p: 2,
+          }}
+        >
+          <Dropdown open sx={{ position: "relative" }}>
+            <MenuButton size="sm" variant="soft">
+              Products
+            </MenuButton>
+            <Menu
+              sx={{ display: "flex", flexDirection: "row" }}
+              placement="top-start"
+            >
+              <Box>
+                {Categories.map((category, index) => {
+                  return (
+                    <MenuItem
+                      onClick={() => {
+                        setSelectedCategory(category);
+                      }}
+                      key={index}
+                      variant="plain"
+                    >
+                      <i className={"bi " + category.icon}></i>
+                      {category.title}
+                    </MenuItem>
+                  );
+                })}
+              </Box>
+              <Box
+                sx={{
+                  backgroundColor: "red",
+                  // position: "absolute",
+                  right: 0,
+                }}
+              >
+                {selectedCategory?.children.map((subcategory, subindex) => {
+                  return (
+                    <List key={subindex}>
+                      <ListItem>
+                        <ListItemButton>{subcategory.title}</ListItemButton>
+                        {subcategory.children.map(
+                          (subSubCategory, subSubIndex) => {
+                            return (
+                              <ListItemButton>
+                                {subSubCategory.title}
+                              </ListItemButton>
+                            );
+                          }
+                        )}
+                      </ListItem>
+                    </List>
+                  );
+                })}
+              </Box>
+            </Menu>
+          </Dropdown>
+        </Container>
+      </Box>
+
       {productList?.length === 0 ? (
         <Box
           sx={{
