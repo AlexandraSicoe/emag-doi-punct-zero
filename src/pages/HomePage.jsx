@@ -78,15 +78,17 @@ const HomePage = () => {
                       key={index}
                       variant="plain"
                     >
-                      <i className={"bi " + category.icon}></i>
-                      {category.title}
+                      <Typography level="h4">
+                        <i className={"bi " + category.icon}></i>
+                        {category.title}
+                      </Typography>
                     </MenuItem>
                   );
                 })}
               </Box>
               <Box
                 sx={{
-                  backgroundColor: "red",
+                  backgroundColor: "white",
                   // position: "absolute",
                   right: 0,
                 }}
@@ -95,12 +97,23 @@ const HomePage = () => {
                   return (
                     <List key={subindex}>
                       <ListItem>
-                        <ListItemButton>{subcategory.title}</ListItemButton>
+                        <Typography
+                          sx={{ marginRight: "15px", fontWeight: "bold" }}
+                          level="h5"
+                        >
+                          <ListItemButton>{subcategory.title}</ListItemButton>
+                        </Typography>
+
                         {subcategory.children.map(
                           (subSubCategory, subSubIndex) => {
                             return (
                               <ListItemButton>
-                                {subSubCategory.title}
+                                <Typography
+                                  sx={{ marginRight: "15px" }}
+                                  level="body1"
+                                >
+                                  {subSubCategory.title}
+                                </Typography>
                               </ListItemButton>
                             );
                           }
