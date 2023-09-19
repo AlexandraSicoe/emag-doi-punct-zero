@@ -78,7 +78,12 @@ const HomePage = () => {
                       key={index}
                       variant="plain"
                     >
-                      <Typography level="h4">
+                      <Typography
+                        sx={{
+                          fontWeight: "bold",
+                        }}
+                        level="h5"
+                      >
                         <i className={"bi " + category.icon}></i>
                         {category.title}
                       </Typography>
@@ -89,17 +94,23 @@ const HomePage = () => {
               <Box
                 sx={{
                   backgroundColor: "white",
-                  // position: "absolute",
                   right: 0,
+                  display: "flex",
+                  flexDirection: "row",
                 }}
               >
                 {selectedCategory?.children.map((subcategory, subindex) => {
                   return (
                     <List key={subindex}>
-                      <ListItem>
+                      <ListItem
+                        sx={{ display: "flex", flexDirection: "column" }}
+                      >
                         <Typography
-                          sx={{ marginRight: "15px", fontWeight: "bold" }}
-                          level="h5"
+                          sx={{
+                            marginRight: "15px",
+                            fontWeight: "bold",
+                          }}
+                          level="body-md"
                         >
                           <ListItemButton>{subcategory.title}</ListItemButton>
                         </Typography>
@@ -108,10 +119,7 @@ const HomePage = () => {
                           (subSubCategory, subSubIndex) => {
                             return (
                               <ListItemButton>
-                                <Typography
-                                  sx={{ marginRight: "15px" }}
-                                  level="body1"
-                                >
+                                <Typography level="body-sm">
                                   {subSubCategory.title}
                                 </Typography>
                               </ListItemButton>
