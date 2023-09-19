@@ -65,7 +65,11 @@ const HomePage = () => {
               Products
             </MenuButton>
             <Menu
-              sx={{ display: "flex", flexDirection: "row" }}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                padding: "0px",
+              }}
               placement="top-start"
             >
               <Box>
@@ -97,28 +101,53 @@ const HomePage = () => {
                   right: 0,
                   display: "flex",
                   flexDirection: "row",
+                  flexWrap: "wrap",
+                  width: "750px",
                 }}
               >
                 {selectedCategory?.children.map((subcategory, subindex) => {
                   return (
-                    <List key={subindex}>
+                    <List
+                      sx={{
+                        paddingRight: "0.75rem",
+                        paddingLeft: "0.75rem",
+                      }}
+                      key={subindex}
+                    >
                       <ListItem
-                        sx={{ display: "flex", flexDirection: "column" }}
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
                       >
                         <Typography
                           sx={{
-                            marginRight: "15px",
                             fontWeight: "bold",
                           }}
                           level="body-md"
                         >
-                          <ListItemButton>{subcategory.title}</ListItemButton>
+                          <ListItemButton
+                            sx={{
+                              paddingLeft: "0px",
+                              paddingRight: "0px",
+                            }}
+                          >
+                            {subcategory.title}
+                          </ListItemButton>
                         </Typography>
 
                         {subcategory.children.map(
                           (subSubCategory, subSubIndex) => {
                             return (
-                              <ListItemButton>
+                              <ListItemButton
+                                sx={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  padding: "0px",
+                                }}
+                              >
                                 <Typography level="body-sm">
                                   {subSubCategory.title}
                                 </Typography>
