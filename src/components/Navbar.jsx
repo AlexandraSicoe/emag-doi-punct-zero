@@ -44,11 +44,7 @@ const Navbar = ({ cartData }) => {
         <Container
           sx={{ display: "flex", justifyContent: "space-between", p: 1 }}
         >
-          <Link to="/">
-            <Typography level="h2" sx={{ color: "white" }}>
-              Emag 2.0
-            </Typography>
-          </Link>
+          <Link to="/"></Link>
 
           <Input
             sx={{
