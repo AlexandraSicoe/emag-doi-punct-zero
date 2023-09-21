@@ -11,7 +11,7 @@ import {
   Button,
 } from "@mui/joy";
 import ProductCard from "../components/ProductCard";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Menu from "@mui/joy/Menu";
 import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
@@ -170,18 +170,20 @@ const HomePage = () => {
             </Menu>
           </Dropdown>
           <Box>
-            <Button
-              size="sm"
-              variant="soft"
-              sx={{
-                color: "black",
-                marginRight: "5px",
-                backgroundColor: "white",
-                width: "90px",
-              }}
-            >
-              About us
-            </Button>
+            <Link to="/about-us">
+              <Button
+                size="sm"
+                variant="soft"
+                sx={{
+                  color: "black",
+                  marginRight: "5px",
+                  backgroundColor: "white",
+                  width: "90px",
+                }}
+              >
+                About us
+              </Button>
+            </Link>
             <Button
               size="sm"
               variant="soft"
