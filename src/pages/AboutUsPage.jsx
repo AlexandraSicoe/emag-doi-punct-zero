@@ -1,6 +1,6 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/joy";
-import Navbar from "../components/Navbar";
+import { Box, Button, Grid, Typography } from "@mui/joy";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const AboutUsPage = () => {
   return (
@@ -31,7 +31,10 @@ const AboutUsPage = () => {
           <Typography
             fontWeight="md"
             level="body-lg"
-            sx={{ width: "800px", paddingTop: "15px" }}
+            sx={{
+              width: { xs: "350px", sm: "345px", md: "400px" },
+              paddingTop: "15px",
+            }}
           >
             Plecând de la viziunea de a deveni cel mai mare ecosistem de comerț
             online din Europa Centrală și de Est, am reușit să construim o
@@ -45,7 +48,10 @@ const AboutUsPage = () => {
           <Typography
             level="body-lg"
             fontWeight="md"
-            sx={{ width: "800px", paddingTop: "15px" }}
+            sx={{
+              width: { xs: "350px", sm: "345px", md: "400px" },
+              paddingTop: "15px",
+            }}
           >
             La început, E20 a fost un mic magazin online, specializat în produse
             electro-IT. De atunci și până astăzi, timp de 20 de ani am căutat în
@@ -75,7 +81,7 @@ const AboutUsPage = () => {
           <Box
             sx={{
               display: "flex",
-              flexDirection: "row",
+              flexDirection: { xs: "column", md: "row" },
               flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
@@ -87,7 +93,7 @@ const AboutUsPage = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
+                alignItems: { xs: "center", md: "flex-start" },
                 margin: "15px",
               }}
             >
