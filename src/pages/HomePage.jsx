@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 import CircularProgress from "@mui/joy/CircularProgress";
 import Navbar from "../components/Navbar";
 import axios from "axios";
-import { Box, Grid, Container, Typography, ListItemButton } from "@mui/joy";
+import {
+  Box,
+  Grid,
+  Container,
+  Typography,
+  ListItemButton,
+  Button,
+} from "@mui/joy";
 import ProductCard from "../components/ProductCard";
 import { useNavigate } from "react-router-dom";
 import Menu from "@mui/joy/Menu";
@@ -57,7 +64,7 @@ const HomePage = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            p: 2,
+            p: 1,
           }}
         >
           <Dropdown open sx={{ position: "relative" }}>
@@ -162,6 +169,18 @@ const HomePage = () => {
               </Box>
             </Menu>
           </Dropdown>
+          <Box>
+            <Button
+              size="sm"
+              variant="soft"
+              sx={{ color: "black", marginRight: "5px" }}
+            >
+              About us
+            </Button>
+            <Button size="sm" variant="soft" sx={{ color: "black" }}>
+              Contact
+            </Button>
+          </Box>
         </Container>
       </Box>
 
