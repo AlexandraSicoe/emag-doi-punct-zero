@@ -23,7 +23,7 @@ import ListItem from "@mui/joy/ListItem";
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
   const [cartData, setCartData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(Categories[0]);
   const navigate = useNavigate();
   const getProducts = async () => {
     try {
@@ -173,11 +173,25 @@ const HomePage = () => {
             <Button
               size="sm"
               variant="soft"
-              sx={{ color: "black", marginRight: "5px" }}
+              sx={{
+                color: "black",
+                marginRight: "5px",
+                backgroundColor: "white",
+                width: "90px",
+              }}
             >
               About us
             </Button>
-            <Button size="sm" variant="soft" sx={{ color: "black" }}>
+            <Button
+              size="sm"
+              variant="soft"
+              sx={{
+                color: "black",
+                backgroundColor: "white",
+                marginLeft: "5px",
+                width: "90px",
+              }}
+            >
               Contact
             </Button>
           </Box>
