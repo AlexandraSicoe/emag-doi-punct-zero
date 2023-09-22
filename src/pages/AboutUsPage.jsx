@@ -32,7 +32,7 @@ const AboutUsPage = () => {
             fontWeight="md"
             level="body-lg"
             sx={{
-              width: { xs: "350px", sm: "345px", md: "400px" },
+              width: { xs: "350px", sm: "345px", md: "500px" },
               paddingTop: "15px",
             }}
           >
@@ -49,7 +49,7 @@ const AboutUsPage = () => {
             level="body-lg"
             fontWeight="md"
             sx={{
-              width: { xs: "350px", sm: "345px", md: "400px" },
+              width: { xs: "350px", sm: "345px", md: "500px" },
               paddingTop: "15px",
             }}
           >
