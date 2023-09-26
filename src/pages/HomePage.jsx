@@ -69,7 +69,6 @@ const HomePage = () => {
           width: "100%",
         }}
       >
-        {}
         <Container
           sx={{
             display: "flex",
@@ -78,8 +77,17 @@ const HomePage = () => {
             p: 1,
           }}
         >
-          <Dropdown open sx={{ position: "relative" }}>
-            <MenuButton size="sm" variant="soft">
+          <Dropdown open>
+            <MenuButton
+              size="sm"
+              variant="soft"
+              sx={{
+                backgroundColor: "white",
+                borderBottomLeftRadius: "0px",
+                borderBottomRightRadius: "0px",
+                border: "0px",
+              }}
+            >
               Products
             </MenuButton>
             <Menu
@@ -87,6 +95,9 @@ const HomePage = () => {
                 display: "flex",
                 flexDirection: "row",
                 padding: "0px",
+                marginTop: "-4px!important",
+                borderRadius: "0px",
+                border: "0px",
               }}
               placement="top-start"
             >
@@ -106,7 +117,7 @@ const HomePage = () => {
                         }}
                         level="h5"
                       >
-                        <i className={"bi " + category.icon}></i>
+                        <i className={category.icon}></i>
                         {category.title}
                       </Typography>
                     </MenuItem>
@@ -127,16 +138,15 @@ const HomePage = () => {
                   return (
                     <List
                       sx={{
-                        paddingRight: "0.75rem",
-                        paddingLeft: "0.75rem",
+                        paddingLeft: "10px",
+                        paddingBottom: "10px",
                       }}
                       key={subindex}
                     >
                       <ListItem
                         sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
+                          paddingLeft: "0px",
+                          paddingRight: "0px",
                         }}
                       >
                         <Typography
@@ -145,35 +155,32 @@ const HomePage = () => {
                           }}
                           level="body-md"
                         >
-                          <ListItemButton
-                            sx={{
-                              paddingLeft: "0px",
-                              paddingRight: "0px",
-                            }}
-                          >
-                            {subcategory.title}
-                          </ListItemButton>
+                          {subcategory.title}
                         </Typography>
-
-                        {subcategory.children.map(
-                          (subSubCategory, subSubIndex) => {
-                            return (
-                              <ListItemButton
-                                sx={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  alignItems: "flex-start",
-                                  padding: "0px",
-                                }}
-                              >
-                                <Typography level="body-sm">
-                                  {subSubCategory.title}
-                                </Typography>
-                              </ListItemButton>
-                            );
-                          }
-                        )}
                       </ListItem>
+
+                      {subcategory.children.map(
+                        (subSubCategory, subSubIndex) => {
+                          return (
+                            <Typography
+                              level="body-sm"
+                              key={subSubIndex}
+                              sx={{
+                                marginY: "3px",
+                                cursor: "pointer",
+                                "&:hover": {
+                                  backgroundColor: "lightblue",
+                                },
+                              }}
+                              onClick={() => {
+                                console.log("hello");
+                              }}
+                            >
+                              {subSubCategory.title}
+                            </Typography>
+                          );
+                        }
+                      )}
                     </List>
                   );
                 })}
