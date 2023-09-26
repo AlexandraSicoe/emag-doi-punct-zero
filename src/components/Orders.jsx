@@ -23,13 +23,9 @@ const Orders = ({ userId }) => {
       let url;
       if (value) {
         url =
-          "http://161.35.202.134:3000/orders/user/" +
-          userId +
-          "/orders?page=" +
-          value;
+          "https://e20.ro/api/orders/user/" + userId + "/orders?page=" + value;
       } else {
-        url =
-          "http://161.35.202.134:3000/orders/user/" + userId + "/orders?page=1";
+        url = "https://e20.ro/api/orders/user/" + userId + "/orders?page=1";
       }
       console.log(url);
       const result = await axios.get(url);

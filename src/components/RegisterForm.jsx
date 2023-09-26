@@ -25,14 +25,11 @@ const RegisterForm = ({ setFormState }) => {
   const registerUser = async () => {
     try {
       console.log(name, password, email);
-      const result = await axios.post(
-        "http://161.35.202.134:3000/user/register",
-        {
-          name: name.trim(), //trims unnecessary spaces from start and finish
-          password: password,
-          email: email,
-        }
-      );
+      const result = await axios.post("https://e20.ro/api/user/register", {
+        name: name.trim(), //trims unnecessary spaces from start and finish
+        password: password,
+        email: email,
+      });
       console.log(result);
       localStorage.setItem("user", JSON.stringify(result?.data?.user));
       navigate("/");

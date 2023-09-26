@@ -23,7 +23,7 @@ const LoginForm = ({ setFormState }) => {
   const loginUser = async () => {
     try {
       const result = await axios.post(
-        "http://161.35.202.134:3000/user/login",
+        "https://e20.ro/api/user/login",
         {
           email: email,
           password: password,

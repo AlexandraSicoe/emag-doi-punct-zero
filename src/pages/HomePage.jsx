@@ -23,15 +23,25 @@ import ListItem from "@mui/joy/ListItem";
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
   const [cartData, setCartData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(Categories[0]);
+  const [selectedCategory, setSelectedCategory] = useState();
+  const [categories, setCategories] = useState();
   const navigate = useNavigate();
   const getProducts = async () => {
     try {
       const result = await axios.get(
-        "http://161.35.202.134:3000/products?page=1&limit=50"
+        "https://e20.ro/api/products?page=1&limit=50"
       );
       console.log(result);
       setProductList(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getCategories = async () => {
+    try {
+      const result = await axios.get("https://e20.ro/api/categories");
+      setCategories(result.data);
+      setSelectedCategory(result.data[0]);
     } catch (error) {
       console.error(error);
     }
@@ -41,6 +51,7 @@ const HomePage = () => {
     if (!user) {
       navigate("/administrare", { replace: true }); // replace inlocuieste ruta precedenta in cazul asta "/" FOARTE IMPORTANT!!!!!!!!!!
     }
+    getCategories();
     getProducts();
     let lsCart = localStorage.getItem("cart");
     lsCart = JSON.parse(lsCart);
@@ -80,7 +91,7 @@ const HomePage = () => {
               placement="top-start"
             >
               <Box>
-                {Categories.map((category, index) => {
+                {categories?.map((category, index) => {
                   return (
                     <MenuItem
                       onClick={() => {

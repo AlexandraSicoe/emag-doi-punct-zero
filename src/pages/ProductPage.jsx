@@ -19,9 +19,7 @@ const ProductPage = () => {
     try {
       const id = query.get("id");
       if (id && id.length > 0) {
-        const result = await axios.get(
-          "http://161.35.202.134:3000/products/" + id
-        );
+        const result = await axios.get("https://e20.ro/api/products/" + id);
         setProductData(result.data);
       } else {
         navigate("/404", { replace: true }); //in caz ca pagina este eronata, vrem cand dam inapoi ca pagina eronata sa fie ignorata, altfel este un infinite loop

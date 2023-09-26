@@ -14,14 +14,11 @@ const CheckoutPage = () => {
 
   const saveOrder = async () => {
     try {
-      const result = await axios.post(
-        "http://161.35.202.134:3000/orders/order",
-        {
-          buyer: userData._id,
-          products: cartData,
-          totalPrice: totalPrice,
-        }
-      );
+      const result = await axios.post("https://e20.ro/api/orders/order", {
+        buyer: userData._id,
+        products: cartData,
+        totalPrice: totalPrice,
+      });
       localStorage.removeItem("cart");
       navigate("/");
     } catch (error) {
