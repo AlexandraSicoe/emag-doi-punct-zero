@@ -12,14 +12,13 @@ const AboutUsPage = () => {
         alignItems="center"
         flexDirection="column"
         backgroundColor="#F2F2F7"
-        p={3}
       >
         <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
           sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
             backgroundColor: "white",
             borderRadius: "16px",
             width: { xs: "350px", sm: "345px", md: "1000px" },
@@ -28,38 +27,62 @@ const AboutUsPage = () => {
           }}
         >
           <Typography level="h1">E20</Typography>
+          <Typography level="h3">
+            Magazin Online pentru Animale de Companie
+          </Typography>
           <Typography
             fontWeight="md"
             level="body-lg"
             sx={{
-              width: { xs: "350px", sm: "345px", md: "500px" },
-              paddingTop: "15px",
+              width: { xs: "350px", sm: "345px", md: "600px" },
+              padding: "15px",
             }}
           >
-            Plecând de la viziunea de a deveni cel mai mare ecosistem de comerț
-            online din Europa Centrală și de Est, am reușit să construim o
-            platformă universală de shopping prin care clienții pot cumpăra
-            orice au nevoie din milioanele de produse disponibile, oriunde și
-            oricând au nevoie.
+            Plecând de la viziunea de a deveni un ecosistem de comerț online
+            pentru iubitorii de animale de companie din Europa Centrală și de
+            Est, am reușit să construim o platformă universală de shopping prin
+            care clienții pot găsi tot ceea ce au nevoie pentru îngrijirea și
+            fericirea animalelor lor de companie, oriunde și oricând au nevoie.
           </Typography>
-          <Typography level="h1" sx={{ paddingTop: "15px" }}>
+          <Typography level="h2" sx={{ paddingTop: "15px" }}>
             Cine suntem?
           </Typography>
           <Typography
             level="body-lg"
             fontWeight="md"
             sx={{
-              width: { xs: "350px", sm: "345px", md: "500px" },
-              paddingTop: "15px",
+              width: { xs: "350px", sm: "345px", md: "600px" },
+              padding: "15px",
             }}
           >
             La început, E20 a fost un mic magazin online, specializat în produse
-            electro-IT. De atunci și până astăzi, timp de 20 de ani am căutat în
-            fiecare zi să ajungem mai departe și să facem mereu lucrurile mai
-            bine. Cu o misiune clară pentru clienții și partenerii noștri, dar
-            și pentru comunitățile în care activăm: să punem la dispoziția
-            tuturor servicii și produse care să le susțină progresul atât la
-            nivel individual, cât și la nivel de societate.
+            pentru animalele de companie. De atunci și până astăzi, timp de 20
+            de ani, am căutat în fiecare zi să ajungem mai departe și să facem
+            mereu lucrurile mai bine. Cu o misiune clară de a aduce în casele
+            dumneavoastră cele mai bune produse pentru câini, pisici și păsări,
+            suntem dedicați să vă susținem în îngrijirea și bucuria oferită de
+            animalele voastre de companie.
+          </Typography>
+
+          <Typography level="h2" sx={{ paddingTop: "15px" }}>
+            Misiunea Noastră
+          </Typography>
+          <Typography
+            level="body-lg"
+            fontWeight="md"
+            sx={{
+              width: { xs: "350px", sm: "345px", md: "600px" },
+              padding: "15px",
+            }}
+          >
+            Misiunea noastră este să vă ajutăm să oferiți celor mai buni
+            prieteni ai dumneavoastră viața fericită și sănătoasă pe care o
+            merită. Ne străduim să vă oferim cele mai bune produse și servicii,
+            astfel încât să puteți crea legături puternice și să vă bucurați de
+            fiecare moment petrecut alături de animalele voastre de companie.
+            Alăturați-vă comunității E20 și descoperiți o lume de produse pentru
+            animalele de companie, gândite pentru a satisface nevoile și
+            dorințele tuturor iubitorilor de animale.
           </Typography>
         </Box>
         <Box
@@ -71,7 +94,7 @@ const AboutUsPage = () => {
             backgroundColor: "white",
             borderRadius: "16px",
             width: { xs: "350px", sm: "345px", md: "1000px" },
-            marginTop: { xs: "0px", md: "25px" },
+            marginTop: { xs: "10px", md: "25px" },
             padding: "25px",
             display: "flex",
             flexDirection: "column",
@@ -85,7 +108,7 @@ const AboutUsPage = () => {
               flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
-              paddingTop: "15px",
+              padding: "15px",
               width: "700px",
             }}
           >
@@ -93,8 +116,8 @@ const AboutUsPage = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: { xs: "center", md: "flex-start" },
-                margin: "15px",
+                alignItems: { xs: "center" },
+                margin: "20px",
               }}
             >
               <img
@@ -115,13 +138,11 @@ const AboutUsPage = () => {
                     width: "40px",
                     marginTop: "5px",
                     marginBottom: "5px",
-                    backgroundColor: "red",
                   }}
                 ></div>
                 <Typography sx={{ width: "200px" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  laborum totam ab blanditiis vero aliquam possimus amet minima
-                  quam, sapiente eum!
+                  Pionierul nostru, o forță motrice în domeniul nostru călăuzind
+                  echipa către inovație și excelență în tehnologie.
                 </Typography>
               </Box>
             </Box>
@@ -144,20 +165,20 @@ const AboutUsPage = () => {
                 <Typography level="body-lg" fontWeight="lg">
                   Kate Bilyeu
                 </Typography>
-                <Typography level="body-md">Senior Product Designer</Typography>
+                <Typography level="body-md">
+                  Designer Senior de Produs
+                </Typography>
                 <div
                   style={{
                     borderBottom: "1px solid black",
                     width: "40px",
                     marginTop: "5px",
                     marginBottom: "5px",
-                    backgroundColor: "red",
                   }}
                 ></div>
                 <Typography sx={{ width: "200px" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  laborum totam ab blanditiis vero aliquam possimus amet minima
-                  quam, sapiente eum!
+                  Creativitatea ei ne aduce designuri inovatoare care
+                  îmbunătățesc experiența utilizatorilor.
                 </Typography>
               </Box>
             </Box>
@@ -187,13 +208,11 @@ const AboutUsPage = () => {
                   width: "40px",
                   marginTop: "5px",
                   marginBottom: "5px",
-                  backgroundColor: "red",
                 }}
               ></div>
               <Typography sx={{ width: "200px" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. laborum
-                totam ab blanditiis vero aliquam possimus amet minima quam,
-                sapiente eum!
+                Specialist în arta dezvoltării produselor pentru animale de
+                companie, pasionat de bunăstarea lor.
               </Typography>
             </Box>
 
@@ -216,20 +235,18 @@ const AboutUsPage = () => {
               <Typography level="body-lg" fontWeight="lg">
                 Mike Fairchild
               </Typography>
-              <Typography level="body-md">Senior Data Engineer</Typography>
+              <Typography level="body-md">Inginer Senior de Date</Typography>
               <div
                 style={{
                   borderBottom: "1px solid black",
                   width: "40px",
                   marginTop: "5px",
                   marginBottom: "5px",
-                  backgroundColor: "red",
                 }}
               ></div>
               <Typography sx={{ width: "200px" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. laborum
-                totam ab blanditiis vero aliquam possimus amet minima quam,
-                sapiente eum!
+                Analize profunde ale datelor, furnizând informații valoroase
+                pentru luarea deciziilor.
               </Typography>
             </Box>
             <Box
@@ -251,24 +268,22 @@ const AboutUsPage = () => {
               <Typography level="body-lg" fontWeight="lg">
                 Adam Gilinsky
               </Typography>
-              <Typography level="body-md">Product Manager</Typography>
+              <Typography level="body-md">Manager de Produs</Typography>
               <div
                 style={{
                   borderBottom: "1px solid black",
                   width: "40px",
                   marginTop: "5px",
                   marginBottom: "5px",
-                  backgroundColor: "red",
                 }}
               ></div>
               <Typography sx={{ width: "200px" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. laborum
-                totam ab blanditiis vero aliquam possimus amet minima quam,
-                sapiente eum!
+                Ghidul echipei noastre, asigurând dezvoltarea și lansarea cu
+                succes a produselor noastre.
               </Typography>
             </Box>
           </Box>
-          <Link to="#">
+          <Link to="/contact">
             <Button
               sx={{
                 marginTop: "15px",

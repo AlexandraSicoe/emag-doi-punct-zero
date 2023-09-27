@@ -202,18 +202,20 @@ const HomePage = () => {
                 About us
               </Button>
             </Link>
-            <Button
-              size="sm"
-              variant="soft"
-              sx={{
-                color: "black",
-                backgroundColor: "white",
-                marginLeft: "5px",
-                width: "90px",
-              }}
-            >
-              Contact
-            </Button>
+            <Link to="/contact">
+              <Button
+                size="sm"
+                variant="soft"
+                sx={{
+                  color: "black",
+                  backgroundColor: "white",
+                  marginLeft: "5px",
+                  width: "90px",
+                }}
+              >
+                Contact
+              </Button>
+            </Link>
           </Box>
         </Container>
       </Box>
