@@ -25,6 +25,7 @@ const HomePage = () => {
   const [cartData, setCartData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState();
   const [categories, setCategories] = useState();
+
   const navigate = useNavigate();
   const getProducts = async () => {
     try {
@@ -37,6 +38,7 @@ const HomePage = () => {
       console.error(error);
     }
   };
+
   const getCategories = async () => {
     try {
       const result = await axios.get("https://e20.ro/api/categories");
@@ -72,9 +74,8 @@ const HomePage = () => {
         <Container
           sx={{
             display: "flex",
-            justifyContent: "space-between",
             alignItems: "center",
-            p: 1,
+            padding: "5px",
           }}
         >
           <Dropdown open>
@@ -86,6 +87,7 @@ const HomePage = () => {
                 borderBottomLeftRadius: "0px",
                 borderBottomRightRadius: "0px",
                 border: "0px",
+                padding: "11px",
               }}
             >
               Products
@@ -171,7 +173,8 @@ const HomePage = () => {
                                 marginY: "3px",
                                 cursor: "pointer",
                                 "&:hover": {
-                                  borderBottom: "1px solid black",
+                                  textDecoration: "underline",
+                                  textUnderlineOffset: "8px",
                                 },
                               }}
                               onClick={() => {
@@ -189,34 +192,42 @@ const HomePage = () => {
               </Box>
             </Menu>
           </Dropdown>
-          <Box>
-            <Link to="/about-us">
-              <Button
-                size="xs"
-                variant="outlined"
-                sx={{
-                  color: "white",
-                  marginRight: "5px",
-                  padding: "5px",
-                }}
-              >
-                About us
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button
-                size="xs"
-                variant="outlined"
-                sx={{
-                  color: "white",
-                  marginLeft: "5px",
-                  padding: "5px",
-                }}
-              >
-                Contact
-              </Button>
-            </Link>
-          </Box>
+          <Link to="/about-us">
+            <Button
+              size="xs"
+              sx={{
+                backgroundColor: "transparent",
+                color: "white",
+                marginRight: "5px",
+                marginLeft: "10px",
+                padding: "8px",
+                "&:hover": {
+                  border: "1px solid white",
+                  backgroundColor: "transparent",
+                },
+              }}
+            >
+              About us
+            </Button>
+          </Link>
+          <Link to="/contact">
+            <Button
+              size="xs"
+              sx={{
+                backgroundColor: "transparent",
+                color: "white",
+                marginRight: "5px",
+                marginLeft: "10px",
+                padding: "8px",
+                "&:hover": {
+                  border: "1px solid white",
+                  backgroundColor: "transparent",
+                },
+              }}
+            >
+              Contact
+            </Button>
+          </Link>
         </Container>
       </Box>
 
