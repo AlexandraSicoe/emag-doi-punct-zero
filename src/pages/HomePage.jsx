@@ -65,7 +65,7 @@ const HomePage = () => {
         sx={{
           backgroundImage:
             "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);",
-          height: { xs: "112px", md: "50px" },
+          height: { xs: "112px", md: "40px" },
           width: "100%",
         }}
       >
@@ -166,10 +166,12 @@ const HomePage = () => {
                               level="body-sm"
                               key={subSubIndex}
                               sx={{
+                                paddingY: "5px",
+                                paddingX: "2px",
                                 marginY: "3px",
                                 cursor: "pointer",
                                 "&:hover": {
-                                  backgroundColor: "lightblue",
+                                  borderBottom: "1px solid black",
                                 },
                               }}
                               onClick={() => {
@@ -190,13 +192,12 @@ const HomePage = () => {
           <Box>
             <Link to="/about-us">
               <Button
-                size="sm"
-                variant="soft"
+                size="xs"
+                variant="outlined"
                 sx={{
-                  color: "black",
+                  color: "white",
                   marginRight: "5px",
-                  backgroundColor: "white",
-                  width: "90px",
+                  padding: "5px",
                 }}
               >
                 About us
@@ -204,13 +205,12 @@ const HomePage = () => {
             </Link>
             <Link to="/contact">
               <Button
-                size="sm"
-                variant="soft"
+                size="xs"
+                variant="outlined"
                 sx={{
-                  color: "black",
-                  backgroundColor: "white",
+                  color: "white",
                   marginLeft: "5px",
-                  width: "90px",
+                  padding: "5px",
                 }}
               >
                 Contact

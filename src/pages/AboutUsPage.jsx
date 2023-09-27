@@ -86,10 +86,6 @@ const AboutUsPage = () => {
           </Typography>
         </Box>
         <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
           sx={{
             backgroundColor: "white",
             borderRadius: "16px",
@@ -98,9 +94,10 @@ const AboutUsPage = () => {
             padding: "25px",
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Typography level="h1">Meet the team</Typography>
+          <Typography level="h1">Întâlnește echipa</Typography>
           <Box
             sx={{
               display: "flex",
@@ -108,16 +105,15 @@ const AboutUsPage = () => {
               flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
-              padding: "15px",
-              width: "700px",
+              padding: "20px",
             }}
           >
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: { xs: "center" },
-                margin: "20px",
+                margin: "15px",
+                marginTop: "5px",
               }}
             >
               <img
@@ -136,13 +132,11 @@ const AboutUsPage = () => {
                   style={{
                     borderBottom: "1px solid black",
                     width: "40px",
-                    marginTop: "5px",
-                    marginBottom: "5px",
                   }}
                 ></div>
                 <Typography sx={{ width: "200px" }}>
                   Pionierul nostru, o forță motrice în domeniul nostru călăuzind
-                  echipa către inovație și excelență în tehnologie.
+                  echipa către excelență în tehnologie.
                 </Typography>
               </Box>
             </Box>
@@ -199,7 +193,7 @@ const AboutUsPage = () => {
                 src="https://images.unsplash.com/photo-1587723958656-ee042cc565a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
               />
               <Typography level="body-lg" fontWeight="lg">
-                Arwen
+                Luna
               </Typography>
               <Typography level="body-md">Lead Purrgrammer</Typography>
               <div
