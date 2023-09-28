@@ -3,8 +3,53 @@ import Navbar from "../components/Navbar";
 import Input from "@mui/joy/Input";
 import Textarea from "@mui/joy/Textarea";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Alert from "@mui/joy/Alert";
+import WarningIcon from "@mui/icons-material/Warning";
+import { useEffect, useState } from "react";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const ContactPage = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  useEffect(() => {
+    if (errorMessage.length > 0) {
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 3000);
+    }
+    if (successMessage.length > 0) {
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
+    }
+  }, [errorMessage, successMessage]);
+  const submitForm = async () => {
+    try {
+      const result = await axios.post("https://e20.ro/api/user/contact", {
+        name: name,
+        email: email,
+        message: message,
+      });
+      console.log(result);
+      if (result.data.message === "Mesaj trimis cu success!") {
+        setName("");
+        setEmail("");
+        setMessage("");
+        setSuccessMessage(result.data.message);
+      }
+    } catch (error) {
+      console.error(error.response.data.error);
+      const errorMessage = error?.response?.data?.error;
+      if (errorMessage) {
+        setErrorMessage(errorMessage);
+      }
+    }
+  };
   return (
     <>
       <Box
@@ -32,6 +77,7 @@ const ContactPage = () => {
         </Typography>
         <Grid
           sx={{
+            p: 5,
             display: "flex",
             justifyContent: "space-around",
             flexDirection: { xs: "column", sm: "column", md: "row" },
@@ -39,42 +85,69 @@ const ContactPage = () => {
         >
           <Box
             sx={{
+              m: 5,
               backgroundColor: "white",
               borderRadius: "16px",
-              width: { xs: "350px", sm: "345px", md: "700px" },
+              width: { xs: "350px", sm: "345px", md: "1000px" },
               padding: "20px",
             }}
           >
-            <Typography
+            {/* <Typography
               level="h5"
               sx={{ paddingBottom: "10px", paddingTop: "10px" }}
             >
               Dacă doriți să luați legătura cu noi sau aveți întrebări, suntem
               aici pentru dumneavoastră. Puteți să ne contactați prin
               intermediul următoarelor metode:
-            </Typography>
+            </Typography> */}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography level="h5" sx={{ fontWeight: "bold" }}>
+                Adresa Noastră
+              </Typography>
+              <Typography
+                level="h5"
+                sx={{
+                  paddingBottom: "10px",
+                  paddingTop: "10px",
+                  width: "700px",
+                }}
+              >
+                Ne găsiți la adresa: Strada Imaginatiei, nr. 10-28, Creative
+                Office Park, Emerald Tower, Bucuresti, Romania
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography level="h5" sx={{ fontWeight: "bold" }}>
+                Program de Lucru
+              </Typography>
+              <Typography
+                level="h5"
+                sx={{
+                  paddingBottom: "10px",
+                  paddingTop: "10px",
+                  width: "700px",
+                }}
+              >
+                Suntem disponibili pentru dumneavoastră de luni până vineri,
+                între orele 9:00 și 18:00. Echipa noastră profesionistă este
+                gata să vă asiste și să răspundă la întrebările dumneavoastră.
+              </Typography>
+            </Box>
 
-            <Typography level="h5" sx={{ fontWeight: "bold" }}>
-              Adresa Noastră
-            </Typography>
-            <Typography
-              level="h5"
-              sx={{ paddingBottom: "10px", paddingTop: "10px" }}
-            >
-              Ne găsiți la adresa: Strada Imaginatiei, nr. 10-28, Creative
-              Office Park, Emerald Tower, Bucuresti, Romania
-            </Typography>
-            <Typography level="h5" sx={{ fontWeight: "bold" }}>
-              Program de Lucru
-            </Typography>
-            <Typography
-              level="h5"
-              sx={{ paddingBottom: "10px", paddingTop: "10px" }}
-            >
-              Suntem disponibili pentru dumneavoastră de luni până vineri, între
-              orele 9:00 și 18:00. Echipa noastră profesionistă este gata să vă
-              asiste și să răspundă la întrebările dumneavoastră.
-            </Typography>
             <Typography level="h5" sx={{ fontWeight: "bold" }}>
               Date de Contact
             </Typography>
@@ -136,21 +209,40 @@ const ContactPage = () => {
               borderRadius: "16px",
               width: { xs: "350px", sm: "345px", md: "700px" },
               padding: "20px",
+              m: 5,
             }}
           >
             <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                submitForm();
+              }}
               sx={{
                 display: "flex",
                 alignItems: "flex-start",
                 flexDirection: "column",
               }}
             >
+              <Typography
+                level="h3"
+                sx={{
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  marginBottom: "25px",
+                }}
+              >
+                Formular de contact
+              </Typography>
               <FormLabel sx={{ fontSize: "20px", marginBottom: "5px" }}>
                 Nume și prenume:
               </FormLabel>
               <Input
                 sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
                 type="text"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
               />
               <FormLabel sx={{ fontSize: "20px", marginBottom: "5px" }}>
                 Adresa de email:
@@ -158,6 +250,10 @@ const ContactPage = () => {
               <Input
                 sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
                 type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
                 required
               />
               <FormLabel sx={{ fontSize: "20px", marginBottom: "5px" }}>
@@ -166,22 +262,58 @@ const ContactPage = () => {
               <Textarea
                 sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
                 size="md"
+                value={message}
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
                 minRows={5}
               />
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Button
+                  disabled={
+                    name.length === 0 ||
+                    email.length === 0 ||
+                    message.length === 0
+                  }
+                  type="submit"
+                  size="lg"
+                  sx={{
+                    width: "100px",
+                    backgroundImage:
+                      "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);",
+                  }}
+                >
+                  Trimite
+                </Button>
+              </Box>
             </form>
-
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "flex-end",
-              }}
-            >
-              <Button size="md" sx={{ width: "100px" }}>
-                Trimite
-              </Button>
-            </Box>
           </Box>
         </Grid>
+        {errorMessage.length > 0 && (
+          <Alert
+            startDecorator={<WarningIcon />}
+            variant="solid"
+            color="danger"
+            sx={{ position: "fixed", bottom: "10px", right: "10px" }}
+          >
+            {errorMessage}
+          </Alert>
+        )}
+        {successMessage.length > 0 && (
+          <Alert
+            startDecorator={<CheckCircleIcon />}
+            variant="solid"
+            color="success"
+            sx={{ position: "fixed", bottom: "10px", right: "10px" }}
+          >
+            {successMessage}
+          </Alert>
+        )}
       </Box>
     </>
   );

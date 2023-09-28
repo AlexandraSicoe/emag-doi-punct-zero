@@ -74,7 +74,7 @@ const AccountPage = () => {
               >
                 <img
                   src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                  alt="profile picture"
+                  alt="profile"
                   style={{
                     borderRadius: "50%",
                     height: "75px",
@@ -101,7 +101,7 @@ const AccountPage = () => {
                 <ListItem>
                   <ListItemButton
                     sx={
-                      whatOptionVisible == ""
+                      whatOptionVisible === ""
                         ? {
                             backgroundImage:
                               "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
@@ -127,7 +127,7 @@ const AccountPage = () => {
                       navigate("/account?m=account");
                     }}
                     sx={
-                      whatOptionVisible == "account"
+                      whatOptionVisible === "account"
                         ? {
                             backgroundImage:
                               "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
@@ -149,7 +149,7 @@ const AccountPage = () => {
                       navigate("/account?m=orders");
                     }}
                     sx={
-                      whatOptionVisible == "orders"
+                      whatOptionVisible === "orders"
                         ? {
                             backgroundImage:
                               "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
@@ -171,7 +171,7 @@ const AccountPage = () => {
                       navigate("/account?m=review");
                     }}
                     sx={
-                      whatOptionVisible == "review"
+                      whatOptionVisible === "review"
                         ? {
                             backgroundImage:
                               "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
@@ -238,7 +238,7 @@ const AccountPage = () => {
                   >
                     <img
                       src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                      alt="profile picture"
+                      alt="profile"
                       style={{
                         borderRadius: "50%",
                         height: "100px",
@@ -269,11 +269,11 @@ const AccountPage = () => {
                   </Box>
                 </Box>
               </Box>
-              {whatOptionVisible == "account" && <AccountEditForm />}
-              {whatOptionVisible == "orders" && (
+              {whatOptionVisible === "account" && <AccountEditForm />}
+              {whatOptionVisible === "orders" && (
                 <Orders userId={userData._id} />
               )}
-              {whatOptionVisible == "review" && <MyReviews />}
+              {whatOptionVisible === "review" && <MyReviews />}
             </Grid>
           </Grid>
         </>
