@@ -8,6 +8,7 @@ import Alert from "@mui/joy/Alert";
 import WarningIcon from "@mui/icons-material/Warning";
 import { useEffect, useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import MenuDropdown from "../components/MenuDropdown";
 
 const ContactPage = () => {
   const [name, setName] = useState("");
@@ -69,6 +70,8 @@ const ContactPage = () => {
         }}
       >
         <Navbar />
+        <MenuDropdown />
+
         <Typography
           level="h1"
           sx={{
