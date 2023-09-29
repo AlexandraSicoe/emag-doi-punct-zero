@@ -10,14 +10,17 @@ import ListDivider from "@mui/joy/ListDivider";
 import ListItem from "@mui/joy/ListItem";
 import ListItemContent from "@mui/joy/ListItemContent";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cart from "./Cart.tsx";
 import genericProductImage from "../images/genericProduct.png";
 import InfoIcon from "@mui/icons-material/Info";
+import Logo from "../images/logo.png";
 
 const Navbar = ({ cartData }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (cartData) {
       let sum = 0;
@@ -30,7 +33,7 @@ const Navbar = ({ cartData }) => {
 
   return (
     <>
-      <Box sx={{ height: { xs: "112px", md: "40px" } }}></Box>
+      <Box sx={{ height: { xs: "112px", md: "50px" } }}></Box>
       <Box
         sx={{
           backgroundColor: "black",
@@ -42,13 +45,19 @@ const Navbar = ({ cartData }) => {
         }}
       >
         <Container
-          sx={{ display: "flex", justifyContent: "space-between", p: 1 }}
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
         >
-          <Link to="/">
-            <Typography level="h2" sx={{ color: "white" }}>
-              Emag 2.0
-            </Typography>
-          </Link>
+          <img
+            onClick={() => {
+              navigate("/");
+            }}
+            style={{ height: "50px", padding: "3px", cursor: "pointer" }}
+            src={Logo}
+          />
 
           <Input
             sx={{
@@ -98,7 +107,6 @@ const Navbar = ({ cartData }) => {
           sx={{
             display: { xs: "flex", md: "none" },
             justifyContent: "space-between",
-            p: 1,
           }}
         >
           <Input

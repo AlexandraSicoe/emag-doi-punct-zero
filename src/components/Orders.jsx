@@ -4,8 +4,54 @@ import Order from "../components/Order";
 import Option from "@mui/joy/Option";
 import Select from "@mui/joy/Select";
 import * as React from "react";
+import Pagination from "@mui/material/Pagination";
+import useQuery from "../helpers/useQuery";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const Orders = () => {
+const Orders = ({ userId }) => {
+  const query = useQuery();
+  const navigate = useNavigate();
+  const [totalPages, setTotalPages] = useState(0);
+  const [orders, setOrders] = useState([]);
+  const [ordersPage, setOrdersPage] = useState(
+    Number(query.get("page")) ? Number(query.get("page")) : 1
+  );
+  const getOrders = async (value) => {
+    try {
+      let url;
+      if (value) {
+        url =
+          "https://e20.ro/api/orders/user/" + userId + "/orders?page=" + value;
+      } else {
+        url = "https://e20.ro/api/orders/user/" + userId + "/orders?page=1";
+      }
+      const result = await axios.get(url);
+      setTotalPages(result.data.totalPages);
+      setOrders(result.data.orders);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getOrders();
+  }, []);
+
+  useEffect(() => {
+    if (totalPages > 0) {
+      if (Number(query.get("page")) > totalPages) {
+        setOrdersPage(totalPages);
+        navigate("/account?m=orders&page=" + totalPages);
+      }
+    }
+  }, [totalPages]);
+
+  const handleChange = (event, value) => {
+    setOrdersPage(value);
+    navigate("/account?m=orders&page=" + value);
+    getOrders(value);
+  };
+
   return (
     <>
       <Grid
@@ -102,58 +148,6 @@ const Orders = () => {
           </Box>
         </Grid>
 
-        {/* <Grid
-          sx={{
-            padding: "15px",
-            backgroundColor: "white",
-            width: {
-              xs: "350px",
-              sm: "345px",
-              md: "1000px",
-            },
-            borderRadius: "16px",
-          }}
-        >
-          <Box
-            Box
-            display="flex"
-            justifyContent="space-between"
-            flexDirection="column"
-            sx={{
-              flexDirection: { xs: "column", md: "row" },
-              marginBottom: { xs: "10px", md: "10px" },
-              marginTop: { xs: "10px", md: "25px" },
-            }}
-          >
-            <Typography level="body-lg">Nr. comanda 316725420</Typography>
-            <Typography level="body-sm">
-              12 aug 2023, 12:11 • Total: 260,75 Lei
-            </Typography>
-          </Box>
-          <Typography level="body-md">
-            Produse vandute si livrate de GSM Arena | Subtotal: 24,99 Lei
-          </Typography>
-          <Box
-            display="flex"
-            flexDirection="row"
-            alignItems="center"
-            justifyContent="flex-start"
-            pt={1}
-          >
-            <Typography level="body-md" sx={{ color: "#0096FF" }}>
-              Acorda o nota vanzatorului
-            </Typography>
-            <Rating
-              halfFillMode="svg"
-              style={{ maxWidth: 100, marginLeft: "10px" }}
-              value={rating}
-              onChange={setRating}
-            />
-          </Box>
-          <Typography level="body-md" sx={{ color: "#0096FF" }}>
-            Produse ridicate
-          </Typography>
-        </Grid> */}
         <Grid
           display="flex"
           flexDirection="column"
@@ -170,7 +164,21 @@ const Orders = () => {
             },
           }}
         >
-          <Order />
+          {orders.map((order, index) => {
+            return (
+              <Box key={index}>
+                <Order order={order} />
+              </Box>
+            );
+          })}
+          <Pagination
+            count={totalPages}
+            color="primary"
+            page={ordersPage}
+            showFirstButton
+            showLastButton
+            onChange={handleChange}
+          />
         </Grid>
       </Grid>
     </>

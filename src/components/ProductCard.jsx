@@ -35,14 +35,14 @@ const ProductCard = ({ product, setCartData, cartData }) => {
               ? genericProductImage
               : product.images[0]
           }
-          alt="product image"
+          alt="product"
         />
       </AspectRatio>
       <CardContent orientation="horizontal">
         <div>
           <Typography level="body-xs">Total price:</Typography>
           <Typography fontSize="lg" fontWeight="lg">
-            ${product.price}
+            {product.price} RON
           </Typography>
         </div>
         <Button
