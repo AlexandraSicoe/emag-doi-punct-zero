@@ -201,6 +201,8 @@ const HomePage = () => {
                 marginRight: "5px",
                 marginLeft: "10px",
                 padding: "8px",
+                border: "1px solid transparent",
+
                 "&:hover": {
                   border: "1px solid white",
                   backgroundColor: "transparent",
@@ -219,6 +221,8 @@ const HomePage = () => {
                 marginRight: "5px",
                 marginLeft: "10px",
                 padding: "8px",
+                border: "1px solid transparent",
+
                 "&:hover": {
                   border: "1px solid white",
                   backgroundColor: "transparent",
