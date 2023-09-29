@@ -27,14 +27,10 @@ const Orders = ({ userId }) => {
       } else {
         url = "https://e20.ro/api/orders/user/" + userId + "/orders?page=1";
       }
-      console.log(url);
       const result = await axios.get(url);
-      console.log(result);
       setTotalPages(result.data.totalPages);
       setOrders(result.data.orders);
-    } catch (error) {
-      console.error(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -42,8 +38,6 @@ const Orders = ({ userId }) => {
   }, []);
 
   useEffect(() => {
-    console.log(totalPages);
-
     if (totalPages > 0) {
       if (Number(query.get("page")) > totalPages) {
         setOrdersPage(totalPages);

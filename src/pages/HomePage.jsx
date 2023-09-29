@@ -16,7 +16,6 @@ import Menu from "@mui/joy/Menu";
 import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import Dropdown from "@mui/joy/Dropdown";
-import Categories from "../helpers/categories.json";
 import List from "@mui/joy/List";
 import ListItem from "@mui/joy/ListItem";
 
@@ -119,7 +118,7 @@ const HomePage = () => {
                         }}
                         level="h5"
                       >
-                        <i className={category.icon}></i>
+                        <i className={"fa-solid " + category.icon}></i>
                         {category.title}
                       </Typography>
                     </MenuItem>
@@ -157,6 +156,7 @@ const HomePage = () => {
                           }}
                           level="body-md"
                         >
+                          <i className={"fa-solid " + subcategory.icon}></i>
                           {subcategory.title}
                         </Typography>
                       </ListItem>
