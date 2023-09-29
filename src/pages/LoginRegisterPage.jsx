@@ -9,6 +9,12 @@ const LoginRegisterPage = () => {
     <Box
       display="flex"
       sx={{
+        backgroundImage: {
+          xs:
+            "url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80)",
+          md: "none",
+        },
+        backgroundSize: "cover",
         width: "100vw",
         height: "100vh",
         m: 0,
@@ -20,9 +26,12 @@ const LoginRegisterPage = () => {
     >
       <Box
         sx={{
-          width: "50%",
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80)",
+          width: { xs: "0px", md: "50%" },
+          backgroundImage: {
+            xs: "none",
+            md:
+              "url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80)",
+          },
           backgroundSize: "cover",
         }}
       ></Box>
@@ -30,7 +39,10 @@ const LoginRegisterPage = () => {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        sx={{ width: "50%" }}
+        sx={{
+          width: { xs: "100%", md: "50%" },
+          backgroundColor: { xs: "rgba(255,255,255,0.3)", md: "transparent" },
+        }}
       >
         {formState ? (
           <RegisterForm setFormState={setFormState} />

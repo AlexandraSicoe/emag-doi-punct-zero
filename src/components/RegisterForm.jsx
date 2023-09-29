@@ -101,6 +101,9 @@ const RegisterForm = ({ setFormState }) => {
           <Button type="submit">Register</Button>
           <Button
             variant="outlined"
+            sx={{
+              backgroundColor: { xs: "white", md: "transparent" },
+            }}
             onClick={() => {
               setFormState(false);
             }}

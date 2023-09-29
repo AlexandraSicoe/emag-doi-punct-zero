@@ -81,6 +81,9 @@ const LoginForm = ({ setFormState }) => {
         <Box display="flex" justifyContent="space-between">
           <Button type="submit">Login</Button>
           <Button
+            sx={{
+              backgroundColor: { xs: "white", md: "transparent" },
+            }}
             variant="outlined"
             onClick={() => {
               setFormState(true);
