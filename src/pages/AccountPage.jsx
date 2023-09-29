@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AccountEditForm from "../components/AccountEditForm";
 import Navbar from "../components/Navbar";
+import MenuDropdown from "../components/MenuDropdown";
 import Orders from "../components/Orders";
 import MyReviews from "../components/MyReviews";
 import useQuery from "../helpers/useQuery";
@@ -41,6 +42,7 @@ const AccountPage = () => {
       {userData ? (
         <>
           <Navbar />
+          <MenuDropdown />
           <Grid
             p={2}
             backgroundColor="#F2F2F7"

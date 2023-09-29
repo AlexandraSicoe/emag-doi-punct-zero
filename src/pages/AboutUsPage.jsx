@@ -1,11 +1,14 @@
 import { Box, Button, Grid, Typography } from "@mui/joy";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import MenuDropdown from "../components/MenuDropdown";
 
 const AboutUsPage = () => {
   return (
     <>
       <Navbar />
+      <MenuDropdown />
+
       <Grid
         display="flex"
         justifyContent="center"
