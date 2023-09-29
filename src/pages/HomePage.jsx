@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
+import { Box, Grid } from "@mui/joy";
 import CircularProgress from "@mui/joy/CircularProgress";
-import Navbar from "../components/Navbar";
 import axios from "axios";
-import {
-  Box,
-  Grid,
-  Container,
-  Typography,
-  ListItemButton,
-  Button,
-} from "@mui/joy";
-import ProductCard from "../components/ProductCard";
-import { Link, useNavigate } from "react-router-dom";
-import Menu from "@mui/joy/Menu";
-import MenuButton from "@mui/joy/MenuButton";
-import MenuItem from "@mui/joy/MenuItem";
-import Dropdown from "@mui/joy/Dropdown";
-import List from "@mui/joy/List";
-import ListItem from "@mui/joy/ListItem";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MenuDropdown from "../components/MenuDropdown";
+import Navbar from "../components/Navbar";
+import ProductCard from "../components/ProductCard";
 
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
