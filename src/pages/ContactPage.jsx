@@ -15,6 +15,7 @@ const ContactPage = () => {
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [buttonMessage, setButtonMessage] = useState("");
 
   useEffect(() => {
     if (errorMessage.length > 0) {
@@ -27,20 +28,29 @@ const ContactPage = () => {
         setSuccessMessage("");
       }, 3000);
     }
-  }, [errorMessage, successMessage]);
+    if (buttonMessage.length > 0) {
+      setTimeout(() => {
+        setButtonMessage("");
+      }, 3000);
+    }
+  }, [errorMessage, successMessage, buttonMessage]);
   const submitForm = async () => {
     try {
-      const result = await axios.post("https://e20.ro/api/user/contact", {
-        name: name,
-        email: email,
-        message: message,
-      });
-      console.log(result);
-      if (result.data.message === "Mesaj trimis cu success!") {
-        setName("");
-        setEmail("");
-        setMessage("");
-        setSuccessMessage(result.data.message);
+      if (name === "" || email === "" || message === "") {
+        setButtonMessage("Completați formularul");
+      } else {
+        const result = await axios.post("https://e20.ro/api/user/contact", {
+          name: name,
+          email: email,
+          message: message,
+        });
+        console.log(result);
+        if (result.data.message === "Mesaj trimis cu success!") {
+          setName("");
+          setEmail("");
+          setMessage("");
+          setSuccessMessage(result.data.message);
+        }
       }
     } catch (error) {
       console.error(error.response.data.error);
@@ -342,7 +352,6 @@ const ContactPage = () => {
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-                required
               />
               <FormLabel sx={{ fontSize: "20px", marginBottom: "5px" }}>
                 Scrie mesajul aici:
@@ -363,17 +372,13 @@ const ContactPage = () => {
                 }}
               >
                 <Button
-                  disabled={
-                    name.length === 0 ||
-                    email.length === 0 ||
-                    message.length === 0
-                  }
                   type="submit"
                   size="lg"
                   sx={{
                     width: "100px",
                     backgroundImage:
                       "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);",
+                    color: "white!important",
                   }}
                 >
                   Trimite
@@ -400,6 +405,16 @@ const ContactPage = () => {
             sx={{ position: "fixed", bottom: "10px", right: "10px" }}
           >
             {successMessage}
+          </Alert>
+        )}
+        {buttonMessage.length > 0 && (
+          <Alert
+            startDecorator={<WarningIcon />}
+            variant="solid"
+            color="warning"
+            sx={{ position: "fixed", bottom: "10px", right: "10px" }}
+          >
+            {buttonMessage}
           </Alert>
         )}
       </Box>
