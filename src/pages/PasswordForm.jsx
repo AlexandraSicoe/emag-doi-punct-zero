@@ -37,7 +37,7 @@ const PasswordForm = () => {
           </Typography>
         </FormLabel>
         <Input
-          startDecorator={<EmailIcon />}
+          startDecorator={<EmailIcon sx={{ color: "#FA8072" }} />}
           type="email"
           placeholder="Adresa dvs. de email"
           required

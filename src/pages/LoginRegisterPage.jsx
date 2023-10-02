@@ -53,7 +53,19 @@ const LoginRegisterPage = () => {
         )}
         <Box>
           <Link to="/password-form">
-            <Typography>Ai uitat parola?</Typography>
+            <Typography
+              sx={{
+                paddingTop: "5px",
+                fontSize: "15px",
+                color: "#1E90FF",
+                "&:hover": {
+                  textDecoration: "underline",
+                  color: "#00308F",
+                },
+              }}
+            >
+              Ai uitat parola?
+            </Typography>
           </Link>
         </Box>
       </Box>
