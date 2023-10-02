@@ -10,7 +10,6 @@ import CheckoutPage from "./pages/CheckoutPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactPage from "./pages/ContactPage";
 import NoPage from "./pages/NoPage";
-import PasswordForm from "./pages/PasswordForm";
 
 export default function App() {
   return (
@@ -21,7 +20,6 @@ export default function App() {
           <Route path="/administrare" element={<LoginRegisterPage />} />
           <Route path="/product" element={<ProductPage />} />
           <Route path="/account" element={<AccountPage />} />
-          <Route path="/password-form" element={<PasswordForm />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
