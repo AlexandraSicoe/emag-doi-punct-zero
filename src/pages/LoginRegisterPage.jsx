@@ -1,7 +1,8 @@
-import { Box } from "@mui/joy";
+import { Box, Typography } from "@mui/joy";
 import LoginForm from "../components/LoginForm";
 import { useState } from "react";
 import RegisterForm from "../components/RegisterForm";
+import { Link } from "react-router-dom";
 
 const LoginRegisterPage = () => {
   const [formState, setFormState] = useState(false);
@@ -39,6 +40,7 @@ const LoginRegisterPage = () => {
         display="flex"
         justifyContent="center"
         alignItems="center"
+        flexDirection="column"
         sx={{
           width: { xs: "100%", md: "50%" },
           backgroundColor: { xs: "rgba(255,255,255,0.3)", md: "transparent" },
@@ -49,6 +51,11 @@ const LoginRegisterPage = () => {
         ) : (
           <LoginForm setFormState={setFormState} />
         )}
+        <Box>
+          <Link to="/password-form">
+            <Typography>Ai uitat parola?</Typography>
+          </Link>
+        </Box>
       </Box>
     </Box>
   );
