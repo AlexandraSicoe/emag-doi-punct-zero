@@ -5,7 +5,7 @@ import RegisterForm from "../components/RegisterForm";
 import PasswordForm from "../components/PasswordForm";
 
 const LoginRegisterPage = () => {
-  const [formState, setFormState] = useState(false);
+  const [formState, setFormState] = useState("Login");
   return (
     <Box
       display="flex"
@@ -46,6 +46,7 @@ const LoginRegisterPage = () => {
           backgroundColor: { xs: "rgba(255,255,255,0.3)", md: "transparent" },
         }}
       >
+        {console.log(formState)}
         {formState === "Register" ? (
           <RegisterForm setFormState={setFormState} />
         ) : formState === "Login" ? (
@@ -53,21 +54,6 @@ const LoginRegisterPage = () => {
         ) : (
           <PasswordForm setFormState={setFormState} />
         )}
-        <Box>
-          <Typography
-            sx={{
-              paddingTop: "5px",
-              fontSize: "15px",
-              color: "#1E90FF",
-              "&:hover": {
-                textDecoration: "underline",
-                color: "#00308F",
-              },
-            }}
-          >
-            Ai uitat parola?
-          </Typography>
-        </Box>
       </Box>
     </Box>
   );

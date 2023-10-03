@@ -10,6 +10,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactPage from "./pages/ContactPage";
 import NoPage from "./pages/NoPage";
+import PasswordResetPage from "./pages/PasswordResetPage";
 
 export default function App() {
   return (
@@ -18,6 +19,8 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/administrare" element={<LoginRegisterPage />} />
+          <Route path="/pass-reset" element={<PasswordResetPage />} />
+
           <Route path="/product" element={<ProductPage />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />

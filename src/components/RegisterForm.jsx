@@ -105,13 +105,38 @@ const RegisterForm = ({ setFormState }) => {
               backgroundColor: { xs: "white", md: "transparent" },
             }}
             onClick={() => {
-              setFormState(false);
+              setFormState("Login");
             }}
           >
             Login
           </Button>
         </Box>
       </form>
+      <Box>
+        <Typography
+          sx={{
+            paddingTop: "5px",
+            fontSize: "15px",
+            color: "#1E90FF",
+            "&:hover": {
+              color: "#00308F",
+            },
+          }}
+        >
+          Ai uitat parola?{" "}
+          <span
+            style={{
+              textDecoration: "underline",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              setFormState("Password");
+            }}
+          >
+            Click aici.
+          </span>
+        </Typography>
+      </Box>
       {errorMessage.length > 0 && (
         <Alert
           startDecorator={<WarningIcon />}
