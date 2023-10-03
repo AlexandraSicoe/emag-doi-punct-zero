@@ -21,13 +21,12 @@ const PasswordForm = ({ setFormState }) => {
     }
   }, [errorMessage]);
 
-  const loginUser = async () => {
+  const sendEmail = async () => {
     try {
       const result = await axios.post(
-        "https://e20.ro/api/user/login",
+        "https://e20.ro/api/user/resetPassword",
         {
           email: email,
-          password: password,
         }
         // { Authorization: "Bearer " + token }
       );
