@@ -11,6 +11,8 @@ const PasswordForm = ({ setFormState }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (errorMessage.length > 0) {
       setTimeout(() => {
@@ -18,7 +20,7 @@ const PasswordForm = ({ setFormState }) => {
       }, 3000);
     }
   }, [errorMessage]);
-  const navigate = useNavigate();
+
   const loginUser = async () => {
     try {
       const result = await axios.post(

@@ -5,9 +5,12 @@ import Alert from "@mui/joy/Alert";
 import Input from "@mui/joy/Input";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import useQuery from "../helpers/useQuery";
 const PasswordResetPage = ({ setFormState }) => {
   const [email, setEmail] = useState("");
+  const query = useQuery();
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -30,16 +33,19 @@ const PasswordResetPage = ({ setFormState }) => {
       }, 3000);
     }
   }, [errorMessage]);
-  const navigate = useNavigate();
-  const loginUser = async () => {
+  useEffect(() => {
+    if (!query.get("tk")) {
+      navigate("/administrare");
+    }
+  }, []);
+  const changePassword = async () => {
     try {
-      const result = await axios.post(
-        "https://e20.ro/api/user/login",
+      const result = await axios.put(
+        "https://e20.ro/api/user",
         {
-          email: email,
           password: password,
-        }
-        // { Authorization: "Bearer " + token }
+        },
+        { Authorization: "Bearer " + query.get("tk") }
       );
 
       console.log(result);
