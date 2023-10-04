@@ -32,7 +32,7 @@ const ReviewSample = () => {
             }}
           />
           <Box>
-            <Typography level="h5">Anca Chelaru</Typography>
+            <Typography level="body-md">Anca Chelaru</Typography>
             <Typography level="body-sm">17 Aug 2023</Typography>
           </Box>
         </Box>
@@ -45,7 +45,7 @@ const ReviewSample = () => {
             marginTop: { xs: "0px", md: "40px" },
           }}
         >
-          <Typography level="h5">Excelent</Typography>
+          <Typography level="body-md">Excelent</Typography>
           <Rating
             halfFillMode="svg"
             style={{ maxWidth: 100 }}

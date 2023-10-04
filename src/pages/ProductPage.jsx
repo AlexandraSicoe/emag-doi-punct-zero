@@ -97,7 +97,7 @@ const ProductPage = () => {
               <Typography level="h4" sx={{ marginBottom: "5px" }}>
                 {productData.category}
               </Typography>
-              <Typography level="h5" sx={{ marginBottom: "5px" }}>
+              <Typography level="body-md" sx={{ marginBottom: "5px" }}>
                 {productData.description}
               </Typography>
               <Typography level="h4" sx={{ marginBottom: "5px" }}>
