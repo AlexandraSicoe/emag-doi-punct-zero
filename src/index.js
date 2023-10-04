@@ -1,4 +1,4 @@
-import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
+import { CssVarsProvider, extendTheme, useColorScheme } from "@mui/joy/styles";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./layouts/Layout";
@@ -15,6 +15,8 @@ import PasswordResetPage from "./pages/PasswordResetPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 export default function App() {
+  const { mode, setMode } = useColorScheme();
+  setMode("light");
   return (
     <BrowserRouter>
       <Routes>
@@ -38,64 +40,66 @@ const theme = extendTheme({
     light: {
       palette: {
         primary: {
-          50: "#324321",
-          100: "#324321",
-          200: "#324321",
-          300: "#324321",
-          400: "#324321",
-          500: "#324321",
-          600: "#324321",
-          700: "#324321",
-          800: "#324321",
-          900: "#324321",
+          "50": "#f5f3ff",
+          "100": "#ede9fe",
+          "200": "#ddd6fe",
+          "300": "#c4b5fd",
+          "400": "#a78bfa",
+          "500": "#8b5cf6",
+          "600": "#7c3aed",
+          "700": "#6d28d9",
+          "800": "#5b21b6",
+          "900": "#4c1d95",
         },
-        secondary: {
-          50: "#A49F67",
-          100: "#A49F67",
-          200: "#A49F67",
-          300: "#A49F67",
-          400: "#A49F67",
-          500: "#A49F67",
-          600: "#A49F67",
-          700: "#A49F67",
-          800: "#A49F67",
-          900: "#A49F67",
+        neutral: {
+          "50": "#fafaf9",
+          "100": "#78716c",
+          "200": "#e7e5e4",
+          "300": "#d6d3d1",
+          "400": "#a8a29e",
+          "500": "#f5f5f4",
+          "600": "#57534e",
+          "700": "#44403c",
+          "800": "#292524",
+          "900": "#1c1917",
         },
       },
     },
     dark: {
       palette: {
         primary: {
-          50: "#324321",
-          100: "#324321",
-          200: "#324321",
-          300: "#324321",
-          400: "#324321",
-          500: "#324321",
-          600: "#324321",
-          700: "#324321",
-          800: "#324321",
-          900: "#324321",
+          50: "#FB761F",
+          100: "#FB761F",
+          200: "#FB761F",
+          300: "#FB761F",
+          400: "#FB761F",
+          500: "#ffffff",
+          600: "#FB761F",
+          700: "#FB761F",
+          800: "#FB761F",
+          900: "#FB761F",
         },
         secondary: {
-          50: "#A49F67",
-          100: "#A49F67",
-          200: "#A49F67",
-          300: "#A49F67",
-          400: "#A49F67",
-          500: "#A49F67",
-          600: "#A49F67",
-          700: "#A49F67",
-          800: "#A49F67",
-          900: "#A49F67",
+          50: "#fb761f",
+          100: "#fb761f",
+          200: "#fb761f",
+          300: "#fb761f",
+          400: "#fb761f",
+          500: "#fb761f",
+          600: "#fb761f",
+          700: "#fb761f",
+          800: "#fb761f",
+          900: "#fb761f",
         },
       },
     },
   },
-  Typography: {
-    fontFamily: "Poppins",
+  fontFamily: {
+    body: "Poppins",
+    display: "Poppins",
   },
 });
+console.log(theme);
 root.render(
   <CssVarsProvider theme={theme}>
     <App />

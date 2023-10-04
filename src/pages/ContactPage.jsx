@@ -379,8 +379,7 @@ const ContactPage = () => {
                   size="lg"
                   sx={{
                     width: "100px",
-                    backgroundImage:
-                      "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);",
+                    color: "primary",
                     color: "white!important",
                   }}
                 >

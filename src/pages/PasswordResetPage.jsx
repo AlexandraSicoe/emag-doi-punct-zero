@@ -110,7 +110,7 @@ const PasswordResetPage = ({ setFormState }) => {
           </Typography>
           <FormLabel>Vă rugăm să introduceți noua parolă</FormLabel>
           <Input
-            startDecorator={<VpnKeyIcon />}
+            startDecorator={<VpnKeyIcon sx={{ color: "#8b5cf6" }} />}
             type="password"
             placeholder="••••••••"
             required
@@ -120,7 +120,7 @@ const PasswordResetPage = ({ setFormState }) => {
           />
           <FormLabel>Confirmați noua parolă</FormLabel>
           <Input
-            startDecorator={<VpnKeyIcon />}
+            startDecorator={<VpnKeyIcon sx={{ color: "#8b5cf6" }} />}
             type="password"
             placeholder="••••••••"
             required

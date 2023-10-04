@@ -55,7 +55,7 @@ const PasswordForm = ({ setFormState }) => {
       <FormLabel>Vă rugăm să vă scrieți adresa de email</FormLabel>
       <FormLabel>Email</FormLabel>
       <Input
-        startDecorator={<EmailIcon />}
+        startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
         type="email"
         required
         placeholder="john.doe@email.com"

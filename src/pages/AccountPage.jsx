@@ -67,7 +67,7 @@ const AccountPage = () => {
                 sx={{
                   padding: "25px",
                   backgroundImage:
-                    "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);",
+                    "linear-gradient(67deg, rgba(2,0,36,1) 0%, rgba(139,92,246,1) 0%, rgba(139,92,246,1) 23%, rgba(168,110,204,1) 46%, rgba(181,118,185,1) 55%, rgba(186,121,178,1) 66%, rgba(246,159,92,1) 98%)",
                   borderTopLeftRadius: "12px",
                   borderTopRightRadius: "12px",
                   display: "flex",
@@ -95,29 +95,20 @@ const AccountPage = () => {
                   <Typography level="h4" sx={{ color: "white" }}>
                     {userData.name}
                   </Typography>
-                  <Typography level="h6">Client eMAG de 2 ani</Typography>
+                  <Typography level="h6">Client E20 de 2 ani</Typography>
                 </Box>
               </Box>
 
               <List>
                 <ListItem>
                   <ListItemButton
-                    sx={
-                      whatOptionVisible === ""
-                        ? {
-                            backgroundImage:
-                              "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
-                            color: "white",
-                          }
-                        : { backgroundColor: "transparent", color: "black" }
-                    }
                     onClick={() => {
                       setWhatOptionVisible("");
                       navigate("/account?m=home");
                     }}
                   >
                     <ListItemDecorator>
-                      <HomeIcon />
+                      <HomeIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
                     Home
                   </ListItemButton>
@@ -128,18 +119,10 @@ const AccountPage = () => {
                       setWhatOptionVisible("account");
                       navigate("/account?m=account");
                     }}
-                    sx={
-                      whatOptionVisible === "account"
-                        ? {
-                            backgroundImage:
-                              "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
-                            color: "white",
-                          }
-                        : { backgroundColor: "transparent", color: "black" }
-                    }
+                    sx={{ color: "black" }}
                   >
                     <ListItemDecorator>
-                      <PersonIcon />
+                      <PersonIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
                     Account
                   </ListItemButton>
@@ -150,18 +133,9 @@ const AccountPage = () => {
                       setWhatOptionVisible("orders");
                       navigate("/account?m=orders");
                     }}
-                    sx={
-                      whatOptionVisible === "orders"
-                        ? {
-                            backgroundImage:
-                              "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
-                            color: "white",
-                          }
-                        : { backgroundColor: "transparent", color: "black" }
-                    }
                   >
                     <ListItemDecorator>
-                      <InventoryIcon />
+                      <InventoryIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
                     My orders
                   </ListItemButton>
@@ -172,24 +146,17 @@ const AccountPage = () => {
                       setWhatOptionVisible("review");
                       navigate("/account?m=review");
                     }}
-                    sx={
-                      whatOptionVisible === "review"
-                        ? {
-                            backgroundImage:
-                              "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
-                            color: "white",
-                          }
-                        : { backgroundColor: "transparent", color: "black" }
-                    }
+                    sx={{ color: "black" }}
                   >
                     <ListItemDecorator>
-                      <ReviewsIcon />
+                      <ReviewsIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
                     My reviews
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
                   <ListItemButton
+                    sx={{ color: "black" }}
                     variant="plain"
                     onClick={() => {
                       localStorage.setItem("user", "[]");
@@ -197,7 +164,7 @@ const AccountPage = () => {
                     }}
                   >
                     <ListItemDecorator>
-                      <LogoutIcon />
+                      <LogoutIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
                     Log Out
                   </ListItemButton>

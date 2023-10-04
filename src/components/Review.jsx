@@ -29,8 +29,7 @@ const Review = () => {
         <Button
           size="sm"
           sx={{
-            backgroundImage:
-              "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100%);",
+            color: "primary",
             mt: "10px",
           }}
         >
