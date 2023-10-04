@@ -131,7 +131,13 @@ const AccountEditForm = () => {
         }}
       >
         <img
-          style={{ width: "100%", height: "100%", borderRadius: "16px" }}
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "16px",
+            filter: "grayscale(30%)",
+            opacity: "0.9",
+          }}
           src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80"
         />
       </Box>

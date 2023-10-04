@@ -95,7 +95,9 @@ const AccountPage = () => {
                   <Typography level="h4" sx={{ color: "white" }}>
                     {userData.name}
                   </Typography>
-                  <Typography level="h6">Client E20 de 2 ani</Typography>
+                  <Typography level="title-md" sx={{ color: "white" }}>
+                    Client E20 de 2 ani
+                  </Typography>
                 </Box>
               </Box>
 
@@ -224,16 +226,32 @@ const AccountPage = () => {
                     }}
                   >
                     <Typography level="body1" mb={1}>
-                      <span style={{ fontWeight: "bold" }}>Nume: </span>
-                      {userData.name}
+                      <span
+                        style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                      >
+                        Nume:{" "}
+                      </span>
+                      <span style={{ fontFamily: "Poppins" }}>
+                        {userData.name}
+                      </span>
                     </Typography>
                     <Typography level="body1" mb={1}>
-                      <span style={{ fontWeight: "bold" }}>Email: </span>
-                      {userData.email}
+                      <span
+                        style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                      >
+                        Email:{" "}
+                      </span>
+                      <span style={{ fontFamily: "Poppins" }}>
+                        {userData.email}
+                      </span>
                     </Typography>
                     <Typography level="body1" mb={1}>
-                      <span style={{ fontWeight: "bold" }}>Telefon: </span>
-                      07244854832
+                      <span
+                        style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                      >
+                        Telefon:{" "}
+                      </span>
+                      <span style={{ fontFamily: "Poppins" }}>07244854832</span>
                     </Typography>
                   </Box>
                 </Box>
