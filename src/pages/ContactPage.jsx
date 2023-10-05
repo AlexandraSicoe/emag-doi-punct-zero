@@ -73,31 +73,31 @@ const ContactPage = () => {
       >
         <Navbar />
         <MenuDropdown />
-
-        <Typography
-          level="h1"
-          sx={{
-            textAlign: "center",
-            paddingTop: "5px",
-          }}
-        >
-          E20
+        <Box sx={{ marginTop: "25px" }}>
           <Typography
-            level="body-lg"
+            level="h1"
             sx={{
-              fontWeight: "normal",
+              textAlign: "center",
             }}
           >
-            help
+            E20
+            <Typography
+              level="body-lg"
+              sx={{
+                fontWeight: "normal",
+              }}
+            >
+              help
+            </Typography>
           </Typography>
-        </Typography>
+        </Box>
+
         <Grid
           sx={{
-            p: 5,
             display: "flex",
             justifyContent: "space-around",
             flexDirection: { xs: "column", sm: "column", md: "row" },
-            // alignItems: "start",
+            marginTop: "25px",
           }}
         >
           <Box
@@ -107,9 +107,9 @@ const ContactPage = () => {
               flexDirection: "column",
               backgroundColor: "white",
               borderRadius: "16px",
-              width: { xs: "350px", sm: "345px", md: "700px" },
+              width: { xs: "100%", sm: "345px", md: "700px" },
               padding: "20px",
-              m: 5,
+              marginBottom: { xs: "25px", md: "0px" },
             }}
           >
             <form
@@ -190,212 +190,188 @@ const ContactPage = () => {
               </Box>
             </form>
           </Box>
-          <Box
+          <Grid
             sx={{
-              // display: "flex",
-              // justifyContent: "space-between",
-              // flexDirection: "column",
-              // alignItems: "start",
-              m: 5,
               backgroundColor: "white",
               borderRadius: "16px",
-              width: { xs: "350px", sm: "800px", md: "1000px" },
+              width: { xs: "100%", sm: "800px", md: "1000px" },
               padding: "20px",
+              marginBottom: "25px",
             }}
           >
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                alignItems: "start",
-                justifyContent: "flex-start",
-                marginBottom: "20px",
-              }}
+            <Grid
+              container
+              rowSpacing={5}
+              spacing={3}
+              direction="row"
+              justifyContent="center"
+              alignItems="flex-start"
             >
-              <Box>
-                <Typography
-                  level="title-md"
-                  sx={{ fontWeight: "bold", width: "300px" }}
+              <Grid xs={12} md={6}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: { xs: "100%", md: "250px" },
+                  }}
                 >
-                  Adresa Noastră
-                </Typography>
-              </Box>
-              <Typography level="body-md">
-                Ne găsiți la adresa: Strada Imaginatiei, nr. 10-28, Creative
-                Office Park, Emerald Tower, Bucuresti, Romania
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "start",
-                justifyContent: "flex-start",
-                width: "250px",
-              }}
-            >
-              <Box>
-                <Typography
-                  level="title-md"
-                  sx={{ fontWeight: "bold", width: "300px!important" }}
+                  <i
+                    style={{
+                      fontSize: "60px",
+                      color: "lightgray",
+                      paddingBottom: "10px",
+                    }}
+                    class="fa-solid fa-briefcase"
+                  ></i>
+                  <Box>
+                    <Typography level="title-md" sx={{ fontWeight: "bold" }}>
+                      Informații Despre Companie
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <Typography level="body-md">
+                      S.C. E20 International S.A. este o companie fictivă
+                      dedicată excelenței în domeniul nostru.
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+              <Grid xs={12} md={6}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: { xs: "100%", md: "250px" },
+                  }}
                 >
-                  Program de Lucru
-                </Typography>
-              </Box>
+                  <i
+                    class="fa-solid fa-location-dot"
+                    style={{
+                      fontSize: "60px",
+                      color: "lightgray",
+                      paddingBottom: "10px",
+                    }}
+                  ></i>
+                  <Box>
+                    <Typography
+                      level="title-md"
+                      sx={{
+                        fontWeight: "bold",
+                        textAlign: "center",
+                      }}
+                    >
+                      Adresa Noastră
+                    </Typography>
+                  </Box>
+                  <Typography level="body-md" sx={{ textAlign: "center" }}>
+                    Strada Imaginatiei, nr. 10-28, Creative Office Park, Emerald
+                    Tower,
+                  </Typography>
 
-              <Typography
-                level="body-md"
-                // sx={{
-                //   paddingBottom: "10px",
-                //   paddingTop: "10px",
-                //   // width: { xs: "300px", md: "700px" },
-                // }}
-              >
-                Suntem disponibili pentru dumneavoastră de luni până vineri,
-                între orele 9:00 și 18:00. Echipa noastră profesionistă este
-                gata să vă asiste și să răspundă la întrebările dumneavoastră.
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                alignItems: "start",
-                justifyContent: "flex-start",
-                marginBottom: "20px",
-              }}
-            >
-              <Box>
-                <Typography
-                  level="title-md"
-                  sx={{ fontWeight: "bold", width: "300px!important" }}
+                  <Typography level="body-md" sx={{ textAlign: "center" }}>
+                    Bucuresti, Romania
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid xs={12} md={4}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: { xs: "100%", md: "250px" },
+                  }}
                 >
-                  Date de Contact
-                </Typography>
-              </Box>
-              <Typography
-                level="body-md"
-                sx={{
-                  // paddingBottom: "10px",
-                  // paddingTop: "10px",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                Telefon: +40 123 456 789
-                <br />
-                E-mail: contact@e20.ro
-              </Typography>
-            </Box>
-
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                alignItems: "start",
-                justifyContent: "flex-start",
-                marginBottom: "20px",
-              }}
-            >
-              <Box sx={{ marginBottom: "30px" }}>
-                <Typography
-                  level="title-md"
-                  sx={{ fontWeight: "bold", width: "300px!important" }}
+                  <i
+                    class="fa-solid fa-clock"
+                    style={{
+                      fontSize: "60px",
+                      color: "lightgray",
+                      paddingBottom: "10px",
+                    }}
+                  ></i>
+                  <Box>
+                    <Typography
+                      level="title-md"
+                      sx={{ fontWeight: "bold", textAlign: "center" }}
+                    >
+                      Program de Lucru
+                    </Typography>
+                  </Box>
+                  <Typography level="body-md" sx={{ textAlign: "center" }}>
+                    Luni- vineri
+                  </Typography>
+                  <Typography level="body-md" sx={{ textAlign: "center" }}>
+                    9:00-18:00.
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid xs={12} md={4}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: { xs: "100%", md: "250px" },
+                  }}
                 >
-                  Localizare
-                </Typography>
-              </Box>
-              <Typography
-                level="body-md"
-                // sx={{
-                //   paddingBottom: "10px",
-                //   paddingTop: "10px",
-                // }}
-              >
-                Suntem localizați în inima Bucureștiului, în apropiere de
-                Soseaua Virtutii, în sectorul 6.
-              </Typography>
-            </Box>
-
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                alignItems: "start",
-                justifyContent: "flex-start",
-                marginBottom: "20px",
-              }}
-            >
-              <Box>
-                <Typography
-                  level="title-md"
-                  sx={{ fontWeight: "bold", width: "300px!important" }}
+                  <i
+                    style={{
+                      fontSize: "60px",
+                      color: "lightgray",
+                      paddingBottom: "10px",
+                    }}
+                    class="fa-solid fa-user"
+                  ></i>
+                  <Box>
+                    <Typography
+                      level="title-md"
+                      sx={{ fontWeight: "bold", textAlign: "center" }}
+                    >
+                      Date de Contact
+                    </Typography>
+                  </Box>
+                  <Typography evel="body-md" sx={{ textAlign: "center" }}>
+                    Telefon: +40 123 456 789
+                  </Typography>
+                  <Typography evel="body-md" sx={{ textAlign: "center" }}>
+                    E-mail: contact@e20.ro
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid xs={12} md={4}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: { xs: "100%", md: "250px" },
+                  }}
                 >
-                  Informații Despre Companie
-                </Typography>
-              </Box>
-              <Typography
-                level="body-md"
-                // sx={{ paddingBottom: "10px", paddingTop: "10px" }}
-              >
-                S.C. E20 International S.A. este o companie fictivă dedicată
-                excelenței în domeniul nostru. Ne mândrim cu angajamentul nostru
-                față de clienți și suntem pasionați să livrăm soluții de top.
-              </Typography>
-            </Box>
-
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                alignItems: "start",
-                justifyContent: "flex-start",
-                marginBottom: "20px",
-              }}
-            >
-              <Box>
-                <Typography
-                  level="title-md"
-                  sx={{ fontWeight: "bold", width: "300px!important" }}
-                >
-                  Ne Puteți Găsi
-                </Typography>
-              </Box>
-              <Typography
-                level="body-md"
-                // sx={{ paddingBottom: "10px", paddingTop: "10px" }}
-              >
-                Vă invităm să ne vizitați la sediul nostru sau să ne contactați.
-                Suntem aici pentru a vă ajuta în fiecare pas al drumului.
-              </Typography>
-            </Box>
-
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }}
-            >
-              <Box>
-                <Typography
-                  level="title-md"
-                  sx={{ fontWeight: "bold", width: "300px!important" }}
-                >
-                  Rețele Sociale
-                </Typography>
-              </Box>
-              <Typography
-                level="body-md"
-                // sx={{ paddingBottom: "10px", paddingTop: "10px" }}
-              >
-                Puteți să ne urmăriți și să fiți la curent cu noutățile noastre
-                pe rețelele sociale. Ne găsiți pe <Link to="#">Facebook</Link>,
-                <Link to="#">Twitter</Link> și <Link to="#">LinkedIn.</Link>
-              </Typography>
-            </Box>
-          </Box>
+                  <i
+                    style={{
+                      fontSize: "60px",
+                      color: "lightgray",
+                      paddingBottom: "10px",
+                    }}
+                    class="fa-solid fa-heart"
+                  ></i>
+                  <Box>
+                    <Typography
+                      level="title-md"
+                      sx={{ fontWeight: "bold", textAlign: "center" }}
+                    >
+                      Rețele Sociale
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <Typography level="body-md" sx={{ textAlign: "center" }}>
+                      Ne găsiți pe <Link to="#">Facebook</Link>,
+                      <Link to="#">Twitter</Link> și{" "}
+                      <Link to="#">LinkedIn.</Link>
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
         {errorMessage.length > 0 && (
           <Alert

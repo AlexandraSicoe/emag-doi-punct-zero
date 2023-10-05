@@ -12,7 +12,6 @@ import AboutUsPage from "./pages/AboutUsPage";
 import ContactPage from "./pages/ContactPage";
 import NoPage from "./pages/NoPage";
 import PasswordResetPage from "./pages/PasswordResetPage";
-import ContactInfo from "./components/ContactInfo";
 import { createTheme } from "@mui/material";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -31,7 +30,6 @@ export default function App() {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/contact-info" element={<ContactInfo />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
