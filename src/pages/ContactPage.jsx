@@ -224,12 +224,15 @@ const ContactPage = () => {
                     class="fa-solid fa-briefcase"
                   ></i>
                   <Box>
-                    <Typography level="title-md" sx={{ fontWeight: "bold" }}>
+                    <Typography
+                      level="title-md"
+                      sx={{ fontWeight: "bold", textAlign: "center" }}
+                    >
                       Informații Despre Companie
                     </Typography>
                   </Box>
                   <Box>
-                    <Typography level="body-md">
+                    <Typography level="body-md" sx={{ textAlign: "center" }}>
                       S.C. E20 International S.A. este o companie fictivă
                       dedicată excelenței în domeniul nostru.
                     </Typography>

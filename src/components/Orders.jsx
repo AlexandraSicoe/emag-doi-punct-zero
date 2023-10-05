@@ -66,7 +66,7 @@ const Orders = ({ userId }) => {
           backgroundColor="white"
           p={2}
           sx={{
-            marginBottom: { xs: "25px", md: "25px" },
+            marginBottom: "25px",
             borderRadius: "16px",
             marginTop: { xs: "0px", md: "25px" },
             width: {
@@ -81,6 +81,7 @@ const Orders = ({ userId }) => {
               justifyContent: { xs: "center", md: "end" },
               marginTop: { xs: "10px", md: "25px" },
               flexDirection: { xs: "column", md: "row" },
+              alignItems: { xs: "center", md: "start" },
             }}
           >
             <Typography sx={{ marginBottom: "10px" }} level="h3">

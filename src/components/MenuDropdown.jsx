@@ -30,7 +30,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
         sx={{
           backgroundImage:
             "linear-gradient(67deg, rgba(2,0,36,1) 0%, rgba(139,92,246,1) 0%, rgba(139,92,246,1) 23%, rgba(168,110,204,1) 46%, rgba(181,118,185,1) 55%, rgba(186,121,178,1) 66%, rgba(246,159,92,1) 98%)",
-          height: { xs: "112px", md: "40px" },
+          height: "40px",
           width: "100%",
         }}
       >
@@ -38,6 +38,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
           sx={{
             display: "flex",
             alignItems: "center",
+            justifyContent: { xs: "center", md: "flex-start" },
             padding: "5px",
           }}
         >
