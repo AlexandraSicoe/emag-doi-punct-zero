@@ -13,6 +13,7 @@ import ContactPage from "./pages/ContactPage";
 import NoPage from "./pages/NoPage";
 import PasswordResetPage from "./pages/PasswordResetPage";
 import ContactInfo from "./components/ContactInfo";
+import { createTheme } from "@mui/material";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 export default function App() {
@@ -31,13 +32,14 @@ export default function App() {
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/contact-info" element={<ContactInfo />} />
-
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
+const MUItheme = createTheme();
+console.log(MUItheme);
 const theme = extendTheme({
   colorSchemes: {
     light: {
@@ -66,6 +68,27 @@ const theme = extendTheme({
           "800": "#292524",
           "900": "#1c1917",
         },
+        action: {
+          active: "rgba(0,0,0,0.54)",
+          hover: "rgba(0,0,0,0.04)",
+          hoverOpacity: 0.04,
+          selected: "rgba(0,0,0,0.08)",
+          selectedOpacity: 0.08,
+          disabled: "rgba(0,0,0,0.26)",
+          disabledBackground: "rgba(0,0,0,0.12)",
+          disabledOpacity: 0.38,
+          focus: "rgba(0,0,0,0,0.12)",
+          focusOpacity: 0.12,
+          activatedOpacity: 0.12,
+        },
+      },
+      transitions: {
+        create: MUItheme.transitions.create,
+        duration: MUItheme.transitions.duration,
+        easing: MUItheme.transitions.easing,
+      },
+      typography: {
+        pxToRem: MUItheme.typography.pxToRem,
       },
     },
     dark: {
