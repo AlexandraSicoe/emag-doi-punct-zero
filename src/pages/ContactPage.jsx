@@ -73,24 +73,6 @@ const ContactPage = () => {
       >
         <Navbar />
         <MenuDropdown />
-        <Box sx={{ marginTop: "25px" }}>
-          <Typography
-            level="h1"
-            sx={{
-              textAlign: "center",
-            }}
-          >
-            E20
-            <Typography
-              level="body-lg"
-              sx={{
-                fontWeight: "normal",
-              }}
-            >
-              help
-            </Typography>
-          </Typography>
-        </Box>
 
         <Grid
           sx={{
@@ -98,8 +80,75 @@ const ContactPage = () => {
             justifyContent: "space-around",
             flexDirection: { xs: "column", sm: "column", md: "row" },
             marginTop: "25px",
+            alignItems: { xs: "center", md: "stretch" },
           }}
         >
+          <Box
+            sx={{
+              marginTop: "25px",
+              display: "flex",
+              flexDirection: { xs: "row", md: "column" },
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography
+              level="h1"
+              sx={{
+                textAlign: "center",
+              }}
+            >
+              E20
+              <Typography
+                level="body-lg"
+                sx={{
+                  fontWeight: "normal",
+                  marginRight: { xs: "20px", md: "0px" },
+                }}
+              >
+                help
+              </Typography>
+            </Typography>
+            <i
+              style={{
+                fontSize: "40px",
+                color: "black",
+                paddingBottom: "10px",
+              }}
+              class="fa-solid fa-user"
+            ></i>
+            <i
+              class="fa-solid fa-location-dot"
+              style={{
+                fontSize: "40px",
+                color: "black",
+                paddingBottom: "10px",
+              }}
+            ></i>
+            <i
+              style={{
+                fontSize: "40px",
+                color: "black",
+                paddingBottom: "10px",
+              }}
+              class="fa-solid fa-heart"
+            ></i>
+            <i
+              style={{
+                fontSize: "40px",
+                color: "black",
+                paddingBottom: "10px",
+              }}
+              class="fa-solid fa-briefcase"
+            ></i>
+            <i
+              class="fa-solid fa-clock"
+              style={{
+                fontSize: "40px",
+                color: "black",
+                paddingBottom: "10px",
+              }}
+            ></i>
+          </Box>
           <Box
             sx={{
               display: "flex",
@@ -194,9 +243,9 @@ const ContactPage = () => {
             sx={{
               backgroundColor: "white",
               borderRadius: "16px",
-              width: { xs: "100%", sm: "800px", md: "1000px" },
+              width: { xs: "100%", sm: "345px", md: "1000px" },
               padding: "20px",
-              marginBottom: "25px",
+              marginBottom: { xs: "25px", md: "0px" },
             }}
           >
             <Grid
