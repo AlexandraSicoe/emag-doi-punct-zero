@@ -68,7 +68,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                 }}
                 placement="top-start"
               >
-                <Box>
+                <Box sx={{ width: "120px" }}>
                   {categories?.map((category, index) => {
                     return (
                       <MenuItem
@@ -84,7 +84,10 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                           }}
                           level="h5"
                         >
-                          <i className={"fa-solid " + category.icon}></i>
+                          <i
+                            style={{ marginRight: "10px" }}
+                            className={"fa-solid " + category.icon}
+                          ></i>
                           {category.title}
                         </Typography>
                       </MenuItem>
@@ -96,9 +99,9 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                     backgroundColor: "white",
                     right: 0,
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: { xs: "column", md: "row" },
                     flexWrap: "wrap",
-                    width: "750px",
+                    width: { xs: "850px", md: "750px" },
                   }}
                 >
                   {selectedCategory?.children.map((subcategory, subindex) => {
@@ -122,7 +125,10 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                             }}
                             level="body-md"
                           >
-                            <i className={"fa-solid " + subcategory.icon}></i>
+                            <i
+                              style={{ marginRight: "10px" }}
+                              className={"fa-solid " + subcategory.icon}
+                            ></i>
                             {subcategory.title}
                           </Typography>
                         </ListItem>
