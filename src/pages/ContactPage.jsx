@@ -80,15 +80,14 @@ const ContactPage = () => {
             justifyContent: "space-around",
             flexDirection: { xs: "column", sm: "column", md: "row" },
             marginTop: "25px",
-            alignItems: { xs: "center", md: "stretch" },
           }}
         >
           <Box
             sx={{
-              marginTop: "25px",
               display: "flex",
               flexDirection: { xs: "row", md: "column" },
               justifyContent: "space-between",
+              padding: "10px",
             }}
           >
             <Typography
@@ -241,6 +240,8 @@ const ContactPage = () => {
           </Box>
           <Grid
             sx={{
+              display: "flex",
+              alignItems: "center",
               backgroundColor: "white",
               borderRadius: "16px",
               width: { xs: "100%", sm: "345px", md: "1000px" },
@@ -381,10 +382,10 @@ const ContactPage = () => {
                       Date de Contact
                     </Typography>
                   </Box>
-                  <Typography evel="body-md" sx={{ textAlign: "center" }}>
+                  <Typography level="body-md" sx={{ textAlign: "center" }}>
                     Telefon: +40 123 456 789
                   </Typography>
-                  <Typography evel="body-md" sx={{ textAlign: "center" }}>
+                  <Typography level="body-md" sx={{ textAlign: "center" }}>
                     E-mail: contact@e20.ro
                   </Typography>
                 </Box>
