@@ -73,180 +73,188 @@ const ContactPage = () => {
       >
         <Navbar />
         <MenuDropdown />
-
         <Grid
           sx={{
             display: "flex",
-            justifyContent: "space-around",
-            flexDirection: { xs: "column", sm: "column", md: "row" },
-            marginTop: "25px",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Box
+          <Grid
             sx={{
               display: "flex",
-              flexDirection: { xs: "row", md: "column" },
-              justifyContent: "space-between",
-              padding: "10px",
+              justifyContent: "space-around",
+              flexDirection: { xs: "column", sm: "column", md: "row" },
+              marginTop: "25px",
             }}
           >
-            <Typography
-              level="h1"
-              sx={{
-                textAlign: "center",
-              }}
-            >
-              E20
-              <Typography
-                level="body-lg"
-                sx={{
-                  fontWeight: "normal",
-                  marginRight: { xs: "20px", md: "0px" },
-                }}
-              >
-                help
-              </Typography>
-            </Typography>
-            <i
-              style={{
-                fontSize: "40px",
-                color: "black",
-                paddingBottom: "10px",
-              }}
-              class="fa-solid fa-user"
-            ></i>
-            <i
-              class="fa-solid fa-location-dot"
-              style={{
-                fontSize: "40px",
-                color: "black",
-                paddingBottom: "10px",
-              }}
-            ></i>
-            <i
-              style={{
-                fontSize: "40px",
-                color: "black",
-                paddingBottom: "10px",
-              }}
-              class="fa-solid fa-heart"
-            ></i>
-            <i
-              style={{
-                fontSize: "40px",
-                color: "black",
-                paddingBottom: "10px",
-              }}
-              class="fa-solid fa-briefcase"
-            ></i>
-            <i
-              class="fa-solid fa-clock"
-              style={{
-                fontSize: "40px",
-                color: "black",
-                paddingBottom: "10px",
-              }}
-            ></i>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              backgroundColor: "white",
-              borderRadius: "16px",
-              width: { xs: "100%", sm: "345px", md: "700px" },
-              padding: "20px",
-              marginBottom: { xs: "25px", md: "0px" },
-            }}
-          >
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                submitForm();
-              }}
+            <Box
               sx={{
                 display: "flex",
-                alignItems: "flex-start",
-                flexDirection: "column",
+                flexDirection: { xs: "row", md: "column" },
+                justifyContent: "space-between",
+                padding: "10px",
               }}
             >
               <Typography
-                level="title-lg"
+                level="h1"
                 sx={{
-                  fontWeight: "bold",
                   textAlign: "center",
-                  marginBottom: "25px",
                 }}
               >
-                Formular de contact
-              </Typography>
-              <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
-                Nume și prenume:
-              </FormLabel>
-              <Input
-                startDecorator={<PersonIcon sx={{ color: "#8b5cf6" }} />}
-                placeholder="eg. John Doe"
-                sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
-                type="text"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              />
-              <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
-                Adresa de email:
-              </FormLabel>
-              <Input
-                startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
-                sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
-                type="email"
-                placeholder="john.doe@email.com"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-              <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
-                Scrie mesajul aici:
-              </FormLabel>
-              <Textarea
-                sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
-                size="md"
-                value={message}
-                onChange={(e) => {
-                  setMessage(e.target.value);
-                }}
-                minRows={5}
-              />
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <Button
-                  type="submit"
-                  size="lg"
+                E20
+                <Typography
+                  level="body-lg"
                   sx={{
-                    width: "100px",
-                    color: "white!important",
+                    fontWeight: "normal",
+                    marginRight: { xs: "20px", md: "0px" },
                   }}
                 >
-                  Trimite
-                </Button>
-              </Box>
-            </form>
-          </Box>
+                  help
+                </Typography>
+              </Typography>
+              <i
+                style={{
+                  fontSize: "40px",
+                  color: "black",
+                  paddingBottom: "10px",
+                }}
+                class="fa-brands fa-facebook"
+              ></i>
+              <i
+                class="fa-solid fa-location-dot"
+                style={{
+                  fontSize: "40px",
+                  color: "black",
+                  paddingBottom: "10px",
+                }}
+              ></i>
+              <i
+                style={{
+                  fontSize: "40px",
+                  color: "black",
+                  paddingBottom: "10px",
+                }}
+                class="fa-brands fa-twitter"
+              ></i>
+              <i
+                style={{
+                  fontSize: "40px",
+                  color: "black",
+                  paddingBottom: "10px",
+                }}
+                class="fa-brands fa-square-instagram"
+              ></i>
+              <i
+                class="fa-brands fa-square-whatsapp"
+                style={{
+                  fontSize: "40px",
+                  color: "black",
+                  paddingBottom: "10px",
+                }}
+              ></i>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                backgroundColor: "white",
+                borderRadius: "16px",
+                width: { xs: "100%", sm: "345px", md: "1000px" },
+                padding: "20px",
+                marginBottom: { xs: "25px", md: "0px" },
+              }}
+            >
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  submitForm();
+                }}
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  flexDirection: "column",
+                }}
+              >
+                <Typography
+                  level="title-lg"
+                  sx={{
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    marginBottom: "25px",
+                  }}
+                >
+                  Formular de contact
+                </Typography>
+                <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
+                  Nume și prenume:
+                </FormLabel>
+                <Input
+                  startDecorator={<PersonIcon sx={{ color: "#8b5cf6" }} />}
+                  placeholder="eg. John Doe"
+                  sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
+                  type="text"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+                <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
+                  Adresa de email:
+                </FormLabel>
+                <Input
+                  startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
+                  sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
+                  type="email"
+                  placeholder="john.doe@email.com"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+                <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
+                  Scrie mesajul aici:
+                </FormLabel>
+                <Textarea
+                  sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
+                  size="md"
+                  value={message}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                  }}
+                  minRows={5}
+                />
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  <Button
+                    type="submit"
+                    size="lg"
+                    sx={{
+                      width: "100px",
+                      color: "white!important",
+                    }}
+                  >
+                    Trimite
+                  </Button>
+                </Box>
+              </form>
+            </Box>
+          </Grid>
           <Grid
             sx={{
               display: "flex",
               alignItems: "center",
               backgroundColor: "white",
               borderRadius: "16px",
-              width: { xs: "100%", sm: "345px", md: "1000px" },
+              width: { xs: "100%", sm: "345px", md: "950px" },
               padding: "20px",
               marginBottom: { xs: "25px", md: "0px" },
+              my: "20px",
             }}
           >
             <Grid
@@ -257,7 +265,7 @@ const ContactPage = () => {
               justifyContent="center"
               alignItems="flex-start"
             >
-              <Grid xs={12} md={6}>
+              <Grid xs={12} md={8}>
                 <Box
                   sx={{
                     display: "flex",
@@ -326,7 +334,7 @@ const ContactPage = () => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid xs={12} md={4}>
+              <Grid xs={12} md={3}>
                 <Box
                   sx={{
                     display: "flex",

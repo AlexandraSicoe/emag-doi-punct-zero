@@ -104,7 +104,7 @@ const Orders = ({ userId }) => {
                 mb={3}
                 sx={{ flexDirection: { xs: "column", sm: "row", md: "row" } }}
               >
-                <Typography level="body2" sx={{ marginRight: "10px" }}>
+                <Typography level="body-sm" sx={{ marginRight: "10px" }}>
                   vezi
                 </Typography>
                 <Select
@@ -118,7 +118,7 @@ const Orders = ({ userId }) => {
                   <Option>comenzile anulate</Option>
                 </Select>
                 <Typography
-                  level="body2"
+                  level="body-sm"
                   sx={{ marginLeft: "10px", marginRight: "10px" }}
                 >
                   din
