@@ -62,7 +62,7 @@ const RegisterForm = ({ setFormState }) => {
       >
         <FormLabel>Name</FormLabel>
         <Input
-          startDecorator={<PersonIcon />}
+          startDecorator={<PersonIcon sx={{ color: "#8b5cf6" }} />}
           type="text"
           placeholder="John Doe"
           required
@@ -74,7 +74,7 @@ const RegisterForm = ({ setFormState }) => {
         />
         <FormLabel>Email</FormLabel>
         <Input
-          startDecorator={<EmailIcon />}
+          startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
           type="email"
           placeholder="john.doe@email.com"
           required
@@ -87,7 +87,7 @@ const RegisterForm = ({ setFormState }) => {
         <FormLabel>Password</FormLabel>
 
         <Input
-          startDecorator={<VpnKeyIcon />}
+          startDecorator={<VpnKeyIcon sx={{ color: "#8b5cf6" }} />}
           type="password"
           placeholder="••••••••"
           required
@@ -105,13 +105,38 @@ const RegisterForm = ({ setFormState }) => {
               backgroundColor: { xs: "white", md: "transparent" },
             }}
             onClick={() => {
-              setFormState(false);
+              setFormState("Login");
             }}
           >
             Login
           </Button>
         </Box>
       </form>
+      <Box>
+        <Typography
+          sx={{
+            paddingTop: "5px",
+            fontSize: "15px",
+            color: "#1E90FF",
+            "&:hover": {
+              color: "#00308F",
+            },
+          }}
+        >
+          Ai uitat parola?{" "}
+          <span
+            style={{
+              textDecoration: "underline",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              setFormState("Password");
+            }}
+          >
+            Click aici.
+          </span>
+        </Typography>
+      </Box>
       {errorMessage.length > 0 && (
         <Alert
           startDecorator={<WarningIcon />}

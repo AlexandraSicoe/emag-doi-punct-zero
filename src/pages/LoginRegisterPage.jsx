@@ -1,10 +1,11 @@
-import { Box } from "@mui/joy";
+import { Box, Button, Typography } from "@mui/joy";
 import LoginForm from "../components/LoginForm";
 import { useState } from "react";
 import RegisterForm from "../components/RegisterForm";
+import PasswordForm from "../components/PasswordForm";
 
 const LoginRegisterPage = () => {
-  const [formState, setFormState] = useState(false);
+  const [formState, setFormState] = useState("Login");
   return (
     <Box
       display="flex"
@@ -39,15 +40,19 @@ const LoginRegisterPage = () => {
         display="flex"
         justifyContent="center"
         alignItems="center"
+        flexDirection="column"
         sx={{
           width: { xs: "100%", md: "50%" },
           backgroundColor: { xs: "rgba(255,255,255,0.3)", md: "transparent" },
         }}
       >
-        {formState ? (
+        {console.log(formState)}
+        {formState === "Register" ? (
           <RegisterForm setFormState={setFormState} />
-        ) : (
+        ) : formState === "Login" ? (
           <LoginForm setFormState={setFormState} />
+        ) : (
+          <PasswordForm setFormState={setFormState} />
         )}
       </Box>
     </Box>

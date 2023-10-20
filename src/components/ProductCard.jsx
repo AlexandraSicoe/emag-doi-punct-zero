@@ -18,10 +18,11 @@ const ProductCard = ({ product, setCartData, cartData }) => {
   }
   return (
     <Card
+      color="neutral"
       onClick={(e) => {
         navigate("/product?id=" + product._id);
       }}
-      variant="outlined"
+      variant="solid"
       sx={{ width: 320, cursor: "pointer" }}
     >
       <div>

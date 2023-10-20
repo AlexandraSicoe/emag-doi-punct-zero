@@ -29,8 +29,8 @@ const MenuDropdown = ({ isDropdownOpen }) => {
       <Box
         sx={{
           backgroundImage:
-            "radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);",
-          height: { xs: "112px", md: "40px" },
+            "linear-gradient(67deg, rgba(2,0,36,1) 0%, rgba(139,92,246,1) 0%, rgba(139,92,246,1) 23%, rgba(168,110,204,1) 46%, rgba(181,118,185,1) 55%, rgba(186,121,178,1) 66%, rgba(246,159,92,1) 98%)",
+          height: "40px",
           width: "100%",
         }}
       >
@@ -38,6 +38,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
           sx={{
             display: "flex",
             alignItems: "center",
+            justifyContent: { xs: "center", md: "flex-start" },
             padding: "5px",
           }}
         >
@@ -67,7 +68,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                 }}
                 placement="top-start"
               >
-                <Box>
+                <Box sx={{ width: "120px" }}>
                   {categories?.map((category, index) => {
                     return (
                       <MenuItem
@@ -83,7 +84,10 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                           }}
                           level="h5"
                         >
-                          <i className={"fa-solid " + category.icon}></i>
+                          <i
+                            style={{ marginRight: "10px" }}
+                            className={"fa-solid " + category.icon}
+                          ></i>
                           {category.title}
                         </Typography>
                       </MenuItem>
@@ -95,9 +99,9 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                     backgroundColor: "white",
                     right: 0,
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: { xs: "column", md: "row" },
                     flexWrap: "wrap",
-                    width: "750px",
+                    width: { xs: "850px", md: "750px" },
                   }}
                 >
                   {selectedCategory?.children.map((subcategory, subindex) => {
@@ -121,7 +125,10 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                             }}
                             level="body-md"
                           >
-                            <i className={"fa-solid " + subcategory.icon}></i>
+                            <i
+                              style={{ marginRight: "10px" }}
+                              className={"fa-solid " + subcategory.icon}
+                            ></i>
                             {subcategory.title}
                           </Typography>
                         </ListItem>

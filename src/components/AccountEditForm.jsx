@@ -32,10 +32,8 @@ const AccountEditForm = () => {
           flexDirection: "column",
           backgroundColor: "white",
           justifyContent: { xs: "center", md: "start" },
-          marginTop: { xs: "10px", md: "24px" },
-          paddingBottom: "25px",
-          paddingLeft: "10px",
-          paddingRight: "10px",
+          marginTop: { xs: "10px", md: "25px" },
+          padding: "25px",
           width: {
             xs: "350px",
             sm: "345px",
@@ -70,15 +68,27 @@ const AccountEditForm = () => {
           <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
             Nume si prenume:
           </FormLabel>
-          <Input startDecorator={<PersonIcon />} type="text" sx={{ mb: 1 }} />
+          <Input
+            startDecorator={<PersonIcon sx={{ color: "#8b5cf6" }} />}
+            type="text"
+            sx={{ mb: 1 }}
+          />
           <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
             Email nou:
           </FormLabel>
-          <Input startDecorator={<EmailIcon />} type="text" sx={{ mb: 1 }} />
+          <Input
+            startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
+            type="text"
+            sx={{ mb: 1 }}
+          />
           <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
             Parola noua:
           </FormLabel>
-          <Input startDecorator={<VpnKeyIcon />} type="text" sx={{ mb: 1 }} />
+          <Input
+            startDecorator={<VpnKeyIcon sx={{ color: "#8b5cf6" }} />}
+            type="text"
+            sx={{ mb: 1 }}
+          />
 
           <Box
             backgroundColor="white"
@@ -121,8 +131,14 @@ const AccountEditForm = () => {
         }}
       >
         <img
-          style={{ width: "100%", height: "100%", borderRadius: "16px" }}
-          src="https://images.unsplash.com/photo-1635405054100-efa6dbf09b04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2576&q=80"
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "16px",
+            filter: "grayscale(30%)",
+            opacity: "0.9",
+          }}
+          src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80"
         />
       </Box>
     </Box>

@@ -55,7 +55,7 @@ const LoginForm = ({ setFormState }) => {
       >
         <FormLabel>Email</FormLabel>
         <Input
-          startDecorator={<EmailIcon />}
+          startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
           type="email"
           placeholder="john.doe@email.com"
           required
@@ -68,7 +68,7 @@ const LoginForm = ({ setFormState }) => {
         <FormLabel>Password</FormLabel>
 
         <Input
-          startDecorator={<VpnKeyIcon />}
+          startDecorator={<VpnKeyIcon sx={{ color: "#8b5cf6" }} />}
           type="password"
           placeholder="••••••••"
           required
@@ -86,13 +86,38 @@ const LoginForm = ({ setFormState }) => {
             }}
             variant="outlined"
             onClick={() => {
-              setFormState(true);
+              setFormState("Register");
             }}
           >
             Register
           </Button>
         </Box>
       </form>
+      <Box>
+        <Typography
+          sx={{
+            paddingTop: "5px",
+            fontSize: "15px",
+            color: "#1E90FF",
+            "&:hover": {
+              color: "#00308F",
+            },
+          }}
+        >
+          Ai uitat parola?{" "}
+          <span
+            style={{
+              textDecoration: "underline",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              setFormState("Password");
+            }}
+          >
+            Click aici.
+          </span>
+        </Typography>
+      </Box>
       {errorMessage.length > 0 && (
         <Alert
           startDecorator={<WarningIcon />}
