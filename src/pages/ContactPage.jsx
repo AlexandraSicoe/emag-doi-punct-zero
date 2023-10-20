@@ -78,6 +78,7 @@ const ContactPage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <Grid
@@ -86,6 +87,7 @@ const ContactPage = () => {
               justifyContent: "space-around",
               flexDirection: { xs: "column", sm: "column", md: "row" },
               marginTop: "25px",
+              width: "1000px",
             }}
           >
             <Box
@@ -251,7 +253,7 @@ const ContactPage = () => {
               alignItems: "center",
               backgroundColor: "white",
               borderRadius: "16px",
-              width: { xs: "100%", sm: "345px", md: "950px" },
+              width: { xs: "100%", sm: "345px", md: "1000px" },
               padding: "20px",
               marginBottom: { xs: "25px", md: "0px" },
               my: "20px",
