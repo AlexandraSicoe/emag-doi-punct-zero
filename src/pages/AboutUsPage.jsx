@@ -47,46 +47,6 @@ const AboutUsPage = () => {
             care clienții pot găsi tot ceea ce au nevoie pentru îngrijirea și
             fericirea animalelor lor de companie, oriunde și oricând au nevoie.
           </Typography>
-          <Typography level="h2" sx={{ paddingTop: "15px" }}>
-            Cine suntem?
-          </Typography>
-          <Typography
-            level="body-lg"
-            fontWeight="md"
-            sx={{
-              width: { xs: "350px", sm: "345px", md: "600px" },
-              padding: "15px",
-            }}
-          >
-            La început, E20 a fost un mic magazin online, specializat în produse
-            pentru animalele de companie. De atunci și până astăzi, timp de 20
-            de ani, am căutat în fiecare zi să ajungem mai departe și să facem
-            mereu lucrurile mai bine. Cu o misiune clară de a aduce în casele
-            dumneavoastră cele mai bune produse pentru câini, pisici și păsări,
-            suntem dedicați să vă susținem în îngrijirea și bucuria oferită de
-            animalele voastre de companie.
-          </Typography>
-
-          <Typography level="h2" sx={{ paddingTop: "15px" }}>
-            Misiunea Noastră
-          </Typography>
-          <Typography
-            level="body-lg"
-            fontWeight="md"
-            sx={{
-              width: { xs: "350px", sm: "345px", md: "600px" },
-              padding: "15px",
-            }}
-          >
-            Misiunea noastră este să vă ajutăm să oferiți celor mai buni
-            prieteni ai dumneavoastră viața fericită și sănătoasă pe care o
-            merită. Ne străduim să vă oferim cele mai bune produse și servicii,
-            astfel încât să puteți crea legături puternice și să vă bucurați de
-            fiecare moment petrecut alături de animalele voastre de companie.
-            Alăturați-vă comunității E20 și descoperiți o lume de produse pentru
-            animalele de companie, gândite pentru a satisface nevoile și
-            dorințele tuturor iubitorilor de animale.
-          </Typography>
         </Box>
         <Box
           sx={{
