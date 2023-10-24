@@ -87,7 +87,7 @@ const ContactPage = () => {
               justifyContent: "space-around",
               flexDirection: "row",
               marginTop: "25px",
-              width: "1000px",
+              width: { sm: "100%", md: "1000px" },
             }}
           >
             <Box
