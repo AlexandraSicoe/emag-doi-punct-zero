@@ -29,15 +29,17 @@ const AboutUsPage = () => {
             padding: "25px",
           }}
         >
-          <Typography level="h1">E20</Typography>
-          <Typography level="h3">
+          <Typography sx={{ textAlign: "center" }} level="h1">
+            E20
+          </Typography>
+          <Typography sx={{ textAlign: "center" }} level="h3">
             Magazin Online pentru Animale de Companie
           </Typography>
           <Typography
             fontWeight="md"
             level="body-lg"
             sx={{
-              width: { xs: "350px", sm: "345px", md: "600px" },
+              width: { xs: "350px", sm: "345px", md: "900px" },
               padding: "15px",
             }}
           >
@@ -58,9 +60,12 @@ const AboutUsPage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <Typography level="h1">Întâlnește echipa</Typography>
+          <Typography sx={{ textAlign: "center" }} level="h1">
+            Întâlnește echipa
+          </Typography>
           <Box
             sx={{
               display: "flex",
