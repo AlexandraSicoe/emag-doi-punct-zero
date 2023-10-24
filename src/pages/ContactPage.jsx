@@ -85,7 +85,7 @@ const ContactPage = () => {
             sx={{
               display: "flex",
               justifyContent: "space-around",
-              flexDirection: { xs: "column", sm: "column", md: "row" },
+              flexDirection: "row",
               marginTop: "25px",
               width: "1000px",
             }}
@@ -93,9 +93,10 @@ const ContactPage = () => {
             <Box
               sx={{
                 display: "flex",
-                flexDirection: { xs: "row", md: "column" },
+                flexDirection: { md: "column" },
                 justifyContent: "space-between",
                 padding: "10px",
+                display: { xs: "none", md: "flex" },
               }}
             >
               <Typography
