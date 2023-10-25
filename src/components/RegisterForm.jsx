@@ -70,7 +70,11 @@ const RegisterForm = ({ setFormState }) => {
           onChange={(e) => {
             setName(e.target.value);
           }}
-          sx={{ mb: 1, fontSize: "var(--joy-fontSize-sm)" }}
+          sx={{
+            mb: 1,
+            fontSize: "var(--joy-fontSize-sm)",
+            width: { xs: "100%", sm: "400px" },
+          }}
         />
         <FormLabel>Email</FormLabel>
         <Input
@@ -82,7 +86,11 @@ const RegisterForm = ({ setFormState }) => {
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-          sx={{ mb: 1, fontSize: "var(--joy-fontSize-sm)" }}
+          sx={{
+            mb: 1,
+            fontSize: "var(--joy-fontSize-sm)",
+            width: { xs: "100%", sm: "400px" },
+          }}
         />
         <FormLabel>Password</FormLabel>
 
@@ -95,7 +103,11 @@ const RegisterForm = ({ setFormState }) => {
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-          sx={{ mb: 1, fontSize: "var(--joy-fontSize-sm)" }}
+          sx={{
+            mb: 1,
+            fontSize: "var(--joy-fontSize-sm)",
+            width: { xs: "100%", sm: "400px" },
+          }}
         />
         <Box display="flex" justifyContent="space-between">
           <Button type="submit">Register</Button>
@@ -117,10 +129,7 @@ const RegisterForm = ({ setFormState }) => {
           sx={{
             paddingTop: "5px",
             fontSize: "15px",
-            color: "#1E90FF",
-            "&:hover": {
-              color: "#00308F",
-            },
+            color: "#8b5cf6",
           }}
         >
           Ai uitat parola?{" "}
@@ -128,12 +137,21 @@ const RegisterForm = ({ setFormState }) => {
             style={{
               textDecoration: "underline",
               cursor: "pointer",
+              fontWeight: "bold",
             }}
             onClick={() => {
               setFormState("Password");
             }}
           >
-            Click aici.
+            <Typography
+              sx={{
+                "&:hover": {
+                  color: "#4a077f",
+                },
+              }}
+            >
+              Click aici.
+            </Typography>
           </span>
         </Typography>
       </Box>
