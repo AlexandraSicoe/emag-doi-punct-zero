@@ -25,7 +25,7 @@ const AboutUsPage = () => {
             backgroundColor: "white",
             borderRadius: "16px",
             width: { xs: "350px", sm: "345px", md: "1000px" },
-            marginTop: { xs: "0px", md: "25px" },
+            marginTop: { xs: "10px", md: "25px" },
             padding: "25px",
           }}
         >
@@ -56,6 +56,8 @@ const AboutUsPage = () => {
             borderRadius: "16px",
             width: { xs: "350px", sm: "345px", md: "1000px" },
             marginTop: { xs: "10px", md: "25px" },
+            marginBottom: { xs: "10px", md: "25px" },
+
             padding: "25px",
             display: "flex",
             flexDirection: "column",
