@@ -24,9 +24,9 @@ const AboutUsPage = () => {
             flexDirection: "column",
             backgroundColor: "white",
             borderRadius: "16px",
-            width: { xs: "350px", sm: "345px", md: "1000px" },
+            width: { xs: "100%", sm: "100%", md: "1000px" },
             marginTop: { xs: "10px", md: "25px" },
-            padding: "25px",
+            margin: { sx: "0px", md: "25px" },
           }}
         >
           <Typography sx={{ textAlign: "center" }} level="h1">
@@ -39,7 +39,7 @@ const AboutUsPage = () => {
             fontWeight="md"
             level="body-lg"
             sx={{
-              width: { xs: "350px", sm: "345px", md: "900px" },
+              width: { xs: "350px", sm: "100%", md: "900px" },
               padding: "15px",
             }}
           >
@@ -54,10 +54,9 @@ const AboutUsPage = () => {
           sx={{
             backgroundColor: "white",
             borderRadius: "16px",
-            width: { xs: "350px", sm: "345px", md: "1000px" },
-            marginTop: { xs: "10px", md: "25px" },
+            width: { xs: "100%", sm: "100%", md: "1000px" },
+            marginTop: { xs: "10px", md: "10px" },
             marginBottom: { xs: "10px", md: "25px" },
-
             padding: "25px",
             display: "flex",
             flexDirection: "column",
