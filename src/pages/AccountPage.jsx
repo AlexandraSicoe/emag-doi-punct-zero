@@ -51,6 +51,7 @@ const AccountPage = () => {
             sx={{
               flexDirection: { xs: "column", md: "row" },
               alignItems: { xs: "center", md: "start" },
+              height: "100vh",
             }}
           >
             <Box
@@ -179,7 +180,6 @@ const AccountPage = () => {
               justifyContent="center"
               alignItems="start"
               flexDirection="column"
-              backgroundColor="#F2F2F7"
               sx={{
                 borderRadius: "16px",
               }}
@@ -193,7 +193,6 @@ const AccountPage = () => {
                     sm: "345px",
                     md: "1000px",
                   },
-                  marginBottom: { xs: "25px", md: "0px" },
                   borderRadius: "16px",
                 }}
               >
@@ -225,33 +224,39 @@ const AccountPage = () => {
                       marginLeft: { xs: "10px", md: "40px" },
                     }}
                   >
-                    <Typography level="body1" mb={1}>
+                    <Typography level="body-md" mb={1}>
                       <span
                         style={{ fontWeight: "bold", fontFamily: "Poppins" }}
                       >
                         Nume:{" "}
                       </span>
                       <span style={{ fontFamily: "Poppins" }}>
-                        {userData.name}
+                        <Typography level="body-sm">{userData.name}</Typography>
                       </span>
                     </Typography>
-                    <Typography level="body1" mb={1}>
+                    <Typography level="body-md" mb={1}>
                       <span
                         style={{ fontWeight: "bold", fontFamily: "Poppins" }}
                       >
                         Email:{" "}
                       </span>
                       <span style={{ fontFamily: "Poppins" }}>
-                        {userData.email}
+                        <Typography level="body-sm">
+                          {userData.email}
+                        </Typography>
                       </span>
                     </Typography>
-                    <Typography level="body1" mb={1}>
+                    <Typography level="body-md" mb={1}>
                       <span
                         style={{ fontWeight: "bold", fontFamily: "Poppins" }}
                       >
                         Telefon:{" "}
                       </span>
-                      <span style={{ fontFamily: "Poppins" }}>07244854832</span>
+                      <Typography level="body-sm">
+                        <span style={{ fontFamily: "Poppins" }}>
+                          07244854832
+                        </span>
+                      </Typography>
                     </Typography>
                   </Box>
                 </Box>
