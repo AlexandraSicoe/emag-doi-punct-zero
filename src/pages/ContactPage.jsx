@@ -166,7 +166,6 @@ const ContactPage = () => {
                 borderRadius: "16px",
                 width: { xs: "100%", sm: "345px", md: "1000px" },
                 padding: "20px",
-                marginBottom: { xs: "25px", md: "0px" },
               }}
             >
               <form
@@ -256,8 +255,8 @@ const ContactPage = () => {
               borderRadius: "16px",
               width: { xs: "100%", sm: "345px", md: "1000px" },
               padding: "20px",
-              marginBottom: { xs: "25px", md: "0px" },
-              my: "20px",
+              marginBottom: { xs: "25px", md: "25px" },
+              marginTop: { xs: "10px", md: "25px" },
             }}
           >
             <Grid
