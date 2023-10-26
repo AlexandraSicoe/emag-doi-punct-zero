@@ -72,7 +72,7 @@ const Orders = ({ userId }) => {
             width: {
               xs: "350px",
               sm: "345px",
-              md: "1000px",
+              md: "900px",
             },
           }}
         >
