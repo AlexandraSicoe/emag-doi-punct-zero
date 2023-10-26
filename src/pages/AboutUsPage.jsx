@@ -15,6 +15,7 @@ const AboutUsPage = () => {
         alignItems="center"
         flexDirection="column"
         backgroundColor="#F2F2F7"
+        p={3}
       >
         <Box
           sx={{
@@ -70,7 +71,7 @@ const AboutUsPage = () => {
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", md: "row" },
+              flexDirection: { xs: "column", sm: "row", md: "row" },
               flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
