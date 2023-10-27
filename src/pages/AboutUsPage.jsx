@@ -33,14 +33,14 @@ const AboutUsPage = () => {
           <Typography sx={{ textAlign: "center" }} level="h1">
             E20
           </Typography>
-          <Typography sx={{ textAlign: "center" }} level="h3">
+          <Typography sx={{ textAlign: "center" }} level="h2">
             Magazin Online pentru Animale de Companie
           </Typography>
           <Typography
             fontWeight="md"
             level="body-lg"
             sx={{
-              width: { xs: "350px", sm: "100%", md: "900px" },
+              width: { xs: "100%", sm: "100%", md: "900px" },
               padding: "15px",
             }}
           >
@@ -65,7 +65,7 @@ const AboutUsPage = () => {
             justifyContent: "center",
           }}
         >
-          <Typography sx={{ textAlign: "center" }} level="h1">
+          <Typography sx={{ textAlign: "center" }} level="h2">
             Întâlnește echipa
           </Typography>
           <Box
