@@ -30,10 +30,10 @@ const AboutUsPage = () => {
             margin: { sx: "0px", sm: "0px", md: "25px" },
           }}
         >
-          <Typography sx={{ textAlign: "center" }} level="h1">
+          <Typography sx={{ textAlign: "center", padding: "15px" }} level="h1">
             E20
           </Typography>
-          <Typography sx={{ textAlign: "center" }} level="h2">
+          <Typography sx={{ textAlign: "center", paddingX: "15px" }} level="h2">
             Magazin Online pentru Animale de Companie
           </Typography>
           <Typography
@@ -83,7 +83,9 @@ const AboutUsPage = () => {
                 display: "flex",
                 flexDirection: "column",
                 margin: "15px",
-                marginTop: "5px",
+                marginTop: "15px",
+                maxWidth: "200px",
+                minHeight: "510px",
               }}
             >
               <img
@@ -116,6 +118,8 @@ const AboutUsPage = () => {
                 flexDirection: "column",
                 alignItems: "flex-start",
                 margin: "15px",
+                maxWidth: "200px",
+                minHeight: "510px",
               }}
             >
               <img
@@ -153,6 +157,8 @@ const AboutUsPage = () => {
                 flexDirection: "column",
                 alignItems: "flex-start",
                 margin: "15px",
+                maxWidth: "200px",
+                minHeight: "510px",
               }}
             >
               <img
@@ -187,6 +193,8 @@ const AboutUsPage = () => {
                 alignItems: "flex-start",
                 margin: "15px",
                 paddingTop: "15px",
+                maxWidth: "200px",
+                minHeight: "510px",
               }}
             >
               <img
@@ -220,6 +228,8 @@ const AboutUsPage = () => {
                 alignItems: "flex-start",
                 margin: "15px",
                 paddingTop: "15px",
+                maxWidth: "200px",
+                minHeight: "510px",
               }}
             >
               <img
