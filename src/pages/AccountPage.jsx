@@ -191,7 +191,7 @@ const AccountPage = () => {
                   width: {
                     xs: "350px",
                     sm: "345px",
-                    md: "1000px",
+                    md: "100%",
                   },
                   borderRadius: "16px",
                 }}
