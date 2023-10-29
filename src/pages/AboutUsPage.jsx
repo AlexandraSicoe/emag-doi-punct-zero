@@ -15,6 +15,7 @@ const AboutUsPage = () => {
         alignItems="center"
         flexDirection="column"
         backgroundColor="#F2F2F7"
+        p={3}
       >
         <Box
           sx={{
@@ -24,20 +25,22 @@ const AboutUsPage = () => {
             flexDirection: "column",
             backgroundColor: "white",
             borderRadius: "16px",
-            width: { xs: "350px", sm: "345px", md: "1000px" },
-            marginTop: { xs: "0px", md: "25px" },
-            padding: "25px",
+            width: { xs: "100%", sm: "100%", md: "900px" },
+            marginTop: { xs: "10px", md: "25px" },
+            margin: { sx: "0px", sm: "0px", md: "25px" },
           }}
         >
-          <Typography level="h1">E20</Typography>
-          <Typography level="h3">
+          <Typography sx={{ textAlign: "center", padding: "15px" }} level="h1">
+            E20
+          </Typography>
+          <Typography sx={{ textAlign: "center", paddingX: "15px" }} level="h2">
             Magazin Online pentru Animale de Companie
           </Typography>
           <Typography
             fontWeight="md"
             level="body-lg"
             sx={{
-              width: { xs: "350px", sm: "345px", md: "600px" },
+              width: { xs: "100%", sm: "100%", md: "900px" },
               padding: "15px",
             }}
           >
@@ -47,64 +50,28 @@ const AboutUsPage = () => {
             care clienții pot găsi tot ceea ce au nevoie pentru îngrijirea și
             fericirea animalelor lor de companie, oriunde și oricând au nevoie.
           </Typography>
-          <Typography level="h2" sx={{ paddingTop: "15px" }}>
-            Cine suntem?
-          </Typography>
-          <Typography
-            level="body-lg"
-            fontWeight="md"
-            sx={{
-              width: { xs: "350px", sm: "345px", md: "600px" },
-              padding: "15px",
-            }}
-          >
-            La început, E20 a fost un mic magazin online, specializat în produse
-            pentru animalele de companie. De atunci și până astăzi, timp de 20
-            de ani, am căutat în fiecare zi să ajungem mai departe și să facem
-            mereu lucrurile mai bine. Cu o misiune clară de a aduce în casele
-            dumneavoastră cele mai bune produse pentru câini, pisici și păsări,
-            suntem dedicați să vă susținem în îngrijirea și bucuria oferită de
-            animalele voastre de companie.
-          </Typography>
-
-          <Typography level="h2" sx={{ paddingTop: "15px" }}>
-            Misiunea Noastră
-          </Typography>
-          <Typography
-            level="body-lg"
-            fontWeight="md"
-            sx={{
-              width: { xs: "350px", sm: "345px", md: "600px" },
-              padding: "15px",
-            }}
-          >
-            Misiunea noastră este să vă ajutăm să oferiți celor mai buni
-            prieteni ai dumneavoastră viața fericită și sănătoasă pe care o
-            merită. Ne străduim să vă oferim cele mai bune produse și servicii,
-            astfel încât să puteți crea legături puternice și să vă bucurați de
-            fiecare moment petrecut alături de animalele voastre de companie.
-            Alăturați-vă comunității E20 și descoperiți o lume de produse pentru
-            animalele de companie, gândite pentru a satisface nevoile și
-            dorințele tuturor iubitorilor de animale.
-          </Typography>
         </Box>
         <Box
           sx={{
             backgroundColor: "white",
             borderRadius: "16px",
-            width: { xs: "350px", sm: "345px", md: "1000px" },
-            marginTop: { xs: "10px", md: "25px" },
+            width: { xs: "100%", sm: "100%", md: "900px" },
+            marginTop: { xs: "10px", md: "10px" },
+            marginBottom: { xs: "10px", md: "25px" },
             padding: "25px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <Typography level="h1">Întâlnește echipa</Typography>
+          <Typography sx={{ textAlign: "center" }} level="h2">
+            Întâlnește echipa
+          </Typography>
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", md: "row" },
+              flexDirection: { xs: "column", sm: "row", md: "row" },
               flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
@@ -116,7 +83,9 @@ const AboutUsPage = () => {
                 display: "flex",
                 flexDirection: "column",
                 margin: "15px",
-                marginTop: "5px",
+                marginTop: "15px",
+                maxWidth: "200px",
+                minHeight: "510px",
               }}
             >
               <img
@@ -149,6 +118,8 @@ const AboutUsPage = () => {
                 flexDirection: "column",
                 alignItems: "flex-start",
                 margin: "15px",
+                maxWidth: "200px",
+                minHeight: "510px",
               }}
             >
               <img
@@ -186,6 +157,8 @@ const AboutUsPage = () => {
                 flexDirection: "column",
                 alignItems: "flex-start",
                 margin: "15px",
+                maxWidth: "200px",
+                minHeight: "510px",
               }}
             >
               <img
@@ -220,6 +193,8 @@ const AboutUsPage = () => {
                 alignItems: "flex-start",
                 margin: "15px",
                 paddingTop: "15px",
+                maxWidth: "200px",
+                minHeight: "510px",
               }}
             >
               <img
@@ -253,6 +228,8 @@ const AboutUsPage = () => {
                 alignItems: "flex-start",
                 margin: "15px",
                 paddingTop: "15px",
+                maxWidth: "200px",
+                minHeight: "510px",
               }}
             >
               <img
