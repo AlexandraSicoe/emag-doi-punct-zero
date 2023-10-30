@@ -49,9 +49,9 @@ const AccountPage = () => {
             display="flex"
             justifyContent="center"
             sx={{
-              flexDirection: { xs: "column", md: "row" },
+              flexDirection: { xs: "column", sm: "column", md: "row" },
               alignItems: { xs: "center", md: "start" },
-              height: "100vh",
+              height: "100%",
             }}
           >
             <Box
@@ -60,8 +60,8 @@ const AccountPage = () => {
                 flexDirection: "column",
                 borderRadius: "16px",
                 backgroundColor: "white",
-                width: { xs: "350px", sm: "345px", md: "400px" },
-                marginTop: { xs: "0px", md: "25px" },
+                width: { xs: "100%", sm: "100%", md: "400px" },
+                marginTop: { xs: "25px", md: "25px" },
               }}
             >
               <Box
