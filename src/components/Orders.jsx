@@ -68,88 +68,104 @@ const Orders = ({ userId }) => {
           sx={{
             marginBottom: "25px",
             borderRadius: "16px",
-            marginTop: { xs: "0px", md: "25px" },
+            marginTop: { xs: "25px", md: "25px" },
             width: {
               xs: "350px",
               sm: "345px",
-              md: "900px",
+              md: "100%",
             },
           }}
         >
+          <Typography
+            sx={{
+              marginBottom: "10px",
+              textAlign: { xs: "center", md: "start" },
+            }}
+            level="h3"
+          >
+            Comenzile mele
+          </Typography>
+
           <Box
             sx={{
-              justifyContent: { xs: "center", md: "end" },
-              marginTop: { xs: "10px", md: "25px" },
-              flexDirection: { xs: "column", md: "row" },
-              alignItems: { xs: "center", md: "start" },
+              width: "100%",
+              justifyContent: { xs: "center", md: "start" },
             }}
           >
-            <Typography sx={{ marginBottom: "10px" }} level="h3">
-              Comenzile mele
-            </Typography>
-          </Box>
-
-          <Box display="flex">
             <Box
+              backgroundColor="white"
+              display="flex"
+              justifyContent="start"
               sx={{
-                justifyContent: { xs: "center", md: "end" },
-                marginTop: { xs: "10px", md: "0px" },
+                flexDirection: { xs: "column", sm: "column", md: "row" },
+                alignItems: "center",
+                flexWrap: { xs: "no-wrap", md: "wrap" },
+                gap: "10px",
               }}
             >
-              <Box
-                backgroundColor="white"
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                mb={3}
-                sx={{ flexDirection: { xs: "column", sm: "row", md: "row" } }}
+              <Typography
+                level="body-sm"
+                sx={{
+                  marginRight: "10px",
+                  display: { xs: "none", md: "inline" },
+                }}
               >
-                <Typography level="body-sm" sx={{ marginRight: "10px" }}>
-                  vezi
-                </Typography>
-                <Select
-                  sx={{
-                    width: "200px",
-                  }}
-                  placeholder="toate comenzile"
-                >
-                  <Option>toate comenzile</Option>
-                  <Option>comenzile active</Option>
-                  <Option>comenzile anulate</Option>
-                </Select>
-                <Typography
-                  level="body-sm"
-                  sx={{ marginLeft: "10px", marginRight: "10px" }}
-                >
-                  din
-                </Typography>
-                <Select
-                  sx={{
-                    width: "200px",
-                  }}
-                  placeholder="din ultimele 3 luni"
-                >
-                  <Option>din ultimele 3 luni</Option>
-                  <Option>din ultimele 6 luni</Option>
-                  <Option>2021</Option>
-                  <Option>2022</Option>
-                  <Option>2023</Option>
-                  <Option>Toate</Option>
-                </Select>
-                <Input
-                  sx={{
-                    width: "200px",
-                    ml: { xs: "0px", md: "50px" },
-                    mt: { xs: "15px", md: "0px" },
-                  }}
-                  placeholder="Cauta dupa produs"
-                />
-              </Box>
+                vezi
+              </Typography>
+              <Select
+                sx={{
+                  width: "160px",
+                  "&:hover": {
+                    backgroundColor: "white",
+                  },
+                }}
+                placeholder="toate comenzile"
+                size="sm"
+              >
+                <Option>toate comenzile</Option>
+                <Option>comenzile active</Option>
+                <Option>comenzile anulate</Option>
+              </Select>
+              <Typography
+                level="body-sm"
+                sx={{
+                  ml: "10px",
+                  mr: "10px",
+                  display: { xs: "none", md: "inline" },
+                }}
+              >
+                din
+              </Typography>
+              <Select
+                sx={{
+                  width: "140px",
+                  "&:hover": {
+                    backgroundColor: "white",
+                  },
+                }}
+                placeholder="ultimele 3 luni"
+                size="sm"
+              >
+                <Option>din ultimele 3 luni</Option>
+                <Option>din ultimele 6 luni</Option>
+                <Option>2021</Option>
+                <Option>2022</Option>
+                <Option>2023</Option>
+                <Option>Toate</Option>
+              </Select>
+              <Input
+                sx={{
+                  width: { xs: "200px" },
+                  mt: { xs: "0px", md: "0px" },
+                }}
+                placeholder="Cauta dupa produs"
+                size="sm"
+              />
             </Box>
           </Box>
         </Grid>
 
-        <Grid
+        {/* <Grid
           display="flex"
           flexDirection="column"
           backgroundColor="white"
@@ -180,7 +196,7 @@ const Orders = ({ userId }) => {
             showLastButton
             onChange={handleChange}
           />
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );

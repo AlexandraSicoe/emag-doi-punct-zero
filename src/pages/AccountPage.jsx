@@ -51,7 +51,7 @@ const AccountPage = () => {
             sx={{
               flexDirection: { xs: "column", sm: "column", md: "row" },
               alignItems: { xs: "center", md: "start" },
-              height: "100%",
+              height: "100vh",
             }}
           >
             <Box
