@@ -104,14 +104,15 @@ const Orders = ({ userId }) => {
                 level="body-sm"
                 sx={{
                   marginRight: "10px",
-                  display: { xs: "none", sm: "none", md: "inline" },
+                  display: { xs: "none", sm: "none", md: "none", lg: "inline" },
                 }}
               >
                 vezi
               </Typography>
               <Select
                 sx={{
-                  width: "160px",
+                  width: { xs: "180px", md: "160px" },
+
                   "&:hover": {
                     backgroundColor: "white",
                   },
@@ -128,14 +129,14 @@ const Orders = ({ userId }) => {
                 sx={{
                   ml: "10px",
                   mr: "10px",
-                  display: { xs: "none", sm: "none", md: "inline" },
+                  display: { xs: "none", sm: "none", md: "none", lg: "inline" },
                 }}
               >
                 din
               </Typography>
               <Select
                 sx={{
-                  width: "140px",
+                  width: { xs: "180px", md: "140px" },
                   "&:hover": {
                     backgroundColor: "white",
                   },
@@ -152,7 +153,7 @@ const Orders = ({ userId }) => {
               </Select>
               <Input
                 sx={{
-                  width: { xs: "200px" },
+                  width: { xs: "180px", md: "100%", lg: "450px" },
                   mt: { xs: "0px", md: "0px" },
                 }}
                 placeholder="Cauta dupa produs"
