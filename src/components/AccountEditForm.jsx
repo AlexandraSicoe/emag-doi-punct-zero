@@ -96,17 +96,41 @@ const AccountEditForm = () => {
             justifyContent="space-between"
             mb={2}
           >
-            <Select sx={{ width: "100px" }} placeholder="Ziua">
+            <Select
+              sx={{
+                width: "100px",
+                "&:hover": {
+                  backgroundColor: "white",
+                },
+              }}
+              placeholder="Ziua"
+            >
               <Option>1</Option>
               <Option>2</Option>
               <Option>3</Option>
             </Select>
-            <Select sx={{ width: "100px" }} placeholder="Luna">
+            <Select
+              sx={{
+                width: "100px",
+                "&:hover": {
+                  backgroundColor: "white",
+                },
+              }}
+              placeholder="Luna"
+            >
               <Option>1</Option>
               <Option>2</Option>
               <Option>3</Option>
             </Select>
-            <Select sx={{ width: "100px" }} placeholder="Anul">
+            <Select
+              sx={{
+                width: "100px",
+                "&:hover": {
+                  backgroundColor: "white",
+                },
+              }}
+              placeholder="Anul"
+            >
               <Option>1990</Option>
               <Option>1991</Option>
               <Option>1992</Option>
