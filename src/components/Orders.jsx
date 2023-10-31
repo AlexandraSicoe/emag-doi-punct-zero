@@ -69,15 +69,12 @@ const Orders = ({ userId }) => {
             marginBottom: "25px",
             borderRadius: "16px",
             marginTop: { xs: "25px", md: "25px" },
-            width: {
-              xs: "350px",
-              sm: "345px",
-              md: "100%",
-            },
+            marginLeft: { xs: "0px", md: "25px" },
           }}
         >
           <Typography
             sx={{
+              width: "100%",
               marginBottom: "10px",
               textAlign: { xs: "center", md: "start" },
             }}
@@ -107,7 +104,7 @@ const Orders = ({ userId }) => {
                 level="body-sm"
                 sx={{
                   marginRight: "10px",
-                  display: { xs: "none", md: "inline" },
+                  display: { xs: "none", sm: "none", md: "inline" },
                 }}
               >
                 vezi
@@ -131,7 +128,7 @@ const Orders = ({ userId }) => {
                 sx={{
                   ml: "10px",
                   mr: "10px",
-                  display: { xs: "none", md: "inline" },
+                  display: { xs: "none", sm: "none", md: "inline" },
                 }}
               >
                 din
