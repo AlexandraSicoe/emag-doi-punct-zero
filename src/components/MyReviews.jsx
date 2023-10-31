@@ -8,6 +8,8 @@ const MyReviews = () => {
         backgroundColor="#F2F2F7"
         sx={{
           flexDirection: { xs: "column" },
+          marginLeft: { xs: "0px", md: "25px" },
+          marginTop: { xs: "25px", md: "0px" },
         }}
       >
         <Box
