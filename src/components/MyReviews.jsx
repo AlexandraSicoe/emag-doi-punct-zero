@@ -19,11 +19,7 @@ const MyReviews = () => {
             marginBottom: { xs: "25px", md: "25px" },
             borderRadius: "16px",
             marginTop: { xs: "0px", md: "25px" },
-            width: {
-              xs: "350px",
-              sm: "345px",
-              md: "1000px",
-            },
+            width: "100%",
           }}
         >
           <Typography sx={{ marginBottom: "10px" }} level="h3">
