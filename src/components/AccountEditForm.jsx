@@ -13,6 +13,13 @@ const AccountEditForm = () => {
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
+  function getMaxDate() {
+    const currentDate = new Date();
+    const maxDate = new Date(currentDate);
+    maxDate.setFullYear(currentDate.getFullYear() - 18);
+    return maxDate.toISOString().slice(0, 10);
+  }
+  const maxDate18YearsAgo = getMaxDate();
   useEffect(() => {
     let lsUser = localStorage.getItem("user");
     lsUser = JSON.parse(lsUser);
@@ -95,51 +102,18 @@ const AccountEditForm = () => {
           <Box
             backgroundColor="white"
             display="flex"
-            justifyContent="space-between"
+            justifyContent="start"
             mb={2}
           >
-            <Select
-              sx={{
-                marginRight: "5px",
-                width: "100px",
-                "&:hover": {
-                  backgroundColor: "white",
+            <Input
+              type="date"
+              slotProps={{
+                input: {
+                  min: "2018-06-07T00:00",
+                  max: maxDate18YearsAgo,
                 },
               }}
-              placeholder="Ziua"
-            >
-              <Option>1</Option>
-              <Option>2</Option>
-              <Option>3</Option>
-            </Select>
-            <Select
-              sx={{
-                width: "100px",
-                marginRight: "5px",
-
-                "&:hover": {
-                  backgroundColor: "white",
-                },
-              }}
-              placeholder="Luna"
-            >
-              <Option>1</Option>
-              <Option>2</Option>
-              <Option>3</Option>
-            </Select>
-            <Select
-              sx={{
-                width: "100px",
-                "&:hover": {
-                  backgroundColor: "white",
-                },
-              }}
-              placeholder="Anul"
-            >
-              <Option>1990</Option>
-              <Option>1991</Option>
-              <Option>1992</Option>
-            </Select>
+            />
           </Box>
 
           <Button size="lg" sx={{ textAlign: "center" }}>
