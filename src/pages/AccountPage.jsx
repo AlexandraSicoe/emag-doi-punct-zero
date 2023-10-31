@@ -44,9 +44,9 @@ const AccountPage = () => {
           <Navbar />
           <MenuDropdown />
           <Grid
-            backgroundColor="#F2F2F7"
-            display="flex"
             sx={{
+              backgroundColor: "#F2F2F7",
+              display: "flex",
               flexDirection: { xs: "column", sm: "column", md: "row" },
               alignItems: { xs: "center", md: "start" },
               justifyContent: { xs: "start", md: "center" },
@@ -55,8 +55,8 @@ const AccountPage = () => {
             }}
           >
             <Box
-              display="flex"
               sx={{
+                display: "flex",
                 flexDirection: "column",
                 borderRadius: "16px",
                 backgroundColor: "white",
@@ -173,79 +173,99 @@ const AccountPage = () => {
                 </ListItem>
               </List>
             </Box>
-
-            <Box
-              display="flex"
-              justifyContent="center"
-              flexDirection="column"
+            <Grid
               sx={{
-                padding: "25px",
-                backgroundColor: "white",
-                borderRadius: "16px",
-                width: { xs: "100%", sm: "100%", md: "400px" },
-                borderRadius: "16px",
-                marginLeft: { xs: "0px", md: "25px" },
-                marginTop: { xs: "25px", md: "0px" },
-                alignItems: { xs: "center", md: "start" },
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                width: { xs: "100%", sm: "100%", md: "50%" },
               }}
             >
-              <Typography sx={{ marginBottom: "10px" }} level="h3">
-                Datele contului:
-              </Typography>
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: { xs: "column", md: "row" },
-                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  padding: "25px",
+                  backgroundColor: "white",
+                  borderRadius: "16px",
+                  borderRadius: "16px",
+                  marginLeft: { xs: "0px", md: "25px" },
+                  marginTop: { xs: "25px", md: "0px" },
+                  alignItems: { xs: "center", md: "start" },
                 }}
               >
-                <img
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                  alt="profile"
-                  style={{
-                    borderRadius: "50%",
-                    height: "75px",
-                    width: "75px",
-                    objectFit: "cover",
-                  }}
-                />
+                <Typography sx={{ marginBottom: "10px" }} level="h3">
+                  Datele contului:
+                </Typography>
                 <Box
                   sx={{
-                    justifyContent: { xs: "center", md: "end" },
-                    marginTop: { xs: "10px", md: "0px" },
-                    marginLeft: { xs: "10px", md: "40px" },
+                    display: "flex",
+                    justifyContent: { xs: "column", md: "row" },
+                    alignItems: "center",
                   }}
                 >
-                  <Typography level="body-md" mb={1}>
-                    <span style={{ fontWeight: "bold", fontFamily: "Poppins" }}>
-                      Nume:{" "}
-                    </span>
-                    <span style={{ fontFamily: "Poppins" }}>
-                      <Typography level="body-sm">{userData.name}</Typography>
-                    </span>
-                  </Typography>
-                  <Typography level="body-md" mb={1}>
-                    <span style={{ fontWeight: "bold", fontFamily: "Poppins" }}>
-                      Email:{" "}
-                    </span>
-                    <span style={{ fontFamily: "Poppins" }}>
-                      <Typography level="body-sm">{userData.email}</Typography>
-                    </span>
-                  </Typography>
-                  <Typography level="body-md" mb={1}>
-                    <span style={{ fontWeight: "bold", fontFamily: "Poppins" }}>
-                      Telefon:{" "}
-                    </span>
-                    <Typography level="body-sm">
-                      <span style={{ fontFamily: "Poppins" }}>07244854832</span>
+                  <img
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    alt="profile"
+                    style={{
+                      borderRadius: "50%",
+                      height: "75px",
+                      width: "75px",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <Box
+                    sx={{
+                      justifyContent: { xs: "center", md: "end" },
+                      marginTop: { xs: "10px", md: "0px" },
+                      marginLeft: { xs: "10px", md: "40px" },
+                    }}
+                  >
+                    <Typography level="body-md" mb={1}>
+                      <span
+                        style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                      >
+                        Nume:{" "}
+                      </span>
+                      <span style={{ fontFamily: "Poppins" }}>
+                        <Typography level="body-sm">{userData.name}</Typography>
+                      </span>
                     </Typography>
-                  </Typography>
+                    <Typography level="body-md" mb={1}>
+                      <span
+                        style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                      >
+                        Email:{" "}
+                      </span>
+                      <span style={{ fontFamily: "Poppins" }}>
+                        <Typography level="body-sm">
+                          {userData.email}
+                        </Typography>
+                      </span>
+                    </Typography>
+                    <Typography level="body-md" mb={1}>
+                      <span
+                        style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                      >
+                        Telefon:{" "}
+                      </span>
+                      <Typography level="body-sm">
+                        <span style={{ fontFamily: "Poppins" }}>
+                          07244854832
+                        </span>
+                      </Typography>
+                    </Typography>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
-            {whatOptionVisible === "account" && <AccountEditForm />}
-            {whatOptionVisible === "orders" && <Orders userId={userData._id} />}
-            {whatOptionVisible === "review" && <MyReviews />}
+
+              {whatOptionVisible === "account" && <AccountEditForm />}
+              {whatOptionVisible === "orders" && (
+                <Orders userId={userData._id} />
+              )}
+              {whatOptionVisible === "review" && <MyReviews />}
+            </Grid>
           </Grid>
         </>
       ) : (

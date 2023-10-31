@@ -21,9 +21,10 @@ const AccountEditForm = () => {
     <Box
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        justifyContent: "space-between",
+        flexDirection: { xs: "column", sm: "column", md: "row" },
+        justifyContent: "center",
         width: "100%",
+        marginTop: "25px",
       }}
     >
       <Box
@@ -32,12 +33,12 @@ const AccountEditForm = () => {
           flexDirection: "column",
           backgroundColor: "white",
           justifyContent: { xs: "center", md: "start" },
-          marginTop: { xs: "10px", md: "25px" },
+          marginLeft: { xs: "0px", md: "25px" },
           padding: "25px",
           width: {
-            xs: "350px",
-            sm: "345px",
-            md: "500px",
+            xs: "100%",
+            sm: "100%",
+            md: "100%",
             borderRadius: "16px",
           },
         }}
@@ -98,6 +99,7 @@ const AccountEditForm = () => {
           >
             <Select
               sx={{
+                marginRight: "5px",
                 width: "100px",
                 "&:hover": {
                   backgroundColor: "white",
@@ -112,6 +114,8 @@ const AccountEditForm = () => {
             <Select
               sx={{
                 width: "100px",
+                marginRight: "5px",
+
                 "&:hover": {
                   backgroundColor: "white",
                 },
@@ -142,16 +146,14 @@ const AccountEditForm = () => {
           </Button>
         </form>
       </Box>
-      <Box
+      {/* <Box
         sx={{
-          marginTop: { xs: "10px", md: "24px" },
-          paddingLeft: "10px",
           width: {
-            xs: "350px",
-            sm: "345px",
-            md: "400px",
+            xs: "100%",
+            sm: "100%",
+            md: "50%",
           },
-          display: { xs: "none", sm: "block", md: "block" },
+          display: { xs: "none", sm: "none", md: "block" },
         }}
       >
         <img
@@ -164,7 +166,7 @@ const AccountEditForm = () => {
           }}
           src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80"
         />
-      </Box>
+      </Box> */}
     </Box>
   );
 };
