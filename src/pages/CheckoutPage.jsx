@@ -63,7 +63,6 @@ const CheckoutPage = () => {
         {cartData?.map((product, index) => {
           return (
             <Box
-              m={2}
               sx={{
                 backgroundColor: "white",
                 marginBottom: "15px",

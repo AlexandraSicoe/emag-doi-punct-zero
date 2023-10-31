@@ -45,12 +45,10 @@ const AccountPage = () => {
           <MenuDropdown />
           <Grid
             sx={{
-              backgroundColor: "#F2F2F7",
               display: "flex",
               flexDirection: { xs: "column", sm: "column", md: "row" },
               alignItems: { xs: "center", md: "start" },
               justifyContent: { xs: "start", md: "center" },
-              minHeight: "100vh",
               padding: "25px",
             }}
           >
