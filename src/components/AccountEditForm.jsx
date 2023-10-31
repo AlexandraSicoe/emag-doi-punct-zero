@@ -47,7 +47,7 @@ const AccountEditForm = () => {
           Administrare date
         </Typography>
         <form>
-          <Box display="flex" justifyContent="space-between" mb={2}>
+          <Box display="flex" justifyContent="start" mb={2}>
             <Radio
               checked={selectedValue === "a"}
               onChange={handleChange}
@@ -55,6 +55,7 @@ const AccountEditForm = () => {
               label="Dl."
               name="radio-buttons"
               slotProps={{ input: { "aria-label": "A" } }}
+              sx={{ marginRight: "50px" }}
             />
             <Radio
               checked={selectedValue === "b"}
