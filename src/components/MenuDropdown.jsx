@@ -55,7 +55,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                   padding: "11px",
                 }}
               >
-                Products
+                Produse
               </MenuButton>
               <Menu
                 sx={{
@@ -182,7 +182,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                   },
                 }}
               >
-                Products
+                Produse
               </Button>
             </Link>
           )}
@@ -204,7 +204,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                 },
               }}
             >
-              About us
+              Despre noi
             </Button>
           </Link>
           <Link to="/contact">
