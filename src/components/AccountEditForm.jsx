@@ -103,8 +103,12 @@ const AccountEditForm = () => {
             backgroundColor="white"
             display="flex"
             justifyContent="start"
+            flexDirection="column"
             mb={2}
           >
+            <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
+              Data de naștere:
+            </FormLabel>
             <Input
               type="date"
               slotProps={{
