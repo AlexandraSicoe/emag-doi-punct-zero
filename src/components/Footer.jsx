@@ -20,10 +20,16 @@ const Footer = () => {
           flexDirection: "column",
           width: "250px",
           color: "white",
+          alignItems: "center",
+          marginBottom: { xs: "20px", md: "0px" },
         }}
       >
-        <Typography level="h3">E20</Typography>
-        <List>
+        <Typography level="h4">E20</Typography>
+        <List
+          sx={{
+            alignItems: "center",
+          }}
+        >
           <ListItem>
             <Link style={{ color: "white" }} to="#">
               Blog
@@ -41,10 +47,21 @@ const Footer = () => {
           </ListItem>
         </List>
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "column", width: "250px" }}>
-        <Typography level="h3">INFO CLIENTI</Typography>
-
-        <List sx={{ color: "white" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          width: "250px",
+          alignItems: "center",
+          marginBottom: { xs: "20px", md: "0px" },
+        }}
+      >
+        <Typography level="h4">INFO CLIENTI</Typography>
+        <List
+          sx={{
+            alignItems: "center",
+          }}
+        >
           <ListItem>
             <Link style={{ color: "white" }} to="#">
               Livrarea produselor
@@ -77,10 +94,21 @@ const Footer = () => {
           </ListItem>
         </List>
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "column", width: "250px" }}>
-        <Typography level="h3">UTILE</Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          width: "250px",
+          alignItems: "center",
+        }}
+      >
+        <Typography level="h4">UTILE</Typography>
 
-        <List>
+        <List
+          sx={{
+            alignItems: "center",
+          }}
+        >
           <ListItem>
             <Link style={{ color: "white" }} to="#">
               Blog
