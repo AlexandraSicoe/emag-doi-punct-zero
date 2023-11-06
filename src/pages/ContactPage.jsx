@@ -71,8 +71,6 @@ const ContactPage = () => {
           minHeight: "100vh",
         }}
       >
-        <Navbar />
-        <MenuDropdown />
         <Grid
           sx={{
             display: "flex",

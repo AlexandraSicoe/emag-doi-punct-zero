@@ -42,8 +42,6 @@ const AccountPage = () => {
     <>
       {userData ? (
         <>
-          <Navbar />
-          <MenuDropdown />
           <Grid
             sx={{
               display: "flex",
@@ -283,7 +281,6 @@ const AccountPage = () => {
           </Box>
         </>
       )}
-      <Footer />
     </>
   );
 };

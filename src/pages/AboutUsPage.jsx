@@ -6,9 +6,6 @@ import MenuDropdown from "../components/MenuDropdown";
 const AboutUsPage = () => {
   return (
     <>
-      <Navbar />
-      <MenuDropdown />
-
       <Grid
         display="flex"
         justifyContent="center"
