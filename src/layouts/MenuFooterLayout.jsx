@@ -14,11 +14,8 @@ const MenuFooterLayout = () => {
   useEffect(() => {
     let lsCart = localStorage.getItem("cart");
     lsCart = JSON.parse(lsCart);
-    console.log(lsCart);
     setCartData(lsCart ? lsCart : []);
   }, []);
-
-  console.log(window.location.pathname === "/");
 
   return (
     <>
