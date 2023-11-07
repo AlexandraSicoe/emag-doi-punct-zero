@@ -9,6 +9,7 @@ import useQuery from "../helpers/useQuery";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import NoOrders from "./NoOrders";
 
 const Orders = ({ userId }) => {
   const query = useQuery();
@@ -162,39 +163,7 @@ const Orders = ({ userId }) => {
             </Box>
           </Box>
         </Grid>
-
-        {/* <Grid
-          display="flex"
-          flexDirection="column"
-          backgroundColor="white"
-          p={2}
-          sx={{
-            marginBottom: { xs: "0px", md: "25px" },
-            borderRadius: "16px",
-            marginTop: { xs: "0px", md: "25px" },
-            width: {
-              xs: "350px",
-              sm: "345px",
-              md: "100%",
-            },
-          }}
-        >
-          {orders.map((order, index) => {
-            return (
-              <Box key={index}>
-                <Order order={order} />
-              </Box>
-            );
-          })}
-          <Pagination
-            count={totalPages}
-            color="primary"
-            page={ordersPage}
-            showFirstButton
-            showLastButton
-            onChange={handleChange}
-          />
-        </Grid> */}
+        <NoOrders />
       </Grid>
     </>
   );
