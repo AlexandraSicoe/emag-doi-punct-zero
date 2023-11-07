@@ -1,14 +1,15 @@
 import { Box, Grid, Typography } from "@mui/joy";
 import Input from "@mui/joy/Input";
-import Order from "../components/Order";
 import Option from "@mui/joy/Option";
 import Select from "@mui/joy/Select";
-import * as React from "react";
 import Pagination from "@mui/material/Pagination";
-import useQuery from "../helpers/useQuery";
+import axios from "axios";
+import * as React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import Order from "../components/Order";
+import useQuery from "../helpers/useQuery";
+import NoOrders from "./NoOrders";
 
 const Orders = ({ userId }) => {
   const query = useQuery();
@@ -162,39 +163,37 @@ const Orders = ({ userId }) => {
             </Box>
           </Box>
         </Grid>
-
-        {/* <Grid
-          display="flex"
-          flexDirection="column"
-          backgroundColor="white"
-          p={2}
-          sx={{
-            marginBottom: { xs: "0px", md: "25px" },
-            borderRadius: "16px",
-            marginTop: { xs: "0px", md: "25px" },
-            width: {
-              xs: "350px",
-              sm: "345px",
-              md: "100%",
-            },
-          }}
-        >
-          {orders.map((order, index) => {
-            return (
+        {orders.length === 0 ? (
+          <NoOrders />
+        ) : (
+          <Grid
+            sx={{
+              padding: "25px",
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "white",
+              marginBottom: "25px",
+              borderRadius: "16px",
+              marginTop: { xs: "25px", md: "25px" },
+              marginLeft: { xs: "0px", md: "25px" },
+            }}
+          >
+            {orders.map((order, index) => (
               <Box key={index}>
                 <Order order={order} />
               </Box>
-            );
-          })}
-          <Pagination
-            count={totalPages}
-            color="primary"
-            page={ordersPage}
-            showFirstButton
-            showLastButton
-            onChange={handleChange}
-          />
-        </Grid> */}
+            ))}
+
+            <Pagination
+              count={totalPages}
+              color="primary"
+              page={ordersPage}
+              showFirstButton
+              showLastButton
+              onChange={handleChange}
+            />
+          </Grid>
+        )}
       </Grid>
     </>
   );
