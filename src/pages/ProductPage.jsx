@@ -52,19 +52,18 @@ const ProductPage = () => {
           <CircularProgress />
         </Box>
       ) : (
-        <Grid container>
+        <Grid sx={{ padding: "25px" }} container>
           <Grid xs={12} md={6}>
             <Box
               sx={{
                 display: "flex",
                 justifyContent: { xs: "center", md: "end" },
                 marginRight: { md: "25px" },
-                marginTop: { xs: "0px", md: "40px" },
               }}
             >
               <Box
                 sx={{
-                  width: { xs: "375px", md: "500px" },
+                  width: { xs: "100%", md: "500px" },
                   objectFit: "contain",
                 }}
               >
@@ -83,8 +82,7 @@ const ProductPage = () => {
           <Grid xs={12} md={6}>
             <Box
               sx={{
-                marginTop: { xs: "0px", md: "40px" },
-                width: { xs: "375px", md: "500px" },
+                width: { xs: "100%", md: "500px" },
                 padding: { xs: "25px", md: "0px" },
               }}
             >

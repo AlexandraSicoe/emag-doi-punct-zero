@@ -1,7 +1,6 @@
 import { CssVarsProvider, extendTheme, useColorScheme } from "@mui/joy/styles";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "./layouts/Layout";
 import HomePage from "./pages/HomePage";
 import "./index.css";
 import LoginRegisterPage from "./pages/LoginRegisterPage";
@@ -13,6 +12,8 @@ import ContactPage from "./pages/ContactPage";
 import NoPage from "./pages/NoPage";
 import PasswordResetPage from "./pages/PasswordResetPage";
 import { createTheme } from "@mui/material";
+import MenuFooterLayout from "./layouts/MenuFooterLayout";
+import LoginRegisterLayout from "./layouts/LoginRegisterLayout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 export default function App() {
@@ -21,16 +22,20 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
+        <Route path="/" element={<LoginRegisterLayout />}>
           <Route path="/administrare" element={<LoginRegisterPage />} />
-          <Route path="pr" element={<PasswordResetPage />} />
+          <Route path="/pass-reset" element={<PasswordResetPage />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+
+        <Route path="/" element={<MenuFooterLayout />}>
+          <Route index element={<HomePage />} />
+
           <Route path="/product" element={<ProductPage />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

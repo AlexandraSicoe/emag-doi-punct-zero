@@ -37,9 +37,6 @@ const HomePage = () => {
   }, []);
   return (
     <>
-      <Navbar cartData={cartData} />
-      <MenuDropdown isDropdownOpen={true} />
-
       {productList?.length === 0 ? (
         <Box
           sx={{

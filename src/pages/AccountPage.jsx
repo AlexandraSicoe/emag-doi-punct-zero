@@ -22,6 +22,7 @@ import MenuDropdown from "../components/MenuDropdown";
 import Orders from "../components/Orders";
 import MyReviews from "../components/MyReviews";
 import useQuery from "../helpers/useQuery";
+import Footer from "../components/Footer";
 
 const AccountPage = () => {
   const query = useQuery();
@@ -41,8 +42,6 @@ const AccountPage = () => {
     <>
       {userData ? (
         <>
-          <Navbar />
-          <MenuDropdown />
           <Grid
             sx={{
               display: "flex",
