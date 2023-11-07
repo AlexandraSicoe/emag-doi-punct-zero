@@ -119,39 +119,37 @@ const CheckoutPage = () => {
                 </Box>
               );
             })}
-
             <Box
               sx={{
-                justifyContent: { xs: "center", md: "space-between" },
-                flexDirection: { xs: "column", md: "row" },
+                backgroundColor: "white",
+                borderRadius: "16px",
+                display: "flex",
+                padding: "25px",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: { xs: "start", md: "center" },
+                width: {
+                  xs: "100%",
+                  sm: "100%",
+                  md: "800px",
+                },
+
+                marginBottom: "25px",
               }}
-              display="flex"
-              alignItems="center"
             >
-              <Box
-                sx={{
-                  marginBottom: { xs: "0px", md: "15px" },
-                  padding: "15px",
-                  display: "flex",
-                  flexDirection: "column",
+              <Typography level="body-md" p={1}>
+                Cost produse: {totalPrice} RON
+              </Typography>
+              <Typography level="body-md" p={1}>
+                Cost livrare si procesare: 0 RON
+              </Typography>
+              <Button
+                onClick={() => {
+                  saveOrder();
                 }}
               >
-                <Typography level="body-md" p={1}>
-                  Cost produse: {totalPrice} RON
-                </Typography>
-                <Typography level="body-md" p={1}>
-                  Cost livrare si procesare: 0 RON
-                </Typography>
-              </Box>
-              <Box sx={{ padding: "15px" }}>
-                <Button
-                  onClick={() => {
-                    saveOrder();
-                  }}
-                >
-                  Finalizeaza comanda
-                </Button>
-              </Box>
+                Finalizeaza comanda
+              </Button>
             </Box>
           </>
         ) : (
