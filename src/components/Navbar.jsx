@@ -42,6 +42,7 @@ const Navbar = ({ cartData }) => {
           left: 0,
           top: 0,
           width: "100%",
+          padding: "5px 0px 10px 0px",
         }}
       >
         <Container
