@@ -58,17 +58,10 @@ const CheckoutPage = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          margin: {
-            xs: "25px",
-            sm: "25px",
-            md: "0px",
-          },
+          marginTop: "-60px",
         }}
       >
-        <Typography
-          level="h1"
-          sx={{ marginBottom: "25px", textAlign: "center" }}
-        >
+        <Typography level="h1" sx={{ marginBottom: "25px" }}>
           Coș de cumpărături
         </Typography>
         {cartData.length > 0 ? (
@@ -83,7 +76,6 @@ const CheckoutPage = () => {
                     padding: "25px",
                     flexDirection: { xs: "column", md: "row" },
                     justifyContent: "space-between",
-                    alignItems: { xs: "start", md: "center" },
                     width: {
                       xs: "100%",
                       sm: "100%",
@@ -125,6 +117,7 @@ const CheckoutPage = () => {
                 borderRadius: "16px",
                 display: "flex",
                 padding: "25px",
+
                 flexDirection: "column",
                 justifyContent: "space-between",
                 alignItems: { xs: "start", md: "center" },
@@ -157,13 +150,9 @@ const CheckoutPage = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
               backgroundColor: "white",
-              marginBottom: "25px",
+              margin: "25px",
               borderRadius: "16px",
-              marginTop: { xs: "25px", md: "25px" },
-              marginLeft: { xs: "0px", md: "25px" },
             }}
           >
             <Box
@@ -173,15 +162,12 @@ const CheckoutPage = () => {
                 display: "flex",
                 padding: "25px",
                 flexDirection: "column",
-                justifyContent: "space-between",
-                justifyContent: "center",
                 alignItems: "center",
                 width: {
                   xs: "100%",
                   sm: "100%",
                   md: "800px",
                 },
-                marginBottom: "25px",
               }}
             >
               <Typography
