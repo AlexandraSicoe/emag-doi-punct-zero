@@ -33,7 +33,7 @@ const Navbar = ({ cartData }) => {
 
   return (
     <>
-      <Box sx={{ height: { xs: "90px", md: "50px" } }}></Box>
+      <Box sx={{ height: { xs: "105px", md: "65px" } }}></Box>
       <Box
         sx={{
           backgroundColor: "black",
@@ -42,6 +42,7 @@ const Navbar = ({ cartData }) => {
           left: 0,
           top: 0,
           width: "100%",
+          padding: "5px 0px 10px 0px",
         }}
       >
         <Container
