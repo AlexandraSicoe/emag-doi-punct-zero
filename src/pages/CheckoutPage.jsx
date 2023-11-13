@@ -59,84 +59,116 @@ const CheckoutPage = () => {
           flexDirection: "column",
           alignItems: "center",
           marginTop: "-60px",
+          margin: "25px",
         }}
       >
         <Typography level="h1" sx={{ marginBottom: "25px" }}>
           Coș de cumpărături
         </Typography>
         {cartData.length > 0 ? (
-          <>
-            {cartData?.map((product, index) => {
-              return (
-                <Box
-                  sx={{
-                    backgroundColor: "white",
-                    borderRadius: "16px",
-                    display: "flex",
-                    padding: "25px",
-                    flexDirection: { xs: "column", md: "row" },
-                    justifyContent: "space-between",
-                    width: {
-                      xs: "100%",
-                      sm: "100%",
-                      md: "800px",
-                    },
-
-                    marginBottom: "25px",
-                  }}
-                >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              width: "100%",
+              flexDirection: { xs: "column", sm: "column", md: "row" },
+            }}
+          >
+            <Box
+              sx={{
+                width: { xs: "100%", md: "60%" },
+                marginRight: "20px",
+              }}
+            >
+              {cartData?.map((product, index) => {
+                return (
                   <Box
                     sx={{
+                      backgroundColor: "white",
+                      borderRadius: "16px",
                       display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
+                      padding: "15px",
+                      justifyContent: "space-between",
+                      alignItems: { xs: "flex-start", md: "center" },
+                      width: "100%",
+                      marginBottom: "25px",
+                      flexDirection: { xs: "column", md: "row" },
                     }}
                   >
-                    <img
-                      style={{ width: "120px", marginBottom: "10px" }}
-                      src={product.images[0]}
-                      alt="product"
-                    />
-                    <Typography level="body-md">{product.name}</Typography>
-                    <Typography
-                      level="body-sm"
+                    <Box
                       sx={{
-                        marginBottom: "5px",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
                       }}
                     >
-                      Vandut de: {product.user.name}
-                    </Typography>
+                      <img
+                        style={{ width: "120px", marginBottom: "10px" }}
+                        src={product.images[0]}
+                        alt="product"
+                      />
+                      <Typography level="body-md">{product.name}</Typography>
+                      <Typography
+                        level="body-sm"
+                        sx={{
+                          marginBottom: "5px",
+                        }}
+                      >
+                        Vandut de: {product.user.name}
+                      </Typography>
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        width: "80px",
+                      }}
+                    >
+                      <Button size="sm">
+                        <i class="fa-solid fa-plus"></i>
+                      </Button>
+                      <Button size="sm">
+                        <i class="fa-solid fa-minus"></i>
+                      </Button>
+                    </Box>
+                    <Typography level="h4">{product.price} RON</Typography>
                   </Box>
-                  <Typography level="h4">{product.price} RON</Typography>
-                </Box>
-              );
-            })}
+                );
+              })}
+            </Box>
             <Box
               sx={{
                 backgroundColor: "white",
                 borderRadius: "16px",
                 display: "flex",
                 padding: "25px",
-
                 flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: { xs: "start", md: "center" },
-                width: {
-                  xs: "100%",
-                  sm: "100%",
-                  md: "800px",
-                },
-
+                alignItems: "start",
+                width: "auto",
                 marginBottom: "25px",
+                width: { xs: "100%", md: "60%", lg: "60%", xl: "20%" },
               }}
             >
-              <Typography level="body-md" p={1}>
+              <Typography level="body-md" pb={1}>
+                Sumar comanda
+              </Typography>
+              <Typography level="body-sm">
                 Cost produse: {totalPrice} RON
               </Typography>
-              <Typography level="body-md" p={1}>
+              <Typography level="body-sm" pb={1}>
                 Cost livrare si procesare: 0 RON
               </Typography>
+              <div
+                style={{
+                  borderTop: "1px solid black",
+                  paddingTop: "10px",
+                  width: "100%",
+                }}
+              ></div>
+
               <Button
+                size="sm"
                 onClick={() => {
                   saveOrder();
                 }}
@@ -144,7 +176,7 @@ const CheckoutPage = () => {
                 Finalizeaza comanda
               </Button>
             </Box>
-          </>
+          </Box>
         ) : (
           <Grid
             sx={{
