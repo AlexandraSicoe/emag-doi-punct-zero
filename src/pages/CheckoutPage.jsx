@@ -12,6 +12,26 @@ const CheckoutPage = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
 
+  const handleAddItem = (productId) => {
+    const updatedCart = cartData.map((product) => {
+      if (product.id === productId) {
+        return { ...product, quantity: (product.quantity || 1) + 1 };
+      }
+      return product;
+    });
+    setCartData(updatedCart);
+  };
+
+  const handleRemoveItem = (productId) => {
+    const updatedCart = cartData.map((product) => {
+      if (product.id === productId && product.quantity > 1) {
+        return { ...product, quantity: product.quantity - 1 };
+      }
+      return product;
+    });
+    setCartData(updatedCart);
+  };
+
   const saveOrder = async () => {
     try {
       const result = await axios.post("https://e20.ro/api/orders/order", {
@@ -30,13 +50,11 @@ const CheckoutPage = () => {
   };
 
   useEffect(() => {
-    if (cartData) {
-      let sum = 0;
-      cartData.forEach((product) => {
-        sum = sum + product.price;
-      });
-      setTotalPrice(sum);
-    }
+    let sum = 0;
+    cartData.forEach((product) => {
+      sum += product.price * (product.quantity || 1);
+    });
+    setTotalPrice(sum);
   }, [cartData]);
 
   useEffect(() => {
@@ -125,10 +143,16 @@ const CheckoutPage = () => {
                         width: "80px",
                       }}
                     >
-                      <Button size="sm">
+                      <Button
+                        size="sm"
+                        onClick={() => handleAddItem(product.id)}
+                      >
                         <i class="fa-solid fa-plus"></i>
                       </Button>
-                      <Button size="sm">
+                      <Button
+                        size="sm"
+                        onClick={() => handleRemoveItem(product.id)}
+                      >
                         <i class="fa-solid fa-minus"></i>
                       </Button>
                     </Box>
