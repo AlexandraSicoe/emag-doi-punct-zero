@@ -25,7 +25,7 @@ const Navbar = ({ cartData }) => {
     if (cartData) {
       let sum = 0;
       cartData.forEach((product) => {
-        sum = sum + product.price;
+        sum = sum + product.price * (product.quantity || 1);
       });
       setTotalPrice(sum);
     }
