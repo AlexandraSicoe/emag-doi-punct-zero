@@ -2,7 +2,7 @@ import { Box, Button, Grid, Typography } from "@mui/joy";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-
+import _ from "lodash";
 import { useEffect, useState } from "react";
 
 const CheckoutPage = () => {
@@ -11,11 +11,36 @@ const CheckoutPage = () => {
   const [userData, setUserData] = useState();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
-
+  function getFirstNumber(str) {
+    const match = str.match(/\d+/);
+    return match ? parseInt(match[0], 10) : null;
+  }
+  function replaceFirstNumber(str, newNumber) {
+    return str.replace(/\d+/, newNumber);
+  }
   const handleAddItem = (productId) => {
     const updatedCart = cartData.map((product) => {
-      if (product.id === productId) {
-        return { ...product, quantity: (product.quantity || 1) + 1 };
+      console.log(product._id);
+      console.log(productId);
+
+      if (product._id === productId) {
+        const _product = _.cloneDeep(product);
+        if (/^[0-9]/.test(_product.name.charAt(0))) {
+          let numberOfProducts = getFirstNumber(_product.name);
+
+          console.log(_product);
+          console.log(numberOfProducts);
+
+          _product.price =
+            (_product.price / numberOfProducts).toFixed(2) *
+            (numberOfProducts + 1);
+          numberOfProducts++;
+          _product.name = replaceFirstNumber(_product.name, numberOfProducts);
+        } else {
+          _product.name = "2x " + _product.name;
+          _product.price = _product.price * 2;
+        }
+        return _product;
       }
       return product;
     });
@@ -24,7 +49,7 @@ const CheckoutPage = () => {
 
   const handleRemoveItem = (productId) => {
     const updatedCart = cartData.map((product) => {
-      if (product.id === productId && product.quantity > 1) {
+      if (product._id === productId && product.quantity > 1) {
         return { ...product, quantity: product.quantity - 1 };
       }
       return product;
@@ -66,7 +91,7 @@ const CheckoutPage = () => {
     lsUser = JSON.parse(lsUser);
     setUserData(lsUser);
   }, []);
-
+  console.log(cartData);
   return (
     <>
       <Navbar cartData={cartData} />
@@ -145,13 +170,13 @@ const CheckoutPage = () => {
                     >
                       <Button
                         size="sm"
-                        onClick={() => handleAddItem(product.id)}
+                        onClick={() => handleAddItem(product._id)}
                       >
                         <i class="fa-solid fa-plus"></i>
                       </Button>
                       <Button
                         size="sm"
-                        onClick={() => handleRemoveItem(product.id)}
+                        onClick={() => handleRemoveItem(product._id)}
                       >
                         <i class="fa-solid fa-minus"></i>
                       </Button>
