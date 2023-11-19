@@ -49,8 +49,24 @@ const CheckoutPage = () => {
 
   const handleRemoveItem = (productId) => {
     const updatedCart = cartData.map((product) => {
-      if (product._id === productId && product.quantity > 1) {
-        return { ...product, quantity: product.quantity - 1 };
+      if (product._id === productId) {
+        const _product = _.cloneDeep(product);
+        if (/^[0-9]/.test(_product.name.charAt(0))) {
+          let numberOfProducts = getFirstNumber(_product.name);
+
+          console.log(_product);
+          console.log(numberOfProducts);
+
+          _product.price =
+            (_product.price / numberOfProducts).toFixed(2) *
+            (numberOfProducts - 1);
+          numberOfProducts--;
+          _product.name = replaceFirstNumber(_product.name, numberOfProducts);
+        } else {
+          _product.name = "2x " + _product.name;
+          _product.price = _product.price * 2;
+        }
+        return _product;
       }
       return product;
     });
