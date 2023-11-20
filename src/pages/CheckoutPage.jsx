@@ -36,10 +36,11 @@ const CheckoutPage = () => {
             (numberOfProducts + 1);
           numberOfProducts++;
           _product.name = replaceFirstNumber(_product.name, numberOfProducts);
-        } else {
-          _product.name = "2x " + _product.name;
-          _product.price = _product.price * 2;
         }
+        //  else {
+        //   _product.name = "2x " + _product.name;
+        //   _product.price = _product.price * 2;
+        // }
         return _product;
       }
       return product;
