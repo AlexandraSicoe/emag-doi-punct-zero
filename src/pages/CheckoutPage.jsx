@@ -65,10 +65,11 @@ const CheckoutPage = () => {
           } else {
             numberOfProducts = 1;
           }
-        } else {
-          _product.name = "2x " + _product.name;
-          _product.price = _product.price * 2;
         }
+        // else {
+        //   _product.name = "2x " + _product.name;
+        //   _product.price = _product.price * 2;
+        // }
 
         return _product;
       }
