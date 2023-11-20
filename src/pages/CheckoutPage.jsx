@@ -56,16 +56,20 @@ const CheckoutPage = () => {
 
           console.log(_product);
           console.log(numberOfProducts);
-
-          _product.price =
-            (_product.price / numberOfProducts).toFixed(2) *
-            (numberOfProducts - 1);
-          numberOfProducts--;
-          _product.name = replaceFirstNumber(_product.name, numberOfProducts);
+          if (numberOfProducts > 1) {
+            _product.price =
+              (_product.price / numberOfProducts).toFixed(2) *
+              (numberOfProducts - 1);
+            numberOfProducts--;
+            _product.name = replaceFirstNumber(_product.name, numberOfProducts);
+          } else {
+            numberOfProducts = 1;
+          }
         } else {
           _product.name = "2x " + _product.name;
           _product.price = _product.price * 2;
         }
+
         return _product;
       }
       return product;
