@@ -1,5 +1,4 @@
-import { Grid, Box, Typography, FormLabel, Button } from "@mui/joy";
-import Input from "@mui/joy/Input";
+import { Grid, Box, Typography, FormLabel, Button, Input } from "@mui/joy";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import Textarea from "@mui/joy/Textarea";
@@ -10,6 +9,7 @@ const DashboardPage = () => {
   const fileInputRef = useRef(null);
 
   const handleFileChange = (event) => {
+    console.log(event);
     const file = event.target.files[0];
     setSelectedFile(file);
   };
@@ -75,36 +75,9 @@ const DashboardPage = () => {
               }}
               placeholder="Selectează categoria"
             >
-              <Option
-                value="Îmbrăcăminte"
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "pink",
-                  },
-                }}
-              >
-                Îmbrăcăminte
-              </Option>
-              <Option
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "pink",
-                  },
-                }}
-                value="Accesorii"
-              >
-                Accesorii
-              </Option>
-              <Option
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "pink",
-                  },
-                }}
-                value="Hrană"
-              >
-                Hrană
-              </Option>
+              <Option value="Îmbrăcăminte">Îmbrăcăminte</Option>
+              <Option value="Accesorii">Accesorii</Option>
+              <Option value="Hrană">Hrană</Option>
               <Option
                 sx={{
                   "&:hover": {
@@ -136,14 +109,20 @@ const DashboardPage = () => {
               Adaugă o imagine:
             </FormLabel>
             <Box display="flex" flexDirection="column" mb={2}>
-              <Input
+              <input
                 ref={fileInputRef}
-                sx={{ marginBottom: "5px", display: "none" }}
+                style={{ marginBottom: "5px", display: "none" }}
                 type="file"
                 accept="image/png, image/jpeg"
                 onChange={handleFileChange}
               />
-              <Button size="sm" onClick={() => fileInputRef.current.click()}>
+              <Button
+                size="sm"
+                onClick={() => {
+                  fileInputRef.current.click();
+                  console.log("abd");
+                }}
+              >
                 Încarcă imaginea
               </Button>
             </Box>
