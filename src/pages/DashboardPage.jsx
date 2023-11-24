@@ -112,6 +112,15 @@ const DashboardPage = () => {
               required
               minRows={3}
             ></Textarea>
+            <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
+              Adaugă o imagine:
+            </FormLabel>
+            <Input
+              size="80"
+              sx={{ marginBottom: "5px", border: "none" }}
+              type="file"
+              accept="image/png, image/jpeg"
+            />
             <Button type="submit">Adaugă produs</Button>
           </form>
         </Box>
