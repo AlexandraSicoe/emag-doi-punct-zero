@@ -3,8 +3,26 @@ import Input from "@mui/joy/Input";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import Textarea from "@mui/joy/Textarea";
+import { useState, useRef } from "react";
 
 const DashboardPage = () => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Perform any logic with the selected file, for example, send it to the server.
+    if (selectedFile) {
+      console.log("Selected file:", selectedFile);
+      // You can send the file to the server or perform other actions here.
+    }
+  };
+
   return (
     <>
       <Grid
@@ -43,6 +61,7 @@ const DashboardPage = () => {
             <Input
               sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
               type="text"
+              required
             />
             <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
               Categorie:
@@ -103,6 +122,7 @@ const DashboardPage = () => {
             <Input
               sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
               type="text"
+              required
             />
             <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
               Descriere produs:
@@ -115,12 +135,19 @@ const DashboardPage = () => {
             <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
               Adaugă o imagine:
             </FormLabel>
-            <Input
-              size="80"
-              sx={{ marginBottom: "5px", border: "none" }}
-              type="file"
-              accept="image/png, image/jpeg"
-            />
+            <Box display="flex" flexDirection="column" mb={2}>
+              <Input
+                ref={fileInputRef}
+                sx={{ marginBottom: "5px", display: "none" }}
+                type="file"
+                accept="image/png, image/jpeg"
+                onChange={handleFileChange}
+              />
+              <Button size="sm" onClick={() => fileInputRef.current.click()}>
+                Încarcă imaginea
+              </Button>
+            </Box>
+
             <Button type="submit">Adaugă produs</Button>
           </form>
         </Box>
