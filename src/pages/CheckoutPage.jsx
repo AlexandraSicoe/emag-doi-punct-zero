@@ -20,9 +20,6 @@ const CheckoutPage = () => {
   }
   const handleAddItem = (productId) => {
     const updatedCart = cartData.map((product) => {
-      console.log(product._id);
-      console.log(productId);
-
       if (product._id === productId) {
         const _product = _.cloneDeep(product);
         if (/^[0-9]/.test(_product.name.charAt(0))) {
@@ -36,11 +33,10 @@ const CheckoutPage = () => {
             (numberOfProducts + 1);
           numberOfProducts++;
           _product.name = replaceFirstNumber(_product.name, numberOfProducts);
+        } else {
+          _product.name = "2x " + _product.name;
+          _product.price = _product.price * 2;
         }
-        //  else {
-        //   _product.name = "2x " + _product.name;
-        //   _product.price = _product.price * 2;
-        // }
         return _product;
       }
       return product;
@@ -173,7 +169,9 @@ const CheckoutPage = () => {
                         src={product.images[0]}
                         alt="product"
                       />
-                      <Typography level="body-md">{product.name}</Typography>
+                      <Typography fontWeight="lg" level="body-md">
+                        {product.name}
+                      </Typography>
                       <Typography
                         level="body-sm"
                         sx={{
@@ -221,10 +219,10 @@ const CheckoutPage = () => {
                 width: { xs: "100%", md: "60%", lg: "60%", xl: "20%" },
               }}
             >
-              <Typography level="body-md" pb={1}>
+              <Typography fontWeight="lg" level="body-lg" pb={1}>
                 Sumar comanda
               </Typography>
-              <Typography level="body-sm">
+              <Typography fontWeight="lg" level="body-md">
                 Cost produse: {totalPrice} RON
               </Typography>
               <Typography level="body-sm" pb={1}>
