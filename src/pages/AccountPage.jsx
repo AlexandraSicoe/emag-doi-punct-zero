@@ -126,7 +126,7 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <PersonIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Account
+                    Cont
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -139,7 +139,7 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <InventoryIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    My orders
+                    Comenzile mele
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -153,7 +153,7 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <ReviewsIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    My reviews
+                    Review-urile mele
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
