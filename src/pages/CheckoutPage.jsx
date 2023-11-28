@@ -28,6 +28,7 @@ const CheckoutPage = () => {
           console.log(_product);
           console.log(numberOfProducts);
 
+
           _product.price =
             (_product.price / numberOfProducts).toFixed(2) *
             (numberOfProducts + 1);
