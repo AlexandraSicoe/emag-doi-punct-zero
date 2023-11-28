@@ -49,20 +49,57 @@ const DashboardPage = () => {
             sx={{
               width: "100%",
               borderBottom: "1px solid black",
-              padding: "10px",
+              padding: "5px",
               alignSelf: "center",
             }}
           ></Box>
 
-          <form style={{ paddingTop: "10px" }}>
+          <form style={{ paddingTop: "10px", width: "100%" }}>
             <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
               Denumire produs:
             </FormLabel>
             <Input
-              sx={{ border: "solid 1px	#1F51FF", marginBottom: "5px" }}
+              sx={{
+                border: "solid 1px	#1F51FF",
+                marginBottom: "5px",
+              }}
               type="text"
               required
             />
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "20px",
+              }}
+              mb={2}
+            >
+              <Box
+                sx={{
+                  border: "1px solid black",
+                  borderRadius: "5%",
+                  padding: "20px",
+                }}
+              >
+                <Typography sx={{ marginBottom: "5px" }}>
+                  Adaugă o imagine:
+                </Typography>
+
+                <Input
+                  ref={fileInputRef}
+                  sx={{ marginBottom: "5px", display: "none" }}
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  onChange={handleFileChange}
+                />
+                <Button size="sm" onClick={() => fileInputRef.current.click()}>
+                  Încarcă imaginea
+                </Button>
+              </Box>
+            </Box>
             <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
               Categorie:
             </FormLabel>
@@ -109,20 +146,14 @@ const DashboardPage = () => {
               Adaugă o imagine:
             </FormLabel>
             <Box display="flex" flexDirection="column" mb={2}>
-              <input
+              <Input
                 ref={fileInputRef}
-                style={{ marginBottom: "5px", display: "none" }}
+                sx={{ marginBottom: "5px", display: "none" }}
                 type="file"
                 accept="image/png, image/jpeg"
                 onChange={handleFileChange}
               />
-              <Button
-                size="sm"
-                onClick={() => {
-                  fileInputRef.current.click();
-                  console.log("abd");
-                }}
-              >
+              <Button size="sm" onClick={() => fileInputRef.current.click()}>
                 Încarcă imaginea
               </Button>
             </Box>
