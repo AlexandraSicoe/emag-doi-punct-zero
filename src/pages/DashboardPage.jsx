@@ -54,7 +54,7 @@ const DashboardPage = () => {
             }}
           ></Box>
 
-          <form style={{ paddingTop: "10px", width: "100%" }}>
+          <form style={{ paddingTop: "10px" }} onSubmit={handleSubmit}>
             <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
               Denumire produs:
             </FormLabel>
@@ -88,9 +88,12 @@ const DashboardPage = () => {
                   Adaugă o imagine:
                 </Typography>
 
-                <Input
+                <input
                   ref={fileInputRef}
-                  sx={{ marginBottom: "5px", display: "none" }}
+                  sx={{
+                    marginBottom: "5px",
+                    display: "none",
+                  }}
                   type="file"
                   accept="image/png, image/jpeg"
                   onChange={handleFileChange}
@@ -142,21 +145,6 @@ const DashboardPage = () => {
               required
               minRows={3}
             ></Textarea>
-            <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
-              Adaugă o imagine:
-            </FormLabel>
-            <Box display="flex" flexDirection="column" mb={2}>
-              <input
-                ref={fileInputRef}
-                sx={{ marginBottom: "5px", display: "none" }}
-                type="file"
-                accept="image/png, image/jpeg"
-                onChange={handleFileChange}
-              />
-              <Button size="sm" onClick={() => fileInputRef.current.click()}>
-                Încarcă imaginea
-              </Button>
-            </Box>
 
             <Button type="submit">Adaugă produs</Button>
           </form>
