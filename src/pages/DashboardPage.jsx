@@ -146,7 +146,7 @@ const DashboardPage = () => {
               Adaugă o imagine:
             </FormLabel>
             <Box display="flex" flexDirection="column" mb={2}>
-              <Input
+              <input
                 ref={fileInputRef}
                 sx={{ marginBottom: "5px", display: "none" }}
                 type="file"
