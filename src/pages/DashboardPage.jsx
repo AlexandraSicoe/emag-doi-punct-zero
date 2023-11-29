@@ -7,7 +7,9 @@ import { useState, useRef } from "react";
 const DashboardPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);
-  const [previewImage, setPreviewImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(
+    "https://images.wondershare.com/repairit/aticle/2021/07/resolve-images-not-showing-problem-1.jpg"
+  );
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -16,6 +18,11 @@ const DashboardPage = () => {
       setSelectedFile(file);
       const imagePreviewUrl = URL.createObjectURL(file);
       setPreviewImage(imagePreviewUrl);
+    } else {
+      // If no file is selected, set a default image URL
+      setPreviewImage(
+        "https://images.wondershare.com/repairit/aticle/2021/07/resolve-images-not-showing-problem-1.jpg"
+      );
     }
   };
 
@@ -27,7 +34,6 @@ const DashboardPage = () => {
       // You can send the file to the server or perform other actions here.
     }
   };
-
   return (
     <>
       <Grid
@@ -108,7 +114,6 @@ const DashboardPage = () => {
                     }}
                   />
                 )}
-
                 <input
                   ref={fileInputRef}
                   style={{ marginBottom: "5px", display: "none" }}
