@@ -112,7 +112,6 @@ const CheckoutPage = () => {
   console.log(cartData);
   return (
     <>
-      <Navbar cartData={cartData} />
       <Grid
         backgroundColor="#F2F2F7"
         sx={{
@@ -151,10 +150,14 @@ const CheckoutPage = () => {
                       display: "flex",
                       padding: "15px",
                       justifyContent: "space-between",
-                      alignItems: { xs: "flex-start", md: "center" },
+                      alignItems: {
+                        xs: "flex-start",
+                        sm: "center",
+                        md: "center",
+                      },
                       width: "100%",
                       marginBottom: "25px",
-                      flexDirection: { xs: "column", md: "row" },
+                      flexDirection: { xs: "column", sm: "row", md: "row" },
                     }}
                   >
                     <Box
