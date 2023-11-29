@@ -7,11 +7,16 @@ import { useState, useRef } from "react";
 const DashboardPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
   const handleFileChange = (event) => {
-    console.log(event);
     const file = event.target.files[0];
-    setSelectedFile(file);
+
+    if (file) {
+      setSelectedFile(file);
+      const imagePreviewUrl = URL.createObjectURL(file);
+      setPreviewImage(imagePreviewUrl);
+    }
   };
 
   const handleSubmit = (event) => {
@@ -54,7 +59,10 @@ const DashboardPage = () => {
             }}
           ></Box>
 
-          <form style={{ paddingTop: "10px" }} onSubmit={handleSubmit}>
+          <form
+            style={{ paddingTop: "10px", width: "100%" }}
+            onSubmit={handleSubmit}
+          >
             <FormLabel sx={{ fontSize: "18px", marginBottom: "5px" }}>
               Denumire produs:
             </FormLabel>
@@ -71,8 +79,8 @@ const DashboardPage = () => {
                 display: "flex",
                 flexDirection: "column",
                 width: "100%",
-                alignItems: "center",
-                justifyContent: "center",
+                alignItems: "start",
+                justifyContent: "start",
                 padding: "20px",
               }}
               mb={2}
@@ -80,13 +88,26 @@ const DashboardPage = () => {
               <Box
                 sx={{
                   border: "1px solid black",
-                  borderRadius: "5%",
-                  padding: "20px",
+                  padding: "35px",
+                  borderRadius: "10px",
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
-                <Typography sx={{ marginBottom: "5px" }}>
-                  Adaugă o imagine:
+                <Typography level="body-lg" sx={{ marginBottom: "5px" }}>
+                  Adaugă o imagine
                 </Typography>
+                {previewImage && (
+                  <img
+                    src={previewImage}
+                    alt="Preview"
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "200px",
+                      marginBottom: "10px",
+                    }}
+                  />
+                )}
 
                 <input
                   ref={fileInputRef}
@@ -99,7 +120,6 @@ const DashboardPage = () => {
                   size="sm"
                   onClick={() => {
                     fileInputRef.current.click();
-                    console.log("abd");
                   }}
                 >
                   Încarcă imaginea
