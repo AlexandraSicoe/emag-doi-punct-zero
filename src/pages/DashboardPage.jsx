@@ -90,15 +90,18 @@ const DashboardPage = () => {
 
                 <input
                   ref={fileInputRef}
-                  sx={{
-                    marginBottom: "5px",
-                    display: "none",
-                  }}
+                  style={{ marginBottom: "5px", display: "none" }}
                   type="file"
                   accept="image/png, image/jpeg"
                   onChange={handleFileChange}
                 />
-                <Button size="sm" onClick={() => fileInputRef.current.click()}>
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    fileInputRef.current.click();
+                    console.log("abd");
+                  }}
+                >
                   Încarcă imaginea
                 </Button>
               </Box>
