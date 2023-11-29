@@ -25,7 +25,6 @@ export default function App() {
         <Route path="/" element={<LoginRegisterLayout />}>
           <Route path="/administrare" element={<LoginRegisterPage />} />
           <Route path="/pass-reset" element={<PasswordResetPage />} />
-          <Route path="*" element={<NoPage />} />
         </Route>
 
         <Route path="/" element={<MenuFooterLayout />}>
@@ -36,6 +35,7 @@ export default function App() {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
