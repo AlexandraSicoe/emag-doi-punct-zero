@@ -87,9 +87,8 @@ const DashboardPage = () => {
                 width: "100%",
                 alignItems: "start",
                 justifyContent: "start",
-                padding: "20px",
+                padding: "20px 20px 20px 0px",
               }}
-              mb={2}
             >
               <Box
                 sx={{
