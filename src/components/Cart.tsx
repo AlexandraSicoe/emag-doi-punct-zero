@@ -61,11 +61,18 @@ export default function Cart({
             transform: props.open ? "translateY(0)" : "translateY(100%)",
           }),
           height: position.match(/(left|right)/) ? "100%" : size,
-          width: position.match(/(top|bottom)/) ? "100vw" : size,
+
+          width: {
+            xs: "100%",
+            md: position.match(/(top|bottom)/) ? "100vw" : size,
+          },
           boxShadow: "md",
           transition: "transform 0.3s ease",
         }}
       >
+        <Box
+          sx={{ display: "block", height: { xs: "50px", md: "10px" } }}
+        ></Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Typography fontSize="lg" fontWeight="lg" sx={{ flex: 1 }}>
             {title}

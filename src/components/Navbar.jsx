@@ -195,11 +195,28 @@ const Navbar = ({ cartData }) => {
             <Typography level="body-lg" color="danger" p={1}>
               Total: {totalPrice} RON
             </Typography>
-            <Link to={"/checkout"}>
-              <Button sx={{ marginY: "10px" }} size="lg">
-                Cumpara produsele
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <Link to={"/checkout"}>
+                <Button sx={{ marginY: "10px" }} size="md">
+                  Cumpără produsele
+                </Button>
+              </Link>
+              <Button
+                sx={{ marginY: "10px" }}
+                size="md"
+                onClick={() => {
+                  setDrawerOpen(false);
+                }}
+              >
+                Înapoi
               </Button>
-            </Link>
+            </Box>
           </>
         )}
       </Cart>
