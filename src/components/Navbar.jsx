@@ -25,7 +25,7 @@ const Navbar = ({ cartData }) => {
     if (cartData) {
       let sum = 0;
       cartData.forEach((product) => {
-        sum = sum + product.price;
+        sum = sum + product.price * (product.quantity || 1);
       });
       setTotalPrice(sum);
     }
@@ -168,7 +168,7 @@ const Navbar = ({ cartData }) => {
                   <React.Fragment key={product.id}>
                     <ListItem sx={{ gap: 2 }}>
                       <AspectRatio sx={{ flexBasis: 120 }}>
-                        {console.log(product)}
+                        {/* {console.log(product)} */}
 
                         <img
                           style={{ width: "120px" }}
