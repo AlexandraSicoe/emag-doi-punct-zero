@@ -9,6 +9,7 @@ import AccountPage from "./pages/AccountPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactPage from "./pages/ContactPage";
+import DashboardPage from "./pages/DashboardPage";
 import NoPage from "./pages/NoPage";
 import PasswordResetPage from "./pages/PasswordResetPage";
 import { createTheme } from "@mui/material";
@@ -29,12 +30,12 @@ export default function App() {
 
         <Route path="/" element={<MenuFooterLayout />}>
           <Route index element={<HomePage />} />
-
           <Route path="/product" element={<ProductPage />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
