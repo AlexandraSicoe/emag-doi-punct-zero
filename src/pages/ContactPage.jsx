@@ -77,6 +77,7 @@ const ContactPage = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            margin: "25px",
           }}
         >
           <Grid
@@ -84,8 +85,7 @@ const ContactPage = () => {
               display: "flex",
               justifyContent: "space-around",
               flexDirection: "row",
-              marginTop: "25px",
-              width: { sm: "100%", md: "1000px" },
+              width: { xs: "100%", sm: "100%", md: "1000px" },
             }}
           >
             <Box
@@ -162,7 +162,7 @@ const ContactPage = () => {
                 flexDirection: "column",
                 backgroundColor: "white",
                 borderRadius: "16px",
-                width: { xs: "100%", sm: "345px", md: "1000px" },
+                width: { xs: "100%", sm: "100%", md: "1000px" },
                 padding: "20px",
               }}
             >
@@ -251,9 +251,8 @@ const ContactPage = () => {
               alignItems: "center",
               backgroundColor: "white",
               borderRadius: "16px",
-              width: { xs: "100%", sm: "345px", md: "1000px" },
+              width: { xs: "100%", sm: "100%", md: "1000px" },
               padding: "20px",
-              marginBottom: { xs: "25px", md: "25px" },
               marginTop: { xs: "10px", md: "25px" },
             }}
           >
@@ -270,7 +269,7 @@ const ContactPage = () => {
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    width: { xs: "100%", md: "250px" },
+                    width: { xs: "100%", sm: "100%", md: "250px" },
                   }}
                 >
                   <i
