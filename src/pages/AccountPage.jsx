@@ -15,7 +15,7 @@ import {
 import ListItem from "@mui/joy/ListItem";
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AccountEditForm from "../components/AccountEditForm";
 import Navbar from "../components/Navbar";
 import MenuDropdown from "../components/MenuDropdown";
@@ -99,19 +99,22 @@ const AccountPage = () => {
               </Box>
 
               <List>
-                <ListItem>
-                  <ListItemButton
-                    onClick={() => {
-                      setWhatOptionVisible("");
-                      navigate("/account?m=home");
-                    }}
-                  >
-                    <ListItemDecorator>
-                      <HomeIcon sx={{ color: "black" }} />
-                    </ListItemDecorator>
-                    Home
-                  </ListItemButton>
-                </ListItem>
+                <Link to="/dashboard">
+                  <ListItem>
+                    <ListItemButton
+                      onClick={() => {
+                        setWhatOptionVisible("");
+                        navigate("/account?m=dashboard");
+                      }}
+                    >
+                      <ListItemDecorator>
+                        <HomeIcon sx={{ color: "black" }} />
+                      </ListItemDecorator>
+                      Dashboard
+                    </ListItemButton>
+                  </ListItem>
+                </Link>
+
                 <ListItem>
                   <ListItemButton
                     onClick={() => {
@@ -123,7 +126,7 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <PersonIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Account
+                    Cont
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -136,7 +139,7 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <InventoryIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    My orders
+                    Comenzile mele
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -150,7 +153,7 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <ReviewsIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    My reviews
+                    Review-urile mele
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
