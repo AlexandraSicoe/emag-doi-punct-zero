@@ -25,10 +25,6 @@ const CheckoutPage = () => {
         if (/^[0-9]/.test(_product.name.charAt(0))) {
           let numberOfProducts = getFirstNumber(_product.name);
 
-          console.log(_product);
-          console.log(numberOfProducts);
-
-
           _product.price =
             (_product.price / numberOfProducts).toFixed(2) *
             (numberOfProducts + 1);
@@ -51,9 +47,6 @@ const CheckoutPage = () => {
         const _product = _.cloneDeep(product);
         if (/^[0-9]/.test(_product.name.charAt(0))) {
           let numberOfProducts = getFirstNumber(_product.name);
-
-          console.log(_product);
-          console.log(numberOfProducts);
           if (numberOfProducts > 1) {
             _product.price =
               (_product.price / numberOfProducts).toFixed(2) *
@@ -64,10 +57,6 @@ const CheckoutPage = () => {
             numberOfProducts = 1;
           }
         }
-        // else {
-        //   _product.name = "2x " + _product.name;
-        //   _product.price = _product.price * 2;
-        // }
 
         return _product;
       }
@@ -104,13 +93,11 @@ const CheckoutPage = () => {
   useEffect(() => {
     let lsCart = localStorage.getItem("cart");
     lsCart = JSON.parse(lsCart);
-    console.log(lsCart);
     setCartData(lsCart ? lsCart : []);
     let lsUser = localStorage.getItem("user");
     lsUser = JSON.parse(lsUser);
     setUserData(lsUser);
   }, []);
-  console.log(cartData);
   return (
     <>
       <Grid
