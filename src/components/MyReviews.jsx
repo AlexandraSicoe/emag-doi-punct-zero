@@ -42,13 +42,12 @@ const MyReviews = () => {
                 marginBottom: { xs: "10px", md: "0px" },
               }}
             >
-              Adauga review de produs
+              Adaugă review
             </Button>
             <Button
               sx={{
                 backgroundColor: "black",
                 marginRight: { xs: "0px", md: "10px" },
-
                 marginBottom: { xs: "10px", md: "0px" },
               }}
             >
@@ -62,7 +61,7 @@ const MyReviews = () => {
                 marginBottom: { xs: "10px", md: "0px" },
               }}
             >
-              Review-uri adaugate
+              Review-uri adăugate
             </Button>
           </Box>
           <Review />

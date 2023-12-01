@@ -90,7 +90,7 @@ const ProductPage = () => {
                 {productData.name}
               </Typography>
               <Typography level="h4" sx={{ marginBottom: "5px" }}>
-                Sold by: {productData.user.name}
+                Vândut de: {productData.user.name}
               </Typography>
               <Typography level="h4" sx={{ marginBottom: "5px" }}>
                 {productData.category}
@@ -99,13 +99,13 @@ const ProductPage = () => {
                 {productData.description}
               </Typography>
               <Typography level="h4" sx={{ marginBottom: "5px" }}>
-                Review Score: {productData.reviewScore}
+                Scor Recenzii: {productData.reviewScore}
               </Typography>
               <Typography
                 level="h3"
                 sx={{ color: "red", marginBottom: "10px" }}
               >
-                ${productData.price}
+                {productData.price} RON
               </Typography>
               <Button
                 onClick={(e) => {
@@ -116,7 +116,7 @@ const ProductPage = () => {
                 }}
                 startDecorator={<ShoppingCartIcon />}
               >
-                Add to cart
+                Adaugă în coș
               </Button>
             </Box>
             <Box sx={{ display: { xs: "block", md: "none" } }}>

@@ -59,7 +59,7 @@ const Order = ({ order }) => {
         </Typography>
       </Box>
       <Typography level="body-md">
-        Produse vandute si livrate de Boutique Concept Store
+        Produse vândute și livrate de Boutique Concept Store
       </Typography>
       <Box
         display="flex"
@@ -69,7 +69,7 @@ const Order = ({ order }) => {
         pt={1}
       >
         <Typography level="body-md" sx={{ color: "#0096FF" }}>
-          Acorda o nota vanzatorului
+          Acorda o nota vânzătorului
         </Typography>
         <Rating
           halfFillMode="svg"

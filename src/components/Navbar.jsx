@@ -88,7 +88,7 @@ const Navbar = ({ cartData }) => {
                 startDecorator={<PersonIcon />}
                 sx={{ marginRight: "5px" }}
               >
-                Account
+                Contul meu
               </Button>
             </Link>
             <Link to="#">
@@ -99,7 +99,7 @@ const Navbar = ({ cartData }) => {
                   setDrawerOpen(!drawerOpen);
                 }}
               >
-                Cart
+                Coș de cumpărături
               </Button>
             </Link>
           </Box>
@@ -157,7 +157,7 @@ const Navbar = ({ cartData }) => {
                 setDrawerOpen(!drawerOpen);
               }}
             >
-              Inchide cos
+              Închide coș
             </Button>
           </Box>
         ) : (

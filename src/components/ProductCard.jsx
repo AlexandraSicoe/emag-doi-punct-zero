@@ -41,7 +41,7 @@ const ProductCard = ({ product, setCartData, cartData }) => {
       </AspectRatio>
       <CardContent orientation="horizontal">
         <div>
-          <Typography level="body-xs">Total price:</Typography>
+          <Typography level="body-xs">Preț:</Typography>
           <Typography fontSize="lg" fontWeight="lg">
             {product.price} RON
           </Typography>
@@ -93,7 +93,7 @@ const ProductCard = ({ product, setCartData, cartData }) => {
             }
           }}
         >
-          Buy
+          Cumpără
         </Button>
       </CardContent>
     </Card>

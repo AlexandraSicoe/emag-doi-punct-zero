@@ -17,14 +17,14 @@ const ReviewSection = () => {
             alignItems: { xs: "start", md: "start" },
           }}
         >
-          <Typography level="h3">Costumer Reviews</Typography>
+          <Typography level="h3">Recenziile clienților</Typography>
           <Rating
             halfFillMode="svg"
             style={{ maxWidth: 150 }}
             readOnly
             value={readOnlyRating}
           />
-          <Typography level="h3">Review product</Typography>
+          <Typography level="h3">Recenziile produsului</Typography>
 
           <Rating
             halfFillMode="svg"
