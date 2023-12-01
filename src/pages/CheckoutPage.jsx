@@ -1,7 +1,6 @@
 import { Box, Button, Grid, Typography } from "@mui/joy";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import _ from "lodash";
 import { useEffect, useState } from "react";
 
@@ -11,6 +10,7 @@ const CheckoutPage = () => {
   const [userData, setUserData] = useState();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+
   function getFirstNumber(str) {
     const match = str.match(/\d+/);
     return match ? parseInt(match[0], 10) : null;
@@ -65,6 +65,14 @@ const CheckoutPage = () => {
     setCartData(updatedCart);
   };
 
+  useEffect(() => {
+    let lsCart = localStorage.getItem("cart");
+    lsCart = JSON.parse(lsCart);
+    setCartData(lsCart ? lsCart : []);
+    let lsUser = localStorage.getItem("user");
+    lsUser = JSON.parse(lsUser);
+    setUserData(lsUser);
+  }, []);
   const saveOrder = async () => {
     try {
       const result = await axios.post("https://e20.ro/api/orders/order", {
@@ -90,14 +98,6 @@ const CheckoutPage = () => {
     setTotalPrice(sum);
   }, [cartData]);
 
-  useEffect(() => {
-    let lsCart = localStorage.getItem("cart");
-    lsCart = JSON.parse(lsCart);
-    setCartData(lsCart ? lsCart : []);
-    let lsUser = localStorage.getItem("user");
-    lsUser = JSON.parse(lsUser);
-    setUserData(lsUser);
-  }, []);
   return (
     <>
       <Grid
@@ -231,6 +231,7 @@ const CheckoutPage = () => {
                 size="sm"
                 onClick={() => {
                   saveOrder();
+                  navigate("/");
                 }}
               >
                 Finalizeaza comanda
