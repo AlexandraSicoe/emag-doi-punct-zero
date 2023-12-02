@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/joy";
+import { Box, Grid, Typography } from "@mui/joy";
 import CircularProgress from "@mui/joy/CircularProgress";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -6,7 +6,11 @@ import { useNavigate } from "react-router-dom";
 import MenuDropdown from "../components/MenuDropdown";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
-
+import { Container } from "@mui/material";
+import AdoptionBanner from "../images/adoption_banner.png";
+import Logo from "../images/logo.png";
+import VerticalCarousel from "../components/VerticalCarousel";
+import VerticalCarouselData from "../helpers/VerticalCarouselData.json";
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
   const [cartData, setCartData] = useState([]);
@@ -51,23 +55,192 @@ const HomePage = () => {
           <CircularProgress />
         </Box>
       ) : (
-        <Grid
-          container
-          display="flex"
-          flexDirection="row"
-          sx={{ gap: 2, m: 1 }}
-        >
-          {productList?.map((product, index) => {
-            return (
-              <ProductCard
-                key={index}
-                product={product}
-                setCartData={setCartData}
-                cartData={cartData}
-              />
-            );
-          })}
-        </Grid>
+        <Container>
+          <Grid
+            container
+            display="flex"
+            justifyContent="space-between"
+            spacing={2}
+          >
+            <Box
+              sx={{
+                height: "285px",
+                width: "100%",
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+            >
+              <VerticalCarousel slides={VerticalCarouselData.slides} />
+            </Box>
+            <Box sx={{ width: "100%" }}>
+              <Typography level="h2" sx={{ color: "black" }}>
+                Cele mai populare produse
+              </Typography>
+            </Box>
+            {productList?.slice(0, 8).map((product, index) => {
+              return (
+                <Grid item xs={6} md={3} key={index}>
+                  <ProductCard
+                    product={product}
+                    setCartData={setCartData}
+                    cartData={cartData}
+                  />
+                </Grid>
+              );
+            })}
+            <Box
+              sx={{
+                flexDirection: { xs: "column", md: "row" },
+                height: { xs: "100%", md: "400px" },
+                backgroundImage: `url(${AdoptionBanner})`,
+                backgroundSize: "cover",
+                backgroundPosition: "top",
+                color: "white",
+                padding: "20px",
+                display: "flex", // Add display: "flex" to enable flex properties
+                justifyContent: "space-between", // Adjust to space the content
+                flexWrap: "wrap",
+              }}
+            >
+              <Typography
+                level="h2"
+                sx={{
+                  color: "white",
+                  marginBottom: "20px",
+                  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                  width: "100%",
+                }}
+              >
+                Descoperă Iubirea Adevărată: Adoptă un Prieten de Viață!
+              </Typography>
+              <Typography
+                level="body-lg"
+                sx={{
+                  color: "white",
+                  width: "500px",
+                  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                  width: { xs: "100%", md: "50%" },
+                  marginBottom: { xs: "20px", md: "0px" },
+                }}
+              >
+                La
+                <span style={{ fontWeight: "bold" }}>
+                  {" "}
+                  Adăpostul Inimă și Lăbuțe
+                </span>
+                , avem suflete adorabile în așteptare să-și găsească căminul
+                fericit. <span style={{ fontWeight: "bold" }}> E20</span> ne-a
+                oferit susținerea necesară pentru a continua misiunea noastră și
+                să salvăm și mai multe vieți.
+                <div style={{ marginBottom: "5px" }}></div>
+                Adoptă un prieten blănos astăzi cu sprijinul
+                <span style={{ fontWeight: "bold" }}> E20</span> !
+              </Typography>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: { xs: "100%", md: "50%" },
+                }}
+              >
+                <Typography
+                  level="body-lg"
+                  sx={{
+                    color: "white",
+                    fontWeight: "bold",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                  }}
+                >
+                  De ce să adopți cu E20:
+                </Typography>
+                <ul
+                  style={{
+                    paddingLeft: "20px",
+                    marginTop: "10px",
+                  }}
+                >
+                  <li>
+                    <Typography
+                      level="body-lg"
+                      sx={{
+                        color: "white",
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                      }}
+                    >
+                      Salvează o viață și primește sprijinul unei comunități
+                      dedicate.
+                    </Typography>
+                  </li>
+                  <li>
+                    <Typography
+                      level="body-lg"
+                      sx={{
+                        color: "white",
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                      }}
+                    >
+                      Fiecare adopție este susținută de E20 pentru o tranziție
+                      lină și fericită.
+                    </Typography>
+                  </li>
+                  <li>
+                    <Typography
+                      level="body-lg"
+                      sx={{
+                        color: "white",
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                      }}
+                    >
+                      Construiește o conexiune autentică și devino parte din
+                      familia noastră extinsă.
+                    </Typography>
+                  </li>
+                </ul>
+              </Box>
+
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "flex-end",
+                }}
+              >
+                <img style={{ height: "80px" }} src={Logo} />
+              </Box>
+            </Box>
+
+            <Box sx={{ width: "100%" }}>
+              <Typography level="h2" sx={{ color: "black" }}>
+                Vizualizate recent
+              </Typography>
+            </Box>
+            {productList?.slice(0, 8).map((product, index) => {
+              return (
+                <Grid item xs={6} md={3} key={index}>
+                  <ProductCard
+                    product={product}
+                    setCartData={setCartData}
+                    cartData={cartData}
+                  />
+                </Grid>
+              );
+            })}
+            {productList?.map((product, index) => {
+              return (
+                <Grid item xs={6} md={3}>
+                  <ProductCard
+                    key={index}
+                    product={product}
+                    setCartData={setCartData}
+                    cartData={cartData}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Container>
       )}
     </>
   );

@@ -1,0 +1,29 @@
+{
+  "leadingText": "Totul Despre",
+  "slides": [
+    {
+      "introline": "câini",
+      "id": "dogs",
+      "content": {
+        "image": "https://images.unsplash.com/photo-1666899154867-1a45ea0883da?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "copy": "Câinii sunt cunoscuți pentru loialitatea și compania lor. Fie că aduc o minge sau se cuibăresc pe canapea, ei aduc bucurie în viețile noastre."
+      }
+    },
+    {
+      "introline": "pisici",
+      "id": "cats",
+      "content": {
+        "image": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2643&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "copy": "Pisicile sunt creaturi independente și grațioase. Cu zumzetele lor delicate și întâmplările jucause, ele fac adăugiri minunate la orice casă."
+      }
+    },
+    {
+      "introline": "păsări",
+      "id": "birds",
+      "content": {
+        "image": "https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "copy": "Păsările aduc melodii în lumea noastră cu cântecele lor vesele și culorile vibrante. Descoperă lumea fascinantă a prietenilor noștri cu pene."
+      }
+    }
+  ]
+}

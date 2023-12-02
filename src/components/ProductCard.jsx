@@ -23,19 +23,15 @@ const ProductCard = ({ product, setCartData, cartData }) => {
         navigate("/product?id=" + product._id);
       }}
       variant="solid"
-      sx={{ width: 320, cursor: "pointer" }}
+      sx={{ cursor: "pointer" }}
     >
       <div>
-        <Typography level="title-lg">{product.name}</Typography>
+        <Typography level="title-md">{product.name}</Typography>
         <Typography level="body-sm">{product.category}</Typography>
       </div>
       <AspectRatio minHeight="120px" maxHeight="200px">
         <img
-          src={
-            product.images[0].includes("image1_url")
-              ? genericProductImage
-              : product.images[0]
-          }
+          src={product.images[0] ? product.images[0] : genericProductImage}
           alt="product"
         />
       </AspectRatio>
