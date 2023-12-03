@@ -9,7 +9,6 @@ import AccountPage from "./pages/AccountPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactPage from "./pages/ContactPage";
-import DashboardPage from "./pages/DashboardPage";
 import NoPage from "./pages/NoPage";
 import PasswordResetPage from "./pages/PasswordResetPage";
 import { createTheme } from "@mui/material";
@@ -35,7 +34,6 @@ export default function App() {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
@@ -61,16 +59,16 @@ const theme = extendTheme({
           "900": "#4c1d95",
         },
         neutral: {
-          "50": "#fafaf9",
-          "100": "#78716c",
-          "200": "#e7e5e4",
-          "300": "#d6d3d1",
-          "400": "#a8a29e",
-          "500": "#f5f5f4",
-          "600": "#57534e",
-          "700": "#44403c",
-          "800": "#292524",
-          "900": "#1c1917",
+          "50": "#f5f3ff",
+          "100": "#ede9fe",
+          "200": "#ddd6fe",
+          "300": "#c4b5fd",
+          "400": "#a78bfa",
+          "500": "#8b5cf6",
+          "600": "#7c3aed",
+          "700": "#6d28d9",
+          "800": "#5b21b6",
+          "900": "#4c1d95",
         },
         action: {
           active: "rgba(0,0,0,0.54)",

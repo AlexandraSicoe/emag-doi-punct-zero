@@ -39,6 +39,7 @@ const ProductCard = ({ product, setCartData, cartData }) => {
               overflow: "hidden",
               WebkitLineClamp: 2, // Specify the number of lines to display
               textOverflow: "ellipsis",
+              minHeight: "48px",
             }}
             level="title-md"
           >

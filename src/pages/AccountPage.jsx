@@ -23,6 +23,7 @@ import Orders from "../components/Orders";
 import MyReviews from "../components/MyReviews";
 import useQuery from "../helpers/useQuery";
 import Footer from "../components/Footer";
+import AddProductForm from "../components/AddProductForm";
 
 const AccountPage = () => {
   const query = useQuery();
@@ -99,21 +100,19 @@ const AccountPage = () => {
               </Box>
 
               <List>
-                <Link to="/dashboard">
-                  <ListItem>
-                    <ListItemButton
-                      onClick={() => {
-                        setWhatOptionVisible("");
-                        navigate("/account?m=dashboard");
-                      }}
-                    >
-                      <ListItemDecorator>
-                        <HomeIcon sx={{ color: "black" }} />
-                      </ListItemDecorator>
-                      Dashboard
-                    </ListItemButton>
-                  </ListItem>
-                </Link>
+                <ListItem>
+                  <ListItemButton
+                    onClick={() => {
+                      setWhatOptionVisible("addProduct");
+                      navigate("/account?m=addProduct");
+                    }}
+                  >
+                    <ListItemDecorator>
+                      <HomeIcon sx={{ color: "black" }} />
+                    </ListItemDecorator>
+                    Add Product
+                  </ListItemButton>
+                </ListItem>
 
                 <ListItem>
                   <ListItemButton
@@ -261,6 +260,7 @@ const AccountPage = () => {
               </Box>
 
               {whatOptionVisible === "account" && <AccountEditForm />}
+              {whatOptionVisible === "addProduct" && <AddProductForm />}
               {whatOptionVisible === "orders" && (
                 <Orders userId={userData._id} />
               )}
