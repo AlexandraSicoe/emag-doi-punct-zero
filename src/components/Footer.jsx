@@ -209,7 +209,7 @@ const Footer = () => {
                     style={{
                       fontSize: "20px",
                     }}
-                    class="fa-brands fa-twitter"
+                    class="fa-brands fa-facebook"
                   ></i>
                 </Link>
               </ListItem>
@@ -261,7 +261,7 @@ const Footer = () => {
                     style={{
                       fontSize: "20px",
                     }}
-                    class="fa-brands fa-facebook"
+                    class="fa-brands fa-twitter"
                   ></i>
                 </Link>
               </ListItem>
