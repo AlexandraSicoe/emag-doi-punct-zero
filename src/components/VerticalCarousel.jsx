@@ -19,7 +19,8 @@ const VerticalCarousel = ({ slides }) => {
         position: "relative",
         width: "280px",
         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-        margin: "8px 5px 5px 5px",
+        margin: "0px",
+        backgroundColor: "white", // Adjust the background color
       }}
     >
       {slides.map((slide, index) => (
@@ -42,7 +43,6 @@ const VerticalCarousel = ({ slides }) => {
             level="body-md"
             sx={{
               padding: "3px",
-              backgroundColor: "white", // Adjust the background color
             }}
           >
             {slide.content.copy}

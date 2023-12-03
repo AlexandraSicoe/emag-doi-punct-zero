@@ -65,6 +65,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                   marginTop: "-4px!important",
                   borderRadius: "0px",
                   border: "0px",
+                  height: "285px",
                 }}
                 placement="top-start"
               >

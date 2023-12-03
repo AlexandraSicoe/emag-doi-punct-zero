@@ -56,12 +56,7 @@ const HomePage = () => {
         </Box>
       ) : (
         <Container>
-          <Grid
-            container
-            display="flex"
-            justifyContent="space-between"
-            spacing={2}
-          >
+          <Grid container display="flex" justifyContent="space-between">
             <Box
               sx={{
                 height: "285px",
@@ -73,21 +68,31 @@ const HomePage = () => {
               <VerticalCarousel slides={VerticalCarouselData.slides} />
             </Box>
             <Box sx={{ width: "100%" }}>
-              <Typography level="h2" sx={{ color: "black" }}>
+              <Typography level="h2" sx={{ color: "black", marginTop: "10px" }}>
                 Cele mai populare produse
               </Typography>
             </Box>
-            {productList?.slice(0, 8).map((product, index) => {
-              return (
-                <Grid item xs={6} md={3} key={index}>
-                  <ProductCard
-                    product={product}
-                    setCartData={setCartData}
-                    cartData={cartData}
-                  />
-                </Grid>
-              );
-            })}
+            <Grid
+              container
+              sx={{
+                marginX: "-5px",
+                display: "flex",
+                justifyContent: "flex-start",
+              }}
+            >
+              {productList?.slice(0, 8).map((product, index) => {
+                return (
+                  <Grid item xs={6} md={3} key={index}>
+                    <ProductCard
+                      product={product}
+                      setCartData={setCartData}
+                      cartData={cartData}
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
+
             <Box
               sx={{
                 flexDirection: { xs: "column", md: "row" },
@@ -212,7 +217,7 @@ const HomePage = () => {
             </Box>
 
             <Box sx={{ width: "100%" }}>
-              <Typography level="h2" sx={{ color: "black" }}>
+              <Typography level="h2" sx={{ color: "black", marginTop: "10px" }}>
                 Vizualizate recent
               </Typography>
             </Box>
