@@ -69,14 +69,11 @@ const ProductCard = ({ product, setCartData, cartData }) => {
               let _product = JSON.parse(JSON.stringify(product));
               if (cartData.some((item) => item._id === _product._id)) {
                 cartData.forEach((obj) => {
-                  console.log(obj);
-                  console.log(product);
                   if (obj._id === _product._id) {
                     _product = JSON.parse(JSON.stringify(obj));
                     if (/^[0-9]/.test(_product.name.charAt(0))) {
                       let numberOfProducts = getFirstNumber(_product.name);
                       numberOfProducts++;
-                      console.log(numberOfProducts);
 
                       _product.price = numberOfProducts * product.price;
                       _product.name = replaceFirstNumber(
@@ -89,13 +86,10 @@ const ProductCard = ({ product, setCartData, cartData }) => {
                     }
                   }
                 });
-                console.log(_product);
                 let _cartData = JSON.parse(JSON.stringify(cartData));
-                console.log(_cartData);
                 _cartData = _cartData.map((item) => {
                   return item._id === _product._id ? _product : item;
                 });
-                console.log(_cartData);
                 localStorage.setItem("cart", JSON.stringify(_cartData));
 
                 setCartData(_cartData);
