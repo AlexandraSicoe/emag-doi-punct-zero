@@ -211,7 +211,10 @@ const CheckoutPage = () => {
                       >
                         <i class="fa fa-trash"></i>
                       </Button>
-                      <Typography level="h4">
+                      <Typography
+                        sx={{ minWidth: "150px", textAlign: "end" }}
+                        level="h4"
+                      >
                         {product.price.toFixed(2)} RON
                       </Typography>
                     </Box>
