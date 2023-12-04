@@ -88,7 +88,12 @@ const Navbar = ({ cartData }) => {
                 startDecorator={<PersonIcon />}
                 sx={{ marginRight: "5px" }}
               >
-                Contul meu
+                <Typography
+                  color="common.white"
+                  sx={{ display: { xs: "none", md: "block" } }}
+                >
+                  Contul meu
+                </Typography>
               </Button>
             </Link>
             <Link to="#">
@@ -99,7 +104,12 @@ const Navbar = ({ cartData }) => {
                   setDrawerOpen(!drawerOpen);
                 }}
               >
-                Coș de cumpărături
+                <Typography
+                  color="common.white"
+                  sx={{ display: { xs: "none", md: "block" } }}
+                >
+                  Coș de cumpărături
+                </Typography>
               </Button>
             </Link>
           </Box>

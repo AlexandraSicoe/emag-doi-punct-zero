@@ -12,7 +12,7 @@ const AboutUsPage = () => {
         alignItems="center"
         flexDirection="column"
         backgroundColor="#F2F2F7"
-        p={3}
+        sx={{ padding: "25px" }}
       >
         <Box
           sx={{
@@ -24,7 +24,6 @@ const AboutUsPage = () => {
             borderRadius: "16px",
             width: { xs: "100%", sm: "100%", md: "900px" },
             marginTop: { xs: "10px", md: "25px" },
-            margin: { sx: "0px", sm: "0px", md: "25px" },
           }}
         >
           <Typography sx={{ textAlign: "center", padding: "15px" }} level="h1">

@@ -221,29 +221,52 @@ const HomePage = () => {
                 Vizualizate recent
               </Typography>
             </Box>
-            {productList?.slice(0, 8).map((product, index) => {
-              return (
-                <Grid item xs={6} md={3} key={index}>
-                  <ProductCard
-                    product={product}
-                    setCartData={setCartData}
-                    cartData={cartData}
-                  />
-                </Grid>
-              );
-            })}
-            {productList?.map((product, index) => {
-              return (
-                <Grid item xs={6} md={3}>
-                  <ProductCard
-                    key={index}
-                    product={product}
-                    setCartData={setCartData}
-                    cartData={cartData}
-                  />
-                </Grid>
-              );
-            })}
+            <Grid
+              container
+              sx={{
+                marginX: "-5px",
+                display: "flex",
+                justifyContent: "flex-start",
+              }}
+            >
+              {productList?.slice(0, 8).map((product, index) => {
+                return (
+                  <Grid item xs={6} md={3} key={index}>
+                    <ProductCard
+                      product={product}
+                      setCartData={setCartData}
+                      cartData={cartData}
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
+            <Box sx={{ width: "100%" }}>
+              <Typography level="h2" sx={{ color: "black", marginTop: "10px" }}>
+                Toate produsele{" "}
+              </Typography>
+            </Box>
+            <Grid
+              container
+              sx={{
+                marginX: "-5px",
+                display: "flex",
+                justifyContent: "flex-start",
+              }}
+            >
+              {productList?.map((product, index) => {
+                return (
+                  <Grid item xs={6} md={3}>
+                    <ProductCard
+                      key={index}
+                      product={product}
+                      setCartData={setCartData}
+                      cartData={cartData}
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
           </Grid>
         </Container>
       )}
