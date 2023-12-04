@@ -84,19 +84,37 @@ const Navbar = ({ cartData }) => {
           />
           <Box>
             <Link to="/account">
-              <Button
-                startDecorator={<PersonIcon />}
-                sx={{ marginRight: "5px" }}
+              <Box
+                sx={{
+                  display: { xs: "none", md: "inline-block" },
+                }}
               >
-                <Typography
-                  color="common.white"
-                  sx={{ display: { xs: "none", md: "block" } }}
-                >
-                  Contul meu
-                </Typography>
-              </Button>
+                <Button startDecorator={<PersonIcon />}>
+                  <Typography
+                    color="common.white"
+                    sx={{
+                      marginRight: { xs: "0px", sm: "0px", md: "5px" },
+                    }}
+                  >
+                    Contul meu
+                  </Typography>
+                </Button>
+              </Box>
+              <Box
+                sx={{
+                  display: { xs: "inline-block", md: "none" },
+                }}
+              >
+                <Button>
+                  <PersonIcon />
+                </Button>
+              </Box>
             </Link>
-            <Link to="#">
+            <Box
+              sx={{
+                display: { xs: "none", md: "inline-block" },
+              }}
+            >
               <Button
                 startDecorator={<ShoppingCartIcon />}
                 sx={{ marginLeft: "5px" }}
@@ -111,7 +129,21 @@ const Navbar = ({ cartData }) => {
                   Coș de cumpărături
                 </Typography>
               </Button>
-            </Link>
+            </Box>
+            <Box
+              sx={{
+                display: { xs: "inline-block", md: "none" },
+              }}
+            >
+              <Button
+                sx={{ marginLeft: "5px" }}
+                onClick={() => {
+                  setDrawerOpen(!drawerOpen);
+                }}
+              >
+                <ShoppingCartIcon />
+              </Button>
+            </Box>
           </Box>
         </Container>
         <Container
