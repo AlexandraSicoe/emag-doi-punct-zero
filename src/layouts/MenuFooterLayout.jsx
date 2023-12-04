@@ -39,7 +39,7 @@ const MenuFooterLayout = () => {
 
   return (
     <>
-      <Navbar cartData={cartData} />
+      {/* <Navbar cartData={cartData} /> */}
       <MenuDropdown isDropdownOpen={route === "/"} />
       <Outlet />
       <Footer />
