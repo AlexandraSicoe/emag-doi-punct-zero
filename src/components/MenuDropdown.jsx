@@ -8,6 +8,8 @@ import List from "@mui/joy/List";
 import ListItem from "@mui/joy/ListItem";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as Icons from "@fortawesome/free-solid-svg-icons";
 
 const MenuDropdown = ({ isDropdownOpen }) => {
   const [selectedCategory, setSelectedCategory] = useState();
@@ -24,6 +26,19 @@ const MenuDropdown = ({ isDropdownOpen }) => {
   useEffect(() => {
     getCategories();
   }, []);
+
+  const renderIcon = (iconName) => {
+    let faIconName =
+      "fa" + iconName.charAt(3).toUpperCase() + iconName.slice(4);
+    faIconName = iconName =
+      iconName === "fa-spray-can-sparkles" ? "faSprayCan" : faIconName;
+    console.log(faIconName);
+    const icon = Icons[faIconName];
+    return icon ? (
+      <FontAwesomeIcon icon={icon} style={{ marginRight: "5px" }} />
+    ) : null;
+  };
+
   return (
     <>
       <Box
@@ -126,10 +141,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                             }}
                             level="body-md"
                           >
-                            <i
-                              style={{ marginRight: "10px" }}
-                              className={"fa-solid " + subcategory.icon}
-                            ></i>
+                            {renderIcon(subcategory.icon)}
                             {subcategory.title}
                           </Typography>
                         </ListItem>

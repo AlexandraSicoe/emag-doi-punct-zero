@@ -17,7 +17,6 @@ const ProductCard = ({ product, setCartData, cartData }) => {
   function replaceFirstNumber(str, newNumber) {
     return str.replace(/\d+/, newNumber);
   }
-  console.log(product);
   return (
     <Box sx={{ padding: "5px" }}>
       <Card
