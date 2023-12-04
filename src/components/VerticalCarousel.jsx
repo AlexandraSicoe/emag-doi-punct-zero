@@ -17,9 +17,11 @@ const VerticalCarousel = ({ slides }) => {
       sx={{
         overflow: "hidden",
         position: "relative",
-        width: "280px",
+        width: { xs: "100%", lg: "280px" },
         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
         margin: "0px",
+        marginTop: { xs: "15px", lg: "0px" },
+
         backgroundColor: "white", // Adjust the background color
       }}
     >
@@ -34,11 +36,17 @@ const VerticalCarousel = ({ slides }) => {
             transition: "opacity 1s ease-in-out",
           }}
         >
-          <img
-            src={slide.content.image}
+          <Box
             alt={slide.introline}
-            style={{ width: "100%", height: "140px", objectFit: "cover" }}
+            sx={{
+              height: { xs: "170px", sm: "220px", lg: "140px" },
+
+              backgroundImage: `url(${slide.content.image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "25% 45%",
+            }}
           />
+
           <Typography
             level="body-md"
             sx={{

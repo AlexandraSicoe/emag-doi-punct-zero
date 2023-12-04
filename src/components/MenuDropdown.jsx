@@ -238,19 +238,41 @@ const MenuDropdown = ({ isDropdownOpen }) => {
             ) : (
               <>
                 {" "}
-                <MenuButton
-                  size="sm"
-                  variant="soft"
-                  sx={{
-                    backgroundColor: "white",
-                    borderBottomLeftRadius: "0px",
-                    borderBottomRightRadius: "0px",
-                    border: "0px",
-                    padding: "11px",
-                  }}
-                >
-                  Produse
-                </MenuButton>
+                {location.pathname === "/" ? (
+                  <MenuButton
+                    size="sm"
+                    variant="soft"
+                    sx={{
+                      backgroundColor: "white",
+                      borderBottomLeftRadius: "0px",
+                      borderBottomRightRadius: "0px",
+                      border: "0px",
+                      padding: "11px",
+                    }}
+                  >
+                    Produse
+                  </MenuButton>
+                ) : (
+                  <Button
+                    color="common.white"
+                    size="sm"
+                    variant="soft"
+                    onClick={() => {
+                      window.location.href = "/";
+                    }}
+                    sx={{
+                      backgroundColor: "white",
+                      borderBottomLeftRadius: "0px",
+                      borderBottomRightRadius: "0px",
+                      border: "0px",
+                      padding: "11px",
+                      pointerEvents:
+                        location.pathname === "/" ? "none" : "auto",
+                    }}
+                  >
+                    Produse
+                  </Button>
+                )}
                 <Menu
                   sx={{
                     display: "flex",
