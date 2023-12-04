@@ -32,10 +32,9 @@ const MenuDropdown = ({ isDropdownOpen }) => {
       "fa" + iconName.charAt(3).toUpperCase() + iconName.slice(4);
     faIconName = iconName =
       iconName === "fa-spray-can-sparkles" ? "faSprayCan" : faIconName;
-    console.log(faIconName);
     const icon = Icons[faIconName];
     return icon ? (
-      <FontAwesomeIcon icon={icon} style={{ marginRight: "5px" }} />
+      <FontAwesomeIcon icon={icon} style={{ marginRight: "10px" }} />
     ) : null;
   };
 
