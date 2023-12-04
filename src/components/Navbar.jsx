@@ -177,23 +177,19 @@ const Navbar = ({ cartData }) => {
                 {cartData?.map((product, index) => (
                   <React.Fragment key={product.id}>
                     <ListItem sx={{ gap: 2 }}>
-                      <AspectRatio sx={{ flexBasis: 120 }}>
-                        {/* {console.log(product)} */}
-
-                        <img
-                          style={{ width: "120px" }}
-                          src={`${
-                            product?.images[0]?.includes("image1_url")
-                              ? genericProductImage
-                              : product?.images[0]
-                          }}?w=120&fit=crop&auto=format`}
-                          alt={product.name}
-                        />
-                      </AspectRatio>
+                      <img
+                        style={{ height: "70px" }}
+                        src={
+                          product.images[0]
+                            ? product.images[0]
+                            : genericProductImage
+                        }
+                        alt="product"
+                      />
                       <ListItemContent>
                         <Typography fontWeight="md">{product.name}</Typography>
                         <Typography level="body-sm">
-                          Pret: {product.price}
+                          Pret: {product.price.toFixed(2)}
                         </Typography>
                       </ListItemContent>
                     </ListItem>
@@ -203,7 +199,7 @@ const Navbar = ({ cartData }) => {
               </List>
             </Card>
             <Typography level="body-lg" color="danger" p={1}>
-              Total: {totalPrice} RON
+              Total: {totalPrice.toFixed(2)} RON
             </Typography>
             <Box
               sx={{
@@ -213,7 +209,13 @@ const Navbar = ({ cartData }) => {
               }}
             >
               <Link to={"/checkout"}>
-                <Button sx={{ marginY: "10px" }} size="md">
+                <Button
+                  sx={{ marginY: "10px" }}
+                  size="md"
+                  onClick={() => {
+                    setDrawerOpen(false);
+                  }}
+                >
                   Cumpără produsele
                 </Button>
               </Link>

@@ -18,7 +18,12 @@ const ProductCard = ({ product, setCartData, cartData }) => {
     return str.replace(/\d+/, newNumber);
   }
   return (
-    <Box sx={{ padding: "5px", height: "100%" }}>
+    <Box
+      sx={{
+        padding: "5px",
+        height: "100%",
+      }}
+    >
       <Card
         onClick={(e) => {
           navigate("/product?id=" + product._id);
@@ -28,9 +33,9 @@ const ProductCard = ({ product, setCartData, cartData }) => {
           cursor: "pointer",
           borderRadius: "0px",
           backgroundColor: "white",
-          height: "100%", // Set a fixed height for the card
+          height: "100%",
           display: "flex",
-          flexDirection: "column", // Ensure flex container for vertical alignment
+          flexDirection: "column",
         }}
       >
         <div style={{ flex: 1 }}>
@@ -59,7 +64,7 @@ const ProductCard = ({ product, setCartData, cartData }) => {
           <div>
             <Typography level="body-xs">Preț:</Typography>
             <Typography fontSize="md" fontWeight="lg">
-              {product.price} RON
+              {product.price.toFixed(2)} RON
             </Typography>
           </div>
           <Button
@@ -96,10 +101,12 @@ const ProductCard = ({ product, setCartData, cartData }) => {
                 localStorage.setItem("cart", JSON.stringify(_cartData));
 
                 setCartData(_cartData);
+                window.dispatchEvent(new Event("customStorageChange"));
               } else {
                 const _cartData = [...cartData, product];
                 localStorage.setItem("cart", JSON.stringify(_cartData));
                 setCartData(_cartData);
+                window.dispatchEvent(new Event("customStorageChange"));
               }
             }}
             startDecorator={<ShoppingCartIcon />}

@@ -39,6 +39,8 @@ const CheckoutPage = () => {
       return product;
     });
     setCartData(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    window.dispatchEvent(new Event("customStorageChange"));
   };
 
   const handleRemoveItem = (productId) => {
@@ -63,8 +65,15 @@ const CheckoutPage = () => {
       return product;
     });
     setCartData(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    window.dispatchEvent(new Event("customStorageChange"));
   };
-
+  const handleRemoveProduct = (productId) => {
+    const updatedCart = cartData.filter((product) => product._id !== productId);
+    setCartData(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    window.dispatchEvent(new Event("customStorageChange"));
+  };
   useEffect(() => {
     let lsCart = localStorage.getItem("cart");
     lsCart = JSON.parse(lsCart);
@@ -140,12 +149,12 @@ const CheckoutPage = () => {
                       justifyContent: "space-between",
                       alignItems: {
                         xs: "flex-start",
-                        sm: "center",
+                        sm: "flex-start",
                         md: "center",
                       },
                       width: "100%",
                       marginBottom: "25px",
-                      flexDirection: { xs: "column", sm: "row", md: "row" },
+                      flexDirection: { xs: "column", sm: "column", md: "row" },
                     }}
                   >
                     <Box
@@ -176,23 +185,36 @@ const CheckoutPage = () => {
                       sx={{
                         display: "flex",
                         justifyContent: "space-between",
-                        width: "80px",
+                        alignItems: "center",
                       }}
                     >
                       <Button
                         size="sm"
                         onClick={() => handleAddItem(product._id)}
+                        sx={{ marginRight: "5px" }}
                       >
                         <i class="fa-solid fa-plus"></i>
                       </Button>
                       <Button
                         size="sm"
                         onClick={() => handleRemoveItem(product._id)}
+                        sx={{ marginRight: "5px" }}
                       >
                         <i class="fa-solid fa-minus"></i>
                       </Button>
+                      <Button
+                        size="sm"
+                        sx={{ marginRight: "15px" }}
+                        onClick={() => {
+                          handleRemoveProduct(product._id);
+                        }}
+                      >
+                        <i class="fa fa-trash"></i>
+                      </Button>
+                      <Typography level="h4">
+                        {product.price.toFixed(2)} RON
+                      </Typography>
                     </Box>
-                    <Typography level="h4">{product.price} RON</Typography>
                   </Box>
                 );
               })}
@@ -214,7 +236,7 @@ const CheckoutPage = () => {
                 Sumar comanda
               </Typography>
               <Typography fontWeight="lg" level="body-md">
-                Cost produse: {totalPrice} RON
+                Cost produse: {totalPrice.toFixed(2)} RON
               </Typography>
               <Typography level="body-sm" pb={1}>
                 Cost livrare si procesare: 0 RON

@@ -105,7 +105,7 @@ const ProductPage = () => {
                 level="h3"
                 sx={{ color: "red", marginBottom: "10px" }}
               >
-                {productData.price} RON
+                {productData.price.toFixed(2)} RON
               </Typography>
               <Button
                 onClick={(e) => {
@@ -113,8 +113,10 @@ const ProductPage = () => {
                   const _cartData = [...cartData, productData];
                   localStorage.setItem("cart", JSON.stringify(_cartData));
                   setCartData(_cartData);
+                  window.dispatchEvent(new Event("customStorageChange"));
                 }}
                 startDecorator={<ShoppingCartIcon />}
+                s
               >
                 Adaugă în coș
               </Button>
