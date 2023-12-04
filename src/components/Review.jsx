@@ -8,8 +8,8 @@ const Review = () => {
   return (
     <Box display="flex" mt={3}>
       <img
-        src="https://s13emagst.akamaized.net/products/40573/40572229/images/res_17765671aeeef7caffa2052a656e9a46.jpg?width=150&height=150&hash=1A4A6B6C7704573DA74520417A7C149D"
-        style={{ height: "100px", width: "100px" }}
+        src="https://shop-cdn-m.mediazs.com/bilder/royal/canin/mini/adult/hran/uscat/pentru/cini/aduli/de/ras/mic/9/400/rc_shn_adultmini_mv_eretailkit_ro_ro_9.jpg"
+        style={{ height: "100px", width: "100px", marginRight: "13px" }}
       />
       <Box
         display="flex"
@@ -18,7 +18,7 @@ const Review = () => {
         flexDirection="column"
       >
         <Typography sx={{ mb: "10px" }}>
-          Ruj Catrice Vegan Collagen Matt 060, 3.8 g
+          Royal Canin Mini Adult Hrană uscată pentru câini adulți de rasă mică{" "}
         </Typography>
         <Rating
           halfFillMode="svg"
