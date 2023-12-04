@@ -156,7 +156,7 @@ const Navbar = ({ cartData }) => {
             sx={{
               width: "100%",
             }}
-            placeholder="Search here"
+            placeholder="Începe o nouă căutare"
             endDecorator={
               <Button
                 variant="outlined"

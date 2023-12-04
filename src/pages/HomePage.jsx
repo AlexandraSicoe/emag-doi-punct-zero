@@ -82,7 +82,7 @@ const HomePage = () => {
             >
               {productList?.slice(0, 8).map((product, index) => {
                 return (
-                  <Grid item xs={6} md={3} key={index}>
+                  <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                     <ProductCard
                       product={product}
                       setCartData={setCartData}
@@ -231,7 +231,7 @@ const HomePage = () => {
             >
               {productList?.slice(0, 8).map((product, index) => {
                 return (
-                  <Grid item xs={6} md={3} key={index}>
+                  <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                     <ProductCard
                       product={product}
                       setCartData={setCartData}
@@ -256,7 +256,7 @@ const HomePage = () => {
             >
               {productList?.map((product, index) => {
                 return (
-                  <Grid item xs={6} md={3}>
+                  <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                     <ProductCard
                       key={index}
                       product={product}
