@@ -10,7 +10,11 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import MenuDropdown from "../components/MenuDropdown";
 import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
-
+import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
+import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 const ContactPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -90,6 +94,7 @@ const ContactPage = () => {
             <Box
               sx={{
                 display: "flex",
+                alignItems: "center",
                 flexDirection: { md: "column" },
                 justifyContent: "space-between",
                 padding: "10px",
@@ -113,46 +118,62 @@ const ContactPage = () => {
                   help
                 </Typography>
               </Typography>
-              <i
-                style={{
-                  fontSize: "40px",
-                  color: "black",
-                  paddingBottom: "10px",
+              <FacebookRoundedIcon
+                sx={{
+                  width: "50px",
+                  height: "50px",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.8)",
+                    color: "blue",
+                  },
                 }}
-                class="fa-brands fa-facebook"
-              ></i>
-              <i
-                class="fa-solid fa-location-dot"
-                style={{
-                  fontSize: "40px",
-                  color: "black",
-                  paddingBottom: "10px",
+              />
+
+              <LocationOnRoundedIcon
+                sx={{
+                  width: "50px",
+                  height: "50px",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.8)",
+                    color: "red",
+                  },
                 }}
-              ></i>
-              <i
-                style={{
-                  fontSize: "40px",
-                  color: "black",
-                  paddingBottom: "10px",
+              />
+              <TwitterIcon
+                sx={{
+                  width: "50px",
+                  height: "50px",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.8)",
+                    color: "blue",
+                  },
                 }}
-                class="fa-brands fa-twitter"
-              ></i>
-              <i
-                style={{
-                  fontSize: "40px",
-                  color: "black",
-                  paddingBottom: "10px",
+              />
+              <InstagramIcon
+                sx={{
+                  width: "50px",
+                  height: "50px",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.8)",
+                    color: "purple",
+                  },
                 }}
-                class="fa-brands fa-square-instagram"
-              ></i>
-              <i
-                class="fa-brands fa-square-whatsapp"
-                style={{
-                  fontSize: "40px",
-                  color: "black",
-                  paddingBottom: "10px",
+              />
+              <WhatsAppIcon
+                sx={{
+                  width: "50px",
+                  height: "50px",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.8)",
+                    color: "green",
+                  },
                 }}
-              ></i>
+              />
             </Box>
             <Box
               sx={{
