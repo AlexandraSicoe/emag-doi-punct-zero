@@ -51,7 +51,10 @@ const RegisterForm = ({ setFormState }) => {
   };
   return (
     <Box display="flex" flexDirection="column">
-      <Typography level="h1" sx={{ mb: 1 }}>
+      <Typography
+        level="h1"
+        sx={{ mb: 1, color: { xs: "white", md: "black" } }}
+      >
         Register
       </Typography>
       <form
@@ -60,7 +63,7 @@ const RegisterForm = ({ setFormState }) => {
           registerUser();
         }}
       >
-        <FormLabel>Name</FormLabel>
+        <FormLabel sx={{ color: { xs: "white", md: "black" } }}>Name</FormLabel>
         <Input
           startDecorator={<PersonIcon sx={{ color: "#8b5cf6" }} />}
           type="text"
@@ -76,7 +79,9 @@ const RegisterForm = ({ setFormState }) => {
             width: { xs: "100%", sm: "400px" },
           }}
         />
-        <FormLabel>Email</FormLabel>
+        <FormLabel sx={{ color: { xs: "white", md: "black" } }}>
+          Email
+        </FormLabel>
         <Input
           startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
           type="email"
@@ -92,7 +97,9 @@ const RegisterForm = ({ setFormState }) => {
             width: { xs: "100%", sm: "400px" },
           }}
         />
-        <FormLabel>Password</FormLabel>
+        <FormLabel sx={{ color: { xs: "white", md: "black" } }}>
+          Password
+        </FormLabel>
 
         <Input
           startDecorator={<VpnKeyIcon sx={{ color: "#8b5cf6" }} />}
@@ -129,7 +136,7 @@ const RegisterForm = ({ setFormState }) => {
           sx={{
             paddingTop: "5px",
             fontSize: "15px",
-            color: "#8b5cf6",
+            color: { xs: "white", md: "black" },
           }}
         >
           Ai uitat parola?{" "}

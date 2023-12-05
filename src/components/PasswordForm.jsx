@@ -49,11 +49,16 @@ const PasswordForm = ({ setFormState }) => {
         flexDirection: "column",
       }}
     >
-      <Typography level="h1" sx={{ mb: 1 }}>
+      <Typography
+        level="h1"
+        sx={{ mb: 1, color: { xs: "white", md: "black" } }}
+      >
         Ați uitat parola?
       </Typography>
-      <FormLabel>Vă rugăm să vă scrieți adresa de email</FormLabel>
-      <FormLabel>Email</FormLabel>
+      <FormLabel sx={{ color: { xs: "white", md: "black" } }}>
+        Vă rugăm să vă scrieți adresa de email
+      </FormLabel>
+      <FormLabel sx={{ color: { xs: "white", md: "black" } }}>Email</FormLabel>
       <Input
         startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
         type="email"

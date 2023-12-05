@@ -44,7 +44,7 @@ const LoginRegisterPage = () => {
         flexDirection="column"
         sx={{
           width: { xs: "100%", md: "50%" },
-          backgroundColor: { xs: "rgba(255,255,255,0.3)", md: "transparent" },
+          backgroundColor: { xs: "rgba(0,0,0,0.25)", md: "transparent" },
         }}
       >
         {console.log(formState)}
