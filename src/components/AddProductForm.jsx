@@ -37,15 +37,8 @@ const AddProductForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(name);
-    console.log(price);
-    console.log(description);
-    console.log(selectedFile);
-    console.log(selectedCategory);
-
     const userData = JSON.parse(localStorage.getItem("user"));
     const user = userData._id;
-    console.log(user);
     const formData = new FormData();
     formData.append("file", selectedFile);
     formData.append("name", name);
@@ -74,7 +67,6 @@ const AddProductForm = () => {
     try {
       const result = await axios.get("https://e20.ro/api/categories/leaf");
       setCategories(result.data);
-      console.log(result.data);
       setSelectedCategory(result.data[0]);
     } catch (error) {
       console.error(error);

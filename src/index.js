@@ -41,7 +41,6 @@ export default function App() {
   );
 }
 const MUItheme = createTheme();
-console.log(MUItheme);
 const theme = extendTheme({
   colorSchemes: {
     light: {
@@ -127,7 +126,6 @@ const theme = extendTheme({
     display: "Poppins",
   },
 });
-console.log(theme);
 root.render(
   <CssVarsProvider theme={theme}>
     <App />

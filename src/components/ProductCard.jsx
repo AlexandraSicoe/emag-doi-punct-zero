@@ -60,7 +60,10 @@ const ProductCard = ({ product, setCartData, cartData }) => {
             alt="product"
           />
         </AspectRatio>
-        <CardContent orientation="horizontal" sx={{display:"flex",justifyContent:"space-between"}}>
+        <CardContent
+          orientation="horizontal"
+          sx={{ display: "flex", justifyContent: "space-between" }}
+        >
           <div>
             <Typography level="body-xs">Preț:</Typography>
             <Typography fontSize="md" fontWeight="lg">
@@ -128,7 +131,7 @@ const ProductCard = ({ product, setCartData, cartData }) => {
           <Box
             sx={{
               display: { xs: "block", md: "none" },
-              ml:"auto"
+              ml: "auto",
             }}
           >
             <Button

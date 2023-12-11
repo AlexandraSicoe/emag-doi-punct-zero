@@ -15,11 +15,24 @@ import Cart from "./Cart.tsx";
 import genericProductImage from "../images/genericProduct.png";
 import InfoIcon from "@mui/icons-material/Info";
 import Logo from "../images/logo.png";
+import { useSearch } from "./SearchProvider.jsx";
+import { debounce } from "lodash";
 
 const Navbar = ({ cartData }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
+  const { searchInput, setSearchInput } = useSearch();
+  const debouncedSetSearchInput = debounce((value) => {
+    setSearchInput(value);
+  }, 1000);
+
+  const handleSearchChange = (e) => {
+    const { value } = e.target;
+
+    // Call the debouncedSetSearchInput instead of setSearchInput directly
+    debouncedSetSearchInput(value);
+  };
 
   useEffect(() => {
     if (cartData) {
@@ -61,11 +74,12 @@ const Navbar = ({ cartData }) => {
           />
 
           <Input
+            onChange={handleSearchChange}
             sx={{
               width: { md: "370px", lg: "500px" },
               display: { xs: "none", md: "flex" },
             }}
-            placeholder="Incepe o noua cautare"
+            placeholder="Începe o nouă căutare"
             endDecorator={
               <Button
                 variant="outlined"
@@ -153,6 +167,7 @@ const Navbar = ({ cartData }) => {
           }}
         >
           <Input
+            onChange={handleSearchChange}
             sx={{
               width: "100%",
             }}

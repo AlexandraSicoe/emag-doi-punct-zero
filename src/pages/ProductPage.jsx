@@ -25,14 +25,13 @@ const ProductPage = () => {
         navigate("/404", { replace: true }); //in caz ca pagina este eronata, vrem cand dam inapoi ca pagina eronata sa fie ignorata, altfel este un infinite loop
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   useEffect(() => {
     getProductData();
     let lsCart = localStorage.getItem("cart");
     lsCart = JSON.parse(lsCart);
-    console.log(lsCart);
     setCartData(lsCart ? lsCart : []);
   }, []);
   return (

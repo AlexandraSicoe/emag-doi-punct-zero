@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import MenuDropdown from "../components/MenuDropdown";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
+import { SearchProvider } from "../components/SearchProvider";
 
 const MenuFooterLayout = () => {
   const [cartData, setCartData] = useState([]);
@@ -38,12 +39,12 @@ const MenuFooterLayout = () => {
   }, []);
 
   return (
-    <>
+    <SearchProvider>
       <Navbar cartData={cartData} />
       <MenuDropdown isDropdownOpen={route === "/"} />
       <Outlet />
       <Footer />
-    </>
+    </SearchProvider>
   );
 };
 
