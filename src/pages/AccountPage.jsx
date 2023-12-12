@@ -110,7 +110,7 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <HomeIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Add Product
+                    Adaugă produs
                   </ListItemButton>
                 </ListItem>
 
