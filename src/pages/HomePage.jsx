@@ -18,7 +18,6 @@ const HomePage = () => {
   const { searchInput } = useSearch();
   const [filteredProductList, setFilteredProductList] = useState([]);
   const [noSearchProductFound, setNoSearchProductFound] = useState(false);
-  console.log(productList);
 
   const navigate = useNavigate();
 
@@ -40,7 +39,6 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    console.log(searchInput);
     if (searchInput.length === 0) {
       setFilteredProductList([]);
       setNoSearchProductFound(false);
@@ -74,7 +72,6 @@ const HomePage = () => {
           )
         );
       });
-      console.log(filteredProducts);
       setFilteredProductList(filteredProducts);
       if (filteredProducts.length == 0) {
         setNoSearchProductFound(true);
