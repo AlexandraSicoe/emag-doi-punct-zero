@@ -47,7 +47,6 @@ const LoginRegisterPage = () => {
           backgroundColor: { xs: "rgba(0,0,0,0.25)", md: "transparent" },
         }}
       >
-        {console.log(formState)}
         {formState === "Register" ? (
           <RegisterForm setFormState={setFormState} />
         ) : formState === "Login" ? (

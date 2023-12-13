@@ -23,7 +23,6 @@ function SelectCategory({ data, setSelectedCategory }) {
     <Select
       placeholder="Alege categorie"
       onChange={(e) => {
-        console.log(e.target.textContent);
         const leafCategoryTitle = e.target.textContent;
         data.forEach((categorieMare) => {
           categorieMare.leafCategories.forEach((category) => {

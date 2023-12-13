@@ -19,7 +19,6 @@ const MenuDropdown = ({ isDropdownOpen }) => {
   const navigate = useNavigate();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
-  console.log(matches);
   const [selectedCategory, setSelectedCategory] = useState();
   const [categories, setCategories] = useState();
   const getCategories = async () => {
@@ -47,7 +46,6 @@ const MenuDropdown = ({ isDropdownOpen }) => {
       <FontAwesomeIcon icon={icon} style={{ marginRight: "10px" }} />
     ) : null;
   };
-  console.log(location.pathname);
   return (
     <>
       <Box
@@ -220,9 +218,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                       textUnderlineOffset: "8px",
                                     },
                                   }}
-                                  onClick={() => {
-                                    console.log("hello");
-                                  }}
+                                  onClick={() => {}}
                                 >
                                   {subSubCategory.title}
                                 </Typography>
@@ -382,9 +378,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                       textUnderlineOffset: "8px",
                                     },
                                   }}
-                                  onClick={() => {
-                                    console.log("hello");
-                                  }}
+                                  onClick={() => {}}
                                 >
                                   {subSubCategory.title}
                                 </Typography>
