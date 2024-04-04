@@ -148,6 +148,7 @@ const RegisterForm = ({ setFormState }) => {
             }}
             onClick={() => {
               setFormState("Password");
+              localStorage.setItem("previousFormState", "Register");
             }}
           >
             <Typography
