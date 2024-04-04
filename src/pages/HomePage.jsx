@@ -12,12 +12,15 @@ import Logo from "../images/logo.png";
 import VerticalCarousel from "../components/VerticalCarousel";
 import VerticalCarouselData from "../helpers/VerticalCarouselData.json";
 import { useSearch } from "../components/SearchProvider";
+import { useCategory } from "../components/CategoryProvider";
+
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
   const [cartData, setCartData] = useState([]);
   const { searchInput } = useSearch();
   const [filteredProductList, setFilteredProductList] = useState([]);
   const [noSearchProductFound, setNoSearchProductFound] = useState(false);
+  const { filterCategory } = useCategory();
 
   const navigate = useNavigate();
 
@@ -43,6 +46,8 @@ const HomePage = () => {
       setFilteredProductList([]);
       setNoSearchProductFound(false);
     }
+
+    console.log(productList);
 
     if (
       typeof searchInput === "string" &&
@@ -80,6 +85,11 @@ const HomePage = () => {
       }
     }
   }, [searchInput]);
+
+  useEffect(() => {
+    console.log(filterCategory);
+    console.log(productList);
+  }, [filterCategory]);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));

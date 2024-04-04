@@ -4,14 +4,10 @@ import React, { createContext, useContext, useState } from "react";
 const CategoryContext = createContext();
 
 export const CategoryProvider = ({ children }) => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
-  const setCategory = (category) => {
-    setSelectedCategory(category);
-  };
+  const [filterCategory, setFilterCategory] = useState(null);
 
   return (
-    <CategoryContext.Provider value={{ selectedCategory, setCategory }}>
+    <CategoryContext.Provider value={{ filterCategory, setFilterCategory }}>
       {children}
     </CategoryContext.Provider>
   );

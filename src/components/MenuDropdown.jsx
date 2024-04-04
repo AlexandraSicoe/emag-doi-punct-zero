@@ -13,6 +13,7 @@ import * as Icons from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useCategory } from "./CategoryProvider.jsx";
 
 const MenuDropdown = ({ isDropdownOpen }) => {
   const location = useLocation();
@@ -30,11 +31,12 @@ const MenuDropdown = ({ isDropdownOpen }) => {
       console.error(error);
     }
   };
-
   const [isDropdownMenuOpen, setIsDropdownMenuOpen] = useState();
   useEffect(() => {
     getCategories();
   }, []);
+
+  const { setFilterCategory } = useCategory();
 
   const renderIcon = (iconName) => {
     let faIconName =
@@ -218,7 +220,9 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                       textUnderlineOffset: "8px",
                                     },
                                   }}
-                                  onClick={() => {}}
+                                  onClick={() => {
+                                    setFilterCategory(subSubCategory);
+                                  }}
                                 >
                                   {subSubCategory.title}
                                 </Typography>
