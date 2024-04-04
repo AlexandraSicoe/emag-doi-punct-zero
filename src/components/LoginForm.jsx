@@ -125,6 +125,7 @@ const LoginForm = ({ setFormState }) => {
             }}
             onClick={() => {
               setFormState("Password");
+              localStorage.setItem("previousFormState", "Login");
             }}
           >
             <Typography

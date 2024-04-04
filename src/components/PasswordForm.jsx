@@ -58,7 +58,6 @@ const PasswordForm = ({ setFormState }) => {
       <FormLabel sx={{ color: { xs: "white", md: "black" } }}>
         Vă rugăm să vă scrieți adresa de email
       </FormLabel>
-      <FormLabel sx={{ color: { xs: "white", md: "black" } }}>Email</FormLabel>
       <Input
         startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
         type="email"
@@ -79,6 +78,11 @@ const PasswordForm = ({ setFormState }) => {
             }}
             variant="outlined"
             size="sm"
+            onClick={() => {
+              const previousState = localStorage.getItem("previousFormState");
+              setFormState(previousState);
+              console.log(previousState);
+            }}
           >
             Înapoi
           </Button>
