@@ -13,6 +13,7 @@ import VerticalCarousel from "../components/VerticalCarousel";
 import VerticalCarouselData from "../helpers/VerticalCarouselData.json";
 import { useSearch } from "../components/SearchProvider";
 import { useCategory } from "../components/CategoryProvider";
+import FilteredSearchedProducts from "../components/FilteredSearchedProducts";
 
 const HomePage = () => {
   const [productList, setProductList] = useState([]);
@@ -21,14 +22,13 @@ const HomePage = () => {
   const [filteredProductList, setFilteredProductList] = useState([]);
   const [noSearchProductFound, setNoSearchProductFound] = useState(false);
   const { filterCategory } = useCategory();
-
   const navigate = useNavigate();
 
-  function removeDiacritics(str) {
-    return str
-      .normalize("NFD") // Normalize to decomposed form
-      .replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
-  }
+  // function removeDiacritics(str) {
+  //   return str
+  //     .normalize("NFD") // Normalize to decomposed form
+  //     .replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
+  // }
 
   const getProducts = async () => {
     try {
@@ -41,55 +41,55 @@ const HomePage = () => {
     }
   };
 
-  useEffect(() => {
-    if (searchInput.length === 0) {
-      setFilteredProductList([]);
-      setNoSearchProductFound(false);
-    }
+  // useEffect(() => {
+  //   if (searchInput.length === 0) {
+  //     setFilteredProductList([]);
+  //     setNoSearchProductFound(false);
+  //   }
 
-    console.log(productList);
+  //   console.log(productList);
 
-    if (
-      typeof searchInput === "string" &&
-      searchInput.length > 3 &&
-      productList?.length > 0
-    ) {
-      const filteredProducts = productList.filter((product) => {
-        const lowercasedSearchInput = removeDiacritics(
-          searchInput.toLowerCase()
-        );
-        const removeDiacriticsFromProperty = (property) =>
-          removeDiacritics(property.toLowerCase());
+  //   if (
+  //     typeof searchInput === "string" &&
+  //     searchInput.length > 3 &&
+  //     productList?.length > 0
+  //   ) {
+  //     const filteredProducts = productList.filter((product) => {
+  //       const lowercasedSearchInput = removeDiacritics(
+  //         searchInput.toLowerCase()
+  //       );
+  //       const removeDiacriticsFromProperty = (property) =>
+  //         removeDiacritics(property.toLowerCase());
 
-        // Check if the diacritics-removed searchInput is included in any of the properties
-        return (
-          removeDiacriticsFromProperty(product.name).includes(
-            lowercasedSearchInput
-          ) ||
-          removeDiacriticsFromProperty(product.description).includes(
-            lowercasedSearchInput
-          ) ||
-          removeDiacriticsFromProperty(product.category.title).includes(
-            lowercasedSearchInput
-          ) ||
-          removeDiacriticsFromProperty(product.user.name).includes(
-            lowercasedSearchInput
-          )
-        );
-      });
-      setFilteredProductList(filteredProducts);
-      if (filteredProducts.length == 0) {
-        setNoSearchProductFound(true);
-      } else {
-        setNoSearchProductFound(false);
-      }
-    }
-  }, [searchInput]);
+  //       // Check if the diacritics-removed searchInput is included in any of the properties
+  //       return (
+  //         removeDiacriticsFromProperty(product.name).includes(
+  //           lowercasedSearchInput
+  //         ) ||
+  //         removeDiacriticsFromProperty(product.description).includes(
+  //           lowercasedSearchInput
+  //         ) ||
+  //         removeDiacriticsFromProperty(product.category.title).includes(
+  //           lowercasedSearchInput
+  //         ) ||
+  //         removeDiacriticsFromProperty(product.user.name).includes(
+  //           lowercasedSearchInput
+  //         )
+  //       );
+  //     });
+  //     setFilteredProductList(filteredProducts);
+  //     if (filteredProducts.length == 0) {
+  //       setNoSearchProductFound(true);
+  //     } else {
+  //       setNoSearchProductFound(false);
+  //     }
+  //   }
+  // }, [searchInput]);
 
-  useEffect(() => {
-    console.log(filterCategory);
-    console.log(productList);
-  }, [filterCategory]);
+  // useEffect(() => {
+  //   console.log(filterCategory);
+  //   console.log(productList);
+  // }, [filterCategory]);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -380,6 +380,7 @@ const HomePage = () => {
             )}
           </Grid>
         </Container>
+        // <FilteredSearchedProducts />
       )}
     </>
   );
