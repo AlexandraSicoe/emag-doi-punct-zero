@@ -18,7 +18,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  // const matches = useMediaQuery(theme.breakpoints.up("md"));
   const [selectedCategory, setSelectedCategory] = useState();
   const [categories, setCategories] = useState();
   const getCategories = async () => {
@@ -64,334 +64,167 @@ const MenuDropdown = ({ isDropdownOpen }) => {
             padding: "5px",
           }}
         >
-          <Dropdown
-            open={isDropdownMenuOpen}
-            defaultOpen={isDropdownOpen && matches}
-          >
-            {matches ? (
-              <>
-                {location.pathname === "/" ? (
-                  <MenuButton
-                    size="sm"
-                    variant="soft"
-                    sx={{
-                      backgroundColor: "white",
-                      borderBottomLeftRadius: "0px",
-                      borderBottomRightRadius: "0px",
-                      border: "0px",
-                      padding: "11px",
-                      pointerEvents:
-                        location.pathname === "/" ? "none" : "auto",
-                    }}
-                  >
-                    Produse
-                  </MenuButton>
-                ) : (
-                  <Button
-                    color="common.white"
-                    size="sm"
-                    variant="soft"
-                    onClick={() => {
-                      window.location.href = "/";
-                    }}
-                    sx={{
-                      backgroundColor: "white",
-                      borderBottomLeftRadius: "0px",
-                      borderBottomRightRadius: "0px",
-                      border: "0px",
-                      padding: "11px",
-                      pointerEvents:
-                        location.pathname === "/" ? "none" : "auto",
-                    }}
-                  >
-                    Produse
-                  </Button>
-                )}
-
-                <Menu
+          <Dropdown open={true} defaultOpen={true}>
+            <>
+              {location.pathname === "/" ? (
+                <MenuButton
+                  size="sm"
+                  variant="soft"
                   sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    padding: "0px",
-                    marginTop: "-4px!important",
-                    borderRadius: "0px",
-                    border: "0px",
-                    height: "285px",
-                    flexWrap: "wrap",
-                    width: { md: "100%", lg: "auto" },
                     backgroundColor: "white",
+                    borderBottomLeftRadius: "0px",
+                    borderBottomRightRadius: "0px",
+                    border: "0px",
+                    padding: "11px",
+                    // pointerEvents: location.pathname === "/" ? "none" : "auto",
                   }}
-                  placement="top-start"
                 >
-                  <Box
-                    sx={{
-                      display: { xs: "flex", md: "block" },
-                      width: { xs: "100%", md: "120px" },
-                      justifyContent: "space-around",
-                    }}
-                  >
-                    {categories?.map((category, index) => {
-                      return (
-                        <Box
-                          sx={{ cursor: "pointer", margin: "10px" }}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setSelectedCategory(category);
+                  Produse
+                </MenuButton>
+              ) : (
+                <Button
+                  color="common.white"
+                  size="sm"
+                  variant="soft"
+                  onClick={() => {
+                    window.location.href = "/";
+                  }}
+                  sx={{
+                    backgroundColor: "white",
+                    borderBottomLeftRadius: "0px",
+                    borderBottomRightRadius: "0px",
+                    border: "0px",
+                    padding: "11px",
+                    // pointerEvents: location.pathname === "/" ? "none" : "auto",
+                  }}
+                >
+                  Produse
+                </Button>
+              )}
+
+              <Menu
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  padding: "0px",
+                  marginTop: "-4px!important",
+                  borderRadius: "0px",
+                  border: "0px",
+                  height: "285px",
+                  flexWrap: "wrap",
+                  width: { md: "100%", lg: "auto" },
+                  backgroundColor: "white",
+                }}
+                placement="top-start"
+              >
+                <Box
+                  sx={{
+                    display: { xs: "flex", md: "block" },
+                    width: { xs: "100%", md: "120px" },
+                    justifyContent: "space-around",
+                  }}
+                >
+                  {categories?.map((category, index) => {
+                    return (
+                      <Box
+                        sx={{ cursor: "pointer", margin: "10px" }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setSelectedCategory(category);
+                        }}
+                        key={index}
+                        variant="plain"
+                      >
+                        <Typography
+                          sx={{
+                            fontWeight: "bold",
                           }}
-                          key={index}
-                          variant="plain"
+                          level="h5"
+                        >
+                          <Box
+                            sx={{
+                              display: { xs: "inline", md: "inline" },
+                            }}
+                          >
+                            <i
+                              style={{
+                                marginRight: "10px",
+                              }}
+                              className={"fa-solid " + category.icon}
+                            ></i>
+                          </Box>
+
+                          {category.title}
+                        </Typography>
+                      </Box>
+                    );
+                  })}
+                </Box>
+                <Box
+                  sx={{
+                    backgroundColor: "white",
+                    right: 0,
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
+                    flexWrap: "wrap",
+                    width: { xs: "100%", md: "750px" },
+                  }}
+                >
+                  {selectedCategory?.children.map((subcategory, subindex) => {
+                    return (
+                      <List
+                        sx={{
+                          paddingLeft: "10px",
+                          paddingBottom: "10px",
+                        }}
+                        key={subindex}
+                      >
+                        <ListItem
+                          sx={{
+                            paddingLeft: "0px",
+                            paddingRight: "0px",
+                          }}
                         >
                           <Typography
                             sx={{
                               fontWeight: "bold",
                             }}
-                            level="h5"
+                            level="body-md"
                           >
-                            <Box
-                              sx={{
-                                display: { xs: "inline", md: "inline" },
-                              }}
-                            >
-                              <i
-                                style={{
-                                  marginRight: "10px",
-                                }}
-                                className={"fa-solid " + category.icon}
-                              ></i>
-                            </Box>
-
-                            {category.title}
+                            {renderIcon(subcategory.icon)}
+                            {subcategory.title}
                           </Typography>
-                        </Box>
-                      );
-                    })}
-                  </Box>
-                  <Box
-                    sx={{
-                      backgroundColor: "white",
-                      right: 0,
-                      display: "flex",
-                      flexDirection: { xs: "column", md: "row" },
-                      flexWrap: "wrap",
-                      width: { xs: "100%", md: "750px" },
-                    }}
-                  >
-                    {selectedCategory?.children.map((subcategory, subindex) => {
-                      return (
-                        <List
-                          sx={{
-                            paddingLeft: "10px",
-                            paddingBottom: "10px",
-                          }}
-                          key={subindex}
-                        >
-                          <ListItem
-                            sx={{
-                              paddingLeft: "0px",
-                              paddingRight: "0px",
-                            }}
-                          >
-                            <Typography
-                              sx={{
-                                fontWeight: "bold",
-                              }}
-                              level="body-md"
-                            >
-                              {renderIcon(subcategory.icon)}
-                              {subcategory.title}
-                            </Typography>
-                          </ListItem>
+                        </ListItem>
 
-                          {subcategory.children.map(
-                            (subSubCategory, subSubIndex) => {
-                              return (
-                                <Typography
-                                  level="body-sm"
-                                  key={subSubIndex}
-                                  sx={{
-                                    paddingY: "5px",
-                                    paddingX: "2px",
-                                    marginY: "3px",
-                                    cursor: "pointer",
-                                    "&:hover": {
-                                      textDecoration: "underline",
-                                      textUnderlineOffset: "8px",
-                                    },
-                                  }}
-                                  onClick={() => {}}
-                                >
-                                  {subSubCategory.title}
-                                </Typography>
-                              );
-                            }
-                          )}
-                        </List>
-                      );
-                    })}
-                  </Box>
-                </Menu>
-              </>
-            ) : (
-              <>
-                {" "}
-                {location.pathname === "/" ? (
-                  <MenuButton
-                    size="sm"
-                    variant="soft"
-                    sx={{
-                      backgroundColor: "white",
-                      borderBottomLeftRadius: "0px",
-                      borderBottomRightRadius: "0px",
-                      border: "0px",
-                      padding: "11px",
-                    }}
-                  >
-                    Produse
-                  </MenuButton>
-                ) : (
-                  <Button
-                    color="common.white"
-                    size="sm"
-                    variant="soft"
-                    onClick={() => {
-                      window.location.href = "/";
-                    }}
-                    sx={{
-                      backgroundColor: "white",
-                      borderBottomLeftRadius: "0px",
-                      borderBottomRightRadius: "0px",
-                      border: "0px",
-                      padding: "11px",
-                      pointerEvents:
-                        location.pathname === "/" ? "none" : "auto",
-                    }}
-                  >
-                    Produse
-                  </Button>
-                )}
-                <Menu
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    padding: "0px",
-                    marginTop: "-4px!important",
-                    borderRadius: "0px",
-                    border: "0px",
-                    height: "285px",
-                    flexWrap: "wrap",
-                    width: "100%",
-                    backgroundColor: "white",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: { xs: "flex", md: "block" },
-                      width: { xs: "100%", md: "120px" },
-                      justifyContent: "space-around",
-                    }}
-                  >
-                    {categories?.map((category, index) => {
-                      return (
-                        <Box
-                          sx={{ cursor: "pointer", margin: "10px" }}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setSelectedCategory(category);
-                          }}
-                          key={index}
-                          variant="plain"
-                        >
-                          <Typography
-                            sx={{
-                              fontWeight: "bold",
-                            }}
-                            level="h5"
-                          >
-                            <Box
-                              sx={{
-                                display: { xs: "inline", md: "inline" },
-                              }}
-                            >
-                              <i
-                                style={{
-                                  marginRight: "10px",
+                        {subcategory.children.map(
+                          (subSubCategory, subSubIndex) => {
+                            return (
+                              <Typography
+                                level="body-sm"
+                                key={subSubIndex}
+                                sx={{
+                                  paddingY: "5px",
+                                  paddingX: "2px",
+                                  marginY: "3px",
+                                  cursor: "pointer",
+                                  "&:hover": {
+                                    textDecoration: "underline",
+                                    textUnderlineOffset: "8px",
+                                  },
                                 }}
-                                className={"fa-solid " + category.icon}
-                              ></i>
-                            </Box>
-
-                            {category.title}
-                          </Typography>
-                        </Box>
-                      );
-                    })}
-                  </Box>
-                  <Box
-                    sx={{
-                      backgroundColor: "white",
-                      right: 0,
-                      display: "flex",
-                      flexDirection: { xs: "column", md: "row" },
-                      flexWrap: "wrap",
-                      width: { xs: "100%", md: "750px" },
-                    }}
-                  >
-                    {selectedCategory?.children.map((subcategory, subindex) => {
-                      return (
-                        <List
-                          sx={{
-                            paddingLeft: "10px",
-                            paddingBottom: "10px",
-                          }}
-                          key={subindex}
-                        >
-                          <ListItem
-                            sx={{
-                              paddingLeft: "0px",
-                              paddingRight: "0px",
-                            }}
-                          >
-                            <Typography
-                              sx={{
-                                fontWeight: "bold",
-                              }}
-                              level="body-md"
-                            >
-                              {renderIcon(subcategory.icon)}
-                              {subcategory.title}
-                            </Typography>
-                          </ListItem>
-
-                          {subcategory.children.map(
-                            (subSubCategory, subSubIndex) => {
-                              return (
-                                <Typography
-                                  level="body-sm"
-                                  key={subSubIndex}
-                                  sx={{
-                                    paddingY: "5px",
-                                    paddingX: "2px",
-                                    marginY: "3px",
-                                    cursor: "pointer",
-                                    "&:hover": {
-                                      textDecoration: "underline",
-                                      textUnderlineOffset: "8px",
-                                    },
-                                  }}
-                                  onClick={() => {}}
-                                >
-                                  {subSubCategory.title}
-                                </Typography>
-                              );
-                            }
-                          )}
-                        </List>
-                      );
-                    })}
-                  </Box>
-                </Menu>
-              </>
-            )}
+                                onClick={() => {}}
+                              >
+                                {subSubCategory.title}
+                              </Typography>
+                            );
+                          }
+                        )}
+                      </List>
+                    );
+                  })}
+                </Box>
+              </Menu>
+            </>
           </Dropdown>
 
           <Link to="/about-us">

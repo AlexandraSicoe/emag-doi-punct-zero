@@ -1,24 +1,33 @@
 import { Box, Grid, Typography } from "@mui/joy";
 import CircularProgress from "@mui/joy/CircularProgress";
+import { Container } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MenuDropdown from "../components/MenuDropdown";
-import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
-import { Container } from "@mui/material";
-import AdoptionBanner from "../images/adoption_banner.png";
-import Logo from "../images/logo.png";
+import { useSearch } from "../components/SearchProvider";
 import VerticalCarousel from "../components/VerticalCarousel";
 import VerticalCarouselData from "../helpers/VerticalCarouselData.json";
-import { useSearch } from "../components/SearchProvider";
+import AdoptionBanner from "../images/adoption_banner.png";
+import { useLocation } from "react-router-dom";
+
+import Logo from "../images/logo.png";
 const HomePage = () => {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname === "/") document.body.classList.add("show-scroll");
+
+    return () => {
+      document.body.classList.remove("show-scroll");
+    };
+  }, [location]); // used to fix menu position bug created because the scrollbar didn't load so basically we forced the scrollbar to show up before the menu thru the css class show-scroll
+
   const [productList, setProductList] = useState([]);
   const [cartData, setCartData] = useState([]);
   const { searchInput } = useSearch();
   const [filteredProductList, setFilteredProductList] = useState([]);
   const [noSearchProductFound, setNoSearchProductFound] = useState(false);
-
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   function removeDiacritics(str) {
@@ -28,6 +37,7 @@ const HomePage = () => {
   }
 
   const getProducts = async () => {
+    setLoading(true);
     try {
       const result = await axios.get(
         "https://e20.ro/api/products?page=1&limit=50"
@@ -36,6 +46,7 @@ const HomePage = () => {
     } catch (error) {
       console.error(error);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -93,15 +104,19 @@ const HomePage = () => {
   }, []);
   return (
     <>
-      {productList?.length === 0 ? (
+      {loading ? (
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             position: "fixed",
-            top: "calc(50% - 40px)",
-            left: "calc(50% - 40px)",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "white",
+            zIndex: 9999,
           }}
         >
           <CircularProgress />

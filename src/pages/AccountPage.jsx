@@ -3,7 +3,6 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import ReviewsIcon from "@mui/icons-material/Reviews";
-import CircularProgress from "@mui/joy/CircularProgress";
 import {
   Box,
   Grid,
@@ -12,18 +11,16 @@ import {
   ListItemDecorator,
   Typography,
 } from "@mui/joy";
+import CircularProgress from "@mui/joy/CircularProgress";
 import ListItem from "@mui/joy/ListItem";
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AccountEditForm from "../components/AccountEditForm";
-import Navbar from "../components/Navbar";
-import MenuDropdown from "../components/MenuDropdown";
-import Orders from "../components/Orders";
-import MyReviews from "../components/MyReviews";
-import useQuery from "../helpers/useQuery";
-import Footer from "../components/Footer";
 import AddProductForm from "../components/AddProductForm";
+import MyReviews from "../components/MyReviews";
+import Orders from "../components/Orders";
+import useQuery from "../helpers/useQuery";
 
 const AccountPage = () => {
   const query = useQuery();

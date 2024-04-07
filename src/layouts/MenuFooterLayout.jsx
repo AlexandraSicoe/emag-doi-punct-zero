@@ -7,7 +7,7 @@ import { SearchProvider } from "../components/SearchProvider";
 
 const MenuFooterLayout = () => {
   const [cartData, setCartData] = useState([]);
-  const [route, setRoute] = useState(window.location.pathname);
+  // const [route, setRoute] = useState(window.location.pathname);
   const location = useLocation();
 
   const handleStorageChange = () => {
@@ -16,9 +16,9 @@ const MenuFooterLayout = () => {
     setCartData(lsCart ? lsCart : []);
   };
 
-  useEffect(() => {
-    setRoute(location.pathname);
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   setRoute(location.pathname);
+  // }, [location.pathname]);
 
   useEffect(() => {
     let lsCart = localStorage.getItem("cart");
@@ -41,7 +41,7 @@ const MenuFooterLayout = () => {
   return (
     <SearchProvider>
       <Navbar cartData={cartData} />
-      <MenuDropdown isDropdownOpen={route === "/"} />
+      <MenuDropdown isDropdownOpen={true} />
       <Outlet />
       <Footer />
     </SearchProvider>

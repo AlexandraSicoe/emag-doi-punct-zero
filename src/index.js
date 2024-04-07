@@ -14,6 +14,7 @@ import PasswordResetPage from "./pages/PasswordResetPage";
 import { createTheme } from "@mui/material";
 import MenuFooterLayout from "./layouts/MenuFooterLayout";
 import LoginRegisterLayout from "./layouts/LoginRegisterLayout";
+import { useEffect } from "react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 export default function App() {
