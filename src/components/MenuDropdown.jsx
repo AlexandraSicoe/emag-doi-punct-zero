@@ -54,6 +54,8 @@ const MenuDropdown = ({ isDropdownOpen }) => {
             "linear-gradient(67deg, rgba(2,0,36,1) 0%, rgba(139,92,246,1) 0%, rgba(139,92,246,1) 23%, rgba(168,110,204,1) 46%, rgba(181,118,185,1) 55%, rgba(186,121,178,1) 66%, rgba(246,159,92,1) 98%)",
           height: "40px",
           width: "100%",
+          display: "flex",
+          alignItems: "center",
         }}
       >
         <Container
@@ -61,7 +63,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: { xs: "center", md: "flex-start" },
-            padding: "5px",
+            // padding: "5px",
           }}
         >
           <Dropdown open={true} defaultOpen={true}>
@@ -71,6 +73,9 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                   size="sm"
                   variant="soft"
                   sx={{
+                    padding: "0px",
+                    margin: "0px",
+                    minHeight: "100%",
                     backgroundColor: "white",
                     borderBottomLeftRadius: "0px",
                     borderBottomRightRadius: "0px",
@@ -82,24 +87,32 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                   Produse
                 </MenuButton>
               ) : (
-                <Button
-                  color="common.white"
-                  size="sm"
-                  variant="soft"
-                  onClick={() => {
-                    window.location.href = "/";
-                  }}
-                  sx={{
-                    backgroundColor: "white",
-                    borderBottomLeftRadius: "0px",
-                    borderBottomRightRadius: "0px",
-                    border: "0px",
-                    padding: "11px",
-                    // pointerEvents: location.pathname === "/" ? "none" : "auto",
-                  }}
-                >
-                  Produse
-                </Button>
+                <Box sx={{ paddingBottom: "2px" }}>
+                  <Button
+                    color="common.white"
+                    size="sm"
+                    variant="soft"
+                    onClick={() => {
+                      window.location.href = "/";
+                    }}
+                    sx={{
+                      // backgroundColor: "white",
+                      backgroundColor: "transparent",
+                      color: "white",
+                      marginRight: "5px",
+                      marginLeft: "10px",
+                      padding: "8px",
+                      border: "1px solid transparent",
+
+                      "&:hover": {
+                        border: "1px solid white",
+                        backgroundColor: "transparent",
+                      },
+                    }}
+                  >
+                    Produse
+                  </Button>
+                </Box>
               )}
 
               <Menu
@@ -226,47 +239,51 @@ const MenuDropdown = ({ isDropdownOpen }) => {
               </Menu>
             </>
           </Dropdown>
-
-          <Link to="/about-us">
-            <Button
-              size="xs"
-              sx={{
-                backgroundColor: "transparent",
-                color: "white",
-                marginRight: "5px",
-                marginLeft: "10px",
-                padding: "8px",
-                border: "1px solid transparent",
-
-                "&:hover": {
-                  border: "1px solid white",
+          <Box sx={{ paddingBottom: "2px" }}>
+            <Link to="/about-us">
+              <Button
+                size="xs"
+                sx={{
                   backgroundColor: "transparent",
-                },
-              }}
-            >
-              Despre noi
-            </Button>
-          </Link>
-          <Link to="/contact">
-            <Button
-              size="xs"
-              sx={{
-                backgroundColor: "transparent",
-                color: "white",
-                marginRight: "5px",
-                marginLeft: "10px",
-                padding: "8px",
-                border: "1px solid transparent",
+                  color: "white",
+                  marginRight: "5px",
+                  marginLeft: "10px",
+                  padding: "8px",
+                  border: "1px solid transparent",
 
-                "&:hover": {
-                  border: "1px solid white",
+                  "&:hover": {
+                    border: "1px solid white",
+                    backgroundColor: "transparent",
+                  },
+                }}
+              >
+                Despre noi
+              </Button>
+            </Link>
+          </Box>
+
+          <Box sx={{ paddingBottom: "2px" }}>
+            <Link to="/contact">
+              <Button
+                size="xs"
+                sx={{
                   backgroundColor: "transparent",
-                },
-              }}
-            >
-              Contact
-            </Button>
-          </Link>
+                  color: "white",
+                  marginRight: "5px",
+                  marginLeft: "10px",
+                  padding: "8px",
+                  border: "1px solid transparent",
+
+                  "&:hover": {
+                    border: "1px solid white",
+                    backgroundColor: "transparent",
+                  },
+                }}
+              >
+                Contact
+              </Button>
+            </Link>
+          </Box>
         </Container>
       </Box>
     </>
