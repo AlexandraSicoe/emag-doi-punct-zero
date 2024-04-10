@@ -22,7 +22,6 @@ const AboutUsPage = () => {
             backgroundColor: "white",
             borderRadius: "16px",
             width: { xs: "100%", sm: "100%", md: "900px" },
-            marginTop: { xs: "10px", md: "25px" },
           }}
         >
           <Typography sx={{ textAlign: "center", padding: "15px" }} level="h1">
