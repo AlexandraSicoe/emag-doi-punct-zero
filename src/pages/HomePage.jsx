@@ -200,65 +200,65 @@ const HomePage = () => {
 
                 <Box
                   sx={{
-                    flexDirection: { xs: "column", md: "row" },
-                    height: { xs: "100%", md: "400px" },
+                    display: "flex",
+                    flexDirection: { xs: "column", sm: "column", md: "row" },
+                    height: { xs: "700px", sm: "600px", md: "400px" },
                     backgroundImage: `url(${AdoptionBanner})`,
                     backgroundSize: "cover",
                     backgroundPosition: "top",
                     color: "white",
                     padding: "20px",
-                    display: "flex", // Add display: "flex" to enable flex properties
-                    justifyContent: "space-between", // Adjust to space the content
+                    justifyContent: { xs: "center", md: "space-between" },
                     flexWrap: "wrap",
                   }}
                 >
-                  <Typography
-                    level="h2"
-                    sx={{
-                      color: "white",
-                      marginBottom: "20px",
-                      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-                      width: "100%",
-                    }}
-                  >
-                    Descoperă Iubirea Adevărată: Adoptă un Prieten de Viață!
-                  </Typography>
-                  <Typography
-                    level="body-lg"
-                    sx={{
-                      color: "white",
-                      width: "500px",
-                      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-                      width: { xs: "100%", md: "50%" },
-                      marginBottom: { xs: "20px", md: "0px" },
-                    }}
-                  >
-                    La
-                    <span style={{ fontWeight: "bold" }}>
-                      {" "}
-                      Adăpostul Inimă și Lăbuțe
-                    </span>
-                    , avem suflete adorabile în așteptare să-și găsească căminul
-                    fericit. <span style={{ fontWeight: "bold" }}>
-                      {" "}
-                      E20
-                    </span>{" "}
-                    ne-a oferit susținerea necesară pentru a continua misiunea
-                    noastră și să salvăm și mai multe vieți.
-                    <div style={{ marginBottom: "5px" }}></div>
-                    Adoptă un prieten blănos astăzi cu sprijinul
-                    <span style={{ fontWeight: "bold" }}> E20</span> !
-                  </Typography>
+                  <Box>
+                    <Typography
+                      level="title-lg"
+                      sx={{
+                        color: "white",
+                        marginBottom: "20px",
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                        width: "100%",
+                      }}
+                    >
+                      Descoperă Iubirea Adevărată: Adoptă un Prieten de Viață!
+                    </Typography>
+                    <Typography
+                      level="body-md"
+                      sx={{
+                        color: "white",
+                        width: "500px",
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                        width: { xs: "100%", md: "50%" },
+                        marginBottom: { xs: "20px", md: "0px" },
+                      }}
+                    >
+                      La
+                      <span style={{ fontWeight: "bold" }}>
+                        {" "}
+                        Adăpostul Inimă și Lăbuțe
+                      </span>
+                      , avem suflete adorabile în așteptare să-și găsească
+                      căminul fericit.{" "}
+                      <span style={{ fontWeight: "bold" }}> E20</span> ne-a
+                      oferit susținerea necesară pentru a continua misiunea
+                      noastră și să salvăm și mai multe vieți.
+                      <div style={{ marginBottom: "5px" }}></div>
+                      Adoptă un prieten blănos astăzi cu sprijinul
+                      <span style={{ fontWeight: "bold" }}> E20</span> !
+                    </Typography>
+                  </Box>
 
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      width: { xs: "100%", md: "50%" },
+                      width: { xs: "300px", md: "50%" },
                     }}
                   >
                     <Typography
-                      level="body-lg"
+                      level="body-md"
                       sx={{
                         color: "white",
                         fontWeight: "bold",
@@ -275,7 +275,7 @@ const HomePage = () => {
                     >
                       <li>
                         <Typography
-                          level="body-lg"
+                          level="body-md"
                           sx={{
                             color: "white",
                             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
@@ -287,7 +287,7 @@ const HomePage = () => {
                       </li>
                       <li>
                         <Typography
-                          level="body-lg"
+                          level="body-md"
                           sx={{
                             color: "white",
                             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
@@ -299,7 +299,7 @@ const HomePage = () => {
                       </li>
                       <li>
                         <Typography
-                          level="body-lg"
+                          level="body-md"
                           sx={{
                             color: "white",
                             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
@@ -314,13 +314,12 @@ const HomePage = () => {
 
                   <Box
                     sx={{
-                      width: "100%",
                       display: "flex",
-                      justifyContent: "flex-end",
+                      justifyContent: { xs: "center", md: "flex-end" },
                       alignItems: "flex-end",
                     }}
                   >
-                    <img style={{ height: "80px" }} src={Logo} />
+                    <img style={{ height: "70px" }} src={Logo} />
                   </Box>
                 </Box>
 
