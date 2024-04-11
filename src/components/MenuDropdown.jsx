@@ -62,8 +62,8 @@ const MenuDropdown = ({ isDropdownOpen }) => {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: { xs: "center", md: "flex-start" },
-            // padding: "5px",
+            justifyContent: "flex-start",
+            width: "100%",
           }}
         >
           <Dropdown open={true} defaultOpen={true}>
@@ -117,30 +117,35 @@ const MenuDropdown = ({ isDropdownOpen }) => {
 
               <Menu
                 sx={{
-                  display: "flex",
-                  flexDirection: "row",
+                  display: { xs: "none", sm: "flex" },
+                  width: { sm: "100%", md: "auto" },
+                  flexDirection: "column",
                   padding: "0px",
                   marginTop: "-4px!important",
                   borderRadius: "0px",
                   border: "0px",
                   height: "285px",
                   flexWrap: "wrap",
-                  width: { md: "100%", lg: "auto" },
                   backgroundColor: "white",
+                  overflow: "hidden",
                 }}
                 placement="top-start"
               >
                 <Box
                   sx={{
-                    display: { xs: "flex", md: "block" },
-                    width: { xs: "100%", md: "120px" },
-                    justifyContent: "space-around",
+                    display: "flex",
+                    width: { sm: "100px", md: "120px" },
+                    flexDirection: "column",
                   }}
                 >
                   {categories?.map((category, index) => {
                     return (
                       <Box
-                        sx={{ cursor: "pointer", margin: "10px" }}
+                        sx={{
+                          cursor: "pointer",
+                          margin: { sm: "4px", md: "10px" },
+                          paddingX: { sm: "5px", md: "2px" },
+                        }}
                         onClick={(e) => {
                           e.preventDefault();
                           setSelectedCategory(category);
@@ -152,11 +157,11 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                           sx={{
                             fontWeight: "bold",
                           }}
-                          level="h5"
+                          level="title-md"
                         >
                           <Box
                             sx={{
-                              display: { xs: "inline", md: "inline" },
+                              display: "inline",
                             }}
                           >
                             <i
@@ -178,17 +183,17 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                     backgroundColor: "white",
                     right: 0,
                     display: "flex",
-                    flexDirection: { xs: "column", md: "row" },
+                    flexDirection: "row",
                     flexWrap: "wrap",
-                    width: { xs: "100%", md: "750px" },
+                    width: { sm: "100%", md: "900px", lg: "750px" },
                   }}
                 >
                   {selectedCategory?.children.map((subcategory, subindex) => {
                     return (
                       <List
                         sx={{
-                          paddingLeft: "10px",
-                          paddingBottom: "10px",
+                          paddingLeft: { sm: "0px", lg: "10px" },
+                          paddingBottom: { sm: "0px", lg: "10px" },
                         }}
                         key={subindex}
                       >
@@ -196,6 +201,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                           sx={{
                             paddingLeft: "0px",
                             paddingRight: "0px",
+                            width: "100px",
                           }}
                         >
                           <Typography
@@ -216,9 +222,9 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                 level="body-sm"
                                 key={subSubIndex}
                                 sx={{
-                                  paddingY: "5px",
-                                  paddingX: "2px",
-                                  marginY: "3px",
+                                  paddingY: { sm: "0px", md: "10px" },
+                                  paddingX: { sm: "2px", md: "2px" },
+                                  marginY: { sm: "3px", md: "3px" },
                                   cursor: "pointer",
                                   "&:hover": {
                                     textDecoration: "underline",
