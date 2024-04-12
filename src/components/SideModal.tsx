@@ -63,7 +63,7 @@ export default function SideModal({
           height: position.match(/(left|right)/) ? "100%" : size,
 
           width: {
-            xs: "100%",
+            // xs: "100%",
             md: position.match(/(top|bottom)/) ? "100vw" : size,
           },
           boxShadow: "md",

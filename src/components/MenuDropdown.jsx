@@ -16,9 +16,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SideModal from "./SideModal.tsx";
 
 const MenuDropdown = ({ isDropdownOpen }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const theme = useTheme();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   // const matches = useMediaQuery(theme.breakpoints.up("md"));
   const [selectedCategory, setSelectedCategory] = useState();
   const [categories, setCategories] = useState();
@@ -35,6 +38,18 @@ const MenuDropdown = ({ isDropdownOpen }) => {
   const [isDropdownMenuOpen, setIsDropdownMenuOpen] = useState();
   useEffect(() => {
     getCategories();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const renderIcon = (iconName) => {
@@ -84,6 +99,11 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                     padding: "13px",
                     // pointerEvents: location.pathname === "/" ? "none" : "auto",
                   }}
+                  onClick={() => {
+                    if (windowWidth < 600) {
+                      setDrawerOpen(true);
+                    }
+                  }}
                 >
                   Produse
                 </MenuButton>
@@ -115,7 +135,130 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                   </Button>
                 </Box>
               )}
+              <SideModal
+                sx={{
+                  display: { xs: "flex", md: "none" },
+                }}
+                size="375px"
+                position="left"
+                open={drawerOpen}
+                onClose={() => {
+                  setDrawerOpen(false);
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  {categories?.map((category, index) => {
+                    return (
+                      <Box
+                        sx={{
+                          cursor: "pointer",
+                          marginX: "5px",
+                          marginY: "5px",
+                          paddingX: "0px",
+                          paddingY: "0px",
+                          marginBottom: "10px",
+                        }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setSelectedCategory(category);
+                        }}
+                        key={index}
+                        variant="plain"
+                      >
+                        <Typography
+                          sx={{
+                            fontWeight: "bold",
+                          }}
+                          level="title-md"
+                        >
+                          <Box
+                            sx={{
+                              display: "inline",
+                            }}
+                          >
+                            <i
+                              style={{
+                                marginRight: "10px",
+                              }}
+                              className={"fa-solid " + category.icon}
+                            ></i>
+                          </Box>
+                          {category.title}
+                        </Typography>
+                      </Box>
+                    );
+                  })}
+                </Box>
+                <Box
+                  sx={{
+                    backgroundColor: "white",
+                    right: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    flexWrap: "wrap",
+                    // width: { sm: "100%", md: "900px", lg: "750px" },
+                  }}
+                >
+                  {selectedCategory?.children.map((subcategory, subindex) => {
+                    return (
+                      <List
+                        sx={{
+                          marginBottom: "10px",
+                        }}
+                        key={subindex}
+                      >
+                        <ListItem
+                          sx={{
+                            paddingLeft: "0px",
+                            paddingRight: "0px",
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              fontWeight: "bold",
+                            }}
+                            level="body-md"
+                          >
+                            {renderIcon(subcategory.icon)}
+                            {subcategory.title}
+                          </Typography>
+                        </ListItem>
 
+                        {subcategory.children.map(
+                          (subSubCategory, subSubIndex) => {
+                            return (
+                              <Typography
+                                level="body-sm"
+                                key={subSubIndex}
+                                sx={{
+                                  paddingY: { sm: "8px", md: "7px" },
+                                  paddingX: { sm: "2px", md: "3px" },
+                                  marginY: { sm: "0px", md: "2px" },
+                                  marginBottom: "10px",
+
+                                  cursor: "pointer",
+                                  "&:hover": {
+                                    textDecoration: "underline",
+                                    textUnderlineOffset: "8px",
+                                  },
+                                }}
+                                onClick={() => {}}
+                              >
+                                {subSubCategory.title}
+                              </Typography>
+                            );
+                          }
+                        )}
+                      </List>
+                    );
+                  })}
+                </Box>
+              </SideModal>
               <Menu
                 sx={{
                   display: { xs: "none", sm: "flex" },
@@ -135,7 +278,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                 <Box
                   sx={{
                     display: "flex",
-                    width: { sm: "120px", md: "120px" },
+                    width: { sm: "110px", md: "120px" },
                     flexDirection: "column",
                   }}
                 >
