@@ -134,7 +134,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                 <Box
                   sx={{
                     display: "flex",
-                    width: { sm: "100px", md: "120px" },
+                    width: { sm: "120px", md: "120px" },
                     flexDirection: "column",
                   }}
                 >
@@ -143,8 +143,10 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                       <Box
                         sx={{
                           cursor: "pointer",
-                          margin: { sm: "4px", md: "10px" },
-                          paddingX: { sm: "5px", md: "2px" },
+                          marginX: { sm: "5px", md: "10px" },
+                          marginY: { sm: "5px", md: "7px" },
+                          paddingX: { sm: "7px", md: "2px" },
+                          paddingY: { sm: "3px", md: "1px" },
                         }}
                         onClick={(e) => {
                           e.preventDefault();
@@ -194,6 +196,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                         sx={{
                           paddingLeft: { sm: "0px", lg: "10px" },
                           paddingBottom: { sm: "0px", lg: "10px" },
+                          maxWidth: { sm: "160px", md: "100%" },
                         }}
                         key={subindex}
                       >
@@ -201,7 +204,6 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                           sx={{
                             paddingLeft: "0px",
                             paddingRight: "0px",
-                            width: "100px",
                           }}
                         >
                           <Typography
@@ -222,9 +224,9 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                 level="body-sm"
                                 key={subSubIndex}
                                 sx={{
-                                  paddingY: { sm: "0px", md: "10px" },
-                                  paddingX: { sm: "2px", md: "2px" },
-                                  marginY: { sm: "3px", md: "3px" },
+                                  paddingY: { sm: "8px", md: "7px" },
+                                  paddingX: { sm: "2px", md: "3px" },
+                                  marginY: { sm: "0px", md: "2px" },
                                   cursor: "pointer",
                                   "&:hover": {
                                     textDecoration: "underline",
