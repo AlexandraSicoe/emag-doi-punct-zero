@@ -69,7 +69,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
           backgroundImage:
             "linear-gradient(67deg, rgba(2,0,36,1) 0%, rgba(139,92,246,1) 0%, rgba(139,92,246,1) 23%, rgba(168,110,204,1) 46%, rgba(181,118,185,1) 55%, rgba(186,121,178,1) 66%, rgba(246,159,92,1) 98%)",
           height: "40px",
-          width: "100%",
+          width: "100vw",
           display: "flex",
           alignItems: "center",
         }}
@@ -137,19 +137,36 @@ const MenuDropdown = ({ isDropdownOpen }) => {
               )}
               <SideModal
                 sx={{
-                  display: { xs: "flex", md: "none" },
+                  display: { xs: "flex", sm: "none" },
                 }}
-                size="375px"
                 position="left"
                 open={drawerOpen}
                 onClose={() => {
                   setDrawerOpen(false);
                 }}
               >
+                <Typography
+                  sx={{
+                    textAlign: "center",
+                    marginBottom: "25px",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                    color: "#333",
+                    textTransform: "uppercase",
+                    letterSpacing: "2px",
+                    borderBottom: "2px solid #ccc",
+                    paddingBottom: "10px",
+                  }}
+                  level="title-lg"
+                >
+                  Meniu Produse
+                </Typography>
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                   }}
                 >
                   {categories?.map((category, index) => {
@@ -161,7 +178,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                           marginY: "5px",
                           paddingX: "0px",
                           paddingY: "0px",
-                          marginBottom: "10px",
+                          marginBottom: "20px",
                         }}
                         onClick={(e) => {
                           e.preventDefault();
@@ -173,6 +190,12 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                         <Typography
                           sx={{
                             fontWeight: "bold",
+                            "&:hover": {
+                              textDecoration: "underline",
+                              textUnderlineOffset: "10px",
+                              textDecorationColor: "gray",
+                              textDecorationThickness: "1px",
+                            },
                           }}
                           level="title-md"
                         >
@@ -201,14 +224,14 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                     display: "flex",
                     flexDirection: "column",
                     flexWrap: "wrap",
-                    // width: { sm: "100%", md: "900px", lg: "750px" },
+                    width: "290px",
                   }}
                 >
                   {selectedCategory?.children.map((subcategory, subindex) => {
                     return (
                       <List
                         sx={{
-                          marginBottom: "10px",
+                          marginBottom: "20px",
                         }}
                         key={subindex}
                       >
@@ -240,14 +263,15 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                   paddingX: { sm: "2px", md: "3px" },
                                   marginY: { sm: "0px", md: "2px" },
                                   marginBottom: "10px",
-
                                   cursor: "pointer",
                                   "&:hover": {
                                     textDecoration: "underline",
                                     textUnderlineOffset: "8px",
                                   },
                                 }}
-                                onClick={() => {}}
+                                onClick={() => {
+                                  setDrawerOpen(false);
+                                }}
                               >
                                 {subSubCategory.title}
                               </Typography>
@@ -262,7 +286,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
               <Menu
                 sx={{
                   display: { xs: "none", sm: "flex" },
-                  width: { sm: "100%", md: "100%", lg: "871px" },
+                  width: { sm: "100%", md: "100%", lg: "863px" },
                   flexDirection: "column",
                   padding: "0px",
                   marginTop: "-4px!important",
