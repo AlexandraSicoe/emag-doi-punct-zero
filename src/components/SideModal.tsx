@@ -13,7 +13,7 @@ export interface DrawerProps extends Omit<ModalProps, "children"> {
   position?: "left" | "right" | "top" | "bottom";
 }
 
-export default function Cart({
+export default function SideModal({
   children,
   title,
   position = "left",

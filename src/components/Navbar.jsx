@@ -11,7 +11,7 @@ import ListItem from "@mui/joy/ListItem";
 import ListItemContent from "@mui/joy/ListItemContent";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Cart from "./Cart.tsx";
+import SideModal from "./SideModal.tsx";
 import genericProductImage from "../images/genericProduct.png";
 import InfoIcon from "@mui/icons-material/Info";
 import Logo from "../images/logo.png";
@@ -190,7 +190,7 @@ const Navbar = ({ cartData }) => {
           />
         </Container>
       </Box>
-      <Cart
+      <SideModal
         size="375px"
         position="right"
         open={drawerOpen}
@@ -278,7 +278,7 @@ const Navbar = ({ cartData }) => {
             </Box>
           </>
         )}
-      </Cart>
+      </SideModal>
     </>
   );
 };

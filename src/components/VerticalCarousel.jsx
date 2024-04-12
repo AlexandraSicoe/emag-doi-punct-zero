@@ -21,7 +21,6 @@ const VerticalCarousel = ({ slides }) => {
         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
         margin: "0px",
         marginTop: { xs: "15px", lg: "0px" },
-
         backgroundColor: "white", // Adjust the background color
       }}
     >
@@ -40,7 +39,6 @@ const VerticalCarousel = ({ slides }) => {
             alt={slide.introline}
             sx={{
               height: { xs: "170px", sm: "220px", lg: "140px" },
-
               backgroundImage: `url(${slide.content.image})`,
               backgroundSize: "cover",
               backgroundPosition: "25% 45%",

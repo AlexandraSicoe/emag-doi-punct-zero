@@ -13,6 +13,7 @@ import * as Icons from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useLocation, useNavigate } from "react-router-dom";
+import SideModal from "./SideModal.tsx";
 
 const MenuDropdown = ({ isDropdownOpen }) => {
   const location = useLocation();
@@ -80,7 +81,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                     borderBottomLeftRadius: "0px",
                     borderBottomRightRadius: "0px",
                     border: "0px",
-                    padding: "11px",
+                    padding: "13px",
                     // pointerEvents: location.pathname === "/" ? "none" : "auto",
                   }}
                 >
@@ -118,7 +119,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
               <Menu
                 sx={{
                   display: { xs: "none", sm: "flex" },
-                  width: { sm: "100%", md: "auto" },
+                  width: { sm: "100%", md: "100%", lg: "871px" },
                   flexDirection: "column",
                   padding: "0px",
                   marginTop: "-4px!important",

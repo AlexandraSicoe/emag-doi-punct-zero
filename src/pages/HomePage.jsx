@@ -128,7 +128,7 @@ const HomePage = () => {
               sx={{
                 height: "285px",
                 width: "100%",
-                display: "flex",
+                display: { xs: "flex", sm: "hidden", md: "flex" },
                 justifyContent: "flex-end",
               }}
             >
