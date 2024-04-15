@@ -69,7 +69,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
           backgroundImage:
             "linear-gradient(67deg, rgba(2,0,36,1) 0%, rgba(139,92,246,1) 0%, rgba(139,92,246,1) 23%, rgba(168,110,204,1) 46%, rgba(181,118,185,1) 55%, rgba(186,121,178,1) 66%, rgba(246,159,92,1) 98%)",
           height: "40px",
-          width: "100vw",
+          width: "100%",
           display: "flex",
           alignItems: "center",
         }}
@@ -286,7 +286,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
               <Menu
                 sx={{
                   display: { xs: "none", sm: "flex" },
-                  width: { sm: "100%", md: "100%", lg: "863px" },
+                  width: { sm: "100%", md: "100%", lg: "861px" },
                   flexDirection: "column",
                   padding: "0px",
                   marginTop: "-4px!important",

@@ -2,6 +2,10 @@ import { Box, Grid, List, ListItem, Typography } from "@mui/joy";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "@mui/joy/Input";
 import Button from "@mui/joy/Button";
+import Dropdown from "@mui/joy/Dropdown";
+import Menu from "@mui/joy/Menu";
+import MenuButton from "@mui/joy/MenuButton";
+import MenuItem from "@mui/joy/MenuItem";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -71,7 +75,8 @@ const Footer = () => {
         </Box>
         <Box
           sx={{
-            display: "flex",
+            display: { xs: "none", md: "flex" },
+
             flexDirection: { xs: "column", sm: "row", md: "row" },
             color: "white",
             justifyContent: "space-around",
@@ -148,7 +153,7 @@ const Footer = () => {
               </ListItem>
               <ListItem>
                 <Link style={{ color: "white" }} to="/#">
-                  Politica de confidentialitate
+                  Politica de confidențialitate
                 </Link>
               </ListItem>
             </List>
@@ -276,6 +281,163 @@ const Footer = () => {
             </Box>
           </Box>
         </Box>
+        <Box
+          sx={{
+            display: { xs: "flex", md: "none" },
+            flexDirection: "column",
+            alignItems: "center",
+            marginBottom: { xs: "20px", md: "0px" },
+          }}
+        >
+          <Dropdown>
+            <MenuButton
+              sx={{
+                color: "white",
+                border: "0px",
+                fontSize: "20px",
+                marginBottom: "10px",
+                "&:hover": {
+                  color: "black",
+                  backgroundColor: "white",
+                },
+              }}
+            >
+              E20.
+            </MenuButton>
+            <Menu>
+              <MenuItem>
+                <Link to="/">Produse</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="/about-us">Despre noi</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="/contact">Contact</Link>
+              </MenuItem>
+            </Menu>
+          </Dropdown>
+          <Dropdown>
+            <MenuButton
+              sx={{
+                color: "white",
+                border: "0px",
+                fontSize: "20px",
+                marginBottom: "10px",
+                "&:hover": {
+                  color: "black",
+                  backgroundColor: "white",
+                },
+              }}
+            >
+              {" "}
+              INFO CLIENTI
+            </MenuButton>
+            <Menu>
+              <MenuItem>Livrarea produselor</MenuItem>
+              <MenuItem>Politica de retur</MenuItem>
+              <MenuItem>
+                <Link to="https://anpc.ro/">ANPC</Link>
+              </MenuItem>
+              <MenuItem>Termeni si Conditii</MenuItem>
+              <MenuItem> Politica de confidențialitate</MenuItem>
+            </Menu>
+          </Dropdown>
+          <Dropdown>
+            <MenuButton
+              sx={{
+                color: "white",
+                border: "0px",
+                fontSize: "20px",
+                marginBottom: "10px",
+                "&:hover": {
+                  color: "black",
+                  backgroundColor: "white",
+                },
+              }}
+            >
+              SOCIAL
+            </MenuButton>
+            <Menu>
+              <MenuItem>
+                <i
+                  style={{
+                    fontSize: "20px",
+                    color: "black",
+                    marginRight: "5px",
+                  }}
+                  class="fa-brands fa-square-instagram"
+                ></i>
+                <Link
+                  style={{
+                    fontSize: "15px",
+                    color: "black",
+                  }}
+                  to="/"
+                >
+                  Instagram
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <i
+                  style={{
+                    fontSize: "20px",
+                    color: "black",
+                    marginRight: "5px",
+                  }}
+                  class="fa-brands fa-facebook"
+                ></i>
+                <Link
+                  style={{
+                    fontSize: "15px",
+                    color: "black",
+                  }}
+                  to="/about-us"
+                >
+                  Facebook
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <i
+                  style={{
+                    fontSize: "20px",
+                    color: "black",
+                    marginRight: "5px",
+                  }}
+                  class="fa-brands fa-square-whatsapp"
+                ></i>
+                <Link
+                  style={{
+                    fontSize: "15px",
+                    color: "black",
+                  }}
+                  to="/contact"
+                >
+                  WhatsApp
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <i
+                  style={{
+                    fontSize: "20px",
+                    color: "black",
+                    marginRight: "5px",
+                  }}
+                  class="fa-brands fa-twitter"
+                ></i>
+                <Link
+                  style={{
+                    fontSize: "15px",
+                    color: "black",
+                  }}
+                  to="/contact"
+                >
+                  Twitter
+                </Link>
+              </MenuItem>
+            </Menu>
+          </Dropdown>
+        </Box>
+
         <div
           style={{
             borderBottom: "1px solid white",
