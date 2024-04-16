@@ -1,4 +1,5 @@
 import { Box, Grid, List, ListItem, Typography } from "@mui/joy";
+
 import { Link, useNavigate } from "react-router-dom";
 import Input from "@mui/joy/Input";
 import Button from "@mui/joy/Button";
@@ -6,7 +7,8 @@ import Dropdown from "@mui/joy/Dropdown";
 import Menu from "@mui/joy/Menu";
 import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
-
+import { Accordion, AccordionItem } from "@szhsin/react-accordion";
+import "./Accordion.scss";
 const Footer = () => {
   const navigate = useNavigate();
 
@@ -76,7 +78,6 @@ const Footer = () => {
         <Box
           sx={{
             display: { xs: "none", md: "flex" },
-
             flexDirection: { xs: "column", sm: "row", md: "row" },
             color: "white",
             justifyContent: "space-around",
@@ -281,7 +282,7 @@ const Footer = () => {
             </Box>
           </Box>
         </Box>
-        <Box
+        {/* <Box
           sx={{
             display: { xs: "flex", md: "none" },
             flexDirection: "column",
@@ -304,7 +305,15 @@ const Footer = () => {
             >
               E20.
             </MenuButton>
-            <Menu>
+            <Menu
+              sx={{
+                height: "220px",
+                width: "400px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <MenuItem>
                 <Link to="/">Produse</Link>
               </MenuItem>
@@ -332,7 +341,15 @@ const Footer = () => {
               {" "}
               INFO CLIENTI
             </MenuButton>
-            <Menu>
+            <Menu
+              sx={{
+                height: "220px",
+                width: "400px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <MenuItem>Livrarea produselor</MenuItem>
               <MenuItem>Politica de retur</MenuItem>
               <MenuItem>
@@ -357,7 +374,15 @@ const Footer = () => {
             >
               SOCIAL
             </MenuButton>
-            <Menu>
+            <Menu
+              sx={{
+                height: "220px",
+                width: "400px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <MenuItem>
                 <i
                   style={{
@@ -436,8 +461,188 @@ const Footer = () => {
               </MenuItem>
             </Menu>
           </Dropdown>
-        </Box>
+        </Box> */}
+        <Box
+          sx={{
+            display: { xs: "flex", md: "none" },
+            flexDirection: { xs: "column", sm: "row", md: "row" },
+            color: "white",
+            justifyContent: "space-around",
+          }}
+        >
+          <Accordion
+            allowMultiple
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <AccordionItem header="E20" style={{ border: "50px" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  marginBottom: { xs: "20px", md: "0px" },
+                }}
+              >
+                <Link style={{ color: "white" }} to="/">
+                  Produse
+                </Link>
+                <Link style={{ color: "white" }} to="/about-us">
+                  Despre noi
+                </Link>
+                <Link style={{ color: "white" }} to="/contact">
+                  Contact
+                </Link>
+              </Box>
+            </AccordionItem>
 
+            <AccordionItem header="INFO CLIENTI">
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  marginBottom: { xs: "20px", md: "0px" },
+                }}
+              >
+                <Link style={{ color: "white" }} to="#">
+                  Livrarea produselor
+                </Link>
+                <Link style={{ color: "white" }} to="#">
+                  Politica de retur
+                </Link>
+                <Link style={{ color: "white" }} to="https://anpc.ro/">
+                  ANPC
+                </Link>
+                <Link style={{ color: "white" }} to="/#">
+                  Termeni si Conditii
+                </Link>
+                <Link style={{ color: "white" }} to="/#">
+                  Politica de confidențialitate
+                </Link>
+              </Box>
+            </AccordionItem>
+
+            <AccordionItem header="SOCIALS">
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginBottom: "10px",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginBottom: "10px",
+                  }}
+                >
+                  <ListItem>
+                    <Link style={{ color: "white", marginRight: "5px" }} to="#">
+                      <i
+                        style={{
+                          fontSize: "25px",
+                        }}
+                        class="fa-brands fa-square-instagram"
+                      ></i>
+                    </Link>
+                  </ListItem>
+                  <Typography
+                    level="body-md"
+                    sx={{
+                      color: "white",
+                    }}
+                  >
+                    Instagram
+                  </Typography>
+                </Box>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginBottom: "10px",
+                  }}
+                >
+                  <ListItem>
+                    <Link style={{ color: "white", marginRight: "5px" }} to="#">
+                      <i
+                        style={{
+                          fontSize: "20px",
+                        }}
+                        class="fa-brands fa-facebook"
+                      ></i>
+                    </Link>
+                  </ListItem>
+                  <Typography
+                    level="body-md"
+                    sx={{
+                      color: "white",
+                    }}
+                  >
+                    Facebook
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginBottom: "10px",
+                  }}
+                >
+                  <ListItem>
+                    <Link style={{ color: "white", marginRight: "5px" }} to="#">
+                      <i
+                        style={{
+                          fontSize: "20px",
+                        }}
+                        class="fa-brands fa-square-whatsapp"
+                      ></i>
+                    </Link>
+                  </ListItem>
+                  <Typography
+                    level="body-md"
+                    sx={{
+                      color: "white",
+                    }}
+                  >
+                    WhatsApp
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginBottom: "10px",
+                  }}
+                >
+                  <ListItem>
+                    <Link style={{ color: "white", marginRight: "5px" }} to="#">
+                      <i
+                        style={{
+                          fontSize: "20px",
+                        }}
+                        class="fa-brands fa-twitter"
+                      ></i>
+                    </Link>
+                  </ListItem>
+                  <Typography
+                    level="body-md"
+                    sx={{
+                      color: "white",
+                    }}
+                  >
+                    Twitter
+                  </Typography>
+                </Box>
+              </Box>
+            </AccordionItem>
+          </Accordion>
+        </Box>
         <div
           style={{
             borderBottom: "1px solid white",
