@@ -96,7 +96,7 @@ const Navbar = ({ cartData }) => {
               </Button>
             }
           />
-          <Box>
+          <Box sx={{ display: "flex", flexDirection: "row" }}>
             <Link to="/account">
               <Box
                 sx={{
@@ -138,7 +138,7 @@ const Navbar = ({ cartData }) => {
               >
                 <Typography
                   color="common.white"
-                  sx={{ display: { xs: "none", md: "block" } }}
+                  sx={{ display: { xs: "none", md: "inline-block" } }}
                 >
                   Coș de cumpărături
                 </Typography>
