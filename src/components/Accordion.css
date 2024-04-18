@@ -1,0 +1,26 @@
+.szh-accordion__item-btn {
+  font-weight: bold;
+  cursor: pointer;
+  border: none; /* Remove border for a cleaner look */
+  background-color: transparent;
+  color: white; /* Use a dark text color */
+  font-family: "Poppins", sans-serif; /* Use a modern font */
+  transition: background-color 0.3s ease; /* Add smooth transition */
+  align-self: flex-start;
+  font-size: 20px;
+}
+
+.szh-accordion__item-btn:focus {
+  border-bottom: 1px white solid;
+}
+
+.szh-accordion__item-content a,
+p {
+  padding: 5px;
+  color: white; /* Use a primary color for links */
+  text-decoration: none; /* Remove default underline */
+  transition: color 0.3s ease; /* Add smooth color transition */
+  font-size: 15px;
+  font-family: "Poppins", sans-serif; /* Use a modern font */
+  margin: 0;
+}
