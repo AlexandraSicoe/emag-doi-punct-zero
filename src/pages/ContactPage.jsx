@@ -87,7 +87,8 @@ const ContactPage = () => {
               display: "flex",
               justifyContent: "space-around",
               flexDirection: "row",
-              width: { xs: "100%", sm: "100%", md: "1000px" },
+              // width: { xs: "100%", sm: "100%", md: "1000px" },
+              width: { xs: "100%", lg: "1000px" },
             }}
           >
             <Box
@@ -269,7 +270,7 @@ const ContactPage = () => {
               display: "flex",
               justifyContent: "center",
               flexDirection: "row",
-              width: { xs: "100%", sm: "100%", md: "1000px" },
+              width: { xs: "100%", sm: "100%", md: "900px" },
             }}
           >
             <Box
