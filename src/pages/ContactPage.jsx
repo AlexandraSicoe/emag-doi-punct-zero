@@ -366,7 +366,7 @@ const ContactPage = () => {
               borderRadius: "16px",
               width: { xs: "100%", sm: "100%", md: "1000px" },
               padding: "20px",
-              marginTop: { xs: "10px", md: "25px" },
+              marginTop: "10px",
             }}
           >
             <Grid
