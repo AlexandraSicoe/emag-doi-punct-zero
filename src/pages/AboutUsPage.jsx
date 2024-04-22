@@ -31,7 +31,6 @@ const AboutUsPage = () => {
             Magazin Online pentru Animale de Companie
           </Typography>
           <Typography
-            fontWeight="md"
             level="body-lg"
             sx={{
               width: { xs: "100%", sm: "100%", md: "900px" },
