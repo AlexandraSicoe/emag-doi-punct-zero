@@ -10,6 +10,7 @@ import VerticalCarousel from "../components/VerticalCarousel";
 import VerticalCarouselData from "../helpers/VerticalCarouselData.json";
 import AdoptionBanner from "../images/adoption_banner.png";
 import { useLocation } from "react-router-dom";
+import { useCart } from "../components/CartProvider";
 
 import Logo from "../images/logo.png";
 const HomePage = () => {
@@ -23,7 +24,8 @@ const HomePage = () => {
   }, [location]); // used to fix menu position bug created because the scrollbar didn't load so basically we forced the scrollbar to show up before the menu thru the css class show-scroll
 
   const [productList, setProductList] = useState([]);
-  const [cartData, setCartData] = useState([]);
+  const [cartValue, setCartValue] = useCart();
+
   const { searchInput } = useSearch();
   const [filteredProductList, setFilteredProductList] = useState([]);
   const [noSearchProductFound, setNoSearchProductFound] = useState(false);
@@ -100,7 +102,7 @@ const HomePage = () => {
     getProducts();
     let lsCart = localStorage.getItem("cart");
     lsCart = JSON.parse(lsCart);
-    setCartData(lsCart ? lsCart : []);
+    setCartValue(lsCart ? lsCart : []);
   }, []);
   return (
     <>
@@ -157,8 +159,8 @@ const HomePage = () => {
                       <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                         <ProductCard
                           product={product}
-                          setCartData={setCartData}
-                          cartData={cartData}
+                          setCartValue={setCartValue}
+                          cartValue={cartValue}
                         />
                       </Grid>
                     );
@@ -190,8 +192,8 @@ const HomePage = () => {
                       <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                         <ProductCard
                           product={product}
-                          setCartData={setCartData}
-                          cartData={cartData}
+                          setCartValue={setCartValue}
+                          cartValue={cartValue}
                         />
                       </Grid>
                     );
@@ -344,8 +346,8 @@ const HomePage = () => {
                       <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                         <ProductCard
                           product={product}
-                          setCartData={setCartData}
-                          cartData={cartData}
+                          setCartValue={setCartValue}
+                          cartValue={cartValue}
                         />
                       </Grid>
                     );
@@ -373,8 +375,8 @@ const HomePage = () => {
                         <ProductCard
                           key={index}
                           product={product}
-                          setCartData={setCartData}
-                          cartData={cartData}
+                          setCartValue={setCartValue}
+                          cartValue={cartValue}
                         />
                       </Grid>
                     );

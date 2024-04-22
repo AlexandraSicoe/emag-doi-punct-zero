@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import genericProductImage from "../images/genericProduct.png";
 import { Box } from "@mui/joy";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-const ProductCard = ({ product, setCartData, cartData }) => {
+const ProductCard = ({ product, setCartValue, cartValue }) => {
   const navigate = useNavigate();
   function getFirstNumber(str) {
     const match = str.match(/\d+/);
@@ -84,8 +84,8 @@ const ProductCard = ({ product, setCartData, cartData }) => {
               onClick={(e) => {
                 e.stopPropagation();
                 let _product = JSON.parse(JSON.stringify(product));
-                if (cartData.some((item) => item._id === _product._id)) {
-                  cartData.forEach((obj) => {
+                if (cartValue.some((item) => item._id === _product._id)) {
+                  cartValue.forEach((obj) => {
                     if (obj._id === _product._id) {
                       _product = JSON.parse(JSON.stringify(obj));
                       if (/^[0-9]/.test(_product.name.charAt(0))) {
@@ -103,18 +103,18 @@ const ProductCard = ({ product, setCartData, cartData }) => {
                       }
                     }
                   });
-                  let _cartData = JSON.parse(JSON.stringify(cartData));
-                  _cartData = _cartData.map((item) => {
+                  let _cartValue = JSON.parse(JSON.stringify(cartValue));
+                  _cartValue = _cartValue.map((item) => {
                     return item._id === _product._id ? _product : item;
                   });
-                  localStorage.setItem("cart", JSON.stringify(_cartData));
+                  localStorage.setItem("cart", JSON.stringify(_cartValue));
 
-                  setCartData(_cartData);
+                  setCartValue(_cartValue);
                   window.dispatchEvent(new Event("customStorageChange"));
                 } else {
-                  const _cartData = [...cartData, product];
-                  localStorage.setItem("cart", JSON.stringify(_cartData));
-                  setCartData(_cartData);
+                  const _cartValue = [...cartValue, product];
+                  localStorage.setItem("cart", JSON.stringify(_cartValue));
+                  setCartValue(_cartValue);
                   window.dispatchEvent(new Event("customStorageChange"));
                 }
               }}
@@ -142,8 +142,8 @@ const ProductCard = ({ product, setCartData, cartData }) => {
               onClick={(e) => {
                 e.stopPropagation();
                 let _product = JSON.parse(JSON.stringify(product));
-                if (cartData.some((item) => item._id === _product._id)) {
-                  cartData.forEach((obj) => {
+                if (cartValue.some((item) => item._id === _product._id)) {
+                  cartValue.forEach((obj) => {
                     if (obj._id === _product._id) {
                       _product = JSON.parse(JSON.stringify(obj));
                       if (/^[0-9]/.test(_product.name.charAt(0))) {
@@ -161,18 +161,18 @@ const ProductCard = ({ product, setCartData, cartData }) => {
                       }
                     }
                   });
-                  let _cartData = JSON.parse(JSON.stringify(cartData));
-                  _cartData = _cartData.map((item) => {
+                  let _cartValue = JSON.parse(JSON.stringify(cartValue));
+                  _cartValue = _cartValue.map((item) => {
                     return item._id === _product._id ? _product : item;
                   });
-                  localStorage.setItem("cart", JSON.stringify(_cartData));
+                  localStorage.setItem("cart", JSON.stringify(_cartValue));
 
-                  setCartData(_cartData);
+                  setCartValue(_cartValue);
                   window.dispatchEvent(new Event("customStorageChange"));
                 } else {
-                  const _cartData = [...cartData, product];
-                  localStorage.setItem("cart", JSON.stringify(_cartData));
-                  setCartData(_cartData);
+                  const _cartValue = [...cartValue, product];
+                  localStorage.setItem("cart", JSON.stringify(_cartValue));
+                  setCartValue(_cartValue);
                   window.dispatchEvent(new Event("customStorageChange"));
                 }
               }}

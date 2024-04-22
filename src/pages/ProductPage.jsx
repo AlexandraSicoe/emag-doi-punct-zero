@@ -8,12 +8,13 @@ import { useEffect, useState } from "react";
 import CircularProgress from "@mui/joy/CircularProgress";
 import { useNavigate } from "react-router-dom";
 import ReviewSample from "../components/ReviewSample";
+import { useCart } from "../components/CartProvider";
 
 const ProductPage = () => {
   const query = useQuery();
   const navigate = useNavigate();
   const [productData, setProductData] = useState();
-  const [cartData, setCartData] = useState([]);
+  const [cartValue, setCartValue] = useCart();
 
   const getProductData = async () => {
     try {
@@ -32,11 +33,11 @@ const ProductPage = () => {
     getProductData();
     let lsCart = localStorage.getItem("cart");
     lsCart = JSON.parse(lsCart);
-    setCartData(lsCart ? lsCart : []);
+    setCartValue(lsCart ? lsCart : []);
   }, []);
   return (
     <>
-      <Navbar cartData={cartData} />
+      <Navbar cartValue={cartValue} />
       {!productData ? (
         <Box
           sx={{
@@ -109,9 +110,9 @@ const ProductPage = () => {
               <Button
                 onClick={(e) => {
                   e.stopPropagation();
-                  const _cartData = [...cartData, productData];
-                  localStorage.setItem("cart", JSON.stringify(_cartData));
-                  setCartData(_cartData);
+                  const _cartValue = [...cartValue, productData];
+                  localStorage.setItem("cart", JSON.stringify(_cartValue));
+                  setCartValue(_cartValue);
                   window.dispatchEvent(new Event("customStorageChange"));
                 }}
                 startDecorator={<ShoppingCartIcon />}
