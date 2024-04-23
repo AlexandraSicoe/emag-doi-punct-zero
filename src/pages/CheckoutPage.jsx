@@ -3,13 +3,14 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import _ from "lodash";
 import { useEffect, useState } from "react";
+import { useCart } from "../components/CartProvider";
 
 const CheckoutPage = () => {
-  const [cartData, setCartData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [userData, setUserData] = useState();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+  const [cartValue, setCartValue] = useCart();
 
   function getFirstNumber(str) {
     const match = str.match(/\d+/);
@@ -19,7 +20,7 @@ const CheckoutPage = () => {
     return str.replace(/\d+/, newNumber);
   }
   const handleAddItem = (productId) => {
-    const updatedCart = cartData.map((product) => {
+    const updatedCart = cartValue.map((product) => {
       if (product._id === productId) {
         const _product = _.cloneDeep(product);
         if (/^[0-9]/.test(_product.name.charAt(0))) {
@@ -38,17 +39,17 @@ const CheckoutPage = () => {
       }
       return product;
     });
-    setCartData(updatedCart);
+    setCartValue(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    window.dispatchEvent(new Event("customStorageChange"));
   };
 
   const handleRemoveItem = (productId) => {
-    const updatedCart = cartData.map((product) => {
+    const updatedCart = cartValue.map((product) => {
       if (product._id === productId) {
         const _product = _.cloneDeep(product);
         if (/^[0-9]/.test(_product.name.charAt(0))) {
           let numberOfProducts = getFirstNumber(_product.name);
+          console.log(numberOfProducts);
           if (numberOfProducts > 1) {
             _product.price =
               (_product.price / numberOfProducts).toFixed(2) *
@@ -56,28 +57,32 @@ const CheckoutPage = () => {
             numberOfProducts--;
             _product.name = replaceFirstNumber(_product.name, numberOfProducts);
           } else {
+            console.log(_product.name);
             numberOfProducts = 1;
           }
-        }
 
+          if (numberOfProducts === 1) {
+            _product.name = _product.name.slice(3);
+          }
+        }
         return _product;
       }
       return product;
     });
-    setCartData(updatedCart);
+    setCartValue(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    window.dispatchEvent(new Event("customStorageChange"));
   };
   const handleRemoveProduct = (productId) => {
-    const updatedCart = cartData.filter((product) => product._id !== productId);
-    setCartData(updatedCart);
+    const updatedCart = cartValue.filter(
+      (product) => product._id !== productId
+    );
+    setCartValue(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    window.dispatchEvent(new Event("customStorageChange"));
   };
   useEffect(() => {
     let lsCart = localStorage.getItem("cart");
     lsCart = JSON.parse(lsCart);
-    setCartData(lsCart ? lsCart : []);
+    setCartValue(lsCart ? lsCart : []);
     let lsUser = localStorage.getItem("user");
     lsUser = JSON.parse(lsUser);
     setUserData(lsUser);
@@ -86,10 +91,11 @@ const CheckoutPage = () => {
     try {
       const result = await axios.post("https://e20.ro/api/orders/order", {
         buyer: userData._id,
-        products: cartData,
+        products: cartValue,
         totalPrice: totalPrice,
       });
       localStorage.removeItem("cart");
+      setCartValue([]);
       navigate("/");
     } catch (error) {
       const errorMessage = error?.response?.data?.error;
@@ -101,11 +107,11 @@ const CheckoutPage = () => {
 
   useEffect(() => {
     let sum = 0;
-    cartData.forEach((product) => {
+    cartValue.forEach((product) => {
       sum += product.price * (product.quantity || 1);
     });
     setTotalPrice(sum);
-  }, [cartData]);
+  }, [cartValue]);
 
   return (
     <>
@@ -122,7 +128,7 @@ const CheckoutPage = () => {
         <Typography level="h1" sx={{ marginBottom: "25px" }}>
           Coș de cumpărături
         </Typography>
-        {cartData.length > 0 ? (
+        {cartValue.length > 0 ? (
           <Box
             sx={{
               display: "flex",
@@ -138,7 +144,7 @@ const CheckoutPage = () => {
                 marginRight: "20px",
               }}
             >
-              {cartData?.map((product, index) => {
+              {cartValue?.map((product, index) => {
                 return (
                   <Box
                     sx={{

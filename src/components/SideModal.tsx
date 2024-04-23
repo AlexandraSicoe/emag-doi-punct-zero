@@ -13,7 +13,7 @@ export interface DrawerProps extends Omit<ModalProps, "children"> {
   position?: "left" | "right" | "top" | "bottom";
 }
 
-export default function Cart({
+export default function SideModal({
   children,
   title,
   position = "left",
@@ -63,7 +63,7 @@ export default function Cart({
           height: position.match(/(left|right)/) ? "100%" : size,
 
           width: {
-            xs: "100%",
+            // xs: "100%",
             md: position.match(/(top|bottom)/) ? "100vw" : size,
           },
           boxShadow: "md",

@@ -63,7 +63,7 @@ const Footer = () => {
             variant="outlined"
             sx={{
               color: "white",
-              "&:hover": { color: "black", backgroundColor: "#8b5cf6" },
+              "&:hover": { color: "#8b5cf6", backgroundColor: "white" },
             }}
           >
             Trimite

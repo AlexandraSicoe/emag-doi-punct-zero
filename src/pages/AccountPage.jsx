@@ -3,7 +3,6 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import ReviewsIcon from "@mui/icons-material/Reviews";
-import CircularProgress from "@mui/joy/CircularProgress";
 import {
   Box,
   Grid,
@@ -12,18 +11,16 @@ import {
   ListItemDecorator,
   Typography,
 } from "@mui/joy";
+import CircularProgress from "@mui/joy/CircularProgress";
 import ListItem from "@mui/joy/ListItem";
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AccountEditForm from "../components/AccountEditForm";
-import Navbar from "../components/Navbar";
-import MenuDropdown from "../components/MenuDropdown";
-import Orders from "../components/Orders";
-import MyReviews from "../components/MyReviews";
-import useQuery from "../helpers/useQuery";
-import Footer from "../components/Footer";
 import AddProductForm from "../components/AddProductForm";
+import MyReviews from "../components/MyReviews";
+import Orders from "../components/Orders";
+import useQuery from "../helpers/useQuery";
 
 const AccountPage = () => {
   const query = useQuery();
@@ -110,7 +107,9 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <HomeIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Adaugă produs
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Adaugă produs
+                    </Typography>
                   </ListItemButton>
                 </ListItem>
 
@@ -125,7 +124,9 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <PersonIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Cont
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Cont
+                    </Typography>
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -138,7 +139,9 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <InventoryIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Comenzile mele
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Comenzile mele
+                    </Typography>
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -152,7 +155,9 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <ReviewsIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Review-urile mele
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Review-urile mele
+                    </Typography>
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -167,7 +172,9 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <LogoutIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Log Out
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Log Out
+                    </Typography>
                   </ListItemButton>
                 </ListItem>
               </List>

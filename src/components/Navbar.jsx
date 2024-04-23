@@ -11,16 +11,18 @@ import ListItem from "@mui/joy/ListItem";
 import ListItemContent from "@mui/joy/ListItemContent";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Cart from "./Cart.tsx";
+import SideModal from "./SideModal.tsx";
 import genericProductImage from "../images/genericProduct.png";
 import InfoIcon from "@mui/icons-material/Info";
 import Logo from "../images/logo.png";
 import { useSearch } from "./SearchProvider.jsx";
 import { debounce } from "lodash";
+import { useCart } from "./CartProvider.jsx";
 
-const Navbar = ({ cartData }) => {
+const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [cartValue, setCartValue] = useCart();
   const navigate = useNavigate();
   const { searchInput, setSearchInput } = useSearch();
   const debouncedSetSearchInput = debounce((value) => {
@@ -35,14 +37,14 @@ const Navbar = ({ cartData }) => {
   };
 
   useEffect(() => {
-    if (cartData) {
+    if (cartValue) {
       let sum = 0;
-      cartData.forEach((product) => {
+      cartValue.forEach((product) => {
         sum = sum + product.price * (product.quantity || 1);
       });
       setTotalPrice(sum);
     }
-  }, [cartData]);
+  }, [cartValue]);
 
   return (
     <>
@@ -96,18 +98,27 @@ const Navbar = ({ cartData }) => {
               </Button>
             }
           />
-          <Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
             <Link to="/account">
               <Box
                 sx={{
                   display: { xs: "none", md: "inline-block" },
                 }}
               >
-                <Button startDecorator={<PersonIcon />}>
+                <Button
+                  startDecorator={<PersonIcon />}
+                  sx={{ paddingInline: "12px" }}
+                >
                   <Typography
                     color="common.white"
                     sx={{
                       marginRight: { xs: "0px", sm: "0px", md: "5px" },
+                      width: "100%",
                     }}
                   >
                     Contul meu
@@ -131,14 +142,16 @@ const Navbar = ({ cartData }) => {
             >
               <Button
                 startDecorator={<ShoppingCartIcon />}
-                sx={{ marginLeft: "5px" }}
+                sx={{ marginLeft: "5px", width: "100%", paddingInline: "12px" }}
                 onClick={() => {
                   setDrawerOpen(!drawerOpen);
                 }}
               >
                 <Typography
                   color="common.white"
-                  sx={{ display: { xs: "none", md: "block" } }}
+                  sx={{
+                    display: { xs: "none", md: "inline-block" },
+                  }}
                 >
                   Coș de cumpărături
                 </Typography>
@@ -190,7 +203,7 @@ const Navbar = ({ cartData }) => {
           />
         </Container>
       </Box>
-      <Cart
+      <SideModal
         size="375px"
         position="right"
         open={drawerOpen}
@@ -198,7 +211,7 @@ const Navbar = ({ cartData }) => {
           setDrawerOpen(false);
         }}
       >
-        {cartData?.length === 0 ? (
+        {cartValue?.length === 0 ? (
           <Box sx={{ paddingTop: "15px" }}>
             <Box sx={{ display: "flex" }}>
               <InfoIcon color="primary" />
@@ -221,7 +234,7 @@ const Navbar = ({ cartData }) => {
           <>
             <Card variant="outlined" sx={{ width: "100%", p: 0 }}>
               <List sx={{ py: "var(--ListDivider-gap)" }}>
-                {cartData?.map((product, index) => (
+                {cartValue?.map((product, index) => (
                   <React.Fragment key={product.id}>
                     <ListItem sx={{ gap: 2 }}>
                       <img
@@ -240,7 +253,7 @@ const Navbar = ({ cartData }) => {
                         </Typography>
                       </ListItemContent>
                     </ListItem>
-                    {index !== cartData.length - 1 && <ListDivider />}
+                    {index !== cartValue.length - 1 && <ListDivider />}
                   </React.Fragment>
                 ))}
               </List>
@@ -278,7 +291,7 @@ const Navbar = ({ cartData }) => {
             </Box>
           </>
         )}
-      </Cart>
+      </SideModal>
     </>
   );
 };
