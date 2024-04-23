@@ -41,7 +41,6 @@ const CheckoutPage = () => {
     });
     setCartValue(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    window.dispatchEvent(new Event("customStorageChange"));
   };
 
   const handleRemoveItem = (productId) => {
@@ -72,7 +71,6 @@ const CheckoutPage = () => {
     });
     setCartValue(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    window.dispatchEvent(new Event("customStorageChange"));
   };
   const handleRemoveProduct = (productId) => {
     const updatedCart = cartValue.filter(
@@ -80,7 +78,6 @@ const CheckoutPage = () => {
     );
     setCartValue(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    window.dispatchEvent(new Event("customStorageChange"));
   };
   useEffect(() => {
     let lsCart = localStorage.getItem("cart");

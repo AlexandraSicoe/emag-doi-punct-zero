@@ -3,16 +3,15 @@ import CircularProgress from "@mui/joy/CircularProgress";
 import { Container } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useCart } from "../components/CartProvider";
 import ProductCard from "../components/ProductCard";
 import { useSearch } from "../components/SearchProvider";
 import VerticalCarousel from "../components/VerticalCarousel";
 import VerticalCarouselData from "../helpers/VerticalCarouselData.json";
 import AdoptionBanner from "../images/adoption_banner.png";
-import { useLocation } from "react-router-dom";
-import { useCart } from "../components/CartProvider";
-
 import Logo from "../images/logo.png";
+
 const HomePage = () => {
   const location = useLocation();
   useEffect(() => {
@@ -25,7 +24,6 @@ const HomePage = () => {
 
   const [productList, setProductList] = useState([]);
   const [cartValue, setCartValue] = useCart();
-
   const { searchInput } = useSearch();
   const [filteredProductList, setFilteredProductList] = useState([]);
   const [noSearchProductFound, setNoSearchProductFound] = useState(false);

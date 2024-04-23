@@ -18,6 +18,7 @@ import Logo from "../images/logo.png";
 import { useSearch } from "./SearchProvider.jsx";
 import { debounce } from "lodash";
 import { useCart } from "./CartProvider.jsx";
+
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);

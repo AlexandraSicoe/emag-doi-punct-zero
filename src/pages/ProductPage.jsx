@@ -9,6 +9,7 @@ import CircularProgress from "@mui/joy/CircularProgress";
 import { useNavigate } from "react-router-dom";
 import ReviewSample from "../components/ReviewSample";
 import { useCart } from "../components/CartProvider";
+import addToCartAndGetCart from "../helpers/productActions";
 
 const ProductPage = () => {
   const query = useQuery();
@@ -110,13 +111,13 @@ const ProductPage = () => {
               <Button
                 onClick={(e) => {
                   e.stopPropagation();
-                  const _cartValue = [...cartValue, productData];
-                  localStorage.setItem("cart", JSON.stringify(_cartValue));
+                  const _cartValue = addToCartAndGetCart(
+                    cartValue,
+                    productData
+                  );
                   setCartValue(_cartValue);
-                  window.dispatchEvent(new Event("customStorageChange"));
                 }}
                 startDecorator={<ShoppingCartIcon />}
-                s
               >
                 Adaugă în coș
               </Button>
