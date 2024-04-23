@@ -33,12 +33,6 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // function removeDiacritics(str) {
-  //   return str
-  //     .normalize("NFD") // Normalize to decomposed form
-  //     .replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
-  // }
-
   const getProducts = async () => {
     setLoading(true);
     try {
@@ -51,56 +45,6 @@ const HomePage = () => {
     }
     setLoading(false);
   };
-
-  // useEffect(() => {
-  //   if (searchInput.length === 0) {
-  //     setFilteredProductList([]);
-  //     setNoSearchProductFound(false);
-  //   }
-
-  //   console.log(productList);
-
-  //   if (
-  //     typeof searchInput === "string" &&
-  //     searchInput.length > 3 &&
-  //     productList?.length > 0
-  //   ) {
-  //     const filteredProducts = productList.filter((product) => {
-  //       const lowercasedSearchInput = removeDiacritics(
-  //         searchInput.toLowerCase()
-  //       );
-  //       const removeDiacriticsFromProperty = (property) =>
-  //         removeDiacritics(property.toLowerCase());
-
-  //       // Check if the diacritics-removed searchInput is included in any of the properties
-  //       return (
-  //         removeDiacriticsFromProperty(product.name).includes(
-  //           lowercasedSearchInput
-  //         ) ||
-  //         removeDiacriticsFromProperty(product.description).includes(
-  //           lowercasedSearchInput
-  //         ) ||
-  //         removeDiacriticsFromProperty(product.category.title).includes(
-  //           lowercasedSearchInput
-  //         ) ||
-  //         removeDiacriticsFromProperty(product.user.name).includes(
-  //           lowercasedSearchInput
-  //         )
-  //       );
-  //     });
-  //     setFilteredProductList(filteredProducts);
-  //     if (filteredProducts.length == 0) {
-  //       setNoSearchProductFound(true);
-  //     } else {
-  //       setNoSearchProductFound(false);
-  //     }
-  //   }
-  // }, [searchInput]);
-
-  // useEffect(() => {
-  //   console.log(filterCategory);
-  //   console.log(productList);
-  // }, [filterCategory]);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -144,39 +88,11 @@ const HomePage = () => {
             >
               <VerticalCarousel slides={VerticalCarouselData.slides} />
             </Box>
-            {filteredProductList.length > 0 ? (
-              <Box sx={{ width: "100%" }}>
-                <Box sx={{ width: "100%" }}>
-                  <Typography
-                    level="h2"
-                    sx={{ color: "black", marginTop: "10px" }}
-                  >
-                    Rezultatele căutării
-                  </Typography>
-                </Box>
-                <Grid
-                  container
-                  sx={{
-                    marginX: "-5px",
-                    display: "flex",
-                    justifyContent: "flex-start",
-                  }}
-                >
-                  {filteredProductList?.map((product, index) => {
-                    return (
-                      <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                        <ProductCard
-                          product={product}
-                          setCartValue={setCartValue}
-                          cartValue={cartValue}
-                        />
-                      </Grid>
-                    );
-                  })}
-                </Grid>
-              </Box>
-            ) : noSearchProductFound ? (
-              <Typography level="h3">Nu s-a găsit niciun rezultat.</Typography>
+            {searchInput.length > 0 ? (
+              <FilteredSearchedProducts
+                productList={productList}
+                searchInput={searchInput}
+              />
             ) : (
               <Box sx={{ width: "100%" }}>
                 <Box sx={{ width: "100%" }}>
@@ -394,7 +310,6 @@ const HomePage = () => {
             )}
           </Grid>
         </Container>
-        // <FilteredSearchedProducts />
       )}
     </>
   );

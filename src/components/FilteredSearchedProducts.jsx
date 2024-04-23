@@ -4,10 +4,8 @@ import ProductCard from "../components/ProductCard";
 import { useCategory } from "../components/CategoryProvider";
 import { useEffect, useState } from "react";
 
-const FilteredSearchedProducts = () => {
-  const [productList, setProductList] = useState([]);
+const FilteredSearchedProducts = ({ productList, searchInput }) => {
   const [cartData, setCartData] = useState([]);
-  const { searchInput } = useSearch();
   const [filteredProductList, setFilteredProductList] = useState([]);
   const [noSearchProductFound, setNoSearchProductFound] = useState(false);
   const { filterCategory } = useCategory();
@@ -61,6 +59,7 @@ const FilteredSearchedProducts = () => {
         setNoSearchProductFound(false);
       }
     }
+    console.log(searchInput);
   }, [searchInput]);
 
   useEffect(() => {
