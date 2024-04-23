@@ -14,12 +14,16 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useCategory } from "./CategoryProvider.jsx";
+import SideModal from "./SideModal.tsx";
 
 const MenuDropdown = ({ isDropdownOpen }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // const matches = useMediaQuery(theme.breakpoints.up("md"));
   const [selectedCategory, setSelectedCategory] = useState();
   const [categories, setCategories] = useState();
   const getCategories = async () => {
@@ -37,6 +41,17 @@ const MenuDropdown = ({ isDropdownOpen }) => {
   }, []);
 
   const { setFilterCategory } = useCategory();
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const renderIcon = (iconName) => {
     let faIconName =
@@ -49,93 +64,124 @@ const MenuDropdown = ({ isDropdownOpen }) => {
     ) : null;
   };
   return (
-    <>
-      <Box
-        sx={{
-          backgroundImage:
-            "linear-gradient(67deg, rgba(2,0,36,1) 0%, rgba(139,92,246,1) 0%, rgba(139,92,246,1) 23%, rgba(168,110,204,1) 46%, rgba(181,118,185,1) 55%, rgba(186,121,178,1) 66%, rgba(246,159,92,1) 98%)",
-          height: "40px",
-          width: "100%",
-        }}
-      >
-        <Container
+    
+      <>
+        <Box
           sx={{
+            backgroundImage:
+              "linear-gradient(67deg, rgba(2,0,36,1) 0%, rgba(139,92,246,1) 0%, rgba(139,92,246,1) 23%, rgba(168,110,204,1) 46%, rgba(181,118,185,1) 55%, rgba(186,121,178,1) 66%, rgba(246,159,92,1) 98%)",
+            height: "40px",
+            // width: "100vw",
             display: "flex",
             alignItems: "center",
-            justifyContent: { xs: "center", md: "flex-start" },
-            padding: "5px",
           }}
         >
-          <Dropdown
-            open={isDropdownMenuOpen}
-            defaultOpen={isDropdownOpen && matches}
+          <Container
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-start",
+              width: "100%",
+            }}
           >
-            {matches ? (
+            <Dropdown open={true} defaultOpen={true}>
               <>
                 {location.pathname === "/" ? (
                   <MenuButton
                     size="sm"
                     variant="soft"
                     sx={{
+                      padding: "0px",
+                      margin: "0px",
+                      minHeight: "100%",
                       backgroundColor: "white",
                       borderBottomLeftRadius: "0px",
                       borderBottomRightRadius: "0px",
                       border: "0px",
-                      padding: "11px",
-                      pointerEvents:
-                        location.pathname === "/" ? "none" : "auto",
+                      padding: "13px",
+                      // pointerEvents: location.pathname === "/" ? "none" : "auto",
+                    }}
+                    onClick={() => {
+                      if (windowWidth < 600) {
+                        setDrawerOpen(true);
+                      }
                     }}
                   >
                     Produse
                   </MenuButton>
                 ) : (
-                  <Button
-                    color="common.white"
-                    size="sm"
-                    variant="soft"
-                    onClick={() => {
-                      window.location.href = "/";
-                    }}
-                    sx={{
-                      backgroundColor: "white",
-                      borderBottomLeftRadius: "0px",
-                      borderBottomRightRadius: "0px",
-                      border: "0px",
-                      padding: "11px",
-                      pointerEvents:
-                        location.pathname === "/" ? "none" : "auto",
-                    }}
-                  >
-                    Produse
-                  </Button>
+                  <Box sx={{ paddingBottom: "2px" }}>
+                    <Button
+                      color="common.white"
+                      size="sm"
+                      variant="soft"
+                      onClick={() => {
+                        window.location.href = "/";
+                      }}
+                      sx={{
+                        // backgroundColor: "white",
+                        backgroundColor: "transparent",
+                        color: "white",
+                        marginRight: "5px",
+                        marginLeft: "10px",
+                        padding: "8px",
+                        border: "1px solid transparent",
+  
+                        "&:hover": {
+                          border: "1px solid white",
+                          backgroundColor: "transparent",
+                        },
+                      }}
+                    >
+                      Produse
+                    </Button>
+                  </Box>
                 )}
-
-                <Menu
+                <SideModal
                   sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    padding: "0px",
-                    marginTop: "-4px!important",
-                    borderRadius: "0px",
-                    border: "0px",
-                    height: "285px",
-                    flexWrap: "wrap",
-                    width: { md: "100%", lg: "auto" },
-                    backgroundColor: "white",
+                    display: { xs: "flex", sm: "none" },
                   }}
-                  placement="top-start"
+                  position="left"
+                  open={drawerOpen}
+                  onClose={() => {
+                    setDrawerOpen(false);
+                  }}
                 >
+                  <Typography
+                    sx={{
+                      textAlign: "center",
+                      marginBottom: "25px",
+                      fontSize: "20px",
+                      fontWeight: "bold",
+                      color: "#333",
+                      textTransform: "uppercase",
+                      letterSpacing: "2px",
+                      borderBottom: "2px solid #ccc",
+                      paddingBottom: "10px",
+                    }}
+                    level="title-lg"
+                  >
+                    Meniu Produse
+                  </Typography>
                   <Box
                     sx={{
-                      display: { xs: "flex", md: "block" },
-                      width: { xs: "100%", md: "120px" },
-                      justifyContent: "space-around",
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      alignItems: "center",
                     }}
                   >
                     {categories?.map((category, index) => {
                       return (
                         <Box
-                          sx={{ cursor: "pointer", margin: "10px" }}
+                          sx={{
+                            cursor: "pointer",
+                            marginX: "5px",
+                            marginY: "5px",
+                            paddingX: "0px",
+                            paddingY: "0px",
+                            marginBottom: "20px",
+                          }}
                           onClick={(e) => {
                             e.preventDefault();
                             setSelectedCategory(category);
@@ -146,12 +192,18 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                           <Typography
                             sx={{
                               fontWeight: "bold",
+                              "&:hover": {
+                                textDecoration: "underline",
+                                textUnderlineOffset: "10px",
+                                textDecorationColor: "gray",
+                                textDecorationThickness: "1px",
+                              },
                             }}
-                            level="h5"
+                            level="title-md"
                           >
                             <Box
                               sx={{
-                                display: { xs: "inline", md: "inline" },
+                                display: "inline",
                               }}
                             >
                               <i
@@ -161,7 +213,6 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                 className={"fa-solid " + category.icon}
                               ></i>
                             </Box>
-
                             {category.title}
                           </Typography>
                         </Box>
@@ -173,17 +224,16 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                       backgroundColor: "white",
                       right: 0,
                       display: "flex",
-                      flexDirection: { xs: "column", md: "row" },
+                      flexDirection: "column",
                       flexWrap: "wrap",
-                      width: { xs: "100%", md: "750px" },
+                      width: "290px",
                     }}
                   >
                     {selectedCategory?.children.map((subcategory, subindex) => {
                       return (
                         <List
                           sx={{
-                            paddingLeft: "10px",
-                            paddingBottom: "10px",
+                            marginBottom: "20px",
                           }}
                           key={subindex}
                         >
@@ -203,7 +253,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                               {subcategory.title}
                             </Typography>
                           </ListItem>
-
+  
                           {subcategory.children.map(
                             (subSubCategory, subSubIndex) => {
                               return (
@@ -211,9 +261,10 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                   level="body-sm"
                                   key={subSubIndex}
                                   sx={{
-                                    paddingY: "5px",
-                                    paddingX: "2px",
-                                    marginY: "3px",
+                                    paddingY: { sm: "8px", md: "7px" },
+                                    paddingX: { sm: "2px", md: "3px" },
+                                    marginY: { sm: "0px", md: "2px" },
+                                    marginBottom: "10px",
                                     cursor: "pointer",
                                     "&:hover": {
                                       textDecoration: "underline",
@@ -221,7 +272,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                     },
                                   }}
                                   onClick={() => {
-                                    setFilterCategory(subSubCategory);
+                                    setDrawerOpen(false);
                                   }}
                                 >
                                   {subSubCategory.title}
@@ -233,71 +284,40 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                       );
                     })}
                   </Box>
-                </Menu>
-              </>
-            ) : (
-              <>
-                {" "}
-                {location.pathname === "/" ? (
-                  <MenuButton
-                    size="sm"
-                    variant="soft"
-                    sx={{
-                      backgroundColor: "white",
-                      borderBottomLeftRadius: "0px",
-                      borderBottomRightRadius: "0px",
-                      border: "0px",
-                      padding: "11px",
-                    }}
-                  >
-                    Produse
-                  </MenuButton>
-                ) : (
-                  <Button
-                    color="common.white"
-                    size="sm"
-                    variant="soft"
-                    onClick={() => {
-                      window.location.href = "/";
-                    }}
-                    sx={{
-                      backgroundColor: "white",
-                      borderBottomLeftRadius: "0px",
-                      borderBottomRightRadius: "0px",
-                      border: "0px",
-                      padding: "11px",
-                      pointerEvents:
-                        location.pathname === "/" ? "none" : "auto",
-                    }}
-                  >
-                    Produse
-                  </Button>
-                )}
+                </SideModal>
                 <Menu
                   sx={{
-                    display: "flex",
-                    flexDirection: "row",
+                    display: { xs: "none", sm: "flex" },
+                    width: { sm: "100%", md: "100%", lg: "863px" },
+                    flexDirection: "column",
                     padding: "0px",
                     marginTop: "-4px!important",
                     borderRadius: "0px",
                     border: "0px",
                     height: "285px",
                     flexWrap: "wrap",
-                    width: "100%",
                     backgroundColor: "white",
+                    overflow: "hidden",
                   }}
+                  placement="top-start"
                 >
                   <Box
                     sx={{
-                      display: { xs: "flex", md: "block" },
-                      width: { xs: "100%", md: "120px" },
-                      justifyContent: "space-around",
+                      display: "flex",
+                      width: { sm: "110px", md: "120px" },
+                      flexDirection: "column",
                     }}
                   >
                     {categories?.map((category, index) => {
                       return (
                         <Box
-                          sx={{ cursor: "pointer", margin: "10px" }}
+                          sx={{
+                            cursor: "pointer",
+                            marginX: { sm: "5px", md: "10px" },
+                            marginY: { sm: "5px", md: "7px" },
+                            paddingX: { sm: "7px", md: "2px" },
+                            paddingY: { sm: "3px", md: "1px" },
+                          }}
                           onClick={(e) => {
                             e.preventDefault();
                             setSelectedCategory(category);
@@ -309,11 +329,11 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                             sx={{
                               fontWeight: "bold",
                             }}
-                            level="h5"
+                            level="title-md"
                           >
                             <Box
                               sx={{
-                                display: { xs: "inline", md: "inline" },
+                                display: "inline",
                               }}
                             >
                               <i
@@ -323,7 +343,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                 className={"fa-solid " + category.icon}
                               ></i>
                             </Box>
-
+  
                             {category.title}
                           </Typography>
                         </Box>
@@ -335,17 +355,18 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                       backgroundColor: "white",
                       right: 0,
                       display: "flex",
-                      flexDirection: { xs: "column", md: "row" },
+                      flexDirection: "row",
                       flexWrap: "wrap",
-                      width: { xs: "100%", md: "750px" },
+                      width: { sm: "100%", md: "900px", lg: "750px" },
                     }}
                   >
                     {selectedCategory?.children.map((subcategory, subindex) => {
                       return (
                         <List
                           sx={{
-                            paddingLeft: "10px",
-                            paddingBottom: "10px",
+                            paddingLeft: { sm: "0px", lg: "10px" },
+                            paddingBottom: { sm: "0px", lg: "10px" },
+                            maxWidth: { sm: "160px", md: "100%" },
                           }}
                           key={subindex}
                         >
@@ -365,7 +386,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                               {subcategory.title}
                             </Typography>
                           </ListItem>
-
+  
                           {subcategory.children.map(
                             (subSubCategory, subSubIndex) => {
                               return (
@@ -373,9 +394,9 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                   level="body-sm"
                                   key={subSubIndex}
                                   sx={{
-                                    paddingY: "5px",
-                                    paddingX: "2px",
-                                    marginY: "3px",
+                                    paddingY: { sm: "8px", md: "7px" },
+                                    paddingX: { sm: "2px", md: "3px" },
+                                    marginY: { sm: "0px", md: "2px" },
                                     cursor: "pointer",
                                     "&:hover": {
                                       textDecoration: "underline",
@@ -395,52 +416,55 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                   </Box>
                 </Menu>
               </>
-            )}
-          </Dropdown>
-
-          <Link to="/about-us">
-            <Button
-              size="xs"
-              sx={{
-                backgroundColor: "transparent",
-                color: "white",
-                marginRight: "5px",
-                marginLeft: "10px",
-                padding: "8px",
-                border: "1px solid transparent",
-
-                "&:hover": {
-                  border: "1px solid white",
-                  backgroundColor: "transparent",
-                },
-              }}
-            >
-              Despre noi
-            </Button>
-          </Link>
-          <Link to="/contact">
-            <Button
-              size="xs"
-              sx={{
-                backgroundColor: "transparent",
-                color: "white",
-                marginRight: "5px",
-                marginLeft: "10px",
-                padding: "8px",
-                border: "1px solid transparent",
-
-                "&:hover": {
-                  border: "1px solid white",
-                  backgroundColor: "transparent",
-                },
-              }}
-            >
-              Contact
-            </Button>
-          </Link>
-        </Container>
-      </Box>
-    </>
-  );
-};
-export default MenuDropdown;
+            </Dropdown>
+            <Box sx={{ paddingBottom: "2px" }}>
+              <Link to="/about-us">
+                <Button
+                  size="xs"
+                  sx={{
+                    backgroundColor: "transparent",
+                    color: "white",
+                    marginRight: "5px",
+                    marginLeft: "10px",
+                    padding: "8px",
+                    border: "1px solid transparent",
+  
+                    "&:hover": {
+                      border: "1px solid white",
+                      backgroundColor: "transparent",
+                    },
+                  }}
+                >
+                  Despre noi
+                </Button>
+              </Link>
+            </Box>
+  
+            <Box sx={{ paddingBottom: "2px" }}>
+              <Link to="/contact">
+                <Button
+                  size="xs"
+                  sx={{
+                    backgroundColor: "transparent",
+                    color: "white",
+                    marginRight: "5px",
+                    marginLeft: "10px",
+                    padding: "8px",
+                    border: "1px solid transparent",
+  
+                    "&:hover": {
+                      border: "1px solid white",
+                      backgroundColor: "transparent",
+                    },
+                  }}
+                >
+                  Contact
+                </Button>
+              </Link>
+            </Box>
+          </Container>
+        </Box>
+      </>
+    );
+  };
+  export default MenuDropdown;
