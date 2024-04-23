@@ -1,14 +1,12 @@
 import { Box, Grid, Typography } from "@mui/joy";
 import { useSearch } from "../components/SearchProvider";
 import ProductCard from "../components/ProductCard";
-import { useCategory } from "../components/CategoryProvider";
 import { useEffect, useState } from "react";
 
 const FilteredSearchedProducts = ({ productList, searchInput }) => {
   const [cartData, setCartData] = useState([]);
   const [filteredProductList, setFilteredProductList] = useState([]);
   const [noSearchProductFound, setNoSearchProductFound] = useState(false);
-  const { filterCategory } = useCategory();
 
   function removeDiacritics(str) {
     return str
@@ -62,10 +60,6 @@ const FilteredSearchedProducts = ({ productList, searchInput }) => {
     console.log(searchInput);
   }, [searchInput]);
 
-  useEffect(() => {
-    console.log(filterCategory);
-    console.log(productList);
-  }, [filterCategory]);
   return filteredProductList.length > 0 ? (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ width: "100%" }}>

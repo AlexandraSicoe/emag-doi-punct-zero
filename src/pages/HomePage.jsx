@@ -13,6 +13,7 @@ import { useCategory } from "../components/CategoryProvider";
 import FilteredSearchedProducts from "../components/FilteredSearchedProducts";
 import AdoptionBanner from "../images/adoption_banner.png";
 import Logo from "../images/logo.png";
+import FilteredCategoryProducts from "../components/FilteredCategoryProducts";
 
 const HomePage = () => {
   const location = useLocation();
@@ -27,9 +28,8 @@ const HomePage = () => {
   const [productList, setProductList] = useState([]);
   const [cartValue, setCartValue] = useCart();
   const { searchInput } = useSearch();
-  const [filteredProductList, setFilteredProductList] = useState([]);
-  const [noSearchProductFound, setNoSearchProductFound] = useState(false);
   const { filterCategory } = useCategory();
+
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -88,6 +88,10 @@ const HomePage = () => {
             >
               <VerticalCarousel slides={VerticalCarouselData.slides} />
             </Box>
+            <FilteredCategoryProducts
+              productList={productList}
+              filterCategory={filterCategory}
+            ></FilteredCategoryProducts>
             {searchInput.length > 0 ? (
               <FilteredSearchedProducts
                 productList={productList}
