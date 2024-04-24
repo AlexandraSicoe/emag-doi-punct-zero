@@ -97,7 +97,6 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                     borderBottomRightRadius: "0px",
                     border: "0px",
                     padding: "13px",
-                    // pointerEvents: location.pathname === "/" ? "none" : "auto",
                   }}
                   onClick={() => {
                     if (windowWidth < 600) {
