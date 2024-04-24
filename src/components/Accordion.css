@@ -24,3 +24,7 @@ p {
   font-family: "Poppins", sans-serif; /* Use a modern font */
   margin: 0;
 }
+
+.accItem {
+  text-align: center;
+}

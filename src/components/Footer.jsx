@@ -1,5 +1,5 @@
 import { Box, Grid, List, ListItem, Typography } from "@mui/joy";
-
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Button from "@mui/joy/Button";
 import Input from "@mui/joy/Input";
 import { Accordion, AccordionItem } from "@szhsin/react-accordion";
@@ -87,7 +87,10 @@ const Footer = () => {
               marginBottom: { xs: "20px", md: "0px" },
             }}
           >
-            <Typography sx={{ color: "white" }} level="body-lg">
+            <Typography
+              sx={{ color: "white", fontWeight: "bold" }}
+              level="body-lg"
+            >
               E20
             </Typography>
             <List
@@ -120,7 +123,10 @@ const Footer = () => {
               marginBottom: { xs: "20px", md: "0px" },
             }}
           >
-            <Typography sx={{ color: "white" }} level="body-lg">
+            <Typography
+              sx={{ color: "white", fontWeight: "bold" }}
+              level="body-lg"
+            >
               INFO CLIENTI
             </Typography>
             <List
@@ -165,10 +171,10 @@ const Footer = () => {
             }}
           >
             <Typography
-              sx={{ color: "white", marginBottom: "10px" }}
+              sx={{ color: "white", marginBottom: "10px", fontWeight: "bold" }}
               level="body-lg"
             >
-              SOCIAL
+              URMARESTE-NE
             </Typography>
 
             <Box
@@ -284,163 +290,188 @@ const Footer = () => {
             display: { xs: "flex", md: "none" },
             flexDirection: { xs: "column", sm: "row", md: "row" },
             color: "white",
+            alignItems: "center",
           }}
         >
-          <Accordion
-            allowMultiple
-            style={{
-              display: "flex",
-              alignItems: "center",
-              flexDirection: "column",
-            }}
-          >
-            <AccordionItem header="E20">
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  marginBottom: { xs: "20px", md: "0px" },
-                }}
-              >
-                <Link to="/">Produse</Link>
-                <Link to="/about-us">Despre noi</Link>
-                <Link to="/contact">Contact</Link>
-              </Box>
-            </AccordionItem>
-
-            <AccordionItem header="INFO CLIENTI">
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  marginBottom: { xs: "20px", md: "0px" },
-                }}
-              >
-                <Link to="#">Livrarea produselor</Link>
-                <Link to="#">Politica de retur</Link>
-                <Link to="https://anpc.ro/">ANPC</Link>
-                <Link to="/#">Termeni si Conditii</Link>
-                <Link to="/#">Politica de confidențialitate</Link>
-              </Box>
-            </AccordionItem>
-
-            <AccordionItem header="SOCIALS">
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                }}
+          <Accordion allowMultiple>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
+              <AccordionItem
+                header={
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    E20 <ArrowDropDownIcon sx={{ color: "white" }} />
+                  </Box>
+                }
+                className="accItem"
               >
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    marginBottom: { xs: "20px", md: "0px" },
                   }}
                 >
-                  <ListItem>
-                    <i
-                      style={{
-                        fontSize: "20px",
-                        color: "white",
-                      }}
-                      class="fa-brands fa-square-instagram"
-                    ></i>
-                    <Link style={{ color: "white" }} to="#">
-                      <Typography
-                        level="body-md"
-                        sx={{
-                          color: "white",
-                        }}
-                      >
-                        Instagram
-                      </Typography>
-                    </Link>
-                  </ListItem>
+                  <Link to="/">Produse</Link>
+                  <Link to="/about-us">Despre noi</Link>
+                  <Link to="/contact">Contact</Link>
                 </Box>
+              </AccordionItem>
 
+              <AccordionItem
+                header={
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    INFO CLIENTI <ArrowDropDownIcon sx={{ color: "white" }} />
+                  </Box>
+                }
+                className="accItem"
+              >
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    marginBottom: { xs: "20px", md: "0px" },
                   }}
                 >
-                  <ListItem>
-                    <i
-                      style={{
-                        fontSize: "20px",
-                        color: "white",
-                      }}
-                      class="fa-brands fa-facebook"
-                    ></i>
-                    <Link style={{ color: "white" }} to="#">
-                      <Typography
-                        level="body-md"
-                        sx={{
-                          color: "white",
-                        }}
-                      >
-                        Facebook
-                      </Typography>
-                    </Link>
-                  </ListItem>
+                  <Link to="#">Livrarea produselor</Link>
+                  <Link to="#">Politica de retur</Link>
+                  <Link to="https://anpc.ro/">ANPC</Link>
+                  <Link to="/#">Termeni si Conditii</Link>
+                  <Link to="/#">Politica de confidențialitate</Link>
                 </Box>
+              </AccordionItem>
+
+              <AccordionItem
+                header={
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    URMARESTE-NE <ArrowDropDownIcon sx={{ color: "white" }} />
+                  </Box>
+                }
+                className="accItem"
+              >
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    marginBottom: { xs: "20px", md: "0px" },
                   }}
                 >
-                  <ListItem>
-                    <i
-                      style={{
-                        fontSize: "20px",
-                        color: "white",
-                      }}
-                      class="fa-brands fa-square-whatsapp"
-                    ></i>
-                    <Link style={{ color: "white" }} to="#">
-                      <Typography
-                        level="body-md"
-                        sx={{
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "row",
+                    }}
+                  >
+                    <ListItem>
+                      <i
+                        style={{
+                          fontSize: "20px",
                           color: "white",
                         }}
-                      >
-                        WhatsApp
-                      </Typography>
-                    </Link>
-                  </ListItem>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    margin: "0px",
-                  }}
-                >
-                  <ListItem>
-                    <i
-                      style={{
-                        fontSize: "20px",
-                        color: "white",
-                      }}
-                      class="fa-brands fa-twitter"
-                    ></i>
-                    <Link style={{ color: "white" }} to="#">
-                      <Typography
-                        level="body-md"
-                        sx={{
+                        class="fa-brands fa-square-instagram"
+                      ></i>
+                      <Link style={{ color: "white" }} to="#">
+                        <Typography
+                          level="body-md"
+                          sx={{
+                            color: "white",
+                          }}
+                        >
+                          Instagram
+                        </Typography>
+                      </Link>
+                    </ListItem>
+                  </Box>
+
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "row",
+                    }}
+                  >
+                    <ListItem>
+                      <i
+                        style={{
+                          fontSize: "20px",
                           color: "white",
                         }}
-                      >
-                        Twitter
-                      </Typography>
-                    </Link>
-                  </ListItem>
+                        class="fa-brands fa-facebook"
+                      ></i>
+                      <Link style={{ color: "white" }} to="#">
+                        <Typography
+                          level="body-md"
+                          sx={{
+                            color: "white",
+                          }}
+                        >
+                          Facebook
+                        </Typography>
+                      </Link>
+                    </ListItem>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "row",
+                    }}
+                  >
+                    <ListItem>
+                      <i
+                        style={{
+                          fontSize: "20px",
+                          color: "white",
+                        }}
+                        class="fa-brands fa-square-whatsapp"
+                      ></i>
+                      <Link style={{ color: "white" }} to="#">
+                        <Typography
+                          level="body-md"
+                          sx={{
+                            color: "white",
+                          }}
+                        >
+                          WhatsApp
+                        </Typography>
+                      </Link>
+                    </ListItem>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "row",
+                      margin: "0px",
+                    }}
+                  >
+                    <ListItem>
+                      <i
+                        style={{
+                          fontSize: "20px",
+                          color: "white",
+                        }}
+                        class="fa-brands fa-twitter"
+                      ></i>
+                      <Link style={{ color: "white" }} to="#">
+                        <Typography
+                          level="body-md"
+                          sx={{
+                            color: "white",
+                          }}
+                        >
+                          Twitter
+                        </Typography>
+                      </Link>
+                    </ListItem>
+                  </Box>
                 </Box>
-              </Box>
-            </AccordionItem>
+              </AccordionItem>
+            </Box>
           </Accordion>
         </Box>
         <div
