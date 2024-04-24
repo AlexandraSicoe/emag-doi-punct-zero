@@ -13,6 +13,7 @@ import * as Icons from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useCategory } from "./CategoryProvider.jsx";
 import SideModal from "./SideModal.tsx";
 
 const MenuDropdown = ({ isDropdownOpen }) => {
@@ -34,12 +35,12 @@ const MenuDropdown = ({ isDropdownOpen }) => {
       console.error(error);
     }
   };
-
   const [isDropdownMenuOpen, setIsDropdownMenuOpen] = useState();
   useEffect(() => {
     getCategories();
   }, []);
 
+  const { setFilterCategory } = useCategory();
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -181,6 +182,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                         }}
                         onClick={(e) => {
                           e.preventDefault();
+                          setFilterCategory(category);
                           setSelectedCategory(category);
                         }}
                         key={index}
@@ -269,6 +271,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                   },
                                 }}
                                 onClick={() => {
+                                  setFilterCategory(subSubCategory);
                                   setDrawerOpen(false);
                                 }}
                               >
@@ -318,6 +321,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                         onClick={(e) => {
                           e.preventDefault();
                           setSelectedCategory(category);
+                          setFilterCategory(category);
                         }}
                         key={index}
                         variant="plain"
@@ -400,7 +404,9 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                                     textUnderlineOffset: "8px",
                                   },
                                 }}
-                                onClick={() => {}}
+                                onClick={() => {
+                                  setFilterCategory(subSubCategory);
+                                }}
                               >
                                 {subSubCategory.title}
                               </Typography>

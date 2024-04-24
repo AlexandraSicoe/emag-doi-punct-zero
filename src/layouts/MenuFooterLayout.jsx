@@ -4,17 +4,20 @@ import MenuDropdown from "../components/MenuDropdown";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 import { SearchProvider } from "../components/SearchProvider";
+import { CategoryProvider } from "../components/CategoryProvider";
 import { CartProvider } from "../components/CartProvider";
 
 const MenuFooterLayout = () => {
   return (
     <SearchProvider>
-      <CartProvider>
-        <Navbar />
-        <MenuDropdown isDropdownOpen={true} />
-        <Outlet />
-        <Footer />
-      </CartProvider>
+      <CategoryProvider>
+        <CartProvider>
+          <Navbar />
+          <MenuDropdown isDropdownOpen={true} />
+          <Outlet />
+          <Footer />
+        </CartProvider>
+      </CategoryProvider>
     </SearchProvider>
   );
 };

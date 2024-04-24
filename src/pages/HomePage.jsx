@@ -9,8 +9,11 @@ import ProductCard from "../components/ProductCard";
 import { useSearch } from "../components/SearchProvider";
 import VerticalCarousel from "../components/VerticalCarousel";
 import VerticalCarouselData from "../helpers/VerticalCarouselData.json";
+import { useCategory } from "../components/CategoryProvider";
+import FilteredSearchedProducts from "../components/FilteredSearchedProducts";
 import AdoptionBanner from "../images/adoption_banner.png";
 import Logo from "../images/logo.png";
+import FilteredCategoryProducts from "../components/FilteredCategoryProducts";
 
 const HomePage = () => {
   const location = useLocation();
@@ -25,16 +28,10 @@ const HomePage = () => {
   const [productList, setProductList] = useState([]);
   const [cartValue, setCartValue] = useCart();
   const { searchInput } = useSearch();
-  const [filteredProductList, setFilteredProductList] = useState([]);
-  const [noSearchProductFound, setNoSearchProductFound] = useState(false);
+  const { filterCategory } = useCategory();
+
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
-  function removeDiacritics(str) {
-    return str
-      .normalize("NFD") // Normalize to decomposed form
-      .replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
-  }
 
   const getProducts = async () => {
     setLoading(true);
@@ -48,49 +45,6 @@ const HomePage = () => {
     }
     setLoading(false);
   };
-
-  useEffect(() => {
-    if (searchInput.length === 0) {
-      setFilteredProductList([]);
-      setNoSearchProductFound(false);
-    }
-
-    if (
-      typeof searchInput === "string" &&
-      searchInput.length > 3 &&
-      productList?.length > 0
-    ) {
-      const filteredProducts = productList.filter((product) => {
-        const lowercasedSearchInput = removeDiacritics(
-          searchInput.toLowerCase()
-        );
-        const removeDiacriticsFromProperty = (property) =>
-          removeDiacritics(property.toLowerCase());
-
-        // Check if the diacritics-removed searchInput is included in any of the properties
-        return (
-          removeDiacriticsFromProperty(product.name).includes(
-            lowercasedSearchInput
-          ) ||
-          removeDiacriticsFromProperty(product.description).includes(
-            lowercasedSearchInput
-          ) ||
-          removeDiacriticsFromProperty(product.category.title).includes(
-            lowercasedSearchInput
-          ) ||
-          removeDiacriticsFromProperty(product.user.name).includes(
-            lowercasedSearchInput
-          )
-        );
-      });
-      setFilteredProductList(filteredProducts);
-      if (filteredProducts.length == 0) {
-        setNoSearchProductFound(true);
-      } else {
-        setNoSearchProductFound(false);
-      }
-    }
-  }, [searchInput]);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -134,39 +88,15 @@ const HomePage = () => {
             >
               <VerticalCarousel slides={VerticalCarouselData.slides} />
             </Box>
-            {filteredProductList.length > 0 ? (
-              <Box sx={{ width: "100%" }}>
-                <Box sx={{ width: "100%" }}>
-                  <Typography
-                    level="h2"
-                    sx={{ color: "black", marginTop: "10px" }}
-                  >
-                    Rezultatele căutării
-                  </Typography>
-                </Box>
-                <Grid
-                  container
-                  sx={{
-                    marginX: "-5px",
-                    display: "flex",
-                    justifyContent: "flex-start",
-                  }}
-                >
-                  {filteredProductList?.map((product, index) => {
-                    return (
-                      <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                        <ProductCard
-                          product={product}
-                          setCartValue={setCartValue}
-                          cartValue={cartValue}
-                        />
-                      </Grid>
-                    );
-                  })}
-                </Grid>
-              </Box>
-            ) : noSearchProductFound ? (
-              <Typography level="h3">Nu s-a găsit niciun rezultat.</Typography>
+            <FilteredCategoryProducts
+              productList={productList}
+              filterCategory={filterCategory}
+            ></FilteredCategoryProducts>
+            {searchInput.length > 0 ? (
+              <FilteredSearchedProducts
+                productList={productList}
+                searchInput={searchInput}
+              />
             ) : (
               <Box sx={{ width: "100%" }}>
                 <Box sx={{ width: "100%" }}>
