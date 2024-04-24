@@ -17,7 +17,7 @@ const VerticalCarousel = ({ slides }) => {
       sx={{
         overflow: "hidden",
         position: "relative",
-        width: { xs: "100%", lg: "280px" },
+        width: { xs: "100%", lg: "281px" },
         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
         margin: "0px",
         marginTop: { xs: "15px", lg: "0px" },
