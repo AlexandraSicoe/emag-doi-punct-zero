@@ -32,13 +32,10 @@ const FilteredCategoryProducts = ({ productList, filterCategory }) => {
 
         return productsInCategory;
       };
-      console.log(filterCategory);
       setFilteredProductList(
         checkIfProductsAreInCategory(productList, filterCategory)
       );
     }
-    console.log(productList);
-    console.log(filterCategory);
   }, [filterCategory]);
 
   return filteredProductList.length > 0 ? (

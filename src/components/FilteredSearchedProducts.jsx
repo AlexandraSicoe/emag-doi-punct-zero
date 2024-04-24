@@ -20,8 +20,6 @@ const FilteredSearchedProducts = ({ productList, searchInput }) => {
       setNoSearchProductFound(false);
     }
 
-    console.log(productList);
-
     if (
       typeof searchInput === "string" &&
       searchInput.length > 3 &&
@@ -57,7 +55,6 @@ const FilteredSearchedProducts = ({ productList, searchInput }) => {
         setNoSearchProductFound(false);
       }
     }
-    console.log(searchInput);
   }, [searchInput]);
 
   return filteredProductList.length > 0 ? (
