@@ -87,17 +87,17 @@ const ContactPage = () => {
               display: "flex",
               justifyContent: "space-around",
               flexDirection: "row",
-              width: { xs: "100%", sm: "100%", md: "1000px" },
+              // width: { xs: "100%", sm: "100%", md: "1000px" },
+              width: { xs: "100%", lg: "1000px" },
             }}
           >
             <Box
               sx={{
-                display: "flex",
                 alignItems: "center",
-                flexDirection: { md: "column" },
+                flexDirection: "column",
                 justifyContent: "space-between",
                 padding: "10px",
-                display: { xs: "none", md: "flex" },
+                display: { xs: "none", sm: "flex" },
               }}
             >
               <Typography
@@ -174,6 +174,7 @@ const ContactPage = () => {
                 }}
               />
             </Box>
+
             <Box
               sx={{
                 display: "flex",
@@ -267,12 +268,105 @@ const ContactPage = () => {
           <Grid
             sx={{
               display: "flex",
+              justifyContent: "center",
+              flexDirection: "row",
+              width: { xs: "100%", sm: "100%", md: "900px" },
+            }}
+          >
+            <Box
+              sx={{
+                alignItems: "center",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                padding: "10px",
+                display: { xs: "flex", sm: "none" },
+              }}
+            >
+              <Typography
+                level="h3"
+                sx={{
+                  textAlign: "center",
+                }}
+              >
+                E20
+                <Typography
+                  level="body-lg"
+                  sx={{
+                    fontWeight: "normal",
+                    marginRight: { xs: "10px", md: "0px" },
+                  }}
+                >
+                  help
+                </Typography>
+              </Typography>
+              <FacebookRoundedIcon
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  "&:hover": {
+                    transform: { xs: "scale(1.1)", sm: "scale(1.8)" },
+                    color: "blue",
+                  },
+                }}
+              />
+
+              <LocationOnRoundedIcon
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  "&:hover": {
+                    transform: { xs: "scale(1.1)", sm: "scale(1.8)" },
+                    color: "red",
+                  },
+                }}
+              />
+              <TwitterIcon
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  "&:hover": {
+                    transform: { xs: "scale(1.1)", sm: "scale(1.8)" },
+                    color: "blue",
+                  },
+                }}
+              />
+              <InstagramIcon
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  "&:hover": {
+                    transform: { xs: "scale(1.1)", sm: "scale(1.8)" },
+                    color: "purple",
+                  },
+                }}
+              />
+              <WhatsAppIcon
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  "&:hover": {
+                    transform: { xs: "scale(1.1)", sm: "scale(1.8)" },
+                    color: "green",
+                  },
+                }}
+              />
+            </Box>{" "}
+          </Grid>
+
+          <Grid
+            sx={{
+              display: "flex",
               alignItems: "center",
               backgroundColor: "white",
               borderRadius: "16px",
               width: { xs: "100%", sm: "100%", md: "1000px" },
               padding: "20px",
-              marginTop: { xs: "10px", md: "25px" },
+              marginTop: "10px",
             }}
           >
             <Grid

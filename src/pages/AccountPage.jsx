@@ -107,7 +107,9 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <HomeIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Adaugă produs
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Adaugă produs
+                    </Typography>
                   </ListItemButton>
                 </ListItem>
 
@@ -122,7 +124,9 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <PersonIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Cont
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Cont
+                    </Typography>
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -135,7 +139,9 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <InventoryIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Comenzile mele
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Comenzile mele
+                    </Typography>
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -149,7 +155,9 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <ReviewsIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Review-urile mele
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Review-urile mele
+                    </Typography>
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
@@ -164,7 +172,9 @@ const AccountPage = () => {
                     <ListItemDecorator>
                       <LogoutIcon sx={{ color: "black" }} />
                     </ListItemDecorator>
-                    Log Out
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Log Out
+                    </Typography>
                   </ListItemButton>
                 </ListItem>
               </List>

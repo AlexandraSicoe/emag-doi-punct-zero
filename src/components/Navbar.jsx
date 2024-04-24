@@ -96,18 +96,27 @@ const Navbar = ({ cartData }) => {
               </Button>
             }
           />
-          <Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
             <Link to="/account">
               <Box
                 sx={{
                   display: { xs: "none", md: "inline-block" },
                 }}
               >
-                <Button startDecorator={<PersonIcon />}>
+                <Button
+                  startDecorator={<PersonIcon />}
+                  sx={{ paddingInline: "12px" }}
+                >
                   <Typography
                     color="common.white"
                     sx={{
                       marginRight: { xs: "0px", sm: "0px", md: "5px" },
+                      width: "100%",
                     }}
                   >
                     Contul meu
@@ -131,14 +140,16 @@ const Navbar = ({ cartData }) => {
             >
               <Button
                 startDecorator={<ShoppingCartIcon />}
-                sx={{ marginLeft: "5px" }}
+                sx={{ marginLeft: "5px", width: "100%", paddingInline: "12px" }}
                 onClick={() => {
                   setDrawerOpen(!drawerOpen);
                 }}
               >
                 <Typography
                   color="common.white"
-                  sx={{ display: { xs: "none", md: "block" } }}
+                  sx={{
+                    display: { xs: "none", md: "inline-block" },
+                  }}
                 >
                   Coș de cumpărături
                 </Typography>
