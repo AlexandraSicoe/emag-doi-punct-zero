@@ -42,7 +42,7 @@ const ProductCard = ({ product, setCartValue, cartValue }) => {
               overflow: "hidden",
               WebkitLineClamp: 2, // Specify the number of lines to display
               textOverflow: "ellipsis",
-              minHeight: "48px",
+              minHeight: "58px",
             }}
             level="title-md"
           >
@@ -58,14 +58,29 @@ const ProductCard = ({ product, setCartValue, cartValue }) => {
         </AspectRatio>
         <CardContent
           orientation="horizontal"
-          sx={{ display: "flex", justifyContent: "space-between" }}
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
         >
-          <div>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <Typography level="body-xs">Preț:</Typography>
-            <Typography fontSize="md" fontWeight="lg">
+            <Typography
+              sx={{
+                fontSize: "16px",
+                fontWeight: "bold",
+                padding: "0px",
+              }}
+            >
               {product.price.toFixed(2)} RON
             </Typography>
-          </div>
+          </Box>
 
           <Box
             sx={{
@@ -74,7 +89,7 @@ const ProductCard = ({ product, setCartValue, cartValue }) => {
           >
             <Button
               variant="solid"
-              size="md"
+              size="sm"
               color="primary"
               sx={{ ml: "auto", alignSelf: "center", fontWeight: 600 }}
               onClick={(e) => {
