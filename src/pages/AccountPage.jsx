@@ -31,6 +31,13 @@ const AccountPage = () => {
 
   useEffect(() => {
     let lsUser = localStorage.getItem("user");
+    console.log(lsUser);
+    lsUser = JSON.stringify(lsUser); //transforma un js object (js object in string format) in json object in string format
+
+    lsUser = JSON.parse(lsUser); //transforma un json object in js object
+    if (!lsUser) {
+      navigate("/administrare");
+    }
     lsUser = JSON.parse(lsUser);
     setUserData(lsUser);
     let menu = query.get("m");
@@ -165,7 +172,7 @@ const AccountPage = () => {
                     sx={{ color: "black" }}
                     variant="plain"
                     onClick={() => {
-                      localStorage.setItem("user", "[]");
+                      localStorage.removeItem("user");
                       navigate("/administrare");
                     }}
                   >
