@@ -79,15 +79,7 @@ const Order = ({ order }) => {
           onChange={setRating}
         />
       </Box>
-      <Typography
-        level="body-md"
-        sx={{
-          color: "#0096FF",
-          paddingBottom: { xs: "10px", md: "20px" },
-        }}
-      >
-        Produse ridicate
-      </Typography>
+
       <hr />
     </>
   );
