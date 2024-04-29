@@ -313,6 +313,7 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                       <Box
                         sx={{
                           cursor: "pointer",
+                          width: { sm: "200px", md: "100px" },
                           marginX: { sm: "5px", md: "10px" },
                           marginY: { sm: "5px", md: "7px" },
                           paddingX: { sm: "7px", md: "2px" },
@@ -344,7 +345,6 @@ const MenuDropdown = ({ isDropdownOpen }) => {
                               className={"fa-solid " + category.icon}
                             ></i>
                           </Box>
-
                           {category.title}
                         </Typography>
                       </Box>
