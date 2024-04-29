@@ -55,7 +55,8 @@ const Order = ({ order }) => {
           Nr. comanda: {order._id.slice(0, -12)}
         </Typography>
         <Typography level="body-sm">
-          {formatDate(order.createdAt)} • Total: {order.totalPrice} Lei
+          {formatDate(order.createdAt)} • Total: {order.totalPrice.toFixed(2)}{" "}
+          Lei
         </Typography>
       </Box>
       <Typography level="body-md">
