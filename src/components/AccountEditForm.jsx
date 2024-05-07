@@ -78,6 +78,7 @@ const AccountEditForm = () => {
             Nume si prenume:
           </FormLabel>
           <Input
+            placeholder="Jane Doe"
             startDecorator={<PersonIcon sx={{ color: "#8b5cf6" }} />}
             type="text"
             sx={{ mb: 1 }}
@@ -86,6 +87,7 @@ const AccountEditForm = () => {
             Email nou:
           </FormLabel>
           <Input
+            placeholder="janedoe@gmail.com"
             startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
             type="text"
             sx={{ mb: 1 }}
@@ -94,6 +96,7 @@ const AccountEditForm = () => {
             Parola noua:
           </FormLabel>
           <Input
+            placeholder="password"
             startDecorator={<VpnKeyIcon sx={{ color: "#8b5cf6" }} />}
             type="text"
             sx={{ mb: 1 }}
