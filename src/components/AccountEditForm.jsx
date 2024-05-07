@@ -2,17 +2,32 @@ import EmailIcon from "@mui/icons-material/Email";
 import PersonIcon from "@mui/icons-material/Person";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { Box, Button, FormLabel, Typography } from "@mui/joy";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
 import Input from "@mui/joy/Input";
 import Option from "@mui/joy/Option";
 import Radio from "@mui/joy/Radio";
 import Select from "@mui/joy/Select";
 import * as React from "react";
 import { useEffect } from "react";
+
 const AccountEditForm = () => {
+  const [phone, setPhone] = React.useState("");
   const [selectedValue, setSelectedValue] = React.useState("a");
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
+  const placeholders = {
+    a: {
+      name: "Popescu Ioan",
+      email: "popescuioan@gmail.com",
+    },
+    b: {
+      name: "Popescu Ioana",
+      email: "popescuioana@gmail.com",
+    },
+  };
+
   function getMaxDate() {
     const currentDate = new Date();
     const maxDate = new Date(currentDate);
@@ -78,6 +93,7 @@ const AccountEditForm = () => {
             Nume si prenume:
           </FormLabel>
           <Input
+            placeholder={placeholders[selectedValue].name}
             startDecorator={<PersonIcon sx={{ color: "#8b5cf6" }} />}
             type="text"
             sx={{ mb: 1 }}
@@ -86,6 +102,7 @@ const AccountEditForm = () => {
             Email nou:
           </FormLabel>
           <Input
+            placeholder={placeholders[selectedValue].email}
             startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
             type="text"
             sx={{ mb: 1 }}
@@ -94,11 +111,28 @@ const AccountEditForm = () => {
             Parola noua:
           </FormLabel>
           <Input
+            placeholder={"••••••"}
             startDecorator={<VpnKeyIcon sx={{ color: "#8b5cf6" }} />}
             type="text"
             sx={{ mb: 1 }}
           />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
+              Telefon:{" "}
+            </FormLabel>
 
+            <PhoneInput
+              defaultCountry="ro"
+              value={phone}
+              onChange={(phone) => setPhone(phone)}
+              style={{ marginBottom: "5px", width: "100%" }}
+            />
+          </Box>
           <Box
             backgroundColor="white"
             display="flex"
@@ -125,27 +159,6 @@ const AccountEditForm = () => {
           </Button>
         </form>
       </Box>
-      {/* <Box
-        sx={{
-          width: {
-            xs: "100%",
-            sm: "100%",
-            md: "50%",
-          },
-          display: { xs: "none", sm: "none", md: "block" },
-        }}
-      >
-        <img
-          style={{
-            width: "100%",
-            height: "100%",
-            borderRadius: "16px",
-            filter: "grayscale(30%)",
-            opacity: "0.9",
-          }}
-          src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80"
-        />
-      </Box> */}
     </Box>
   );
 };
