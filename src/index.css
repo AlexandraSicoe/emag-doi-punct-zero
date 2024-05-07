@@ -24,3 +24,6 @@ a:-webkit-any-link {
 .show-scroll {
   overflow-y: scroll;
 }
+.react-international-phone-input {
+  width: 100%;
+}

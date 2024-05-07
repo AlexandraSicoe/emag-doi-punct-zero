@@ -3,6 +3,7 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import ReviewsIcon from "@mui/icons-material/Reviews";
+
 import {
   Box,
   Grid,
@@ -257,18 +258,22 @@ const AccountPage = () => {
                         </Typography>
                       </span>
                     </Typography>
-                    <Typography level="body-md" mb={1}>
-                      <span
-                        style={{ fontWeight: "bold", fontFamily: "Poppins" }}
-                      >
-                        Telefon:{" "}
-                      </span>
-                      <Typography level="body-sm">
-                        <span style={{ fontFamily: "Poppins" }}>
-                          07244854832
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <Typography level="body-md" mb={1}>
+                        <span
+                          style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                        >
+                          Telefon:{" "}
                         </span>
                       </Typography>
-                    </Typography>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
