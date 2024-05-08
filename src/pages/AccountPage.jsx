@@ -22,7 +22,7 @@ import AddProductForm from "../components/AddProductForm";
 import MyReviews from "../components/MyReviews";
 import Orders from "../components/Orders";
 import useQuery from "../helpers/useQuery";
-
+import UserAvatar from "../images/UserAvatar.png";
 const AccountPage = () => {
   const query = useQuery();
   const navigate = useNavigate();
@@ -78,8 +78,8 @@ const AccountPage = () => {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                  alt="profile"
+                  src={userData.imageUrl ? userData.imageUrl : UserAvatar}
+                  alt="profile picture"
                   style={{
                     borderRadius: "50%",
                     height: "75px",
@@ -198,6 +198,7 @@ const AccountPage = () => {
               <Box
                 sx={{
                   display: "flex",
+                  alignItems: "start",
                   justifyContent: "center",
                   flexDirection: "column",
                   padding: "25px",
@@ -206,7 +207,6 @@ const AccountPage = () => {
                   borderRadius: "16px",
                   marginLeft: { xs: "0px", md: "25px" },
                   marginTop: { xs: "25px", md: "0px" },
-                  alignItems: { xs: "center", md: "start" },
                 }}
               >
                 <Typography sx={{ marginBottom: "10px" }} level="h3">
@@ -220,7 +220,7 @@ const AccountPage = () => {
                   }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    src={userData.imageUrl ? userData.imageUrl : UserAvatar}
                     alt="profile"
                     style={{
                       borderRadius: "50%",
