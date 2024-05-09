@@ -145,6 +145,7 @@ const AddProductForm = () => {
                     // maxWidth: "100%",
                     // maxHeight: "200px",
                     width: "270px",
+                    height: "300px",
                   }}
                 />
               )}
@@ -166,7 +167,7 @@ const AddProductForm = () => {
                   width: "270px",
                 }}
               >
-                Încarcă imaginea
+                Schimbă imaginea
               </Button>
             </Box>
             <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
