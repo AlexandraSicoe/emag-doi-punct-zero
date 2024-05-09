@@ -142,15 +142,15 @@ const AddProductForm = () => {
                   src={previewImage}
                   alt="Preview"
                   style={{
-                    maxWidth: "100%",
-                    maxHeight: "200px",
-                    marginBottom: "10px",
+                    // maxWidth: "100%",
+                    // maxHeight: "200px",
+                    width: "270px",
                   }}
                 />
               )}
               <input
                 ref={fileInputRef}
-                style={{ marginBottom: "5px", display: "none" }}
+                style={{ display: "none" }}
                 type="file"
                 accept="image/png, image/jpeg"
                 onChange={handleFileChange}
@@ -159,6 +159,11 @@ const AddProductForm = () => {
                 size="sm"
                 onClick={() => {
                   fileInputRef.current.click();
+                }}
+                sx={{
+                  borderTopLeftRadius: "0px",
+                  borderTopRightRadius: "0px",
+                  width: "270px",
                 }}
               >
                 Încarcă imaginea
@@ -181,7 +186,6 @@ const AddProductForm = () => {
                 sx={{
                   border: "solid 1px	#1F51FF",
                   marginBottom: "5px",
-                  width: "15%",
                 }}
                 type="number"
                 required
