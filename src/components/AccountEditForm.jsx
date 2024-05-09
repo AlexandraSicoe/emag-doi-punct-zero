@@ -137,14 +137,19 @@ const AccountEditForm = () => {
         <Typography level="h3" mb={2}>
           Administrare date
         </Typography>
-        <Avatar
-          width={250}
-          height={250}
-          label="Schimbă imaginea"
-          onCrop={(preview) => {
-            setImageFile(preview);
-          }}
-        />
+        <Box
+          sx={{ overflowX: "hidden", maxWidth: "250px", overflowY: "hidden" }}
+        >
+          <Avatar
+            width={250}
+            height={250}
+            label="Schimbă imaginea"
+            onCrop={(preview) => {
+              setImageFile(preview);
+            }}
+          />
+        </Box>
+
         <Button
           sx={{
             width: "250px",
