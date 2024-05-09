@@ -5,12 +5,11 @@ import Textarea from "@mui/joy/Textarea";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import SelectCategory from "./SelectCategory";
-import { async } from "q";
-
+import PreviewImage from "../images/PreviewImage.jpg";
 const AddProductForm = () => {
   const fileInputRef = useRef(null);
   const [previewImage, setPreviewImage] = useState(
-    "https://images.wondershare.com/repairit/aticle/2021/07/resolve-images-not-showing-problem-1.jpg"
+    "https://static.vecteezy.com/system/resources/previews/013/460/316/non_2x/plant-cloud-leaf-technology-bold-and-thin-black-line-icon-set-free-vector.jpg"
   );
   const [categories, setCategories] = useState();
   const [selectedCategory, setSelectedCategory] = useState();
@@ -29,7 +28,7 @@ const AddProductForm = () => {
     } else {
       // If no file is selected, set a default image URL
       setPreviewImage(
-        "https://images.wondershare.com/repairit/aticle/2021/07/resolve-images-not-showing-problem-1.jpg"
+        "https://static.vecteezy.com/system/resources/previews/013/460/316/non_2x/plant-cloud-leaf-technology-bold-and-thin-black-line-icon-set-free-vector.jpg"
       );
     }
   };
@@ -48,20 +47,20 @@ const AddProductForm = () => {
     formData.append("user", user);
     formData.append("category", selectedCategory);
 
-    // try {
-    //   const response = await axios.post(
-    //     "https://e20.ro/api/products",
-    //     formData,
-    //     {
-    //       headers: {
-    //         "Content-Type": "multipart/form-data",
-    //       },
-    //     }
-    //   );
-    //   console.log("Product uploaded successfully", response.data);
-    // } catch (error) {
-    //   console.error("Error uploading product", error);
-    // }
+    try {
+      const response = await axios.post(
+        "https://e20.ro/api/products",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Product uploaded successfully", response.data);
+    } catch (error) {
+      console.error("Error uploading product", error);
+    }
   };
 
   const getCategories = async () => {
@@ -146,6 +145,7 @@ const AddProductForm = () => {
                     // maxHeight: "200px",
                     width: "270px",
                     height: "300px",
+                    border: "1px solid gray",
                   }}
                 />
               )}
