@@ -132,7 +132,7 @@ const HomePage = () => {
                   sx={{
                     display: "flex",
                     flexDirection: { xs: "column", sm: "column", md: "row" },
-                    height: { xs: "800px", sm: "700px", md: "500px" },
+                    height: { xs: "700px", md: "500px" },
                     backgroundImage: `url(${AdoptionBanner})`,
                     backgroundSize: "cover",
                     backgroundPosition: "top",
@@ -240,16 +240,15 @@ const HomePage = () => {
                         </Typography>
                       </li>
                     </ul>
-                  </Box>
-
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: { xs: "center", md: "center" },
-                      alignItems: "space-between",
-                    }}
-                  >
-                    <img style={{ height: "70px" }} src={Logo} />
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "end",
+                        marginTop: "5px",
+                      }}
+                    >
+                      <img style={{ height: "50px" }} src={Logo} />
+                    </Box>
                   </Box>
                 </Box>
 
