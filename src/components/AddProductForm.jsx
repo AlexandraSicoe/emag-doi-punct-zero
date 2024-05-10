@@ -135,8 +135,6 @@ const AddProductForm = () => {
                   src={previewImage}
                   alt="Preview"
                   style={{
-                    // maxWidth: "100%",
-                    // maxHeight: "200px",
                     width: "270px",
                     height: "300px",
                     border: "1px solid gray",
