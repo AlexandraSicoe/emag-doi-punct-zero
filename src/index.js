@@ -14,6 +14,7 @@ import PasswordResetPage from "./pages/PasswordResetPage";
 import { createTheme } from "@mui/material";
 import MenuFooterLayout from "./layouts/MenuFooterLayout";
 import LoginRegisterLayout from "./layouts/LoginRegisterLayout";
+import TestPage from "./pages/TestPage";
 import { useEffect } from "react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          {/* <Route path="/test" element={<TestPage />} /> */}
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

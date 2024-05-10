@@ -9,9 +9,12 @@ import Option from "@mui/joy/Option";
 import Radio from "@mui/joy/Radio";
 import Select from "@mui/joy/Select";
 import * as React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Avatar from "react-avatar-edit";
+import axios from "axios";
 
 const AccountEditForm = () => {
+  const [imageFile, setImageFile] = useState(null);
   const [phone, setPhone] = React.useState("");
   const [selectedValue, setSelectedValue] = React.useState("a");
   const handleChange = (event) => {
@@ -26,6 +29,64 @@ const AccountEditForm = () => {
       name: "Popescu Ioana",
       email: "popescuioana@gmail.com",
     },
+  };
+
+  const generateRandomFileName = () => {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const length = 10; // You can adjust the length of the filename as needed
+    let randomFileName = "";
+
+    for (let i = 0; i < length; i++) {
+      randomFileName += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
+
+    return randomFileName;
+  };
+
+  const base64ToFile = (base64String, filename) => {
+    // Parse the Base64 string to get the image type
+    const typeMatch = base64String.match(/^data:(.*?);/);
+    const type = typeMatch && typeMatch[1];
+
+    // Remove the data:image/... prefix to get the base64 data
+    const base64Data = base64String.replace(/^data:image\/\w+;base64,/, "");
+
+    // Convert the base64 data to a Uint8Array
+    const byteArray = atob(base64Data)
+      .split("")
+      .map((char) => char.charCodeAt(0));
+    const uint8Array = new Uint8Array(byteArray);
+
+    // Create a Blob object from the Uint8Array and image type
+    const blob = new Blob([uint8Array], { type });
+
+    // Create a File object from the Blob
+    return new File([blob], filename, { type });
+  };
+
+  const handleSaveProfilePicture = async () => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    const formData = new FormData();
+    const userID = userData._id;
+    formData.append("file", base64ToFile(imageFile, generateRandomFileName()));
+
+    try {
+      const response = await axios.post(
+        "https://e20.ro/api/user/" + userID + "/image",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      userData.imageUrl = response.data.imageUrl;
+      localStorage.setItem("user", JSON.stringify(userData));
+      window.location.reload();
+    } catch (error) {}
   };
 
   function getMaxDate() {
@@ -54,6 +115,7 @@ const AccountEditForm = () => {
           display: "flex",
           flexDirection: "column",
           backgroundColor: "white",
+          alignItems: "start",
           justifyContent: { xs: "center", md: "start" },
           marginLeft: { xs: "0px", md: "25px" },
           padding: "25px",
@@ -68,6 +130,32 @@ const AccountEditForm = () => {
         <Typography level="h3" mb={2}>
           Administrare date
         </Typography>
+        <Box
+          sx={{ overflowX: "hidden", maxWidth: "250px", overflowY: "hidden" }}
+        >
+          <Avatar
+            width={250}
+            height={250}
+            label="Schimbă imaginea"
+            onCrop={(preview) => {
+              setImageFile(preview);
+            }}
+          />
+        </Box>
+
+        <Button
+          sx={{
+            width: "250px",
+            marginBottom: "25px",
+            borderTopLeftRadius: "0px",
+            borderTopRightRadius: "0px",
+          }}
+          onClick={() => {
+            handleSaveProfilePicture();
+          }}
+        >
+          Salvează imaginea
+        </Button>
         <form>
           <Box display="flex" justifyContent="start" mb={2}>
             <Radio

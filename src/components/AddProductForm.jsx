@@ -5,12 +5,11 @@ import Textarea from "@mui/joy/Textarea";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import SelectCategory from "./SelectCategory";
-import { async } from "q";
-
+import PreviewImage from "../images/PreviewImage.jpg";
 const AddProductForm = () => {
   const fileInputRef = useRef(null);
   const [previewImage, setPreviewImage] = useState(
-    "https://images.wondershare.com/repairit/aticle/2021/07/resolve-images-not-showing-problem-1.jpg"
+    "https://static.vecteezy.com/system/resources/previews/013/460/316/non_2x/plant-cloud-leaf-technology-bold-and-thin-black-line-icon-set-free-vector.jpg"
   );
   const [categories, setCategories] = useState();
   const [selectedCategory, setSelectedCategory] = useState();
@@ -29,7 +28,7 @@ const AddProductForm = () => {
     } else {
       // If no file is selected, set a default image URL
       setPreviewImage(
-        "https://images.wondershare.com/repairit/aticle/2021/07/resolve-images-not-showing-problem-1.jpg"
+        "https://static.vecteezy.com/system/resources/previews/013/460/316/non_2x/plant-cloud-leaf-technology-bold-and-thin-black-line-icon-set-free-vector.jpg"
       );
     }
   };
@@ -48,16 +47,11 @@ const AddProductForm = () => {
     formData.append("category", selectedCategory);
 
     try {
-      const response = await axios.post(
-        "https://e20.ro/api/products",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      console.log("Product uploaded successfully", response.data);
+      await axios.post("https://e20.ro/api/products", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
     } catch (error) {
       console.error("Error uploading product", error);
     }
@@ -141,15 +135,17 @@ const AddProductForm = () => {
                   src={previewImage}
                   alt="Preview"
                   style={{
-                    maxWidth: "100%",
-                    maxHeight: "200px",
-                    marginBottom: "10px",
+                    // maxWidth: "100%",
+                    // maxHeight: "200px",
+                    width: "270px",
+                    height: "300px",
+                    border: "1px solid gray",
                   }}
                 />
               )}
               <input
                 ref={fileInputRef}
-                style={{ marginBottom: "5px", display: "none" }}
+                style={{ display: "none" }}
                 type="file"
                 accept="image/png, image/jpeg"
                 onChange={handleFileChange}
@@ -159,8 +155,13 @@ const AddProductForm = () => {
                 onClick={() => {
                   fileInputRef.current.click();
                 }}
+                sx={{
+                  borderTopLeftRadius: "0px",
+                  borderTopRightRadius: "0px",
+                  width: "270px",
+                }}
               >
-                Încarcă imaginea
+                Schimbă imaginea
               </Button>
             </Box>
             <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
@@ -180,7 +181,6 @@ const AddProductForm = () => {
                 sx={{
                   border: "solid 1px	#1F51FF",
                   marginBottom: "5px",
-                  width: "15%",
                 }}
                 type="number"
                 required
