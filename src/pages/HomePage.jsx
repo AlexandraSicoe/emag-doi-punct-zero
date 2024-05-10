@@ -131,14 +131,14 @@ const HomePage = () => {
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: { xs: "column", sm: "column", md: "row" },
+                    flexDirection: { xs: "column", md: "row" },
                     height: { xs: "700px", md: "500px" },
                     backgroundImage: `url(${AdoptionBanner})`,
                     backgroundSize: "cover",
                     backgroundPosition: "top",
                     color: "white",
                     padding: "20px",
-                    justifyContent: { xs: "center", md: "space-between" },
+                    justifyContent: "center",
                     flexWrap: "wrap",
                   }}
                 >
@@ -150,6 +150,7 @@ const HomePage = () => {
                         marginBottom: "20px",
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                         width: "100%",
+                        alignSelf: "center",
                       }}
                     >
                       Descoperă Iubirea Adevărată: Adoptă un Prieten de Viață!
