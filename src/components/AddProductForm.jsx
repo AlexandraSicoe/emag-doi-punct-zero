@@ -39,7 +39,6 @@ const AddProductForm = () => {
     const userData = JSON.parse(localStorage.getItem("user"));
     const user = userData._id;
     const formData = new FormData();
-    console.log(selectedFile);
     formData.append("file", selectedFile);
     formData.append("name", name);
     formData.append("price", price);
@@ -48,16 +47,11 @@ const AddProductForm = () => {
     formData.append("category", selectedCategory);
 
     try {
-      const response = await axios.post(
-        "https://e20.ro/api/products",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      console.log("Product uploaded successfully", response.data);
+      await axios.post("https://e20.ro/api/products", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
     } catch (error) {
       console.error("Error uploading product", error);
     }

@@ -71,11 +71,8 @@ const AccountEditForm = () => {
     const userData = JSON.parse(localStorage.getItem("user"));
     const formData = new FormData();
     const userID = userData._id;
-    console.log(imageFile);
     formData.append("file", base64ToFile(imageFile, generateRandomFileName()));
 
-    console.log(userData);
-    console.log(userID);
     try {
       const response = await axios.post(
         "https://e20.ro/api/user/" + userID + "/image",
@@ -86,14 +83,10 @@ const AccountEditForm = () => {
           },
         }
       );
-      console.log("Image uploaded successfully", response.data);
       userData.imageUrl = response.data.imageUrl;
-      console.log(userData);
       localStorage.setItem("user", JSON.stringify(userData));
       window.location.reload();
-    } catch (error) {
-      console.error("Error saving image", error);
-    }
+    } catch (error) {}
   };
 
   function getMaxDate() {
