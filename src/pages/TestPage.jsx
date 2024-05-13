@@ -1,34 +1,13 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Avatar from "react-avatar-edit";
-import { Button } from "@mui/joy";
+import { Box, Grid, Typography } from "@mui/joy";
+import AdoptionBanner from "../images/adoption_banner.png";
+import Logo from "../images/logo.png";
+import AdoptionLogo from "../images/LogoAdapost.png";
 const TestPage = () => {
   const [imageFile, setImageFile] = useState(null);
-  return (
-    <div>
-      <Avatar
-        // width={300}
-        // height={300}
-        onCrop={(preview) => {
-          console.log(preview);
-          setImageFile(preview);
-        }}
-        // onClose={this.onClose}
-        // onBeforeFileLoad={this.onBeforeFileLoad}
-        // src={imageFile}
-        onFileLoad={() => {
-          console.log("onFileLoad");
-        }}
-      />
-      <Button
-        onClick={() => {
-          console.log(imageFile);
-        }}
-      >
-        Schimba imaginea
-      </Button>
-    </div>
-  );
+  return <></>;
 };
 
 export default TestPage;
