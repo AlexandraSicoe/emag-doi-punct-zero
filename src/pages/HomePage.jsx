@@ -134,9 +134,6 @@ const HomePage = () => {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
-                    // flexWrap: "wrap",
-                    // height: { xs: "700px", md: "500px" },
-                    // backgroundPosition: "top",
                     backgroundImage: `url(${AdoptionBanner})`,
                     backgroundSize: "cover",
                     color: "white",
@@ -147,7 +144,6 @@ const HomePage = () => {
                     sx={{
                       display: "flex",
                       justifyContent: "center",
-                      // flexDirection: { xs: "column", md: "row" },
                     }}
                   >
                     <Typography
@@ -257,7 +253,7 @@ const HomePage = () => {
                             maxWidth: "600px",
                           }}
                         >
-                          Prin adoptarea de la{" "}
+                          Prin adopția de la{" "}
                           <span style={{ fontWeight: "bold" }}>
                             E20 Petshop
                           </span>
@@ -279,8 +275,9 @@ const HomePage = () => {
                         sx={{
                           display: "flex",
                           flexDirection: { xs: "column", md: "row" },
-                          alignItems: "center",
-                          marginBottom: { xs: "15px", sm: "0px" },
+                          alignItems: { sx: "start", md: "center" },
+                          marginBottom: { xs: "20px", md: "0px" },
+                          paddingBottom: "5px",
                         }}
                       >
                         <img
@@ -289,6 +286,7 @@ const HomePage = () => {
                             maxWidth: "70px",
                             marginRight: "10px",
                             boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                            alignSelf: "center",
                           }}
                           src={Logo}
                           alt="E20 Logo"
@@ -312,8 +310,9 @@ const HomePage = () => {
                         sx={{
                           display: "flex",
                           flexDirection: { xs: "column", md: "row" },
-                          alignItems: "center",
+                          alignItems: { sx: "start", md: "center" },
                           marginBottom: { xs: "15px", sm: "0px" },
+                          paddingBottom: "5px",
                         }}
                       >
                         <img
@@ -323,6 +322,7 @@ const HomePage = () => {
                             marginRight: "10px",
                             marginLeft: "10px",
                             boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                            alignSelf: "center",
                           }}
                           src={AdoptionLogo}
                           alt="Adăpostul Inimă și Lăbuțe Logo"
