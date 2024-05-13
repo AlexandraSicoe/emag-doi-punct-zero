@@ -119,12 +119,8 @@ const AccountEditForm = () => {
           justifyContent: { xs: "center", md: "start" },
           marginLeft: { xs: "0px", md: "25px" },
           padding: "25px",
-          width: {
-            xs: "100%",
-            sm: "100%",
-            md: "100%",
-            borderRadius: "16px",
-          },
+          width: "100%",
+          borderRadius: "16px",
         }}
       >
         <Typography level="h3" mb={2}>
@@ -156,7 +152,7 @@ const AccountEditForm = () => {
         >
           Salvează imaginea
         </Button>
-        <form>
+        <form style={{ width: "100%" }}>
           <Box display="flex" justifyContent="start" mb={2}>
             <Radio
               checked={selectedValue === "a"}
@@ -184,7 +180,7 @@ const AccountEditForm = () => {
             placeholder={placeholders[selectedValue].name}
             startDecorator={<PersonIcon sx={{ color: "#8b5cf6" }} />}
             type="text"
-            sx={{ mb: 1 }}
+            sx={{ mb: 1, width: "50%" }}
           />
           <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
             Email nou:
@@ -193,7 +189,7 @@ const AccountEditForm = () => {
             placeholder={placeholders[selectedValue].email}
             startDecorator={<EmailIcon sx={{ color: "#8b5cf6" }} />}
             type="text"
-            sx={{ mb: 1 }}
+            sx={{ mb: 1, width: "50%" }}
           />
           <FormLabel sx={{ fontSize: "15px", marginBottom: "5px" }}>
             Parola noua:
@@ -202,7 +198,7 @@ const AccountEditForm = () => {
             placeholder={"••••••"}
             startDecorator={<VpnKeyIcon sx={{ color: "#8b5cf6" }} />}
             type="text"
-            sx={{ mb: 1 }}
+            sx={{ mb: 1, width: "50%" }}
           />
           <Box
             sx={{
@@ -218,7 +214,7 @@ const AccountEditForm = () => {
               defaultCountry="ro"
               value={phone}
               onChange={(phone) => setPhone(phone)}
-              style={{ marginBottom: "5px", width: "100%" }}
+              style={{ marginBottom: "5px", width: "50%" }}
             />
           </Box>
           <Box
@@ -239,10 +235,11 @@ const AccountEditForm = () => {
                   max: maxDate18YearsAgo,
                 },
               }}
+              sx={{ mb: 1, width: "50%" }}
             />
           </Box>
 
-          <Button size="lg" sx={{ textAlign: "center" }}>
+          <Button size="lg" sx={{ textAlign: "center", width: "250px" }}>
             Salveaza informatiile
           </Button>
         </form>
