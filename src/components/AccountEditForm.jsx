@@ -175,6 +175,7 @@ const AccountEditForm = () => {
             onClick={() => {
               handleSaveProfilePicture();
             }}
+            disabled={imageFile === null}
           >
             Salvează imaginea
           </Button>
