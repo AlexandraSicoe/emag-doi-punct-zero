@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Dashboard from "../components/Dashboard.jsx";
 
-const TestPage = () => {
-  return <Dashboard />;
-};
+const TestPage = () => {};
 
 export default TestPage;

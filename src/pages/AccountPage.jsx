@@ -3,6 +3,8 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import ReviewsIcon from "@mui/icons-material/Reviews";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import Dashboard from "../components/Dashboard.jsx";
 
 import {
   Box,
@@ -105,6 +107,21 @@ const AccountPage = () => {
               </Box>
 
               <List>
+                <ListItem>
+                  <ListItemButton
+                    onClick={() => {
+                      setWhatOptionVisible("dashboard");
+                      navigate("/account?m=dashboard");
+                    }}
+                  >
+                    <ListItemDecorator>
+                      <DashboardIcon sx={{ color: "black" }} />
+                    </ListItemDecorator>
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Dashboard
+                    </Typography>
+                  </ListItemButton>
+                </ListItem>
                 <ListItem>
                   <ListItemButton
                     onClick={() => {
@@ -284,6 +301,7 @@ const AccountPage = () => {
                 <Orders userId={userData._id} />
               )}
               {whatOptionVisible === "review" && <MyReviews />}
+              {whatOptionVisible === "dashboard" && <Dashboard />}
             </Grid>
           </Grid>
         </>
