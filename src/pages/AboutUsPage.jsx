@@ -75,31 +75,40 @@ const AboutUsPage = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
+                justifyContent: "center",
                 margin: "15px",
                 marginTop: "15px",
-                maxWidth: "200px",
+                width: "230px",
                 minHeight: "510px",
+                borderRadius: "8px",
+                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                },
               }}
             >
               <img
                 style={{
                   height: "300px",
-                  borderRadius: "16px",
+                  borderTopLeftRadius: "8px",
+                  borderTopRightRadius: "8px",
+                  objectFit: "cover",
                 }}
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
               />
-              <Box>
-                <Typography level="body-lg" fontWeight="lg">
+              <Box sx={{ padding: "15px" }}>
+                <Typography level="body-md" fontWeight="lg">
                   Jonathan Kay
                 </Typography>
-                <Typography level="body-md">CO-Founder & CEO</Typography>
+                <Typography level="body-sm">CO-Founder & CEO</Typography>
                 <div
                   style={{
-                    borderBottom: "1px solid black",
-                    width: "40px",
+                    borderBottom: "2px solid #ddd",
+                    width: "100%",
                   }}
                 ></div>
-                <Typography sx={{ width: "200px" }}>
+                <Typography sx={{ width: "100%", color: "#444" }}>
                   Pionierul nostru, o forță motrice în domeniul nostru călăuzind
                   echipa către excelență în tehnologie.
                 </Typography>
@@ -109,35 +118,41 @@ const AboutUsPage = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
+                justifyContent: "center",
                 margin: "15px",
-                maxWidth: "200px",
+                marginTop: "15px",
+                width: "230px",
                 minHeight: "510px",
+                borderRadius: "8px",
+                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                },
               }}
             >
               <img
                 style={{
                   height: "300px",
-                  borderRadius: "16px",
+                  borderTopLeftRadius: "8px",
+                  borderTopRightRadius: "8px",
+                  objectFit: "cover",
                 }}
                 src="https://images.unsplash.com/photo-1464863979621-258859e62245?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1972&q=80"
+                alt="Person"
               />
-              <Box>
-                <Typography level="body-lg" fontWeight="lg">
+              <Box sx={{ padding: "15px" }}>
+                <Typography level="body-md" fontWeight="lg">
                   Kate Bilyeu
                 </Typography>
-                <Typography level="body-md">
-                  Designer Senior de Produs
-                </Typography>
+                <Typography level="body-sm">Designer de Produs</Typography>
                 <div
                   style={{
-                    borderBottom: "1px solid black",
-                    width: "40px",
-                    marginTop: "5px",
-                    marginBottom: "5px",
+                    borderBottom: "2px solid #ddd",
+                    width: "100%",
                   }}
                 ></div>
-                <Typography sx={{ width: "200px" }}>
+                <Typography sx={{ width: "100%", color: "#444" }}>
                   Creativitatea ei ne aduce designuri inovatoare care
                   îmbunătățesc experiența utilizatorilor.
                 </Typography>
@@ -148,106 +163,138 @@ const AboutUsPage = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
+                justifyContent: "center",
                 margin: "15px",
-                maxWidth: "200px",
+                marginTop: "15px",
+                width: "230px",
                 minHeight: "510px",
+                borderRadius: "8px",
+                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                },
               }}
             >
               <img
                 style={{
                   height: "300px",
-                  borderRadius: "16px",
+                  borderTopLeftRadius: "8px",
+                  borderTopRightRadius: "8px",
+                  objectFit: "cover",
                 }}
                 src="https://images.unsplash.com/photo-1587723958656-ee042cc565a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
               />
-              <Typography level="body-lg" fontWeight="lg">
-                Luna
-              </Typography>
-              <Typography level="body-md">Lead Purrgrammer</Typography>
-              <div
-                style={{
-                  borderBottom: "1px solid black",
-                  width: "40px",
-                  marginTop: "5px",
-                  marginBottom: "5px",
-                }}
-              ></div>
-              <Typography sx={{ width: "200px" }}>
-                Specialist în arta dezvoltării produselor pentru animale de
-                companie, pasionat de bunăstarea lor.
-              </Typography>
+              <Box sx={{ padding: "15px" }}>
+                <Typography level="body-md" fontWeight="lg">
+                  Luna
+                </Typography>
+                <Typography level="body-sm">Lead Purrgrammer</Typography>
+                <div
+                  style={{
+                    borderBottom: "2px solid #ddd",
+                    width: "100%",
+                  }}
+                ></div>
+                <Typography sx={{ width: "100%", color: "#444" }}>
+                  Specialist în arta dezvoltării produselor pentru animale de
+                  companie, pasionat de bunăstarea lor.
+                </Typography>
+              </Box>
             </Box>
 
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
+                justifyContent: "center",
                 margin: "15px",
-                paddingTop: "15px",
-                maxWidth: "200px",
+                marginTop: "15px",
+                width: "230px",
                 minHeight: "510px",
+                borderRadius: "8px",
+                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                },
               }}
             >
               <img
                 style={{
                   height: "300px",
-                  borderRadius: "16px",
+                  borderTopLeftRadius: "8px",
+                  borderTopRightRadius: "8px",
+                  objectFit: "cover",
                 }}
                 src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
               />
-              <Typography level="body-lg" fontWeight="lg">
-                Mike Fairchild
-              </Typography>
-              <Typography level="body-md">Inginer Senior de Date</Typography>
-              <div
-                style={{
-                  borderBottom: "1px solid black",
-                  width: "40px",
-                  marginTop: "5px",
-                  marginBottom: "5px",
-                }}
-              ></div>
-              <Typography sx={{ width: "200px" }}>
-                Analize profunde ale datelor, furnizând informații valoroase
-                pentru luarea deciziilor.
-              </Typography>
+              <Box sx={{ padding: "15px" }}>
+                <Typography level="body-md" fontWeight="lg">
+                  Mike Fairchild
+                </Typography>
+                <Typography level="body-sm">Inginer Senior de Date</Typography>
+                <div
+                  style={{
+                    borderBottom: "2px solid #ddd",
+                    width: "100%",
+                  }}
+                ></div>
+                <Typography
+                  sx={{
+                    width: "100%",
+                    color: "#444",
+                    minHeight: { xs: "0px", sm: "130px", md: "0px" },
+                  }}
+                >
+                  Analize profunde ale datelor, furnizând informații valoroase
+                  pentru luarea deciziilor.
+                </Typography>
+              </Box>
             </Box>
+
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
+                justifyContent: "center",
                 margin: "15px",
-                paddingTop: "15px",
-                maxWidth: "200px",
+                marginTop: "15px",
+                width: "230px",
                 minHeight: "510px",
+                borderRadius: "8px",
+                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                },
               }}
             >
               <img
                 style={{
                   height: "300px",
-                  borderRadius: "16px",
+                  borderTopLeftRadius: "8px",
+                  borderTopRightRadius: "8px",
+                  objectFit: "cover",
                 }}
                 src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
               />
-              <Typography level="body-lg" fontWeight="lg">
-                Adam Gilinsky
-              </Typography>
-              <Typography level="body-md">Manager de Produs</Typography>
-              <div
-                style={{
-                  borderBottom: "1px solid black",
-                  width: "40px",
-                  marginTop: "5px",
-                  marginBottom: "5px",
-                }}
-              ></div>
-              <Typography sx={{ width: "200px" }}>
-                Ghidul echipei noastre, asigurând dezvoltarea și lansarea cu
-                succes a produselor noastre.
-              </Typography>
+              <Box sx={{ padding: "15px" }}>
+                <Typography level="body-md" fontWeight="lg">
+                  Adam Gilinsky
+                </Typography>
+                <Typography level="body-sm">Manager de Produs</Typography>
+                <div
+                  style={{
+                    borderBottom: "2px solid #ddd",
+                    width: "100%",
+                  }}
+                ></div>
+                <Typography sx={{ width: "100%", color: "#444" }}>
+                  Ghidul echipei noastre, asigurând dezvoltarea și lansarea cu
+                  succes a produselor noastre.
+                </Typography>
+              </Box>
             </Box>
           </Box>
           <Link to="/contact">
