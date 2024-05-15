@@ -11,7 +11,15 @@ const Dashboard = () => {
       const response = await axios.get(
         "https://e20.ro/api/orders/user/" + userID + "/lastOrder"
       );
-      console.log("Response:", response.data);
+      console.log("Response:", response);
+      for (const product of response.data.products) {
+        const category = await axios.get(
+          "https://e20.ro/api/categories/" + product.category
+        );
+        product.category = category.data;
+        console.log(category.data);
+      }
+      console.log(response.data);
       setLastOrder(response.data);
     } catch (error) {
       console.error("Error fetching last order:", error);
@@ -45,26 +53,97 @@ const Dashboard = () => {
           marginTop: { xs: "25px", md: "0px" },
         }}
       >
-        <Typography sx={{ marginBottom: "10px" }} level="h3">
+        <Typography level="title-lg" sx={{ marginBottom: "10px" }} level="h3">
           Ultima comandă
         </Typography>
 
         <Box>
           {lastOrder ? (
-            <>
-              <Typography>Comanda: {lastOrder._id}</Typography>
-              {lastOrder.products.map((product, index) => {
-                return (
-                  <Box key={index}>
-                    <Typography>Numele: {product.name}</Typography>
-                    <Typography>Categoria: {product.category}</Typography>
-                    <Typography>Preț: {product.price}</Typography>
+            <Box
+              style={{
+                padding: "20px",
+                backgroundColor: "#f4f4f4",
+                borderRadius: "8px",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <Typography level="title-lg">Informații comandă</Typography>
+              <Box>
+                <Typography level="body-md">
+                  Cod comandă {lastOrder._id.slice(0, -12)}
+                </Typography>
+                {lastOrder.products.map((product, index) => (
+                  <Box
+                    key={index}
+                    style={{
+                      marginBottom: "20px",
+                      padding: "20px",
+                      backgroundColor: "#fff",
+                      borderRadius: "8px",
+                      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "start",
+                        justifyContent: "flex-start",
+                      }}
+                    >
+                      <Typography level="body-lg" sx={{ fontWeight: "bold" }}>
+                        {product.name}
+                      </Typography>
+                      <Typography level="body-md">
+                        Categorie:{" "}
+                        <span style={{ fontWeight: "bold" }}>
+                          {" "}
+                          {product.category.title}
+                        </span>
+                      </Typography>
+                    </Box>
+
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "end",
+                        justifyContent: "flex-end",
+                      }}
+                    >
+                      <img
+                        style={{
+                          width: "80px",
+                          height: "80px",
+                          objectFit: "cover",
+                          marginRight: "10px",
+                        }}
+                        src={product.images}
+                        alt="Product"
+                      />
+                      <Typography level="body-md" sx={{ fontWeight: "bold" }}>
+                        {product.price} RON
+                      </Typography>
+                    </Box>
                   </Box>
-                );
-              })}
-              <Typography>Total: {lastOrder.totalPrice}</Typography>
-              <Typography>Data creării: {lastOrder.createdAt}</Typography>
-            </>
+                ))}
+                <Typography level="body-md">
+                  Total:{" "}
+                  <span style={{ fontWeight: "bold" }}>
+                    {lastOrder.totalPrice} RON
+                  </span>
+                </Typography>
+                <Typography level="body-md">
+                  Data creării:{" "}
+                  <span style={{ fontWeight: "bold" }}>
+                    {lastOrder.createdAt}
+                  </span>
+                </Typography>
+              </Box>
+            </Box>
           ) : (
             <Typography>Încă nu ai nicio comandă</Typography>
           )}
