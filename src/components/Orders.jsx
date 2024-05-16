@@ -56,7 +56,6 @@ const Orders = ({ userId }) => {
   return (
     <>
       <Grid
-        backgroundColor="#F2F2F7"
         sx={{
           flexDirection: { xs: "column" },
         }}

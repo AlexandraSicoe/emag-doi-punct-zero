@@ -219,6 +219,7 @@ const AccountPage = () => {
                   justifyContent: "center",
                   flexDirection: "column",
                   padding: "25px",
+                  width: "100%",
                   backgroundColor: "white",
                   borderRadius: "16px",
                   borderRadius: "16px",
@@ -226,7 +227,7 @@ const AccountPage = () => {
                   marginTop: { xs: "25px", md: "0px" },
                 }}
               >
-                <Typography sx={{ marginBottom: "10px" }} level="h3">
+                <Typography level="title-lg" sx={{ marginBottom: "10px" }}>
                   Datele contului:
                 </Typography>
                 <Box

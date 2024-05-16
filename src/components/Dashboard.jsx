@@ -35,69 +35,99 @@ const Dashboard = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        alignItems: { xs: "center", md: "start" },
-        justifyContent: { xs: "start", md: "center" },
-        padding: "25px",
       }}
     >
+      <Grid
+        p={2}
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          width: "100%",
+          backgroundColor: "white",
+          borderRadius: "16px",
+          borderRadius: "16px",
+          marginBottom: "25px",
+          marginTop: "25px",
+          marginLeft: { xs: "0px", md: "25px" },
+        }}
+      >
+        <Button
+          sx={{
+            width: "200px",
+            height: "30px",
+            marginBottom: { xs: "15px", sm: "0px" },
+            marginRight: { xs: "0px", sm: "15px" },
+          }}
+        >
+          Vezi produsele tale
+        </Button>
+        <Button
+          sx={{
+            width: "200px",
+            height: "30px",
+            marginRight: { xs: "0px", sm: "15px" },
+            marginBottom: { xs: "15px", sm: "0px" },
+          }}
+        >
+          Adaugă produs nou
+        </Button>
+        <Button
+          sx={{
+            width: "200px",
+            height: "30px",
+          }}
+        >
+          Șterge un produs
+        </Button>
+      </Grid>
       <Box
         sx={{
           display: "flex",
           alignItems: "start",
           justifyContent: "center",
           flexDirection: "column",
+          width: "100%",
           padding: "25px",
           backgroundColor: "white",
           borderRadius: "16px",
           marginLeft: { xs: "0px", md: "25px" },
-          marginTop: { xs: "25px", md: "0px" },
         }}
       >
-        <Typography level="title-lg" sx={{ marginBottom: "10px" }} level="h3">
-          Ultima comandă
-        </Typography>
-
         <Box>
           {lastOrder ? (
-            <Box
-              style={{
-                padding: "20px",
-                backgroundColor: "#f4f4f4",
-                borderRadius: "8px",
-                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              <Typography level="title-lg">Informații comandă</Typography>
+            <>
+              <Typography level="title-lg">Ultima comandă</Typography>
               <Box>
-                <Typography level="body-md">
-                  Cod comandă {lastOrder._id.slice(0, -12)}
+                <Typography level="title-sm">
+                  Cod comandă: {lastOrder._id.slice(0, -12)}
                 </Typography>
                 {lastOrder.products.map((product, index) => (
                   <Box
                     key={index}
-                    style={{
+                    sx={{
                       marginBottom: "20px",
                       padding: "20px",
                       backgroundColor: "#fff",
                       borderRadius: "8px",
-                      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
                       display: "flex",
-                      flexDirection: "row",
+                      flexDirection: { xs: "column", md: "row" },
                       alignItems: "center",
+                      justifyContent: { xs: "center", md: "space-between" },
                     }}
                   >
                     <Box
                       sx={{
                         display: "flex",
                         flexDirection: "column",
-                        alignItems: "start",
+                        alignItems: { xs: "center", md: "start" },
                         justifyContent: "flex-start",
                       }}
                     >
-                      <Typography level="body-lg" sx={{ fontWeight: "bold" }}>
+                      <Typography level="title-md" sx={{ fontWeight: "bold" }}>
                         {product.name}
                       </Typography>
-                      <Typography level="body-md">
+                      <Typography level="title-sm">
                         Categorie:{" "}
                         <span style={{ fontWeight: "bold" }}>
                           {" "}
@@ -112,6 +142,8 @@ const Dashboard = () => {
                         flexDirection: "column",
                         alignItems: "end",
                         justifyContent: "flex-end",
+                        alignItems: "center",
+                        flexWrap: "wrap",
                       }}
                     >
                       <img
@@ -120,59 +152,43 @@ const Dashboard = () => {
                           height: "80px",
                           objectFit: "cover",
                           marginRight: "10px",
+                          marginTop: { xs: "10px", md: "0px" },
                         }}
                         src={product.images}
                         alt="Product"
                       />
-                      <Typography level="body-md" sx={{ fontWeight: "bold" }}>
+                      <Typography level="title-sm" sx={{ fontWeight: "bold" }}>
                         {product.price} RON
                       </Typography>
                     </Box>
                   </Box>
                 ))}
-                <Typography level="body-md">
-                  Total:{" "}
-                  <span style={{ fontWeight: "bold" }}>
-                    {lastOrder.totalPrice} RON
-                  </span>
-                </Typography>
-                <Typography level="body-md">
-                  Data creării:{" "}
-                  <span style={{ fontWeight: "bold" }}>
-                    {lastOrder.createdAt}
-                  </span>
-                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flexWrap: "nowrap",
+                  }}
+                >
+                  <Typography level="title-sm">
+                    Total:{" "}
+                    <span style={{ fontWeight: "bold" }}>
+                      {lastOrder.totalPrice} RON
+                    </span>
+                  </Typography>
+                  <Typography level="title-sm">
+                    Data creării:{" "}
+                    <span style={{ fontWeight: "bold" }}>
+                      {lastOrder.createdAt.slice(0, -14)}
+                    </span>
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
+            </>
           ) : (
             <Typography>Încă nu ai nicio comandă</Typography>
           )}
         </Box>
-      </Box>
-
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "start",
-          justifyContent: "center",
-          flexDirection: "column",
-          padding: "25px",
-          backgroundColor: "white",
-          borderRadius: "16px",
-          borderRadius: "16px",
-          marginLeft: { xs: "0px", md: "25px" },
-          marginTop: { xs: "25px", md: "0px" },
-        }}
-      >
-        <Button size="md" sx={{ marginBottom: "10px" }}>
-          Vezi produsele tale
-        </Button>
-        <Button size="md" sx={{ marginBottom: "10px" }}>
-          Adaugă produs nou
-        </Button>
-        <Button size="md" sx={{ marginBottom: "10px" }}>
-          Șterge un produs
-        </Button>
       </Box>
     </Grid>
   );
