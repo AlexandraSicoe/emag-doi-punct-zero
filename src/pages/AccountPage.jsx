@@ -3,6 +3,8 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import ReviewsIcon from "@mui/icons-material/Reviews";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import Dashboard from "../components/Dashboard.jsx";
 
 import {
   Box,
@@ -108,6 +110,21 @@ const AccountPage = () => {
                 <ListItem>
                   <ListItemButton
                     onClick={() => {
+                      setWhatOptionVisible("dashboard");
+                      navigate("/account?m=dashboard");
+                    }}
+                  >
+                    <ListItemDecorator>
+                      <DashboardIcon sx={{ color: "black" }} />
+                    </ListItemDecorator>
+                    <Typography level="h5" sx={{ color: "black" }}>
+                      Dashboard
+                    </Typography>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton
+                    onClick={() => {
                       setWhatOptionVisible("addProduct");
                       navigate("/account?m=addProduct");
                     }}
@@ -202,6 +219,7 @@ const AccountPage = () => {
                   justifyContent: "center",
                   flexDirection: "column",
                   padding: "25px",
+                  width: "100%",
                   backgroundColor: "white",
                   borderRadius: "16px",
                   borderRadius: "16px",
@@ -209,7 +227,7 @@ const AccountPage = () => {
                   marginTop: { xs: "25px", md: "0px" },
                 }}
               >
-                <Typography sx={{ marginBottom: "10px" }} level="h3">
+                <Typography level="title-lg" sx={{ marginBottom: "10px" }}>
                   Datele contului:
                 </Typography>
                 <Box
@@ -284,6 +302,7 @@ const AccountPage = () => {
                 <Orders userId={userData._id} />
               )}
               {whatOptionVisible === "review" && <MyReviews />}
+              {whatOptionVisible === "dashboard" && <Dashboard />}
             </Grid>
           </Grid>
         </>
