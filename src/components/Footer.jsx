@@ -74,7 +74,7 @@ const Footer = () => {
         <Box
           sx={{
             display: { xs: "none", md: "flex" },
-            flexDirection: { xs: "column", sm: "row", md: "row" },
+            flexDirection: { xs: "column", sm: "row" },
             color: "white",
             justifyContent: "space-around",
           }}
@@ -177,64 +177,61 @@ const Footer = () => {
               URMARESTE-NE
             </Typography>
 
-            <Box
+            <ListItem
               sx={{
                 display: "flex",
                 flexDirection: "row",
-                marginBottom: "15px",
+                color: "white",
               }}
             >
-              <ListItem>
-                <Link style={{ color: "white", marginRight: "5px" }} to="#">
-                  <i
-                    style={{
-                      fontSize: "25px",
-                    }}
-                    class="fa-brands fa-square-instagram"
-                  ></i>
-                </Link>
-              </ListItem>
-              <Typography
-                level="body-md"
-                sx={{
+              <i
+                style={{
+                  fontSize: "20px",
+                }}
+                class="fa-brands fa-square-instagram"
+              ></i>
+              <Link style={{ color: "white", marginRight: "5px" }} to="#">
+                <Typography
+                  level="body-md"
+                  sx={{
+                    color: "white",
+                  }}
+                >
+                  Instagram
+                </Typography>
+              </Link>
+            </ListItem>
+
+            <ListItem
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                color: "white",
+              }}
+            >
+              <i
+                style={{
+                  fontSize: "20px",
                   color: "white",
                 }}
-              >
-                Instagram
-              </Typography>
-            </Box>
+                class="fa-brands fa-facebook"
+              ></i>
+              <Link style={{ color: "white", marginRight: "5px" }} to="#">
+                <Typography
+                  level="body-md"
+                  sx={{
+                    color: "white",
+                  }}
+                >
+                  Facebook
+                </Typography>
+              </Link>
+            </ListItem>
 
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "row",
-                marginBottom: "15px",
-              }}
-            >
-              <ListItem>
-                <Link style={{ color: "white", marginRight: "5px" }} to="#">
-                  <i
-                    style={{
-                      fontSize: "20px",
-                    }}
-                    class="fa-brands fa-facebook"
-                  ></i>
-                </Link>
-              </ListItem>
-              <Typography
-                level="body-md"
-                sx={{
-                  color: "white",
-                }}
-              >
-                Facebook
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                marginBottom: "15px",
               }}
             >
               <ListItem>
@@ -260,7 +257,6 @@ const Footer = () => {
               sx={{
                 display: "flex",
                 flexDirection: "row",
-                marginBottom: "15px",
               }}
             >
               <ListItem>
@@ -313,7 +309,7 @@ const Footer = () => {
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
+                    alignItems: "start",
                     marginBottom: { xs: "20px", md: "0px" },
                   }}
                 >
@@ -335,7 +331,7 @@ const Footer = () => {
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
+                    alignItems: "start",
                     marginBottom: { xs: "20px", md: "0px" },
                   }}
                 >
@@ -359,7 +355,7 @@ const Footer = () => {
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
+                    alignItems: "start",
                     marginBottom: { xs: "20px", md: "0px" },
                   }}
                 >
@@ -372,7 +368,6 @@ const Footer = () => {
                     <ListItem>
                       <i
                         style={{
-                          fontSize: "20px",
                           color: "white",
                         }}
                         class="fa-brands fa-square-instagram"
@@ -382,6 +377,7 @@ const Footer = () => {
                           level="body-md"
                           sx={{
                             color: "white",
+                            fontSize: "15px",
                           }}
                         >
                           Instagram
@@ -399,7 +395,6 @@ const Footer = () => {
                     <ListItem>
                       <i
                         style={{
-                          fontSize: "20px",
                           color: "white",
                         }}
                         class="fa-brands fa-facebook"
@@ -409,6 +404,7 @@ const Footer = () => {
                           level="body-md"
                           sx={{
                             color: "white",
+                            fontSize: "15px",
                           }}
                         >
                           Facebook
@@ -425,7 +421,6 @@ const Footer = () => {
                     <ListItem>
                       <i
                         style={{
-                          fontSize: "20px",
                           color: "white",
                         }}
                         class="fa-brands fa-square-whatsapp"
@@ -435,6 +430,7 @@ const Footer = () => {
                           level="body-md"
                           sx={{
                             color: "white",
+                            fontSize: "15px",
                           }}
                         >
                           WhatsApp
@@ -452,7 +448,6 @@ const Footer = () => {
                     <ListItem>
                       <i
                         style={{
-                          fontSize: "20px",
                           color: "white",
                         }}
                         class="fa-brands fa-twitter"
@@ -462,6 +457,7 @@ const Footer = () => {
                           level="body-md"
                           sx={{
                             color: "white",
+                            fontSize: "15px",
                           }}
                         >
                           Twitter
