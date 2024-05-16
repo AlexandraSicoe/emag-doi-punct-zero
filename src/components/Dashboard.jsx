@@ -53,7 +53,7 @@ const Dashboard = () => {
       >
         <Button
           sx={{
-            width: "200px",
+            width: { xs: "100%", md: "200px" },
             height: "30px",
             marginBottom: { xs: "15px", sm: "0px" },
             marginRight: { xs: "0px", sm: "15px" },
@@ -63,7 +63,8 @@ const Dashboard = () => {
         </Button>
         <Button
           sx={{
-            width: "200px",
+            width: { xs: "100%", md: "200px" },
+
             height: "30px",
             marginRight: { xs: "0px", sm: "15px" },
             marginBottom: { xs: "15px", sm: "0px" },
@@ -73,7 +74,8 @@ const Dashboard = () => {
         </Button>
         <Button
           sx={{
-            width: "200px",
+            width: { xs: "100%", md: "200px" },
+
             height: "30px",
           }}
         >
@@ -111,16 +113,15 @@ const Dashboard = () => {
                       borderRadius: "8px",
                       boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
                       display: "flex",
-                      flexDirection: { xs: "column", md: "row" },
-                      alignItems: "center",
-                      justifyContent: { xs: "center", md: "space-between" },
+                      flexDirection: { xs: "column", lg: "row" },
+                      justifyContent: { xs: "start", md: "space-between" },
+                      alignItems: "start",
                     }}
                   >
                     <Box
                       sx={{
                         display: "flex",
                         flexDirection: "column",
-                        alignItems: { xs: "center", md: "start" },
                         justifyContent: "flex-start",
                       }}
                     >
@@ -134,32 +135,27 @@ const Dashboard = () => {
                           {product.category.title}
                         </span>
                       </Typography>
+                      <Typography level="title-sm">
+                        Preț:
+                        <span style={{ fontWeight: "bold" }}>
+                          {" "}
+                          {product.price} RON
+                        </span>
+                      </Typography>
                     </Box>
-
                     <Box
                       sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "end",
-                        justifyContent: "flex-end",
-                        alignItems: "center",
-                        flexWrap: "wrap",
+                        width: { xs: "100%", lg: "200px" },
                       }}
                     >
                       <img
                         style={{
-                          width: "80px",
-                          height: "80px",
-                          objectFit: "cover",
-                          marginRight: "10px",
-                          marginTop: { xs: "10px", md: "0px" },
+                          height: "200px",
+                          marginTop: { xs: "20px", md: "0px" },
                         }}
                         src={product.images}
                         alt="Product"
                       />
-                      <Typography level="title-sm" sx={{ fontWeight: "bold" }}>
-                        {product.price} RON
-                      </Typography>
                     </Box>
                   </Box>
                 ))}
