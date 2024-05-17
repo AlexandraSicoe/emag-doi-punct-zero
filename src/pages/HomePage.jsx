@@ -38,7 +38,7 @@ const HomePage = () => {
     setLoading(true);
     try {
       const result = await axios.get(
-        "https://e20.ro/api/products?page=1&limit=50"
+        "https://e20.ro/api/products?page=1&limit=500"
       );
       setProductList(result.data);
     } catch (error) {

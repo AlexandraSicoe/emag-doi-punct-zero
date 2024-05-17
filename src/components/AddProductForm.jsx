@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 import SelectCategory from "./SelectCategory";
 import PreviewImage from "../images/PreviewImage.jpg";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const AddProductForm = () => {
   const navigate = useNavigate();
 
@@ -40,7 +40,6 @@ const AddProductForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    event.preventDefault();
 
     if (!name || !price || !description || !selectedCategory || !selectedFile) {
       toast.error("Toate câmpurile sunt obligatorii!");
@@ -68,7 +67,7 @@ const AddProductForm = () => {
       );
       console.log("Response:", response);
       toast.success("Produsul a fost adăugat cu succes!");
-      navigate("/product?id=" + response.data._id);
+      // navigate("/product?id=" + response.data._id);
     } catch (error) {
       console.error("Error uploading product", error);
       toast.error("A apărut o eroare la adăugarea produsului!");
