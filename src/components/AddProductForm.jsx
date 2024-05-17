@@ -4,6 +4,8 @@ import Option from "@mui/joy/Option";
 import Textarea from "@mui/joy/Textarea";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 import SelectCategory from "./SelectCategory";
 import PreviewImage from "../images/PreviewImage.jpg";
 const AddProductForm = () => {
@@ -35,7 +37,12 @@ const AddProductForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    event.preventDefault();
 
+    if (!name || !price || !description || !selectedCategory || !selectedFile) {
+      toast.error("Toate câmpurile sunt obligatorii!");
+      return;
+    }
     const userData = JSON.parse(localStorage.getItem("user"));
     const user = userData._id;
     const formData = new FormData();
@@ -52,8 +59,10 @@ const AddProductForm = () => {
           "Content-Type": "multipart/form-data",
         },
       });
+      toast.success("Produsul a fost adăugat cu succes!");
     } catch (error) {
       console.error("Error uploading product", error);
+      toast.error("A apărut o eroare la adăugarea produsului!");
     }
   };
 
@@ -77,7 +86,6 @@ const AddProductForm = () => {
           display: "flex",
           flexDirection: "column",
           marginTop: "25px",
-          backgroundColor: "blue",
         }}
       >
         <Grid

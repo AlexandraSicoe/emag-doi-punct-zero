@@ -209,7 +209,6 @@ const AccountPage = () => {
                 display: "flex",
                 flexDirection: "column",
                 width: { xs: "100%", sm: "100%", md: "50%" },
-                backgroundColor: "red",
               }}
             >
               <Box
