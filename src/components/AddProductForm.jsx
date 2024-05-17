@@ -8,7 +8,10 @@ import { toast } from "react-toastify";
 
 import SelectCategory from "./SelectCategory";
 import PreviewImage from "../images/PreviewImage.jpg";
+import { Navigate, useNavigate } from "react-router-dom";
 const AddProductForm = () => {
+  const navigate = useNavigate();
+
   const fileInputRef = useRef(null);
   const [previewImage, setPreviewImage] = useState(
     "https://static.vecteezy.com/system/resources/previews/013/460/316/non_2x/plant-cloud-leaf-technology-bold-and-thin-black-line-icon-set-free-vector.jpg"
@@ -54,12 +57,18 @@ const AddProductForm = () => {
     formData.append("category", selectedCategory);
 
     try {
-      await axios.post("https://e20.ro/api/products", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "https://e20.ro/api/products",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Response:", response);
       toast.success("Produsul a fost adăugat cu succes!");
+      navigate("/product?id=" + response.data._id);
     } catch (error) {
       console.error("Error uploading product", error);
       toast.error("A apărut o eroare la adăugarea produsului!");
