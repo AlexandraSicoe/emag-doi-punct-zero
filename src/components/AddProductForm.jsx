@@ -4,9 +4,14 @@ import Option from "@mui/joy/Option";
 import Textarea from "@mui/joy/Textarea";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 import SelectCategory from "./SelectCategory";
 import PreviewImage from "../images/PreviewImage.jpg";
+import { Navigate, useNavigate } from "react-router-dom";
 const AddProductForm = () => {
+  const navigate = useNavigate();
+
   const fileInputRef = useRef(null);
   const [previewImage, setPreviewImage] = useState(
     "https://static.vecteezy.com/system/resources/previews/013/460/316/non_2x/plant-cloud-leaf-technology-bold-and-thin-black-line-icon-set-free-vector.jpg"
@@ -35,7 +40,12 @@ const AddProductForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    event.preventDefault();
 
+    if (!name || !price || !description || !selectedCategory || !selectedFile) {
+      toast.error("Toate câmpurile sunt obligatorii!");
+      return;
+    }
     const userData = JSON.parse(localStorage.getItem("user"));
     const user = userData._id;
     const formData = new FormData();
@@ -47,13 +57,21 @@ const AddProductForm = () => {
     formData.append("category", selectedCategory);
 
     try {
-      await axios.post("https://e20.ro/api/products", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "https://e20.ro/api/products",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Response:", response);
+      toast.success("Produsul a fost adăugat cu succes!");
+      navigate("/product?id=" + response.data._id);
     } catch (error) {
       console.error("Error uploading product", error);
+      toast.error("A apărut o eroare la adăugarea produsului!");
     }
   };
 
@@ -72,25 +90,22 @@ const AddProductForm = () => {
 
   return (
     <>
-      <Box
+      <Grid
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", sm: "column", md: "row" },
-          justifyContent: "center",
-          width: "100%",
+          flexDirection: "column",
           marginTop: "25px",
         }}
       >
-        <Box
+        <Grid
+          p={2}
           sx={{
             display: "flex",
-            alignItems: "start",
             flexDirection: "column",
             backgroundColor: "white",
             borderRadius: "16px",
             width: "100%",
             marginLeft: { xs: "0px", md: "25px" },
-            padding: "25px",
             boxSizing: "border-box",
           }}
         >
@@ -177,8 +192,18 @@ const AddProductForm = () => {
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Input
                 sx={{
-                  border: "solid 1px	#1F51FF",
+                  border: "solid 1px #1F51FF",
                   marginBottom: "5px",
+                  // Hide the spinners for Chrome, Safari, Edge, and Opera
+                  "& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button": {
+                    display: "none",
+                    WebkitAppearance: "none",
+                    margin: 0,
+                  },
+                  // Hide the spinners for Firefox
+                  "& input[type=number]": {
+                    MozAppearance: "textfield",
+                  },
                 }}
                 type="number"
                 required
@@ -192,7 +217,7 @@ const AddProductForm = () => {
                 sx={{
                   fontWeight: "bold",
                   marginLeft: "5px",
-                  marginTop: "-3px",
+                  alignSelf: "center",
                 }}
               >
                 RON
@@ -214,9 +239,8 @@ const AddProductForm = () => {
 
             <Button type="submit">Adaugă produs</Button>
           </form>
-          <Box sx={{ height: "500px" }}></Box>
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
     </>
   );
 };

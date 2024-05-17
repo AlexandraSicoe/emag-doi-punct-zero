@@ -208,7 +208,6 @@ const AccountPage = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "space-between",
                 width: { xs: "100%", sm: "100%", md: "50%" },
               }}
             >
@@ -216,7 +215,6 @@ const AccountPage = () => {
                 sx={{
                   display: "flex",
                   alignItems: "start",
-                  justifyContent: "center",
                   flexDirection: "column",
                   padding: "25px",
                   width: "100%",
