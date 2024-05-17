@@ -72,25 +72,23 @@ const AddProductForm = () => {
 
   return (
     <>
-      <Box
+      <Grid
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", sm: "column", md: "row" },
-          justifyContent: "center",
-          width: "100%",
+          flexDirection: "column",
           marginTop: "25px",
+          backgroundColor: "blue",
         }}
       >
-        <Box
+        <Grid
+          p={2}
           sx={{
             display: "flex",
-            alignItems: "start",
             flexDirection: "column",
             backgroundColor: "white",
             borderRadius: "16px",
             width: "100%",
             marginLeft: { xs: "0px", md: "25px" },
-            padding: "25px",
             boxSizing: "border-box",
           }}
         >
@@ -177,8 +175,18 @@ const AddProductForm = () => {
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Input
                 sx={{
-                  border: "solid 1px	#1F51FF",
+                  border: "solid 1px #1F51FF",
                   marginBottom: "5px",
+                  // Hide the spinners for Chrome, Safari, Edge, and Opera
+                  "& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button": {
+                    display: "none",
+                    WebkitAppearance: "none",
+                    margin: 0,
+                  },
+                  // Hide the spinners for Firefox
+                  "& input[type=number]": {
+                    MozAppearance: "textfield",
+                  },
                 }}
                 type="number"
                 required
@@ -192,7 +200,7 @@ const AddProductForm = () => {
                 sx={{
                   fontWeight: "bold",
                   marginLeft: "5px",
-                  marginTop: "-3px",
+                  alignSelf: "center",
                 }}
               >
                 RON
@@ -214,9 +222,8 @@ const AddProductForm = () => {
 
             <Button type="submit">Adaugă produs</Button>
           </form>
-          <Box sx={{ height: "500px" }}></Box>
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
     </>
   );
 };
