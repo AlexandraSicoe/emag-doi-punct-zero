@@ -294,7 +294,7 @@ const AccountEditForm = () => {
                   },
                 }}
                 sx={{ mb: 1, width: "50%" }}
-                value={storedUserData.birthday.slice(0, 10)}
+                value={storedUserData?.birthday?.slice(0, 10)}
                 onChange={(e) => {
                   const { value } = e.target; // Get the value from the input field
                   // Update storedUserData with the new name value
