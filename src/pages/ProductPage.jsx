@@ -14,121 +14,118 @@ import addToCartAndGetCart from "../helpers/productActions";
 const ProductPage = () => {
   const query = useQuery();
   const navigate = useNavigate();
-  const [productData, setProductData] = useState();
+  const [productData, setProductData] = useState(null);
   const [cartValue, setCartValue] = useCart();
 
   const getProductData = async () => {
     try {
       const id = query.get("id");
       if (id && id.length > 0) {
-        const result = await axios.get("https://e20.ro/api/products/" + id);
+        const result = await axios.get(`https://e20.ro/api/products/${id}`);
         setProductData(result.data);
       } else {
-        navigate("/404", { replace: true }); //in caz ca pagina este eronata, vrem cand dam inapoi ca pagina eronata sa fie ignorata, altfel este un infinite loop
+        navigate("/404", { replace: true });
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching product data:", error);
+      navigate("/404", { replace: true });
     }
   };
+
   useEffect(() => {
     getProductData();
-    let lsCart = localStorage.getItem("cart");
-    lsCart = JSON.parse(lsCart);
+    const lsCart = JSON.parse(localStorage.getItem("cart"));
     setCartValue(lsCart ? lsCart : []);
   }, []);
+
+  const handleAddToCart = () => {
+    const updatedCart = addToCartAndGetCart(cartValue, productData);
+    setCartValue(updatedCart);
+  };
+
+  if (!productData) {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "fixed",
+          top: "calc(50% - 40px)",
+          left: "calc(50% - 40px)",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
+
   return (
     <>
       <Navbar cartValue={cartValue} />
-      {!productData ? (
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "fixed",
-            top: "calc(50% - 40px)",
-            left: "calc(50% - 40px)",
-          }}
-        >
-          <CircularProgress />
-        </Box>
-      ) : (
-        <Grid sx={{ padding: "25px" }} container>
-          <Grid xs={12} md={6}>
+      <Grid container sx={{ padding: "25px" }}>
+        <Grid xs={12} md={6}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "center", md: "end" },
+              marginRight: { md: "25px" },
+            }}
+          >
             <Box
-              sx={{
-                display: "flex",
-                justifyContent: { xs: "center", md: "end" },
-                marginRight: { md: "25px" },
-              }}
+              sx={{ width: { xs: "100%", md: "500px" }, objectFit: "contain" }}
             >
-              <Box
-                sx={{
-                  width: { xs: "100%", md: "500px" },
-                  objectFit: "contain",
-                }}
-              >
-                <img
-                  style={{ width: "100%" }}
-                  src={productData.images[0]}
-                  alt="product"
-                />
-                <ReviewSection />
-                <Box sx={{ display: { xs: "none", md: "block" } }}>
-                  <ReviewSample />
-                </Box>
+              <img
+                style={{ width: "100%" }}
+                src={productData.images[0]}
+                alt="product"
+              />
+              <ReviewSection />
+              <Box sx={{ display: { xs: "none", md: "block" } }}>
+                <ReviewSample />
               </Box>
             </Box>
-          </Grid>
-          <Grid xs={12} md={6}>
-            <Box
-              sx={{
-                width: { xs: "100%", md: "500px" },
-                padding: { xs: "25px", md: "0px" },
-              }}
-            >
-              <Typography level="h3" sx={{ marginBottom: "20px" }}>
-                {productData.name}
-              </Typography>
-              <Typography level="h4" sx={{ marginBottom: "5px" }}>
-                Vândut de: {productData.user.name}
-              </Typography>
-              <Typography level="h4" sx={{ marginBottom: "5px" }}>
-                {productData.category}
-              </Typography>
-              <Typography level="body-md" sx={{ marginBottom: "5px" }}>
-                {productData.description}
-              </Typography>
-              <Typography level="h4" sx={{ marginBottom: "5px" }}>
-                Scor Recenzii: {productData.reviewScore}
-              </Typography>
-              <Typography
-                level="h3"
-                sx={{ color: "red", marginBottom: "10px" }}
-              >
-                {productData.price.toFixed(2)} RON
-              </Typography>
-              <Button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  const _cartValue = addToCartAndGetCart(
-                    cartValue,
-                    productData
-                  );
-                  setCartValue(_cartValue);
-                }}
-                startDecorator={<ShoppingCartIcon />}
-              >
-                Adaugă în coș
-              </Button>
-            </Box>
-            <Box sx={{ display: { xs: "block", md: "none" } }}>
-              <ReviewSample />
-            </Box>
-          </Grid>
+          </Box>
         </Grid>
-      )}
+        <Grid xs={12} md={6}>
+          <Box
+            sx={{
+              width: { xs: "100%", md: "500px" },
+              padding: { xs: "25px", md: "0px" },
+            }}
+          >
+            <Typography level="h3" sx={{ marginBottom: "20px" }}>
+              {productData.name}
+            </Typography>
+            <Typography level="h4" sx={{ marginBottom: "5px" }}>
+              Vândut de: {productData.user.name}
+            </Typography>
+            <Typography level="h4" sx={{ marginBottom: "5px" }}>
+              {productData.category.title}
+            </Typography>
+            <Typography level="body-md" sx={{ marginBottom: "5px" }}>
+              {productData.description}
+            </Typography>
+            <Typography level="h4" sx={{ marginBottom: "5px" }}>
+              Scor Recenzii: {productData.reviewScore}
+            </Typography>
+            <Typography level="h3" sx={{ color: "red", marginBottom: "10px" }}>
+              {productData.price.toFixed(2)} RON
+            </Typography>
+            <Button
+              onClick={handleAddToCart}
+              startDecorator={<ShoppingCartIcon />}
+            >
+              Adaugă în coș
+            </Button>
+          </Box>
+          <Box sx={{ display: { xs: "block", md: "none" } }}>
+            <ReviewSample />
+          </Box>
+        </Grid>
+      </Grid>
     </>
   );
 };
+
 export default ProductPage;
